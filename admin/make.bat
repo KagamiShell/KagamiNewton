@@ -8,7 +8,7 @@ cd rfmclient
 call make.bat
 cd..
 
-cd rsdbbackup
+cd ksdbbackup
 call make.bat
 cd..
 
@@ -16,19 +16,19 @@ cd needed
 call make.bat
 cd..
 
-cd rsdbconf
+cd ksdbconf
 call make.bat
 cd..
 
-cd rsdbview
+cd ksdbview
 call make.bat
 cd..
 
-cd rsrdclient
+cd ksrdclient
 call make.bat
 cd..
 
-cd rssettings
+cd kssettings
 call make.bat
 cd..
 
