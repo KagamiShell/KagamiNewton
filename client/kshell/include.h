@@ -78,7 +78,6 @@ using namespace Gdiplus;
 #include "indicators.h"
 #include "about.h"
 #include "stat.h"
-#include "vip.h"
 #include "restricts.h"
 #include "saver.h"
 #include "ppreview.h"

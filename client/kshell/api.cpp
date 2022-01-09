@@ -27,7 +27,7 @@ void ApiInit(void)
   cur_drag = LoadCursor(NULL,IDC_HAND);
   SaveDisplayMode();
 
-  RemoveOldClassEntries();
+  // RemoveOldClassEntries();
   RemoveAppCompatFlags();
   InitCommonControls();
   CoInitializeEx(NULL,COINIT_APARTMENTTHREADED);

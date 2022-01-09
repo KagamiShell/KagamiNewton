@@ -3,8 +3,8 @@
 #define _WIN32_WINNT  0x0501   //WinXP
 #define _WIN32_DCOM
 
-#include <windows.h>
-#include <shlwapi.h>
+#include <Windows.h>
+#include <Shlwapi.h>
 #include <objbase.h>
 #include <commctrl.h>
 #include "../../admin/sql/h_sql.h"

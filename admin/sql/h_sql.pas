@@ -37,7 +37,7 @@ type TSQLCommitTransaction = function(obj:pointer;timeout:integer):longbool cdec
 type TSQLRollbackTransaction = function(obj:pointer;timeout:integer):longbool cdecl;
 type TSQLRuleCheck = function(obj:pointer;const s_rule,s_computerloc,s_computerdesc,s_computername,s_ip,s_userdomain,s_username:pchar;s_langid:integer):longbool cdecl;
 type TSQLPrepareDB = function(obj:pointer):longbool cdecl;
-type TSQLApplyUserRights = function(obj:pointer;const user:pchar;ur_editcosts,ur_deloldrecords,ur_editcompvars,ur_editvars,ur_editcontent,ur_editcomprules,ur_editrules,ur_vipwork:longbool):longbool cdecl;
+type TSQLApplyUserRights = function(obj:pointer;const user:pchar;ur_editcosts,ur_deloldrecords,ur_editcompvars,ur_editvars,ur_editcontent,ur_editcomprules,ur_editrules):longbool cdecl;
 type TSQLConnectAsInternalUser = function(const s_server:pchar):pointer cdecl;
 type TSQLConnectAsBackupOperator = function(const s_server:pchar):pointer cdecl;
 type TSQLConnectAsNormalUser = function(const s_server,s_login,s_pwd:pchar):pointer cdecl;
@@ -103,7 +103,7 @@ type
       function RollbackTransaction(timeout:integer=SQL_DEF_TIMEOUT):boolean;
       function RuleCheck(const s_rule,s_computerloc,s_computerdesc,s_computername,s_ip,s_userdomain,s_username:string;s_langid:integer):boolean;
       function PrepareDB():boolean;
-      function ApplyUserRights(const user:string;ur_editcosts,ur_deloldrecords,ur_editcompvars,ur_editvars,ur_editcontent,ur_editcomprules,ur_editrules,ur_vipwork:boolean):boolean;
+      function ApplyUserRights(const user:string;ur_editcosts,ur_deloldrecords,ur_editcompvars,ur_editvars,ur_editcontent,ur_editcomprules,ur_editrules):boolean;
       function IsMSSQLSyntax():boolean;
       function IsMySQLSyntax():boolean;
 
@@ -395,9 +395,9 @@ begin
  Result:=(obj<>nil) and (@pPrepareDB<>nil) and (pPrepareDB(obj));
 end;
 
-function TSQLLib.ApplyUserRights(const user:string;ur_editcosts,ur_deloldrecords,ur_editcompvars,ur_editvars,ur_editcontent,ur_editcomprules,ur_editrules,ur_vipwork:boolean):boolean;
+function TSQLLib.ApplyUserRights(const user:string;ur_editcosts,ur_deloldrecords,ur_editcompvars,ur_editvars,ur_editcontent,ur_editcomprules,ur_editrules):boolean;
 begin
- Result:=(obj<>nil) and (@pApplyUserRights<>nil) and (pApplyUserRights(obj,pchar(user),ur_editcosts,ur_deloldrecords,ur_editcompvars,ur_editvars,ur_editcontent,ur_editcomprules,ur_editrules,ur_vipwork));
+ Result:=(obj<>nil) and (@pApplyUserRights<>nil) and (pApplyUserRights(obj,pchar(user),ur_editcosts,ur_deloldrecords,ur_editcompvars,ur_editvars,ur_editcontent,ur_editcomprules,ur_editrules));
 end;
 
 function TSQLLib.IsMSSQLSyntax():boolean;

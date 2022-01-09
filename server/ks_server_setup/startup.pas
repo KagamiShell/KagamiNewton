@@ -8,12 +8,8 @@ uses
 
 type
      TSTRING = array [0..MAX_PATH-1] of char;
-     // TGetLicInfo = procedure(lic_organization,lic_owner,lic_machines,lic_type,lic_modules:ppchar); cdecl;
-     // TSetLicKey = procedure(key:pchar); cdecl;
 
      TStartupInfo = record
-      // GetLicInfo : TGetLicInfo;
-      // SetLicKey : TSetLicKey;
       small_icon : cardinal;
       big_icon : cardinal;
       server_name : TSTRING;
@@ -146,24 +142,6 @@ begin
  inherited;
 end;
 
-// procedure TKSStartupForm.UpdateLicInfo;
-// var lic_organization,lic_owner,lic_machines,lic_type,lic_modules:pchar;
-// begin
-// lic_organization:=nil;
-// lic_owner:=nil;
-// lic_machines:=nil;
-// lic_type:=nil;
-// lic_modules:=nil;
-//
-// info.GetLicInfo(@lic_organization,@lic_owner,@lic_machines,@lic_type,@lic_modules);
-//
-// Label9.Caption:=lic_organization;
-// Label10.Caption:=lic_owner;
-// Label11.Caption:=lic_machines;
-// Label12.Caption:=lic_type;
-// Label16.Caption:=lic_modules;
-// end;
-
 procedure TKSStartupForm.UpdateButtons;
 var page,numpages:integer;
     s_cancel,s_next,s_prev,s_finish:string;
@@ -256,7 +234,7 @@ begin
  CanClose:=can_close or (ButtonCancel.Visible and ButtonCancel.Enabled);
  if CanClose and ButtonCancel.Visible then
   begin
-   if MessageBox(Handle,'Прервать работу мастера?','Вопрос',MB_YESNO or MB_DEFBUTTON2 or MB_ICONQUESTION)<>IDYES then
+   if MessageBox(Handle,'Вы действительно хотите прервать работу мастера настройки?','Вопрос',MB_YESNO or MB_DEFBUTTON2 or MB_ICONQUESTION)<>IDYES then
     CanClose:=false;
   end;
 end;

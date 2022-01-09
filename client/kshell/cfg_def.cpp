@@ -48,7 +48,6 @@ TPATH s_bg_pic;
 TPATH s_bg_thumb_pic;
 int i_time_min;
 int i_time_max;
-TSTRING s_vip_users;
 TPATH s_rules;
 BOOL is_internet_sheet;
 } TSHEETVARS;
@@ -119,23 +118,22 @@ const char *bg_pic;
 const char *bg_thumb_pic;
 int time_min;
 int time_max;
-const char *vip_users;
 int rules_id;
 BOOL is_internet;
 } TDEFSHEET;
 
 
-static const TDEFSHEET def_sheet_action         = {3118,NULL,RGB(249,135,60),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\vid01.wmv","%KS_FOLDER%\\default\\bg\\pic01_resize.jpg",0,24,NULL,-1,FALSE};
-static const TDEFSHEET def_sheet_internet       = {3119,NULL,RGB(94,204,51),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\vid02.wmv","%KS_FOLDER%\\default\\bg\\pic02_resize.jpg",0,24,NULL,-1,TRUE};
-static const TDEFSHEET def_sheet_rpg            = {3120,NULL,RGB(94,196,55),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\vid03.wmv","%KS_FOLDER%\\default\\bg\\pic03_resize.jpg",0,24,NULL,-1,FALSE};
-static const TDEFSHEET def_sheet_adults         = {3121,"%KS_FOLDER%\\default\\icons\\icon01.ico",RGB(244,165,45),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\vid04.wmv","%KS_FOLDER%\\default\\bg\\pic04_resize.jpg",23,6,NULL,3127,FALSE};
-static const TDEFSHEET def_sheet_music          = {3122,NULL,RGB(243,140,65),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\vplugins\\vp_voxel.dll","%KS_FOLDER%\\default\\bg\\pic05_resize.jpg",0,24,NULL,-1,FALSE};
-static const TDEFSHEET def_sheet_programs       = {3123,NULL,RGB(255,255,255),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\vid06.wmv","%KS_FOLDER%\\default\\bg\\pic06_resize.jpg",0,24,NULL,-1,FALSE};
-static const TDEFSHEET def_sheet_simulators     = {3124,NULL,RGB(106,172,156),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\vid07.wmv","%KS_FOLDER%\\default\\bg\\pic07_resize.jpg",0,24,NULL,-1,FALSE};
-static const TDEFSHEET def_sheet_strategies     = {3125,NULL,RGB(171,164,163),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\vid08.wmv","%KS_FOLDER%\\default\\bg\\pic08_resize.jpg",0,24,NULL,-1,FALSE};
-static const TDEFSHEET def_sheet_films          = {3126,NULL,RGB(131,226,217),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\vid09.wmv","%KS_FOLDER%\\default\\bg\\pic09_resize.jpg",0,24,NULL,-1,FALSE};
-static const TDEFSHEET def_sheet_programs_ts    = {3123,NULL,RGB(255,255,255),0xA0A0A0,NULL,NULL,0,24,NULL,-1,FALSE};
-static const TDEFSHEET def_sheet_programs_other = {3123,NULL,RGB(255,255,255),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\pic06.jpg","%KS_FOLDER%\\default\\bg\\pic06_resize.jpg",0,24,NULL,-1,FALSE};
+static const TDEFSHEET def_sheet_action         = {3118,NULL,RGB(249,135,60),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\vid01.wmv","%KS_FOLDER%\\default\\bg\\pic01_resize.jpg",0,24,NULL,-1/*,FALSE*/};
+static const TDEFSHEET def_sheet_internet       = {3119,NULL,RGB(94,204,51),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\vid02.wmv","%KS_FOLDER%\\default\\bg\\pic02_resize.jpg",0,24,NULL,-1/*,TRUE*/};
+static const TDEFSHEET def_sheet_rpg            = {3120,NULL,RGB(94,196,55),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\vid03.wmv","%KS_FOLDER%\\default\\bg\\pic03_resize.jpg",0,24,NULL,-1/*,FALSE*/};
+static const TDEFSHEET def_sheet_adults         = {3121,"%KS_FOLDER%\\default\\icons\\icon01.ico",RGB(244,165,45),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\vid04.wmv","%KS_FOLDER%\\default\\bg\\pic04_resize.jpg",23,6,NULL,3127/*,FALSE*/};
+static const TDEFSHEET def_sheet_music          = {3122,NULL,RGB(243,140,65),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\vplugins\\vp_voxel.dll","%KS_FOLDER%\\default\\bg\\pic05_resize.jpg",0,24,NULL,-1/*,FALSE*/};
+static const TDEFSHEET def_sheet_programs       = {3123,NULL,RGB(255,255,255),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\vid06.wmv","%KS_FOLDER%\\default\\bg\\pic06_resize.jpg",0,24,NULL,-1/*,FALSE*/};
+static const TDEFSHEET def_sheet_simulators     = {3124,NULL,RGB(106,172,156),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\vid07.wmv","%KS_FOLDER%\\default\\bg\\pic07_resize.jpg",0,24,NULL,-1/*,FALSE*/};
+static const TDEFSHEET def_sheet_strategies     = {3125,NULL,RGB(171,164,163),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\vid08.wmv","%KS_FOLDER%\\default\\bg\\pic08_resize.jpg",0,24,NULL,-1/*,FALSE*/};
+static const TDEFSHEET def_sheet_films          = {3126,NULL,RGB(131,226,217),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\vid09.wmv","%KS_FOLDER%\\default\\bg\\pic09_resize.jpg",0,24,NULL,-1/*,FALSE*/};
+static const TDEFSHEET def_sheet_programs_ts    = {3123,NULL,RGB(255,255,255),0xA0A0A0,NULL,NULL,0,24,NULL,-1/*,FALSE*/};
+static const TDEFSHEET def_sheet_programs_other = {3123,NULL,RGB(255,255,255),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\pic06.jpg","%KS_FOLDER%\\default\\bg\\pic06_resize.jpg",0,24,NULL,-1/*,FALSE*/};
 
 
 typedef struct {
@@ -313,57 +311,57 @@ const TDEFSHORTCUT *shortcut;
 
 static const TDEFCONTENTITEM def_content[] = 
 {
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_29 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_04 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_05 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_30 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_06 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_07 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_08 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_09 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_10 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_11 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_12 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_13 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_14 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_15 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_16 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_17 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_18 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_19 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_25 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_20 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_21 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_22 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_23 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_24 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_26 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_27 },
 
     { MACHINE_TYPE_TERMINAL,
@@ -472,28 +470,28 @@ static const TDEFCONTENTITEM def_content[] =
     { MACHINE_TYPE_OPERATOR|MACHINE_TYPE_ORGANIZATION|MACHINE_TYPE_OTHER,
       &def_sheet_programs_other, &def_shortcut_27 },
 
-    { MACHINE_TYPE_GAMECLUB | MACHINE_TYPE_INETCAFE,
+    { MACHINE_TYPE_STUDENT | MACHINE_TYPE_INETCAFE,
       &def_sheet_internet, &def_shortcut_29 },
-    { MACHINE_TYPE_GAMECLUB | MACHINE_TYPE_INETCAFE,
+    { MACHINE_TYPE_STUDENT | MACHINE_TYPE_INETCAFE,
       &def_sheet_internet, &def_shortcut_01 },
-    { MACHINE_TYPE_GAMECLUB | MACHINE_TYPE_INETCAFE,
+    { MACHINE_TYPE_STUDENT | MACHINE_TYPE_INETCAFE,
       &def_sheet_internet, &def_shortcut_02 },
-    { MACHINE_TYPE_GAMECLUB | MACHINE_TYPE_INETCAFE,
+    { MACHINE_TYPE_STUDENT | MACHINE_TYPE_INETCAFE,
       &def_sheet_internet, &def_shortcut_03 },
 
-    { MACHINE_TYPE_GAMECLUB,
+    { MACHINE_TYPE_STUDENT,
       &def_sheet_action, &def_shortcut_00 },
-    { MACHINE_TYPE_GAMECLUB,
+    { MACHINE_TYPE_STUDENT,
       &def_sheet_rpg, &def_shortcut_00 },
-    { MACHINE_TYPE_GAMECLUB,
+    { MACHINE_TYPE_STUDENT,
       &def_sheet_simulators, &def_shortcut_00 },
-    { MACHINE_TYPE_GAMECLUB,
+    { MACHINE_TYPE_STUDENT,
       &def_sheet_strategies, &def_shortcut_00 },
-    { MACHINE_TYPE_GAMECLUB,
+    { MACHINE_TYPE_STUDENT,
       &def_sheet_adults, &def_shortcut_00 },
-    { MACHINE_TYPE_GAMECLUB,
+    { MACHINE_TYPE_STUDENT,
       &def_sheet_music, &def_shortcut_00 },
-    { MACHINE_TYPE_GAMECLUB,
+    { MACHINE_TYPE_STUDENT,
       &def_sheet_films, &def_shortcut_00 },
 
     { MACHINE_TYPE_OPERATOR,
@@ -830,8 +828,6 @@ static const TGLOBALCFGITEM cfg_items[] =
 
   // ���������: ����                                 
   { NULL, FALSE, "winkey_enable",                  CFG_TYPE_BOOL,    &winkey_enable,                   FALSE },
-  { "vip_in_menu", 
-    FALSE, "vip_in_menu",                          CFG_TYPE_BOOL,    &vip_in_menu,                     TRUE },
   { NULL, FALSE, "show_book_in_menu",              CFG_TYPE_BOOL,    &show_book_in_menu,               TRUE },
   { NULL, FALSE, "monitor_off_in_menu",            CFG_TYPE_BOOL,    &monitor_off_in_menu,             FALSE },
   { NULL, FALSE, "logoff_in_menu",                 CFG_TYPE_BOOL,    &logoff_in_menu,                  FALSE },
@@ -957,17 +953,7 @@ static const TGLOBALCFGITEM cfg_items[] =
 
   // ������������                                    
   { NULL, FALSE, "allow_printer_control",          CFG_TYPE_BOOL,    &allow_printer_control,           TRUE },
-  { NULL, FALSE, "allow_hwident_ibutton",          CFG_TYPE_BOOL,    &allow_hwident_ibutton,           FALSE },
-
-  // �����: ��������������� ��� VIP
-  { NULL, FALSE, "redirect_sys_folders",           CFG_TYPE_BOOL,    &redirect_sys_folders,            FALSE },
-  { NULL, FALSE, "redirect_personal",              CFG_TYPE_BOOL,    &redirect_personal,               FALSE },
-  { NULL, FALSE, "redirect_appdata",               CFG_TYPE_BOOL,    &redirect_appdata,                TRUE },
-  { NULL, FALSE, "redirect_localappdata",          CFG_TYPE_BOOL,    &redirect_localappdata,           TRUE },
-  { NULL, FALSE, "personal_path",                  CFG_TYPE_PATH,    &personal_path,                   NULL },
-  // { NULL, FALSE, "vip_basefolder",                 CFG_TYPE_PATH,    &vip_basefolder,                  NULL },
-  // { NULL, FALSE, "vip_folder_limit",               CFG_TYPE_INT,     &vip_folder_limit,                0 },
-  { NULL, FALSE, "force_viplogin_from_api",        CFG_TYPE_BOOL,    &force_viplogin_from_api,         TRUE },
+  // { NULL, FALSE, "allow_hwident_ibutton",          CFG_TYPE_BOOL,    &allow_hwident_ibutton,           FALSE },
 
   // ���������                                       
   { "addon_folders",
@@ -1449,7 +1435,6 @@ BOOL CConfig::ReadConfigSheet(const char* &src,int &src_size,CContent *cnt,int l
   TPATH s_bg_thumb_pic = "";
   int i_time_min = 0;
   int i_time_max = 24;
-  TSTRING s_vip_users = "";
   TPATH s_rules = "";
   BOOL is_internet_sheet = FALSE;
   
@@ -1475,7 +1460,7 @@ BOOL CConfig::ReadConfigSheet(const char* &src,int &src_size,CContent *cnt,int l
   src += sizeof_header;
   src_size -= sizeof_header;
   
-  CSheet *sh = new CSheet(s_name,s_icon_path,i_color,i_bg_color,s_bg_pic,s_bg_thumb_pic,i_time_min,i_time_max,s_vip_users,s_rules,is_internet_sheet);
+  CSheet *sh = new CSheet(s_name,s_icon_path,i_color,i_bg_color,s_bg_pic,s_bg_thumb_pic,i_time_min,i_time_max,s_rules,is_internet_sheet);
 
   int numshortcuts;
   
@@ -1728,11 +1713,10 @@ void CConfig::LoadDefShortcut(CContent *cnt,const TDEFSHEET *def_sheet,const TDE
                  const char *bg_thumb_pic = def_sheet->bg_thumb_pic;
                  int time_min = def_sheet->time_min;
                  int time_max = def_sheet->time_max;
-                 const char *vip_users = def_sheet->vip_users;
                  const char *rules = LS(def_sheet->rules_id,lang);
                  BOOL is_internet = def_sheet->is_internet;
 
-                 sheet = new CSheet(name,icon_path,color,bg_color,bg_pic,bg_thumb_pic,time_min,time_max,vip_users,rules,is_internet);
+                 sheet = new CSheet(name,icon_path,color,bg_color,bg_pic,bg_thumb_pic,time_min,time_max,rules,is_internet);
                  cnt->AddSheet(sheet);
                }
 
@@ -2677,7 +2661,6 @@ void CConfig::CfgSetCntSheetVars(CSheet *sh,TSHEETVARS *in)
                          in->s_bg_thumb_pic,
                          in->i_time_min,
                          in->i_time_max,
-                         in->s_vip_users,
                          in->s_rules,
                          in->is_internet_sheet );
      }

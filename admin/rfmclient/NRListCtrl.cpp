@@ -21,7 +21,7 @@ IMPLEMENT_DYNAMIC(CNRListCtrl, CListCtrl)
 CNRListCtrl::CNRListCtrl(CImageList *pimageListSys)
 {
 	VERIFY(m_fontText.CreateFont(
-				   8,
+				   14,
 				   0,
 				   0,
 				   0,

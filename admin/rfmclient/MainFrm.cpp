@@ -86,7 +86,7 @@ CMainFrame::CMainFrame() :
    p_fsguard = new CDisableWOW64FSRedirection();
 
 	VERIFY(m_fontTab.CreateFont(
-				   8,
+				   12,
 				   0,
 				   0,
 				   0,

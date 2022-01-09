@@ -43,8 +43,6 @@ extern BOOL is_wtsenumproc_bug_present;
 extern THEME theme;
 extern int is_volume_mute;
 extern MSG last_processed_message;
-extern TSTRING vip_session;
-extern TPATH vip_folder;
 extern TPATH user_folder;
 extern BOOL protect_run_from_api;
 extern BOOL sql_base_ready;

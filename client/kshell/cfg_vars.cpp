@@ -49,7 +49,6 @@ TSTRING startup_sheet_name;
 
 // интерфейс: меню
 BOOL winkey_enable;
-BOOL vip_in_menu;
 BOOL show_book_in_menu;
 BOOL monitor_off_in_menu;
 BOOL logoff_in_menu;
@@ -169,14 +168,14 @@ BOOL allow_printer_control;
 BOOL allow_hwident_ibutton;
 
 // файлы: перенаправление для VIP
-BOOL redirect_sys_folders;
-BOOL redirect_personal;
-BOOL redirect_appdata;
-BOOL redirect_localappdata;
-TPATH personal_path;
-TPATH vip_basefolder;
-int vip_folder_limit;
-BOOL force_viplogin_from_api;
+// BOOL redirect_sys_folders;
+// BOOL redirect_personal;
+// BOOL redirect_appdata;
+// BOOL redirect_localappdata;
+// TPATH personal_path;
+// TPATH vip_basefolder;
+// int vip_folder_limit;
+// BOOL force_viplogin_from_api;
 
 // проводник
 TCFGLIST2 addon_folders;

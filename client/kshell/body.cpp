@@ -101,7 +101,6 @@ const char* ExpandStatusText(const char *s)
   StrReplaceI(out,"%KS_MACHINE%",machine_desc);
   StrReplaceI(out,"%KS_LOC%",machine_loc);
   StrReplaceI(out,"%LOC%",machine_loc);
-  StrReplaceI(out,"%KS_VIPSESSION%",vip_session);
   StrReplaceI(out,"%MODE%",""); //bwc
 
   return out;
@@ -578,7 +577,7 @@ void M_Monitoroff(void)
       }
   
   icon = LoadIcon(our_instance,MAKEINTRESOURCE(IDI_MONITOROFF));
-  rc = KPMessageBox(GetMainWnd(),LS(3005),LS(3006),list,0,(UINT)icon);
+  rc = KSMessageBox(GetMainWnd(),LS(3005),LS(3006),list,0,(UINT)icon);
 
   if ( rc != -1 )
      {
@@ -987,7 +986,6 @@ void ProcessHWIdents()
   if ( GetHWIdentsEvent(&device,id,sizeof(id)-1) )
      {
        PlaySound(MAKEINTRESOURCE(IDW_HWIDENT),our_instance,SND_ASYNC|SND_NODEFAULT|SND_NOWAIT|SND_RESOURCE);
-       VipOnHWIdent(device,id);
      }
 }
 

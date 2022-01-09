@@ -152,13 +152,12 @@ end;
 procedure ShowBrowser(const url:pchar;simple,notopmost:longbool;dfunc:TDownloadFileAsync;cfg:PCONFIG) cdecl;
 var timer_id : cardinal;
 begin
-  msg_download_begin:=RegisterWindowMessage('rpdownloadui_begin');
-  msg_download_end:=RegisterWindowMessage('rpdownloadui_end');
+  msg_download_begin:=RegisterWindowMessage('ksdownloadui_begin');
+  msg_download_end:=RegisterWindowMessage('ksdownloadui_end');
   msg_viewsource:=RegisterWindowMessage('IDM_VIEWSOURCE');
-  msg_vipend:=RegisterWindowMessage('_RPVIPSessionEnd');
-  msg_navigatefailed:=RegisterWindowMessage('_RPNavigateFailed');
-  msg_langchanged:=RegisterWindowMessage('_RPLanguageChanged');
-  msg_redirection:=RegisterWindowMessage('_RPURLRedirection');
+  msg_navigatefailed:=RegisterWindowMessage('_KSNavigateFailed');
+  msg_langchanged:=RegisterWindowMessage('_KSLanguageChanged');
+  msg_redirection:=RegisterWindowMessage('_KSURLRedirection');
 
   g_config:=cfg;
   is_simple:=simple;

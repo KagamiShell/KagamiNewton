@@ -41,11 +41,6 @@ static const char* __cdecl D_GetMachineDesc()
   return machine_desc;
 }
 
-static const char* __cdecl D_GetVipSessionName()
-{
-  return vip_session;
-}
-
 static const char* __cdecl D_GetStatusString()
 {
   return ExpandStatusText(html_status_text1);
@@ -245,7 +240,6 @@ static const struct {
    void (__cdecl *OnMouseDown)();
    const char* (__cdecl *GetMachineLoc)();
    const char* (__cdecl *GetMachineDesc)();
-   const char* (__cdecl *GetVipSessionName)();
    const char* (__cdecl *GetStatusString)();
    const char* (__cdecl *GetInfoText)();
    int (__cdecl *GetNumSheets)();
@@ -267,7 +261,6 @@ static const struct {
    D_OnMouseDown,
    D_GetMachineLoc,
    D_GetMachineDesc,
-   D_GetVipSessionName,
    D_GetStatusString,
    D_GetInfoText,
    D_GetNumSheets,

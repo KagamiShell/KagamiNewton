@@ -262,7 +262,6 @@ CSheet::CSheet( const char *_name,
                 const char *_bg_thumb_pic,
                 int _time_min,
                 int _time_max,
-                const char *_vip_users,
                 const char *_rules,
                 BOOL _internet_sheet )
 {
@@ -274,7 +273,6 @@ CSheet::CSheet( const char *_name,
   s_bg_thumb_pic = sys_copystring_replace_empty_by_null(_bg_thumb_pic,sizeof(TPATH));
   i_time_min = _time_min;
   i_time_max = _time_max;
-  s_vip_users = sys_copystring_replace_empty_by_null(_vip_users,sizeof(TSTRING));
   s_rules = sys_copystring_replace_empty_by_null(_rules,sizeof(TPATH));
   is_internet_sheet = _internet_sheet;
 }
@@ -286,7 +284,6 @@ CSheet::~CSheet()
   FREEANDNULL(s_icon_path);
   FREEANDNULL(s_bg_pic);
   FREEANDNULL(s_bg_thumb_pic);
-  FREEANDNULL(s_vip_users);
   FREEANDNULL(s_rules);
 
   for ( int n = 0; n < shortcuts.size(); n++ )
@@ -310,7 +307,6 @@ void CSheet::LoadVarsOnly(const char *_name,
                          const char *_bg_thumb_pic,
                          int _time_min,
                          int _time_max,
-                         const char *_vip_users,
                          const char *_rules,
                          BOOL _internet_sheet)
 {
@@ -318,7 +314,6 @@ void CSheet::LoadVarsOnly(const char *_name,
   FREEANDNULL(s_icon_path);
   FREEANDNULL(s_bg_pic);
   FREEANDNULL(s_bg_thumb_pic);
-  FREEANDNULL(s_vip_users);
   FREEANDNULL(s_rules);
 
   s_name = sys_copystring_replace_empty_by_null(_name,sizeof(TSTRING));
@@ -329,7 +324,6 @@ void CSheet::LoadVarsOnly(const char *_name,
   s_bg_thumb_pic = sys_copystring_replace_empty_by_null(_bg_thumb_pic,sizeof(TPATH));
   i_time_min = _time_min;
   i_time_max = _time_max;
-  s_vip_users = sys_copystring_replace_empty_by_null(_vip_users,sizeof(TSTRING));
   s_rules = sys_copystring_replace_empty_by_null(_rules,sizeof(TPATH));
   is_internet_sheet = _internet_sheet;
 }

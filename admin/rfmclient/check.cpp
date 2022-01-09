@@ -1,10 +1,10 @@
 
-#include <windows.h>
-#include <shlwapi.h>
+#include <Windows.h>
+#include <Shlwapi.h>
 #include <tlhelp32.h>
 
 
-// the same code in RSRDCLIENT/RFMCLIENT !!!
+// the same code in KSRDCLIENT/RFMCLIENT !!!
 
 
 
@@ -59,9 +59,9 @@ static BOOL IsUserAnAdminMy()
   //todo: get sources from MSDN or W2KSRC
   BOOL rc = FALSE;
 
-  if ( WriteRegDword(HKEY_LOCAL_MACHINE,"Software","rs_test_val_2347654765",0) )
+  if ( WriteRegDword(HKEY_LOCAL_MACHINE,"Software","ks_test_val_2347654765",0) )
      {
-       DeleteRegValue(HKEY_LOCAL_MACHINE,"Software","rs_test_val_2347654765");
+       DeleteRegValue(HKEY_LOCAL_MACHINE,"Software","ks_test_val_2347654765");
        rc = TRUE;
      }
 
@@ -145,7 +145,7 @@ BOOL AreWeStartedFromOperatorProgram()
 {
   BOOL rc = FALSE;
 
-  HWND w = FindWindow("_RSOperatorClass",NULL);
+  HWND w = FindWindow("_KSOperatorClass",NULL);
   if ( w )
      {
        DWORD pid = -1;
@@ -172,7 +172,7 @@ BOOL IsAdminProgram()
 {
   char s[MAX_PATH] = "";
 
-  GetFileNameInLocalDir("rssettings.exe",s);
+  GetFileNameInLocalDir("kssettings.exe",s);
 
   return IsFileExist(s);
 }

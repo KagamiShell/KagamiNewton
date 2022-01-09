@@ -1468,10 +1468,6 @@ begin
    SetCheck(CheckBox145,'use_blocker');
    SetCheck(CheckBox96,'protect_run_at_startup');
    SetEditInt(Edit60,'ssaver_idle',0,999,'0');
-   SetCheck(CheckBox86,'vip_in_menu');
-   SetCheckLabelPath(CheckBox3,Label4,'vip_basefolder');
-   SetEditInt(Edit5,'vip_folder_limit',0,999999,'0');
-   SetCheck(CheckBox45,'force_viplogin_from_api');
    SetCheck(CheckBox89,'redirect_sys_folders');
    SetCheck(CheckBox90,'redirect_personal');
    SetCheck(CheckBox91,'redirect_appdata');
@@ -1813,10 +1809,6 @@ begin
    GetCheck(CheckBox145,'use_blocker');
    GetCheck(CheckBox96,'protect_run_at_startup');
    GetEditInt(Edit60,'ssaver_idle',0,999,0);
-   GetCheck(CheckBox86,'vip_in_menu');
-   GetLabelPath(Label4,'vip_basefolder');
-   GetEditInt(Edit5,'vip_folder_limit',0,999999,0);
-   GetCheck(CheckBox45,'force_viplogin_from_api');
    GetCheck(CheckBox89,'redirect_sys_folders');
    GetCheck(CheckBox90,'redirect_personal');
    GetCheck(CheckBox91,'redirect_appdata');

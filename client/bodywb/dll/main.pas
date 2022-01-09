@@ -382,12 +382,6 @@ var
   p:pstring;
 begin
  Result:=false;
-
- if Msg.message = cardinal(msg_vipend) then
-  begin
-   FavHide();
-   exit;
-  end;
  
  if Msg.message = cardinal(msg_langchanged) then
   begin

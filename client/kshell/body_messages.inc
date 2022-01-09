@@ -21,10 +21,6 @@ int ProcessKagamiInternalMessage(HWND hwnd,int message,int wParam,int lParam,BOO
                       {
                         return (int)GlobalAddAtom(user_folder);
                       }
-                   if ( wParam == 5 /*vip_folder*/ )
-                      {
-                        return (int)GlobalAddAtom(vip_folder);
-                      }
                    return 0;
 
     case KS_GETMACHINENUM:
@@ -173,10 +169,6 @@ int ProcessKagamiInternalMessage(HWND hwnd,int message,int wParam,int lParam,BOO
                    TurnOffMonitor(disable_input_when_monitor_off,0);
                    SendDynamicInfoToServer();
                    return 0;
-
-    case KS_CLOSEVIPSESSION:
-                   CloseActiveSheet(TRUE);
-                   return (force_viplogin_from_api ? CloseVIPSession(TRUE) : CloseVIPSession(FALSE/*TRUE*/));
 
     case KS_TEMPOFFSHELL:
                    {
@@ -644,16 +636,6 @@ int ProcessKagamiInternalMessage(HWND hwnd,int message,int wParam,int lParam,BOO
 
     case KS_MIXERUPDATEICON:
                    MixerUpdate();
-                   return 0;
-
-    case KS_GETVIPSESSIONNAME:
-                   if ( vip_session[0] )
-                      return (int)GlobalAddAtom(vip_session);
-                   return 0;
-
-    case KS_GETVIPSESSIONPATH:
-                   if ( vip_folder[0] )
-                      return (int)GlobalAddAtom(vip_folder);
                    return 0;
 
     case KS_GETFAVPATH:

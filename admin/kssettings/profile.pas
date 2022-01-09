@@ -42,9 +42,9 @@ uses lang, global;
 
 function FromIdx2MachineType(idx:integer):integer;
 begin
- Result:=MACHINE_TYPE_GAMECLUB;
+ Result:=MACHINE_TYPE_STUDENT;
  case idx of
-  0: Result:=MACHINE_TYPE_GAMECLUB;
+  0: Result:=MACHINE_TYPE_STUDENT;
   1: Result:=MACHINE_TYPE_INETCAFE;
   2: Result:=MACHINE_TYPE_OPERATOR;
   3: Result:=MACHINE_TYPE_ORGANIZATION;

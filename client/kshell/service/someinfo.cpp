@@ -34,6 +34,9 @@ BOOL HW_CPUInfo(CDynBuff &buff)
      {
        switch ( i.wProcessorArchitecture )
        {
+         case PROCESSOR_ARCHITECTURE_ARM:
+                                 lstrcat(s,"ARM");
+                                 break;
          case PROCESSOR_ARCHITECTURE_INTEL:
                                  lstrcat(s,"Intel x86 ");
                                  break;

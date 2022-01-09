@@ -37,7 +37,7 @@ class CSQLLib
          typedef BOOL (__cdecl *TSQLRollbackTransaction)(void *obj,int timeout);
          typedef BOOL (__cdecl *TSQLRuleCheck)(void *obj,const char *s_rule,const char *s_computerloc,const char *s_computerdesc,const char *s_computername,const char *s_ip,const char *s_userdomain,const char *s_username,int s_langid);
          typedef BOOL (__cdecl *TSQLPrepareDB)(void *obj);
-         typedef BOOL (__cdecl *TSQLApplyUserRights)(void *obj,const char *user,BOOL ur_editcosts,BOOL ur_deloldrecords,BOOL ur_editcompvars,BOOL ur_editvars,BOOL ur_editcontent,BOOL ur_editcomprules,BOOL ur_editrules,BOOL ur_vipwork);
+         typedef BOOL (__cdecl *TSQLApplyUserRights)(void *obj,const char *user,BOOL ur_editcosts,BOOL ur_deloldrecords,BOOL ur_editcompvars,BOOL ur_editvars,BOOL ur_editcontent,BOOL ur_editcomprules,BOOL ur_editrules);
          typedef void* (__cdecl *TSQLConnectAsInternalUser)(const char *s_server);
          typedef void* (__cdecl *TSQLConnectAsBackupOperator)(const char *s_server);
          typedef void* (__cdecl *TSQLConnectAsNormalUser)(const char *s_server,const char *s_login,const char *s_pwd);

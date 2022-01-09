@@ -102,26 +102,6 @@ void ReadConfig()
                 {
                   int id = cmd.GetCmdId();
 
-                  if ( id == NETCMD_GETENV_ACK )
-                     {
-                       if ( cmd.GetParmAsInt(NETPARM_I_GUID,NETGUID_UNKNOWN) == NETGUID_SERVER )
-                          {
-                            const char *lic_organization = cmd.GetParmAsString(NETPARM_S_LICORGANIZATION,"");
-                            const char *lic_owner = cmd.GetParmAsString(NETPARM_S_LICOWNER,"");
-                            int lic_machines = cmd.GetParmAsInt(NETPARM_I_LICMACHINES,0);
-                            const char *lic_features = cmd.GetParmAsString(NETPARM_S_LICFEATURES,"");
-
-                            if ( lic_organization[0] && lic_machines != 0 )
-                               {
-                                 AboutBoxUpdateLicInfo(lic_organization,lic_machines);
-                               }
-
-                            lstrcpyn(lic_feat,lic_features,sizeof(lic_feat));
-                            WriteLicFeatToCache(lic_features);
-                            b_licfeat_received = TRUE;
-                          }
-                     }
-                  else
                   if ( id == NETCMD_GETSETTINGS_OK_ACK )
                      {
                        if ( cmd.GetCmdBuffSize() > 0 )
@@ -190,15 +170,6 @@ void ReadConfig()
      {
        // not connected
        SendStaticInfoToServer();  //maybe server got this packet later...
-     }
-
-
-  if ( !b_licfeat_received )
-     {
-       if ( !ReadLicFeatFromCache(lic_feat,sizeof(lic_feat)) )
-          {
-            lstrcpy(lic_feat,"" /*"NoShell"*/ );  //default is nothing, but with Shell?
-          }                       
      }
 
   if ( !b_settings_received )

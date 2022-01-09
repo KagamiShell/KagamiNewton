@@ -198,7 +198,7 @@ static void FlushShellCache(void)
 }
 
 
-static void RedirectSingleFolder(int state,const char *name,const char *foldername,int id,BOOL use_personal_path)
+static void RedirectSingleFolder(int state,const char *name,const char *foldername,int id/*,BOOL use_personal_path*/)
 {
   char s[MAX_PATH];
   char qname[MAX_PATH];
@@ -220,7 +220,6 @@ static void RedirectSingleFolder(int state,const char *name,const char *folderna
           }
 
        // write new path
-       lstrcpy(s,vip_folder);
        PathAddBackslash(s);
        CreateDirectory(s,NULL);
        lstrcat(s,"My Settings");
@@ -237,7 +236,7 @@ static void RedirectSingleFolder(int state,const char *name,const char *folderna
        ReadShellUserFolderPath(qname,s);
        DeleteShellUserFolderPath(qname);
 
-       if ( use_personal_path && personal_path[0] )
+       /* if ( use_personal_path && personal_path[0] )
           {
             char t[MAX_PATH] = "";
             
@@ -254,7 +253,7 @@ static void RedirectSingleFolder(int state,const char *name,const char *folderna
             
             if ( t[0] && PathIsDirectory(t) )
                lstrcpy(s,t);
-          }
+          } */
 
        if ( s[0] )
           WriteShellUserFolderPath(name,s);
@@ -262,30 +261,30 @@ static void RedirectSingleFolder(int state,const char *name,const char *folderna
 }
 
 
-static void RedirectSysFoldersInternal(int state)
-{
-  if ( state && !vip_folder[0] )
-     state = 0;
+// static void RedirectSysFoldersInternal(int state)
+// {
+//   if ( state && !vip_folder[0] )
+//      state = 0;
 
-  RedirectSingleFolder(state && redirect_personal,"Personal","My documents",CSIDL_PERSONAL,TRUE);
-  RedirectSingleFolder(state && redirect_personal,"My Pictures","My Pictures",CSIDL_MYPICTURES,TRUE);
-  RedirectSingleFolder(state && redirect_appdata,"AppData","Application Data",CSIDL_APPDATA,FALSE);
-  RedirectSingleFolder(state && redirect_localappdata,"Local AppData","Local Application Data",CSIDL_LOCAL_APPDATA,FALSE);
+//   RedirectSingleFolder(state && redirect_personal,"Personal","My documents",CSIDL_PERSONAL,TRUE);
+//   RedirectSingleFolder(state && redirect_personal,"My Pictures","My Pictures",CSIDL_MYPICTURES,TRUE);
+//   RedirectSingleFolder(state && redirect_appdata,"AppData","Application Data",CSIDL_APPDATA,FALSE);
+//   RedirectSingleFolder(state && redirect_localappdata,"Local AppData","Local Application Data",CSIDL_LOCAL_APPDATA,FALSE);
   
-  FlushShellCache();
-  NotifyAboutShellUserFolderChange(CSIDL_PERSONAL);
-  NotifyAboutShellUserFolderChange(CSIDL_MYPICTURES);
-  NotifyAboutShellUserFolderChange(CSIDL_APPDATA);
-  NotifyAboutShellUserFolderChange(CSIDL_LOCAL_APPDATA);
-  FlushShellCache();
-}
+//   FlushShellCache();
+//   NotifyAboutShellUserFolderChange(CSIDL_PERSONAL);
+//   NotifyAboutShellUserFolderChange(CSIDL_MYPICTURES);
+//   NotifyAboutShellUserFolderChange(CSIDL_APPDATA);
+//   NotifyAboutShellUserFolderChange(CSIDL_LOCAL_APPDATA);
+//   FlushShellCache();
+// }
 
 
-static void RedirectSysFolders(int state)
-{
-  RedirectSysFoldersInternal(!state);
-  RedirectSysFoldersInternal(state);
-}
+// static void RedirectSysFolders(int state)
+// {
+//   RedirectSysFoldersInternal(!state);
+//   RedirectSysFoldersInternal(state);
+// }
 
 
 void SetShellEnvStrings(void)
@@ -295,8 +294,6 @@ void SetShellEnvStrings(void)
   SetSingleEnvVar("KS_LOC",machine_loc);
   SetSingleEnvVar("KS_USERFOLDER",user_folder,TRUE);
 //  SendMessageTimeout( (HWND)-1, WM_WININICHANGE, 0, (LPARAM)"Environment", SMTO_ABORTIFHUNG, 1000, NULL );
-
-  RedirectSysFolders(vip_session[0] && redirect_sys_folders);
 }
 
 
@@ -307,6 +304,6 @@ void ClearShellEnvStrings(void)
 // lockdown in GlobalDone
 //  SendMessageTimeout( (HWND)-1, WM_WININICHANGE, 0, (LPARAM)"Environment", SMTO_ABORTIFHUNG, 1000, NULL );
 
-  RedirectSysFolders(FALSE);
+  // RedirectSysFolders(FALSE);
 }
 

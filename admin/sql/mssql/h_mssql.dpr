@@ -435,7 +435,6 @@ begin
    SQL.Add(' comp_ip     VARCHAR(256),');
    SQL.Add(' user_domain VARCHAR(256),');
    SQL.Add(' user_name   VARCHAR(256),');
-   SQL.Add(' vip_name    VARCHAR(256),');
    SQL.Add(' id          INT,');
    SQL.Add(' data_count  INT,');
    SQL.Add(' data_size   INT,');
@@ -458,7 +457,6 @@ begin
    SQL.Add('@comp_ip     VARCHAR(256),');
    SQL.Add('@user_domain VARCHAR(256),');
    SQL.Add('@user_name   VARCHAR(256),');
-   SQL.Add('@vip_name    VARCHAR(256),');
    SQL.Add('@id          INT,');
    SQL.Add('@data_count  INT,');
    SQL.Add('@data_size   INT,');
@@ -472,7 +470,7 @@ begin
    SQL.Add(' SELECT @_res=0');
    SQL.Add('ELSE');
    SQL.Add(' SELECT @_res=Avg(TPrices.price_count*@data_count+TPrices.price_size*@data_size+TPrices.price_time*@data_time+TPrices.price_fixed) FROM TPrices WHERE TPrices.id=@id');
-   SQL.Add('INSERT INTO TServices VALUES(@comp_loc,@comp_desc,@comp_name,@comp_ip,@user_domain,@user_name,@vip_name,@id,@data_count,@data_size,@data_time,@comments,GETDATE(),@_res)');
+   SQL.Add('INSERT INTO TServices VALUES(@comp_loc,@comp_desc,@comp_name,@comp_ip,@user_domain,@user_name,@id,@data_count,@data_size,@data_time,@comments,GETDATE(),@_res)');
    if not Query(obj,SQL.Text) then
     Exit;
   end;
@@ -488,7 +486,6 @@ begin
    SQL.Add(' comp_ip     VARCHAR(256),');
    SQL.Add(' user_domain VARCHAR(256),');
    SQL.Add(' user_name   VARCHAR(256),');
-   SQL.Add(' vip_name    VARCHAR(256),');
    SQL.Add(' level       INT,');
    SQL.Add(' comments    VARCHAR(512),');
    SQL.Add(' time        DATETIME)');
@@ -507,11 +504,10 @@ begin
    SQL.Add('@comp_ip     VARCHAR(256),');
    SQL.Add('@user_domain VARCHAR(256),');
    SQL.Add('@user_name   VARCHAR(256),');
-   SQL.Add('@vip_name    VARCHAR(256),');
    SQL.Add('@level       INT,');
    SQL.Add('@comments    VARCHAR(512)');
    SQL.Add('AS');
-   SQL.Add('INSERT INTO TEvents VALUES(@comp_loc,@comp_desc,@comp_name,@comp_ip,@user_domain,@user_name,@vip_name,@level,@comments,GETDATE())');
+   SQL.Add('INSERT INTO TEvents VALUES(@comp_loc,@comp_desc,@comp_name,@comp_ip,@user_domain,@user_name,@level,@comments,GETDATE())');
    if not Query(obj,SQL.Text) then
     Exit;
   end;
@@ -849,7 +845,7 @@ begin
   end;
 end;
 
-function SQL_ApplyUserRights(obj:pointer;const user:pchar;ur_editcosts,ur_deloldrecords,ur_editcompvars,ur_editvars,ur_editcontent,ur_editcomprules,ur_editrules,ur_vipwork:longbool):longbool cdecl;
+function SQL_ApplyUserRights(obj:pointer;const user:pchar;ur_editcosts,ur_deloldrecords,ur_editcompvars,ur_editvars,ur_editcontent,ur_editcomprules,ur_editrules):longbool cdecl;
 var q:TStringList;
     user_name:string;
 begin
@@ -947,24 +943,6 @@ begin
     begin
      q.Add('GRANT SELECT ON TSettingsRules TO '+user_name);
      q.Add('DENY DELETE,UPDATE,INSERT ON TSettingsRules TO '+user_name);
-    end;
-
-   if ur_vipwork then
-    begin
-     q.Add('GRANT SELECT,DELETE,UPDATE,INSERT ON TVipUsers TO '+user_name);
-     q.Add('GRANT EXECUTE ON PVipLogin TO '+user_name);
-     q.Add('GRANT EXECUTE ON PVipRegister TO '+user_name);
-     q.Add('GRANT EXECUTE ON PVipDelete TO '+user_name);
-     q.Add('GRANT EXECUTE ON PVipClearPass TO '+user_name);
-    end
-   else
-    begin
-     q.Add('GRANT SELECT ON TVipUsers TO '+user_name);
-     q.Add('DENY DELETE,UPDATE,INSERT ON TVipUsers TO '+user_name);
-     q.Add('DENY EXECUTE ON PVipLogin TO '+user_name);
-     q.Add('DENY EXECUTE ON PVipRegister TO '+user_name);
-     q.Add('DENY EXECUTE ON PVipDelete TO '+user_name);
-     q.Add('DENY EXECUTE ON PVipClearPass TO '+user_name);
     end;
 
    Result:=Query(obj,q.Text);

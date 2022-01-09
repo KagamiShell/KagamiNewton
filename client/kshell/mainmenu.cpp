@@ -322,8 +322,6 @@ void CODItemBigSeparator::Execute()
 
 
 enum {
-IDM_VIPBEGIN  ,
-IDM_VIPEND    ,
 IDM_SHOWGCINFO,
 IDM_CALLADMIN ,
 IDM_OFFERSBOOK,
@@ -347,8 +345,6 @@ int id;
 
 static const MAINMENUITEM mmitems[] =
 {
-  {10, 3053, M_Vipsession, IDM_VIPBEGIN     },
-  {9,  3054, M_Vipsession, IDM_VIPEND       },
   {0,  3055, M_Showgcinfo, IDM_SHOWGCINFO   },
   {1,  3056, M_Calladmin,  IDM_CALLADMIN    },
   {11, 3057, M_Offersbook, IDM_OFFERSBOOK   },
@@ -761,8 +757,6 @@ CMainMenu::CMainMenu(const CContent *content,const CSheet *curr_sheet,const CQui
   do_transparent_menu = FALSE;//!IsDesktopCompositionEnabled();
 
 
-  if ( vip_in_menu )
-     AddMMItem(vip_session[0]?IDM_VIPEND:IDM_VIPBEGIN);
   if ( gc_info_in_menu )
      AddMMItem(IDM_SHOWGCINFO);
   if ( calladmin_in_menu )
@@ -779,7 +773,7 @@ CMainMenu::CMainMenu(const CContent *content,const CSheet *curr_sheet,const CQui
   AddMMPopup(IDM_CONTENT,CreateContentMenu(content,curr_sheet));
   AddMMPopup(IDM_USERTOOLS,CreateUserToolsMenu(ql)); //todo: check for empty
 
-  if ( logoff_in_menu || reboot_in_menu || shutdown_in_menu || (vip_in_menu && vip_session[0]) )
+  if ( logoff_in_menu || reboot_in_menu || shutdown_in_menu )
      {
        HMENU m2 = CreatePopupMenu();
 #ifndef DEBUG
@@ -790,13 +784,6 @@ CMainMenu::CMainMenu(const CContent *content,const CSheet *curr_sheet,const CQui
           AddMMItem(IDM_REBOOT,m2);
        if ( shutdown_in_menu )
           AddMMItem(IDM_SHUTDOWN,m2);
-
-       if ( vip_in_menu && vip_session[0] )
-          {
-            if ( logoff_in_menu || reboot_in_menu || shutdown_in_menu )
-               AddMMSeparator(m2);
-            AddMMItem(IDM_VIPEND,m2);
-          }
 
        AddMMSeparator();
        AddMMPopup(IDM_ENDWORK,m2);

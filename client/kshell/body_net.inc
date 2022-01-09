@@ -269,7 +269,6 @@ void SendDynamicInfoToServer()
   cmd.AddBoolParm(NETPARM_B_MONITORSTATE,!monitor_off);
   cmd.AddBoolParm(NETPARM_B_BLOCKEDSTATE,protect_run_from_api);
   cmd.AddStringParm(NETPARM_S_ACTIVETASK,GetActiveTaskString(s));
-  cmd.AddStringParm(NETPARM_S_VIPSESSION,vip_session);
   cmd.AddIntParm(NETPARM_I_LANGID,curr_lang); //must be in static and dynamic info!
 
   NetSend(cmd);
@@ -400,42 +399,6 @@ static void OnNetCmdReceived(const CNetCmd &cmd,unsigned src_guid)
          {
            TextMessageBox(text,TRUE,delay);
          }
-      break;
-    }
- 
-    case NETCMD_LICMAN_REQ:
-    {
-      OnLicManReq(cmd,src_guid);
-      break;
-    }
-
-    case NETCMD_LICMAN_ACK:
-    {
-      OnLicManAck(cmd,src_guid);
-      break;
-    }
-
-    case NETCMD_FLOATLIC2SERVER_ACK:
-    {
-      CFloatLic::OnServerAck(cmd);
-      break;
-    }
-
-    case NETCMD_FLOATLIC2CLIENT_REQ:
-    {
-      CFloatLic::OnClientReq(cmd,src_guid);
-      break;
-    }
-
-    case NETCMD_FLOATLIC2CLIENT_ACK:
-    {
-      CFloatLic::OnClientAck(cmd);
-      break;
-    }
-
-    case NETCMD_BODYVIP_ACK:
-    {
-      OnBodyVipAck(cmd,src_guid);
       break;
     }
 

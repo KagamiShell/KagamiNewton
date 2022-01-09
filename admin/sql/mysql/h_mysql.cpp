@@ -680,7 +680,6 @@ EXPORT BOOL __cdecl SQL_PrepareDB(void *obj)
         " comp_ip     VARCHAR(256),\n"
         " user_domain VARCHAR(256),\n"
         " user_name   VARCHAR(256),\n"
-        " vip_name    VARCHAR(256),\n"
         " id          INT,\n"
         " data_count  INT,\n"
         " data_size   INT,\n"
@@ -703,7 +702,6 @@ EXPORT BOOL __cdecl SQL_PrepareDB(void *obj)
         "_comp_ip     VARCHAR(256),\n"
         "_user_domain VARCHAR(256),\n"
         "_user_name   VARCHAR(256),\n"
-        "_vip_name    VARCHAR(256),\n"
         "_id          INT,\n"
         "_data_count  INT,\n"
         "_data_size   INT,\n"
@@ -718,7 +716,7 @@ EXPORT BOOL __cdecl SQL_PrepareDB(void *obj)
         "ELSE\n"
         " SELECT Avg(TPrices.price_count*_data_count+TPrices.price_size*_data_size+TPrices.price_time*_data_time+TPrices.price_fixed) FROM TPrices WHERE TPrices.id=_id INTO __res;\n"
         "END IF;\n"
-        "INSERT INTO TServices VALUES(_comp_loc,_comp_desc,_comp_name,_comp_ip,_user_domain,_user_name,_vip_name,_id,_data_count,_data_size,_data_time,_comments,NOW(),__res);\n"
+        "INSERT INTO TServices VALUES(_comp_loc,_comp_desc,_comp_name,_comp_ip,_user_domain,_user_name,_id,_data_count,_data_size,_data_time,_comments,NOW(),__res);\n"
         "END;\n";
         if ( !Query(obj,q) )
            return rc;
@@ -734,7 +732,6 @@ EXPORT BOOL __cdecl SQL_PrepareDB(void *obj)
         " comp_ip     VARCHAR(256),\n"
         " user_domain VARCHAR(256),\n"
         " user_name   VARCHAR(256),\n"
-        " vip_name    VARCHAR(256),\n"
         " level       INT,\n"
         " comments    VARCHAR(512),\n"
         " time        DATETIME)\n";
@@ -753,11 +750,10 @@ EXPORT BOOL __cdecl SQL_PrepareDB(void *obj)
         "_comp_ip     VARCHAR(256),\n"
         "_user_domain VARCHAR(256),\n"
         "_user_name   VARCHAR(256),\n"
-        "_vip_name    VARCHAR(256),\n"
         "_level       INT,\n"
         "_comments    VARCHAR(512))\n"
         "BEGIN\n"
-        "INSERT INTO TEvents VALUES(_comp_loc,_comp_desc,_comp_name,_comp_ip,_user_domain,_user_name,_vip_name,_level,_comments,NOW());\n"
+        "INSERT INTO TEvents VALUES(_comp_loc,_comp_desc,_comp_name,_comp_ip,_user_domain,_user_name,_level,_comments,NOW());\n"
         "END;\n";
         if ( !Query(obj,q) )
            return rc;
@@ -1074,7 +1070,7 @@ EXPORT BOOL __cdecl SQL_PrepareDB(void *obj)
 }
 
 
-EXPORT BOOL __cdecl SQL_ApplyUserRights(void *obj,const char *user,BOOL ur_editcosts,BOOL ur_deloldrecords,BOOL ur_editcompvars,BOOL ur_editvars,BOOL ur_editcontent,BOOL ur_editcomprules,BOOL ur_editrules,BOOL ur_vipwork)
+EXPORT BOOL __cdecl SQL_ApplyUserRights(void *obj,const char *user,BOOL ur_editcosts,BOOL ur_deloldrecords,BOOL ur_editcompvars,BOOL ur_editvars,BOOL ur_editcontent,BOOL ur_editcomprules,BOOL ur_editrules)
 {
   BOOL rc = FALSE;
 
@@ -1155,19 +1151,6 @@ EXPORT BOOL __cdecl SQL_ApplyUserRights(void *obj,const char *user,BOOL ur_editc
        else
        {
          rc = rc && GrantInternal(obj,"SELECT","TSettingsRules",user);
-       }
-
-       if ( ur_vipwork )
-       {
-         rc = rc && GrantInternal(obj,"SELECT,DELETE,UPDATE,INSERT","TVipUsers",user);
-         rc = rc && GrantInternal(obj,"EXECUTE","PROCEDURE PVipLogin",user);
-         rc = rc && GrantInternal(obj,"EXECUTE","PROCEDURE PVipRegister",user);
-         rc = rc && GrantInternal(obj,"EXECUTE","PROCEDURE PVipDelete",user);
-         rc = rc && GrantInternal(obj,"EXECUTE","PROCEDURE PVipClearPass",user);
-       }
-       else
-       {
-         rc = rc && GrantInternal(obj,"SELECT","TVipUsers",user);
        }
      }
 

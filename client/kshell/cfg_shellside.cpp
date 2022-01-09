@@ -141,26 +141,6 @@ BOOL CSheet::IsCurrentlyEnabled(SYSTEMTIME *_st) const
   if ( g_disabled_sheets.IsDisabled(GetName()) )
      return FALSE;
 
-  // check VIP-session
-  const char *vip = GetVIPUsers();
-  if ( vip[0] )
-     {
-       if ( !vip_session[0] )
-          {
-            return FALSE;
-          }
-       else
-          {
-            if ( vip[0] != '*' )
-               {
-                 if ( !IsExtensionInList(vip_session,vip) )
-                    {
-                      return FALSE;
-                    }
-               }
-          }
-     }
-
   // check time-sheet
   int t1 = GetTimeMin();
   int t2 = GetTimeMax();

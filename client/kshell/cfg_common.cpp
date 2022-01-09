@@ -178,7 +178,7 @@ void WriteLicFeatToCache(const char *s)
      }
 }
 
-
+/*
 BOOL ReadLicFeatFromCache(char *_lic_feat,int max)
 {
   BOOL rc = FALSE;
@@ -206,7 +206,7 @@ BOOL ReadLicFeatFromCache(char *_lic_feat,int max)
 
   return rc;
 }
-
+*/
 
 void WriteSettingsToCache(const void *buff,unsigned size)
 {

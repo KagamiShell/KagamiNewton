@@ -298,7 +298,7 @@ void ReadGlobalConfig(int& machine_type,TSTRING& machine_loc,TSTRING& machine_de
 {
   // the same code in shell!!!
 
-  machine_type = ReadRegDword(HKLM,REGPATH,"machine_type",MACHINE_TYPE_GAMECLUB);
+  machine_type = ReadRegDword(HKLM,REGPATH,"machine_type",MACHINE_TYPE_STUDENT);
   ReadRegStr(HKLM,REGPATH,"machine_loc",machine_loc,"");
   if ( !machine_loc[0] )
      ReadRegStr(HKLM,"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion","RegisteredOrganization",machine_loc,"");

@@ -1,5 +1,5 @@
 
-library rs_server_setup;
+library ks_server_setup;
 
 uses 
      startup;

@@ -846,15 +846,15 @@ static void DialogBoxReqProcessing(HWND hwnd,HWND select,BOOL mso,BOOL icq,BOOL 
   dest_path[0] = 0;
   sel_name[0] = 0;
   
-  rc = KPOpenSaveDialog(hwnd,LS(3067),LS(3068),dest_path,sel_name);
+  rc = KSOpenSaveDialog(hwnd,LS(3067),LS(3068),dest_path,sel_name);
   
-  if ( rc == KPOPENSAVE_CANCEL )
+  if ( rc == KSOPENSAVE_CANCEL )
      {
        PostMessage(hwnd,WM_CLOSE,0,0);
        return;
      }
 
-  is_user_folder = (rc == KPOPENSAVE_USERFOLDER);
+  is_user_folder = (rc == KSOPENSAVE_USERFOLDER);
 
   if ( !dest_path[0] )
      {
@@ -1374,11 +1374,11 @@ static void SafeTorrent(void)
                            char dest_path[MAX_PATH];
                            char sel_name[MAX_PATH];
                            
-                           int rc = KPOpenSaveDialog(hwnd,LS(3211),LS(3210),dest_path,sel_name);
+                           int rc = KSOpenSaveDialog(hwnd,LS(3211),LS(3210),dest_path,sel_name);
 
                            if ( IsWindow(hwnd) )
                               {
-                                if ( rc == KPOPENSAVE_CANCEL || IsStrEmpty(dest_path) )
+                                if ( rc == KSOPENSAVE_CANCEL || IsStrEmpty(dest_path) )
                                    {
                                      PostMessage(hwnd,WM_CLOSE,0,0);
                                    }

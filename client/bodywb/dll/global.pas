@@ -69,7 +69,6 @@ var
  msg_download_begin : integer = 0;
  msg_download_end : integer = 0;
  msg_viewsource : integer = 0;
- msg_vipend : integer = 0;
  msg_navigatefailed : integer = 0;
  msg_langchanged : integer = 0;
  msg_redirection : integer = 0;

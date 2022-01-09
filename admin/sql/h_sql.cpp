@@ -279,9 +279,9 @@ BOOL CSQLLib::PrepareDB()
 }
 
 
-BOOL CSQLLib::ApplyUserRights(const char *user,BOOL ur_editcosts,BOOL ur_deloldrecords,BOOL ur_editcompvars,BOOL ur_editvars,BOOL ur_editcontent,BOOL ur_editcomprules,BOOL ur_editrules,BOOL ur_vipwork)
+BOOL CSQLLib::ApplyUserRights(const char *user,BOOL ur_editcosts,BOOL ur_deloldrecords,BOOL ur_editcompvars,BOOL ur_editvars,BOOL ur_editcontent,BOOL ur_editcomprules,BOOL ur_editrules)
 {
-  return obj && pApplyUserRights && pApplyUserRights(obj,user,ur_editcosts,ur_deloldrecords,ur_editcompvars,ur_editvars,ur_editcontent,ur_editcomprules,ur_editrules,ur_vipwork);
+  return obj && pApplyUserRights && pApplyUserRights(obj,user,ur_editcosts,ur_deloldrecords,ur_editcompvars,ur_editvars,ur_editcontent,ur_editcomprules,ur_editrules);
 }
 
 

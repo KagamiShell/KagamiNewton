@@ -131,7 +131,7 @@ static void RunWindowsExplorer()
 static void RunOurShellOffIndicator()
 {
   char cmd[MAX_PATH];
-  wsprintf(cmd,"\"%s%s\" %d",our_currpath,"rsoffindic.exe",fastexit_idle_timeout);
+  wsprintf(cmd,"\"%s%s\" %d",our_currpath,"ksoffindic.exe",fastexit_idle_timeout);
   RunProcess(cmd);
 }
 

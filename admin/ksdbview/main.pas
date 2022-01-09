@@ -245,9 +245,6 @@ begin
    query.Add('AND TServices.time>='''+FormatDateTime('yyyy-mm-dd',time)+'''');
    if machine_desc<>'' then
     query.Add('AND TServices.comp_desc='''+sql.EscapeString(machine_desc)+'''');
-   if EditVIP.Text<>'' then
-    query.Add('AND TServices.vip_name='''+sql.EscapeString(EditVIP.Text)+'''');
-   query.Add('ORDER BY TServices.time DESC');
   end
  else
  if page=1 then
