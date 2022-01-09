@@ -1,5 +1,5 @@
 root = true
 
 [*]
-charset = utf-8
+charset = windows-1251
 insert_final_newline = true
