@@ -16,11 +16,24 @@ cd server
 call make.bat
 cd..
 
-rem common РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РїРѕСЃР»РµРґРЅРёРј!
+rem common must be last!
 cd common
 call make.bat
 cd..
 
 
-echo РЈСЃРїРµС…!
+echo _
+echo _
+echo _
+echo        ЫЫЫЫЫЫЫЫ  ЫЫ   ЫЫ   ЫЫ ЫЫ ЫЫ
+echo        ЫЫЫЫЫЫЫЫ  ЫЫ  ЫЫЫ   ЫЫ ЫЫ ЫЫ
+echo        ЫЫ    ЫЫ  ЫЫ ЫЫЫ    ЫЫ ЫЫ ЫЫ
+echo        ЫЫ    ЫЫ  ЫЫЫЫЫ     ЫЫ ЫЫ ЫЫ
+echo        ЫЫ    ЫЫ  ЫЫЫЫЫ     ЫЫ ЫЫ ЫЫ
+echo        ЫЫ    ЫЫ  ЫЫ ЫЫЫ    ЫЫ ЫЫ ЫЫ
+echo        ЫЫЫЫЫЫЫЫ  ЫЫ  ЫЫЫ           
+echo        ЫЫЫЫЫЫЫЫ  ЫЫ   ЫЫ   ЫЫ ЫЫ ЫЫ
+echo _
+echo _
+echo _
 pause

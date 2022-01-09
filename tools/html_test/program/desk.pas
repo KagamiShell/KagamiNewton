@@ -14,7 +14,6 @@ type
    OnMouseDown : procedure (); cdecl;
    GetMachineLoc : function () : pchar; cdecl;
    GetMachineDesc : function () : pchar; cdecl;
-   GetVipSessionName : function () : pchar; cdecl;
    GetStatusString : function () : pchar; cdecl;
    GetInfoText : function () : pchar; cdecl;
    GetNumSheets : function () : integer; cdecl;
@@ -33,7 +32,7 @@ type
 
 
 type
-  TRSDeskForm = class(TForm)
+  TKSDeskForm = class(TForm)
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
@@ -56,22 +55,21 @@ type
     procedure OnRClick();
     procedure OnMouseDown();
 
-    function RSGetMachineLoc(Params: array of OleVariant): OleVariant;
-    function RSGetMachineDesc(Params: array of OleVariant): OleVariant;
-    function RSGetVipSessionName(Params: array of OleVariant): OleVariant;
-    function RSGetNumSheets(Params: array of OleVariant): OleVariant;
-    function RSGetSheetName(Params: array of OleVariant): OleVariant;
-    function RSIsSheetActive(Params: array of OleVariant): OleVariant;
-    function RSSetSheetActive(Params: array of OleVariant): OleVariant;
-    function RSGetSheetBGPic(Params: array of OleVariant): OleVariant;
-    function RSGetStatusString(Params: array of OleVariant): OleVariant;
-    function RSGetInfoText(Params: array of OleVariant): OleVariant;
-    function RSIsPageShaded(Params: array of OleVariant): OleVariant;
-    function RSGetResTranslatedUrl(Params: array of OleVariant): OleVariant;
-    function RSDoShellExec(Params: array of OleVariant): OleVariant;
-    function RSGetInputText(Params: array of OleVariant): OleVariant;
-    function RSAlert(Params: array of OleVariant): OleVariant;
-    function RSInputWrapper(Params: array of OleVariant): OleVariant;
+    function KSGetMachineLoc(Params: array of OleVariant): OleVariant;
+    function KSGetMachineDesc(Params: array of OleVariant): OleVariant;
+    function KSGetNumSheets(Params: array of OleVariant): OleVariant;
+    function KSGetSheetName(Params: array of OleVariant): OleVariant;
+    function KSIsSheetActive(Params: array of OleVariant): OleVariant;
+    function KSSetSheetActive(Params: array of OleVariant): OleVariant;
+    function KSGetSheetBGPic(Params: array of OleVariant): OleVariant;
+    function KSGetStatusString(Params: array of OleVariant): OleVariant;
+    function KSGetInfoText(Params: array of OleVariant): OleVariant;
+    function KSIsPageShaded(Params: array of OleVariant): OleVariant;
+    function KSGetResTranslatedUrl(Params: array of OleVariant): OleVariant;
+    function KSDoShellExec(Params: array of OleVariant): OleVariant;
+    function KSGetInputText(Params: array of OleVariant): OleVariant;
+    function KSAlert(Params: array of OleVariant): OleVariant;
+    function KSInputWrapper(Params: array of OleVariant): OleVariant;
   public
     { Public declarations }
 
@@ -350,7 +348,7 @@ begin
  g_hwnd:=0;
 end;
 
-procedure TRSDeskForm.DefaultHandler(var Message);
+procedure TKSDeskForm.DefaultHandler(var Message);
 begin
  with TMessage(Message) do
    if msg=msg_rclick then
@@ -365,7 +363,7 @@ begin
      inherited;
 end;
 
-constructor TRSDeskForm.MyCreate(p:PDeskExternalConnection);
+constructor TKSDeskForm.MyCreate(p:PDeskExternalConnection);
 begin
  inherited Create(nil);
 
@@ -386,7 +384,7 @@ begin
  //SetWindowPos(Handle,0,0,0,Screen.Width,Screen.Height,SWP_NOACTIVATE or SWP_NOOWNERZORDER);
 end;
 
-destructor TRSDeskForm.Destroy;
+destructor TKSDeskForm.Destroy;
 begin
  DoneHooks;
  conn:=nil;
@@ -395,25 +393,25 @@ begin
  inherited;
 end;
 
-procedure TRSDeskForm.FormCloseQuery(Sender: TObject;
+procedure TKSDeskForm.FormCloseQuery(Sender: TObject;
   var CanClose: Boolean);
 begin
  CanClose:=false;
 end;
 
-procedure TRSDeskForm.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TKSDeskForm.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
  Action:=caNone;
 end;
 
-procedure TRSDeskForm.OnRClick();
+procedure TKSDeskForm.OnRClick();
 begin
  if conn<>nil then
   if @conn.OnRClick<>nil then
    conn.OnRClick();
 end;
 
-procedure TRSDeskForm.OnMouseDown();
+procedure TKSDeskForm.OnMouseDown();
 begin
  if conn<>nil then
   if @conn.OnMouseDown<>nil then
@@ -421,7 +419,7 @@ begin
 end;
 
 
-procedure TRSDeskForm.CreateWebBrowser();
+procedure TKSDeskForm.CreateWebBrowser();
 var reg:TRegistry;
     t:array[0..MAX_PATH] of char;
     exename:string;
@@ -454,29 +452,28 @@ begin
     WebBrowser.OnWindowClosing := WebBrowserWindowClosing;
     WebBrowser.OnDocumentComplete := WebBrowserDocumentComplete;
 
-    WebBrowser.Bind('getMachineLoc',RSGetMachineLoc);
-    WebBrowser.Bind('getMachineDesc',RSGetMachineDesc);
-    WebBrowser.Bind('getVipSessionName',RSGetVipSessionName);
-    WebBrowser.Bind('getStatusString',RSGetStatusString);
-    WebBrowser.Bind('getInfoText',RSGetInfoText);
-    WebBrowser.Bind('getNumSheets',RSGetNumSheets);
-    WebBrowser.Bind('getSheetName',RSGetSheetName);
-    WebBrowser.Bind('isSheetActive',RSIsSheetActive);
-    WebBrowser.Bind('setSheetActive',RSSetSheetActive);
-    WebBrowser.Bind('getSheetBGPic',RSGetSheetBGPic);
-    WebBrowser.Bind('isPageShaded',RSIsPageShaded);
-    WebBrowser.Bind('getResTranslatedUrl',RSGetResTranslatedUrl);
-    WebBrowser.Bind('doShellExec',RSDoShellExec);
-    WebBrowser.Bind('getInputText',RSGetInputText);
-    WebBrowser.Bind('alert',RSAlert);
-    WebBrowser.Bind('inputWrapper',RSInputWrapper);
+    WebBrowser.Bind('getMachineLoc',KSGetMachineLoc);
+    WebBrowser.Bind('getMachineDesc',KSGetMachineDesc);
+    WebBrowser.Bind('getStatusString',KSGetStatusString);
+    WebBrowser.Bind('getInfoText',KSGetInfoText);
+    WebBrowser.Bind('getNumSheets',KSGetNumSheets);
+    WebBrowser.Bind('getSheetName',KSGetSheetName);
+    WebBrowser.Bind('isSheetActive',KSIsSheetActive);
+    WebBrowser.Bind('setSheetActive',KSSetSheetActive);
+    WebBrowser.Bind('getSheetBGPic',KSGetSheetBGPic);
+    WebBrowser.Bind('isPageShaded',KSIsPageShaded);
+    WebBrowser.Bind('getResTranslatedUrl',KSGetResTranslatedUrl);
+    WebBrowser.Bind('doShellExec',KSDoShellExec);
+    WebBrowser.Bind('getInputText',KSGetInputText);
+    WebBrowser.Bind('alert',KSAlert);
+    WebBrowser.Bind('inputWrapper',KSInputWrapper);
     //.....
 
     TWinControl(WebBrowser).Parent:=self;
   end;
 end;
 
-procedure TRSDeskForm.DestroyWebBrowser();
+procedure TKSDeskForm.DestroyWebBrowser();
 begin
  if WebBrowser<>nil then
   begin
@@ -490,7 +487,7 @@ begin
   end;
 end;
 
-procedure TRSDeskForm.WebBrowserBeforeNavigate2(Sender: TObject;
+procedure TKSDeskForm.WebBrowserBeforeNavigate2(Sender: TObject;
   const pDisp: IDispatch; var URL, Flags, TargetFrameName, PostData,
   Headers: OleVariant; var Cancel: WordBool);
 begin
@@ -500,18 +497,18 @@ begin
 
 end;
 
-procedure TRSDeskForm.WebBrowserNewWindow2(Sender: TObject;
+procedure TKSDeskForm.WebBrowserNewWindow2(Sender: TObject;
   var ppDisp: IDispatch; var Cancel: WordBool);
 begin
  Cancel:=TRUE;
 end;
 
-procedure TRSDeskForm.WebBrowserWindowClosing(ASender: TObject; IsChildWindow: WordBool; var Cancel: WordBool);
+procedure TKSDeskForm.WebBrowserWindowClosing(ASender: TObject; IsChildWindow: WordBool; var Cancel: WordBool);
 begin
  Cancel:=TRUE;
 end;
 
-procedure TRSDeskForm.WebBrowserDocumentComplete(Sender: TObject;
+procedure TKSDeskForm.WebBrowserDocumentComplete(Sender: TObject;
   const pDisp: IDispatch; var URL: OleVariant);
 begin
  if (WebBrowser<>nil) and (WebBrowser.Application=pDisp) then
@@ -521,7 +518,7 @@ begin
   end;
 end;
 
-procedure TRSDeskForm.MyRepaint();
+procedure TKSDeskForm.MyRepaint();
 begin
  if WebBrowser<>nil then
   begin
@@ -534,7 +531,7 @@ begin
   end;
 end;
 
-procedure TRSDeskForm.MyRefresh();
+procedure TKSDeskForm.MyRefresh();
 begin
  if WebBrowser<>nil then
   begin
@@ -551,7 +548,7 @@ begin
   end;
 end;
 
-procedure TRSDeskForm.MyNavigate(url:string);
+procedure TKSDeskForm.MyNavigate(url:string);
 begin
  if url='' then
   begin
@@ -583,7 +580,7 @@ begin
   end;
 end;
 
-procedure TRSDeskForm.MyShow();
+procedure TKSDeskForm.MyShow();
 begin
  if not IsWindowVisible(Handle) then
   begin
@@ -597,34 +594,34 @@ begin
   end;
 end;
 
-procedure TRSDeskForm.MyHide();
+procedure TKSDeskForm.MyHide();
 begin
  Visible:=false;
 end;
 
-function TRSDeskForm.MyIsVisible:boolean;
+function TKSDeskForm.MyIsVisible:boolean;
 begin
  Result:=IsWindowVisible(Handle);
 end;
 
-procedure TRSDeskForm.MyOnDisplayChange();
+procedure TKSDeskForm.MyOnDisplayChange();
 begin
 // SetWindowPos(Handle,HWND_BOTTOM,0,0,Screen.Width,Screen.Height,SWP_NOACTIVATE);
 // MyRepaint();
 end;
 
-procedure TRSDeskForm.MyOnEndSession();
+procedure TKSDeskForm.MyOnEndSession();
 begin
  Visible:=false;
 // DoneHooks;
 end;
 
-procedure TRSDeskForm.MyBringToBottom();
+procedure TKSDeskForm.MyBringToBottom();
 begin
 // SetWindowPos(Handle,HWND_BOTTOM,0,0,0,0,SWP_NOMOVE or SWP_NOSIZE or SWP_NOACTIVATE or SWP_NOSENDCHANGING);
 end;
 
-function TRSDeskForm.RSGetMachineLoc(Params: array of OleVariant): OleVariant;
+function TKSDeskForm.KSGetMachineLoc(Params: array of OleVariant): OleVariant;
 begin
  if (conn<>nil) and (@conn.GetMachineLoc<>nil) then
    Result:=string(conn.GetMachineLoc())
@@ -632,7 +629,7 @@ begin
    Result:=unassigned;
 end;
 
-function TRSDeskForm.RSGetMachineDesc(Params: array of OleVariant): OleVariant;
+function TKSDeskForm.KSGetMachineDesc(Params: array of OleVariant): OleVariant;
 begin
  if (conn<>nil) and (@conn.GetMachineDesc<>nil) then
    Result:=string(conn.GetMachineDesc())
@@ -640,15 +637,7 @@ begin
    Result:=unassigned;
 end;
 
-function TRSDeskForm.RSGetVipSessionName(Params: array of OleVariant): OleVariant;
-begin
- if (conn<>nil) and (@conn.GetVipSessionName<>nil) then
-   Result:=string(conn.GetVipSessionName())
- else
-   Result:=unassigned;
-end;
-
-function TRSDeskForm.RSGetNumSheets(Params: array of OleVariant): OleVariant;
+function TKSDeskForm.KSGetNumSheets(Params: array of OleVariant): OleVariant;
 begin
  if (conn<>nil) and (@conn.GetNumSheets<>nil) then
    Result:=conn.GetNumSheets()
@@ -656,7 +645,7 @@ begin
    Result:=unassigned;
 end;
 
-function TRSDeskForm.RSGetSheetName(Params: array of OleVariant): OleVariant;
+function TKSDeskForm.KSGetSheetName(Params: array of OleVariant): OleVariant;
 var idx:integer;
 begin
  Result:=unassigned;
@@ -672,7 +661,7 @@ begin
   end;
 end;
 
-function TRSDeskForm.RSIsSheetActive(Params: array of OleVariant): OleVariant;
+function TKSDeskForm.KSIsSheetActive(Params: array of OleVariant): OleVariant;
 var idx:integer;
 begin
  Result:=unassigned;
@@ -688,7 +677,7 @@ begin
   end;
 end;
 
-function TRSDeskForm.RSSetSheetActive(Params: array of OleVariant): OleVariant;
+function TKSDeskForm.KSSetSheetActive(Params: array of OleVariant): OleVariant;
 var idx:integer;
     state:boolean;
 begin
@@ -710,7 +699,7 @@ begin
   end;
 end;
 
-function TRSDeskForm.RSGetSheetBGPic(Params: array of OleVariant): OleVariant;
+function TKSDeskForm.KSGetSheetBGPic(Params: array of OleVariant): OleVariant;
 var idx:integer;
 begin
  Result:=unassigned;
@@ -726,7 +715,7 @@ begin
   end;
 end;
 
-function TRSDeskForm.RSGetStatusString(Params: array of OleVariant): OleVariant;
+function TKSDeskForm.KSGetStatusString(Params: array of OleVariant): OleVariant;
 begin
  if (conn<>nil) and (@conn.GetStatusString<>nil) then
    Result:=string(conn.GetStatusString())
@@ -734,7 +723,7 @@ begin
    Result:=unassigned;
 end;
 
-function TRSDeskForm.RSGetInfoText(Params: array of OleVariant): OleVariant;
+function TKSDeskForm.KSGetInfoText(Params: array of OleVariant): OleVariant;
 begin
  if (conn<>nil) and (@conn.GetInfoText<>nil) then
    Result:=string(conn.GetInfoText())
@@ -742,7 +731,7 @@ begin
    Result:=unassigned;
 end;
 
-function TRSDeskForm.RSIsPageShaded(Params: array of OleVariant): OleVariant;
+function TKSDeskForm.KSIsPageShaded(Params: array of OleVariant): OleVariant;
 begin
  if (conn<>nil) and (@conn.IsPageShaded<>nil) then
    Result:=conn.IsPageShaded()
@@ -750,7 +739,7 @@ begin
    Result:=unassigned;
 end;
 
-function TRSDeskForm.RSGetResTranslatedUrl(Params: array of OleVariant): OleVariant;
+function TKSDeskForm.KSGetResTranslatedUrl(Params: array of OleVariant): OleVariant;
 var s_href,s_res,s_url : string;
 begin
  Result:=unassigned;
@@ -768,7 +757,7 @@ begin
   end;
 end;
 
-function TRSDeskForm.RSDoShellExec(Params: array of OleVariant): OleVariant;
+function TKSDeskForm.KSDoShellExec(Params: array of OleVariant): OleVariant;
 var exe,args:string;
 begin
  Result:=unassigned;
@@ -800,7 +789,7 @@ begin
   end;
 end;
 
-function TRSDeskForm.RSGetInputText(Params: array of OleVariant): OleVariant;
+function TKSDeskForm.KSGetInputText(Params: array of OleVariant): OleVariant;
 var title,text:string;
 begin
  Result:=unassigned;
@@ -822,7 +811,7 @@ begin
 end;
 
 
-function TRSDeskForm.RSAlert(Params: array of OleVariant): OleVariant;
+function TKSDeskForm.KSAlert(Params: array of OleVariant): OleVariant;
 var text:string;
 begin
  Result:=unassigned;
@@ -896,7 +885,7 @@ begin
 end;
 
 
-function TRSDeskForm.RSInputWrapper(Params: array of OleVariant): OleVariant;
+function TKSDeskForm.KSInputWrapper(Params: array of OleVariant): OleVariant;
 var x,y,w,h,maxlen:integer;
     pwdchar:char;
     intext,objtype:string;
@@ -943,7 +932,7 @@ begin
 end;
 
 
-procedure TRSDeskForm.MyOnStatusStringChanged();
+procedure TKSDeskForm.MyOnStatusStringChanged();
 begin
  if WebBrowser<>nil then
   begin
@@ -954,7 +943,7 @@ begin
   end;
 end;
 
-procedure TRSDeskForm.MyOnActiveSheetChanged();
+procedure TKSDeskForm.MyOnActiveSheetChanged();
 begin
  if WebBrowser<>nil then
   begin
@@ -965,7 +954,7 @@ begin
   end;
 end;
 
-procedure TRSDeskForm.MyOnPageShaded();
+procedure TKSDeskForm.MyOnPageShaded();
 begin
  if WebBrowser<>nil then
   begin
@@ -977,7 +966,7 @@ begin
 end;
 
 begin
- msg_rclick:=RegisterWindowMessage('RSDeskForm.RClick');
- msg_mousedown:=RegisterWindowMessage('RSDeskForm.MouseDown');
- msg_refresh:=RegisterWindowMessage('RSDeskForm.F5');
+ msg_rclick:=RegisterWindowMessage('KSDeskForm.RClick');
+ msg_mousedown:=RegisterWindowMessage('KSDeskForm.MouseDown');
+ msg_refresh:=RegisterWindowMessage('KSDeskForm.F5');
 end.

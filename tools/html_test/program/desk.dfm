@@ -1,4 +1,4 @@
-object RSDeskForm: TRSDeskForm
+object KSDeskForm: TKSDeskForm
   Left = 284
   Top = 106
   BorderIcons = []
@@ -10,7 +10,7 @@ object RSDeskForm: TRSDeskForm
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
-  Font.Name = 'MS Sans Serif'
+  Font.Name = 'Segoe UI'
   Font.Style = []
   OldCreateOrder = False
   Scaled = False

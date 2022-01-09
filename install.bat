@@ -1,6 +1,6 @@
 @echo off
-if exist output del /Q output\*.*
-if not exist output md output
+if exist !out del /Q !out\*.*
+if not exist !out md !out
 
 cd admin\install
 call install.bat
@@ -14,10 +14,27 @@ cd operator\install
 call install.bat
 cd ..\..\
 
-rem –≠—Ç–æ –¥–æ–ª–∂–Ω–æ –±—ã—Ç—å –ø–æ—Å–ª–µ–¥–Ω–∏–º!
+cd server\install
+call install.bat
+cd ..\..\
+
+rem must be last!!!
 cd common\install
 call install.bat
 cd ..\..\
 
-echo –ö–æ–º–∞–Ω–¥–∞ —É—Å–ø–µ—à–Ω–æ –≤—ã–ø–æ–ª–Ω–µ–Ω–∞!
+echo _
+echo _
+echo _
+echo        €€€€€€€€  €€   €€   €€ €€ €€
+echo        €€€€€€€€  €€  €€€   €€ €€ €€
+echo        €€    €€  €€ €€€    €€ €€ €€
+echo        €€    €€  €€€€€     €€ €€ €€
+echo        €€    €€  €€€€€     €€ €€ €€
+echo        €€    €€  €€ €€€    €€ €€ €€
+echo        €€€€€€€€  €€  €€€           
+echo        €€€€€€€€  €€   €€   €€ €€ €€
+echo _
+echo _
+echo _
 pause

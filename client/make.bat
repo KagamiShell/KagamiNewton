@@ -1,12 +1,12 @@
 @echo off
 
-rem z должно быть первым!
+rem z must be first!
 cd z
 call make.bat
 cd..
 
-rem km_shared должен быть первым!
-cd km_shared
+rem ks_shared must be first!
+cd ks_shared
 call make.bat
 cd..
 
@@ -121,7 +121,7 @@ cd ks_api
 call make.bat
 cd..
 
-cd ksblock
+cd rsblock
 call make.bat
 cd..
 
@@ -151,23 +151,23 @@ cd kshell
  call make.bat
 cd..
 
-cd ksoffindic
+cd rsoffindic
 call make.bat
 cd..
 
-cd ksrdserver
+cd rsrdserver
 call make.bat
 cd..
 
-cd ksrules
+cd rsrules
 call make.bat
 cd..
 
-cd ksspoolcleaner
+cd rsspoolcleaner
 call make.bat
 cd..
 
-cd kstempdrv
+cd rstempdrv
 call make.bat
 cd..
 

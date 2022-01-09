@@ -19,8 +19,6 @@ type
     Bevel2: TBevel;
     Label4: TLabel;
     EditStatus: TEdit;
-    Label5: TLabel;
-    EditVIP: TEdit;
     Label6: TLabel;
     MemoText: TMemo;
     ButtonRefresh: TButton;
@@ -49,7 +47,7 @@ type
     procedure ButtonResetClick(Sender: TObject);
   private
     { Private declarations }
-    dsk : TRSDeskForm;
+    dsk : TKSDeskForm;
     allow_change : boolean;
 
     function GetSheetItemByNum(idx:integer):TListItem;
@@ -57,7 +55,6 @@ type
     { Public declarations }
     function  GetMachineLoc : pchar;
     function  GetMachineDesc : pchar;
-    function  GetVipSessionName : pchar;
     function  GetStatusString : pchar;
     function  GetInfoText : pchar;
     function  GetNumSheets : integer;
@@ -102,14 +99,6 @@ function  G_GetMachineDesc : pchar; cdecl;
 begin
  if assigned(MainForm) then
   Result:=MainForm.GetMachineDesc
- else
-  Result:='';
-end;
-
-function  G_GetVipSessionName : pchar; cdecl;
-begin
- if assigned(MainForm) then
-  Result:=MainForm.GetVipSessionName
  else
   Result:='';
 end;
@@ -238,11 +227,6 @@ end;
 function  TMainForm.GetMachineDesc : pchar;
 begin
   Result:=s2p(EditMachineDesc.Text);
-end;
-
-function  TMainForm.GetVipSessionName : pchar;
-begin
-  Result:=s2p(EditVIP.Text);
 end;
 
 function  TMainForm.GetStatusString : pchar;
@@ -410,7 +394,6 @@ begin
  EditSheetPic.Text:='';
 
  EditStatus.Text:='Это статусная строка';
- EditVIP.Text:='';
  EditMachineDesc.Text:='25';
  EditMachineLoc.Text:='Организация';
 
@@ -419,7 +402,6 @@ begin
  conn.OnMouseDown:=nil;
  conn.GetMachineLoc:=G_GetMachineLoc;
  conn.GetMachineDesc:=G_GetMachineDesc;
- conn.GetVipSessionName:=G_GetVipSessionName;
  conn.GetStatusString:=G_GetStatusString;
  conn.GetInfoText:=G_GetInfoText;
  conn.GetNumSheets:=G_GetNumSheets;
@@ -433,7 +415,7 @@ begin
  conn.Alert:=G_Alert;
  conn.GetInputTextPos:=G_GetInputTextPos;
 
- dsk:=TRSDeskForm.MyCreate(@conn);
+ dsk:=TKSDeskForm.MyCreate(@conn);
 
  Left:=Screen.Width - Width - 20;
  Top:=(Screen.Height - Height) div 2;

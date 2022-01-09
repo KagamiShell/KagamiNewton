@@ -2613,7 +2613,7 @@ const
     ClassID:   '{0002DF01-0000-0000-C000-000000000046}';
     IntfIID:   '{D30C1661-CDAF-11D0-8A3E-00C04FC9E26E}';
     EventIID:  '{34A715A0-6587-11D0-924A-0020AFC7AC4D}';
-    LicenseKey: nil;
+    // LicenseKey: nil;
     Version: 500);
 begin
   ServerData := @CServerData;
@@ -3465,7 +3465,7 @@ const
     ClassID:   '{9BA05972-F6A8-11CF-A442-00A0C90A8F39}';
     IntfIID:   '{85CB6900-4D95-11CF-960C-0080C7F4EE85}';
     EventIID:  '{FE4106E0-399A-11D0-A48C-00A0C90A8F39}';
-    LicenseKey: nil;
+    // LicenseKey: nil;
     Version: 500);
 begin
   ServerData := @CServerData;
@@ -3640,7 +3640,7 @@ const
     ClassID:   '{64AB4BB7-111E-11D1-8F79-00C04FC2FBE1}';
     IntfIID:   '{729FE2F8-1EA8-11D1-8F85-00C04FC2FBE1}';
     EventIID:  '';
-    LicenseKey: nil;
+    // LicenseKey: nil;
     Version: 500);
 begin
   ServerData := @CServerData;
@@ -3845,7 +3845,7 @@ const
     ClassID:   '{55136805-B2DE-11D1-B9F2-00A0C98BC547}';
     IntfIID:   '{E572D3C9-37BE-4AE2-825D-D521763E3108}';
     EventIID:  '{55136806-B2DE-11D1-B9F2-00A0C98BC547}';
-    LicenseKey: nil;
+    // LicenseKey: nil;
     Version: 500);
 begin
   ServerData := @CServerData;
