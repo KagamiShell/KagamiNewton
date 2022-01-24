@@ -1,6 +1,7 @@
 {
     "files.encoding": "windows1251",
     "files.associations": {
-        "*.inc": "cpp"
+        "*.inc": "cpp",
+        "*.manifest": "xml"
     }
 }
