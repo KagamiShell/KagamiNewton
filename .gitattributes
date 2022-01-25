@@ -1,7 +1,6 @@
 *.manifest working-tree-encoding=CP1251 eol=CRLF
 *.c working-tree-encoding=CP1251 eol=CRLF
 *.cpp working-tree-encoding=CP1251 eol=CRLF
-*.res working-tree-encoding=CP1251 eol=CRLF
 *.rc working-tree-encoding=CP1251 eol=CRLF
 *.bat working-tree-encoding=CP1251 eol=CRLF
 *.inc working-tree-encoding=CP1251 eol=CRLF
