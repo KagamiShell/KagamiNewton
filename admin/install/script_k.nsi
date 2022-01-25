@@ -143,14 +143,14 @@ Section ""
   SetOutPath $INSTDIR
   
   WriteRegStr HKLM "SOFTWARE\KagamineP\KagamiShell\KagamiShellAdmin" "Install_Dir" "$INSTDIR"
-  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\KagamiShellAdmin" "DisplayName" "Runpad Pro Администратор"
+  WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\KagamiShellAdmin" "DisplayName" "Администратор KagamiShell"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\KagamiShellAdmin" "UninstallString" '"$INSTDIR\uninstall.exe"'
 
   CreateDirectory "$SMPROGRAMS_COMMON\KagamiShell\Администратор KagamiShell"
   CreateShortCut "$SMPROGRAMS_COMMON\KagamiShell\Администратор KagamiShell\Удаление программы.lnk" "$INSTDIR\uninstall.exe"
   CreateShortCut "$SMPROGRAMS_COMMON\KagamiShell\Администратор KagamiShell\Конфигурация базы данных.lnk" "$INSTDIR\ksdbconf.exe"
   CreateShortCut "$SMPROGRAMS_COMMON\KagamiShell\Администратор KagamiShell\Сохранение и восстановление базы данных.lnk" "$INSTDIR\ksdbbackup.exe"
-  CreateShortCut "$SMPROGRAMS_COMMON\KagamiShell\Администратор KagamiShell\Справка по Runpad Pro.lnk" "$INSTDIR\help_all.chm"
+  CreateShortCut "$SMPROGRAMS_COMMON\KagamiShell\Администратор KagamiShell\Справка по KagamiShell.lnk" "$INSTDIR\help_all.chm"
 SectionEnd
 
 
@@ -163,7 +163,7 @@ Section "Программа глобальных настроек"
   File "..\kssettings\kssettings.exe"
   File "..\kssettings\kssettings.dll"
   File "..\..\client\kshell\kscfg.dll"
-  File "..\..\client\rp_shared\rp_shared.dll"
+  File "..\..\client\ks_shared\ks_shared.dll"
 
   CreateShortCut "$SMPROGRAMS_COMMON\KagamiShell\Администратор KagamiShell\Глобальные настройки.lnk" "$INSTDIR\kssettings.exe"
 SectionEnd
@@ -208,7 +208,7 @@ Section "Uninstall"
   RMDir /r "$SMPROGRAMS_COMMON\KagamiShell\Администратор KagamiShell"
 
   DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\KagamiShellAdmin"
-  DeleteRegValue HKLM "SOFTWARE\KagamineP\KagamiShell\RunpadProAdmin" "Install_Dir"
+  DeleteRegValue HKLM "SOFTWARE\KagamineP\KagamiShell\KagamiShellAdmin" "Install_Dir"
 
   RmDir /r "$INSTDIR"
 
