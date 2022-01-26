@@ -99,7 +99,7 @@ CMainFrame::CMainFrame() :
 				   CLIP_DEFAULT_PRECIS,
 				   DEFAULT_QUALITY,    
 				   DEFAULT_PITCH | FF_SWISS,
-				   _T("MS Sans Serif")));               
+				   _T("Segoe UI")));               
 
 	m_chCurrentDisc = 'C';
 

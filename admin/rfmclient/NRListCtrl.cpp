@@ -34,7 +34,7 @@ CNRListCtrl::CNRListCtrl(CImageList *pimageListSys)
 				   CLIP_DEFAULT_PRECIS,
 				   DEFAULT_QUALITY,    
 				   DEFAULT_PITCH | FF_SWISS,
-				   _T("MS Sans Serif")));               
+				   _T("Segoe UI")));               
 	
 	
 	m_List_files.clear();

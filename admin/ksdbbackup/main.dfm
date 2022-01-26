@@ -8,7 +8,7 @@ object DBBackupForm: TDBBackupForm
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -16
+  Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
   KeyPreview = True
@@ -19,7 +19,7 @@ object DBBackupForm: TDBBackupForm
   OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
-  TextHeight = 21
+  TextHeight = 15
   object Panel2: TPanel
     Left = 0
     Top = 386
@@ -40,7 +40,7 @@ object DBBackupForm: TDBBackupForm
       Left = 464
       Top = 16
       Width = 89
-      Height = 33
+      Height = 25
       Caption = #1044#1072#1083#1077#1077' >>'
       Default = True
       TabOrder = 0
@@ -50,7 +50,7 @@ object DBBackupForm: TDBBackupForm
       Left = 9
       Top = 15
       Width = 75
-      Height = 34
+      Height = 26
       Caption = #1042#1099#1093#1086#1076
       TabOrder = 1
       OnClick = ButtonCancelClick
@@ -69,7 +69,7 @@ object DBBackupForm: TDBBackupForm
       Top = 0
       Width = 559
       Height = 386
-      ActivePage = TabSheet6
+      ActivePage = TabSheet0
       Align = alClient
       Style = tsFlatButtons
       TabOrder = 0
@@ -80,12 +80,12 @@ object DBBackupForm: TDBBackupForm
         object Label6: TLabel
           Left = 16
           Top = 24
-          Width = 158
-          Height = 21
+          Width = 120
+          Height = 15
           Caption = #1042#1099#1073#1077#1088#1080#1090#1077' '#1076#1077#1081#1089#1090#1074#1080#1077':'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -12
           Font.Name = 'Segoe UI'
           Font.Style = [fsBold]
           ParentFont = False
@@ -122,12 +122,12 @@ object DBBackupForm: TDBBackupForm
         object Label7: TLabel
           Left = 16
           Top = 8
-          Width = 166
-          Height = 21
+          Width = 121
+          Height = 15
           Caption = #1042#1099#1073#1086#1088' '#1073#1072#1079#1099' '#1076#1072#1085#1085#1099#1093':'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -12
           Font.Name = 'Segoe UI'
           Font.Style = [fsBold]
           ParentFont = False
@@ -135,26 +135,26 @@ object DBBackupForm: TDBBackupForm
         object Label3: TLabel
           Left = 16
           Top = 37
-          Width = 87
-          Height = 21
+          Width = 67
+          Height = 15
           Caption = 'SQL-'#1089#1077#1088#1074#1077#1088':'
         end
         object Label8: TLabel
           Left = 16
           Top = 69
-          Width = 90
-          Height = 21
+          Width = 71
+          Height = 15
           Caption = #1058#1080#1087' '#1089#1077#1088#1074#1077#1088#1072':'
         end
         object Label23: TLabel
           Left = 352
           Top = 37
-          Width = 195
-          Height = 21
+          Width = 153
+          Height = 15
           Caption = #1058#1086#1083#1100#1082#1086' '#1083#1086#1082#1072#1083#1100#1085#1072#1103' '#1084#1072#1096#1080#1085#1072'!'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clRed
-          Font.Height = -16
+          Font.Height = -12
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
@@ -163,7 +163,7 @@ object DBBackupForm: TDBBackupForm
           Left = 112
           Top = 32
           Width = 233
-          Height = 29
+          Height = 23
           MaxLength = 250
           TabOrder = 0
           OnChange = EditServerChange
@@ -172,9 +172,9 @@ object DBBackupForm: TDBBackupForm
           Left = 112
           Top = 64
           Width = 233
-          Height = 29
+          Height = 23
           Style = csDropDownList
-          ItemHeight = 21
+          ItemHeight = 15
           TabOrder = 1
           OnChange = ComboBoxServerTypeChange
           Items.Strings = (
@@ -192,12 +192,12 @@ object DBBackupForm: TDBBackupForm
           object Label22: TLabel
             Left = 8
             Top = 8
-            Width = 307
-            Height = 42
+            Width = 331
+            Height = 15
             Caption = #1042#1085#1080#1084#1072#1085#1080#1077'! MySQL '#1085#1077' '#1087#1086#1076#1076#1077#1088#1078#1080#1074#1072#1077#1090#1089#1103' '#1074' '#1076#1072#1085#1085#1086#1081' '#1091#1090#1080#1083#1080#1090#1077'.'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clRed
-            Font.Height = -16
+            Font.Height = -12
             Font.Name = 'Segoe UI'
             Font.Style = [fsBold]
             ParentFont = False
@@ -230,22 +230,22 @@ object DBBackupForm: TDBBackupForm
         object Label1: TLabel
           Left = 16
           Top = 112
-          Width = 102
-          Height = 21
+          Width = 80
+          Height = 15
           Caption = #1055#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1100':'
         end
         object Label2: TLabel
           Left = 16
           Top = 152
-          Width = 56
-          Height = 21
+          Width = 45
+          Height = 15
           Caption = #1055#1072#1088#1086#1083#1100':'
         end
         object Label4: TLabel
           Left = 16
           Top = 24
-          Width = 330
-          Height = 84
+          Width = 317
+          Height = 45
           Caption = 
             #1059#1082#1072#1078#1080#1090#1077' '#1080#1084#1103' '#1080' '#1087#1072#1088#1086#1083#1100' '#1057#1059#1065#1045#1057#1058#1042#1059#1070#1065#1045#1043#1054' '#1072#1076#1084#1080#1085#1080#1089#1090#1088#1072#1090#1086#1088#1072' '#1041#1044'. '#1069#1090#1086' '#1090#1072#1082#1078#1077' ' +
             #1084#1086#1078#1077#1090' '#1073#1099#1090#1100' '#1080' '#1074#1089#1090#1088#1086#1077#1085#1085#1072#1103' '#1091#1095#1077#1090#1085#1072#1103' '#1079#1072#1087#1080#1089#1100' "sa" (MSSQL) '#1080#1083#1080' "root" (' +
@@ -256,7 +256,7 @@ object DBBackupForm: TDBBackupForm
           Left = 152
           Top = 115
           Width = 249
-          Height = 29
+          Height = 23
           MaxLength = 250
           TabOrder = 0
           OnChange = EditAdminLoginChange
@@ -265,7 +265,7 @@ object DBBackupForm: TDBBackupForm
           Left = 152
           Top = 147
           Width = 249
-          Height = 29
+          Height = 23
           MaxLength = 250
           PasswordChar = '*'
           TabOrder = 1
@@ -278,12 +278,12 @@ object DBBackupForm: TDBBackupForm
         object Label5: TLabel
           Left = 16
           Top = 16
-          Width = 287
-          Height = 21
+          Width = 209
+          Height = 15
           Caption = #1042#1099#1073#1086#1088' '#1092#1072#1081#1083#1072' '#1076#1083#1103' '#1089#1086#1093#1088#1072#1085#1077#1085#1080#1103' '#1073#1072#1079#1099':'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -12
           Font.Name = 'Segoe UI'
           Font.Style = [fsBold]
           ParentFont = False
@@ -299,8 +299,8 @@ object DBBackupForm: TDBBackupForm
         object Label21: TLabel
           Left = 16
           Top = 152
-          Width = 377
-          Height = 113
+          Width = 521
+          Height = 57
           AutoSize = False
           Caption = 
             #1042#1085#1080#1084#1072#1085#1080#1077'!!! '#1055#1088#1080' '#1074#1099#1073#1086#1088#1077' '#1092#1072#1081#1083#1072' '#1074' '#1089#1080#1089#1090#1077#1084#1085#1086#1081' '#1087#1072#1087#1082#1077' C:\WINDOWS '#1080#1083#1080' '#1082#1086 +
@@ -308,7 +308,7 @@ object DBBackupForm: TDBBackupForm
             #1076#1072#1090#1100' '#1089#1074#1086#1102' '#1087#1072#1087#1082#1091' '#1080' '#1074' '#1085#1077#1077' '#1089#1086#1093#1088#1072#1085#1080#1090#1100' '#1092#1072#1081#1083'.'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clRed
-          Font.Height = -16
+          Font.Height = -12
           Font.Name = 'Segoe UI'
           Font.Style = []
           ParentFont = False
@@ -331,12 +331,12 @@ object DBBackupForm: TDBBackupForm
         object Label10: TLabel
           Left = 16
           Top = 24
-          Width = 321
-          Height = 21
+          Width = 234
+          Height = 15
           Caption = #1042#1099#1073#1086#1088' '#1092#1072#1081#1083#1072' '#1076#1083#1103' '#1074#1086#1089#1089#1090#1072#1085#1086#1074#1083#1077#1085#1080#1103' '#1073#1072#1079#1099':'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -16
+          Font.Height = -12
           Font.Name = 'Segoe UI'
           Font.Style = [fsBold]
           ParentFont = False
@@ -386,63 +386,63 @@ object DBBackupForm: TDBBackupForm
         object Label12: TLabel
           Left = 16
           Top = 24
-          Width = 316
-          Height = 13
+          Width = 303
+          Height = 15
           Caption = #1055#1088#1080' '#1091#1090#1088#1072#1090#1077' '#1087#1072#1088#1086#1083#1103' '#1072#1076#1084#1080#1085#1080#1089#1090#1088#1072#1090#1086#1088#1072' '#1041#1044' '#1085#1077#1086#1073#1093#1086#1076#1080#1084#1086':'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -11
-          Font.Name = 'MS Sans Serif'
+          Font.Height = -12
+          Font.Name = 'Segoe UI'
           Font.Style = [fsBold]
           ParentFont = False
         end
         object Label13: TLabel
           Left = 16
           Top = 64
-          Width = 292
-          Height = 21
+          Width = 223
+          Height = 15
           Caption = '1. '#1042#1088#1077#1084#1077#1085#1085#1086' '#1091#1076#1072#1083#1080#1090#1100' '#1089#1077#1088#1074#1077#1088' KagamiShell'
         end
         object Label14: TLabel
           Left = 16
           Top = 88
-          Width = 372
-          Height = 21
+          Width = 287
+          Height = 15
           Caption = '2. '#1057#1076#1077#1083#1072#1090#1100' '#1082#1086#1087#1080#1102' '#1073#1072#1079#1099' '#1089' '#1087#1086#1084#1086#1097#1100#1102' '#1076#1072#1085#1085#1086#1081' '#1091#1090#1080#1083#1080#1090#1099
         end
         object Label15: TLabel
           Left = 16
           Top = 112
-          Width = 307
-          Height = 21
+          Width = 235
+          Height = 15
           Caption = '3. '#1059#1076#1072#1083#1080#1090#1100' ('#1076#1077#1080#1085#1089#1090#1072#1083#1083#1080#1088#1086#1074#1072#1090#1100') SQL-'#1089#1077#1088#1074#1077#1088
         end
         object Label16: TLabel
           Left = 16
           Top = 136
-          Width = 230
-          Height = 21
+          Width = 176
+          Height = 15
           Caption = '4. '#1059#1089#1090#1072#1085#1086#1074#1080#1090#1100' SQL-'#1089#1077#1088#1074#1077#1088' '#1089#1085#1086#1074#1072
         end
         object Label17: TLabel
           Left = 16
           Top = 160
-          Width = 446
-          Height = 21
+          Width = 343
+          Height = 15
           Caption = '5. '#1042#1086#1089#1089#1090#1072#1085#1086#1074#1080#1090#1100' '#1073#1072#1079#1091' KagamiShell '#1089' '#1087#1086#1084#1086#1097#1100#1102' '#1076#1072#1085#1085#1086#1081' '#1091#1090#1080#1083#1080#1090#1099
         end
         object Label18: TLabel
           Left = 16
           Top = 184
-          Width = 443
-          Height = 21
+          Width = 338
+          Height = 15
           Caption = '6. '#1047#1072#1087#1091#1089#1090#1080#1090#1100' '#1091#1090#1080#1083#1080#1090#1091' '#1082#1086#1085#1092#1080#1075#1091#1088#1072#1094#1080#1080' '#1073#1072#1079#1099' '#1076#1072#1085#1085#1099#1093' KagamiShell'
         end
         object Label19: TLabel
           Left = 16
           Top = 208
-          Width = 522
-          Height = 21
+          Width = 403
+          Height = 15
           Caption = 
             '7. '#1042' '#1087#1088#1086#1075#1088#1072#1084#1084#1077' '#1075#1083#1086#1073#1072#1083#1100#1085#1099#1093' '#1085#1072#1089#1090#1088#1086#1077#1082' '#1079#1072#1085#1086#1074#1086' '#1089#1086#1079#1076#1072#1090#1100' '#1074#1089#1077#1093' '#1087#1086#1083#1100#1079#1086#1074#1072#1090 +
             #1077#1083#1077#1081
@@ -450,8 +450,8 @@ object DBBackupForm: TDBBackupForm
         object Label20: TLabel
           Left = 16
           Top = 232
-          Width = 287
-          Height = 21
+          Width = 219
+          Height = 15
           Caption = '8. '#1057#1085#1086#1074#1072' '#1091#1089#1090#1072#1085#1086#1074#1080#1090#1100' '#1089#1077#1088#1074#1077#1088' KagamiShell'
         end
       end
