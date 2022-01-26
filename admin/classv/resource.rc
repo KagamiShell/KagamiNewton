@@ -34,8 +34,8 @@
 // Additional include files
 //
 
-#include "C:\\KagamiShell\\admin\\classv\\resource.h"
-#include "C:\\KagamiShell\\admin\\classv\\lang.h"
+#include "resource.h"
+#include "lang.h"
 
 
 //////////////////////////////////////////////////////////////////////////////
@@ -67,7 +67,7 @@ END
 // ICON : Icon
 //
 
-ICON ICON "C:\\KagamiShell\\admin\\classv\\res\\icon.ico"
+ICON ICON "res\\icon.ico"
 
 //////////////////////////////////////////////////////////////////////////////
 //
@@ -98,7 +98,7 @@ BEGIN
     END
   END
   BLOCK "VarFileInfo" BEGIN
-    VALUE "Translation", 0x0000, 1251 // Независимо от языка
+    VALUE "Translation", 0x0000, 1251
   END
 END
 
