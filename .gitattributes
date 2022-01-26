@@ -9,9 +9,6 @@
 *.h working-tree-encoding=CP1251 eol=CRLF
 *.dpr working-tree-encoding=CP1251 eol=CRLF
 *.dof working-tree-encoding=CP1251 eol=CRLF
-*.tlh working-tree-encoding=CP1251 eol=CRLF
-*.tli working-tree-encoding=CP1251 eol=CRLF
-*.tlb working-tree-encoding=CP1251 eol=CRLF
 *.inline working-tree-encoding=CP1251 eol=CRLF
 *.html working-tree-encoding=CP1251 eol=CRLF
 *.css working-tree-encoding=CP1251 eol=CRLF
