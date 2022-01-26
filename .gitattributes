@@ -7,7 +7,6 @@
 *.nsi working-tree-encoding=CP1251 eol=CRLF
 *.ini working-tree-encoding=CP1251 eol=CRLF
 *.h working-tree-encoding=CP1251 eol=CRLF
-*.dfm working-tree-encoding=CP1251 eol=CRLF
 *.dpr working-tree-encoding=CP1251 eol=CRLF
 *.dof working-tree-encoding=CP1251 eol=CRLF
 *.tlh working-tree-encoding=CP1251 eol=CRLF
