@@ -13,19 +13,6 @@
 #include "body_turnshell.inc"
 
 
-
-BOOL IsLicenseWithMO()
-{
-  return StrStrI(lic_feat,"Server") != NULL;
-}
-
-
-BOOL IsLicenseWithShell()
-{
-  return StrStrI(lic_feat,"NoShell") == NULL;
-}
-
-
 void GlobalOnSheetsStateChanged()
 {
   CSheet *sh = GetActiveSheet();

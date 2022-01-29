@@ -197,14 +197,6 @@ static void OnSQLTestAck(const CNetCmd &cmd,unsigned src_guid)
 
 void AddServiceString2SQLBase(int s_id,int s_count,int s_size,int s_time,const char *s_comments)
 {
-  if ( !IsLicenseWithMO() )
-     {
-       s_count = 0;
-       s_size = 0;
-       s_time = 0;
-       s_comments = STR_002;
-     }
-
   CNetCmd cmd(NETCMD_ADDSERVICESTR2BASE);
   cmd.AddIntParm(NETPARM_I_ID,s_id);
   cmd.AddIntParm(NETPARM_I_COUNT,s_count);

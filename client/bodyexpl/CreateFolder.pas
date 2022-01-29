@@ -10,9 +10,13 @@ type
   TCreateFolderForm = class(TForm)
     LabelInfo: TLabel;
     EditName: TEdit;
+    CancelButton: TButton;
+    OKButton: TButton;
     procedure FormKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure FormShow(Sender: TObject);
+    procedure OKButtonClick(Sender: TObject);
+    procedure CancelButtonClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -60,6 +64,28 @@ begin
 
  Caption:=LS(1305);
  LabelInfo.Caption:=LS(1306);
+end;
+
+procedure TCreateFolderForm.OKButtonClick(Sender: TObject);
+begin
+if EditName.Text = '' then
+        MessageBox(Handle,LSP(1303),LSP(LS_ERROR),MB_OK or MB_ICONERROR)
+      else
+        begin
+          s := root + EditName.Text;
+          if CreateDirectory(pchar(s),nil) then
+            ModalResult := mrOk
+          else
+            MessageBox(Handle,LSP(1304),LSP(LS_ERROR),MB_OK or MB_ICONERROR);
+        end;
+      Key := 0;
+    end;
+end;
+
+procedure TCreateFolderForm.CancelButtonClick(Sender: TObject);
+begin
+      ModalResult := mrCancel;
+      Key := 0;
 end;
 
 end.

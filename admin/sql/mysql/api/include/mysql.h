@@ -232,7 +232,7 @@ enum mysql_protocol_type
   the master, the ones that go to a slave, and the adminstrative
   type which must happen on the pivot connectioin
 */
-enum mysql_rpl_type 
+enum mysql_ksl_type 
 {
   MYSQL_RPL_MASTER, MYSQL_RPL_SLAVE, MYSQL_RPL_ADMIN
 };
@@ -283,7 +283,7 @@ typedef struct st_mysql
 
  /*
    Set if this is the original connection, not a master or a slave we have
-   added though mysql_rpl_probe() or mysql_set_master()/ mysql_add_slave()
+   added though mysql_ksl_probe() or mysql_set_master()/ mysql_add_slave()
  */
   my_bool rpl_pivot;
   /*
@@ -481,10 +481,10 @@ mysql_set_local_infile_default(MYSQL *mysql);
   enable/disable parsing of all queries to decide if they go on master or
   slave
 */
-void            STDCALL mysql_enable_rpl_parse(MYSQL* mysql);
-void            STDCALL mysql_disable_rpl_parse(MYSQL* mysql);
+void            STDCALL mysql_enable_ksl_parse(MYSQL* mysql);
+void            STDCALL mysql_disable_ksl_parse(MYSQL* mysql);
 /* get the value of the parse flag */  
-int             STDCALL mysql_rpl_parse_enabled(MYSQL* mysql);
+int             STDCALL mysql_ksl_parse_enabled(MYSQL* mysql);
 
 /*  enable/disable reads from master */
 void            STDCALL mysql_enable_reads_from_master(MYSQL* mysql);
@@ -492,10 +492,10 @@ void            STDCALL mysql_disable_reads_from_master(MYSQL* mysql);
 /* get the value of the master read flag */  
 my_bool		STDCALL mysql_reads_from_master_enabled(MYSQL* mysql);
 
-enum mysql_rpl_type     STDCALL mysql_rpl_query_type(const char* q, int len);  
+enum mysql_ksl_type     STDCALL mysql_ksl_query_type(const char* q, int len);  
 
 /* discover the master and its slaves */  
-my_bool		STDCALL mysql_rpl_probe(MYSQL* mysql);
+my_bool		STDCALL mysql_ksl_probe(MYSQL* mysql);
 
 /* set the master, close/free the old one, if it is not a pivot */
 int             STDCALL mysql_set_master(MYSQL* mysql, const char* host,

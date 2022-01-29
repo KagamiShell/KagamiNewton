@@ -13,7 +13,7 @@ CServer::CServer()
   p_env->AddStringParm(NETPARM_S_VERSION,SERVER_VERSION_STR);
   AddLicInfoToEnv(*p_env);
   
-  p_db = new CDBObj(HKLM,REGPATH,"sql_server","sql_type_rp","sql_type_gc");
+  p_db = new CDBObj(HKLM,REGPATH,"sql_server","sql_type_ks","sql_type_gc");
 
   p_client_update = new CUpdate();
   last_client_update_time = GetTickCount() - CLIENT_UPDATE_DELTA - 1;

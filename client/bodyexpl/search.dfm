@@ -9,8 +9,8 @@ object SearchFilesForm: TSearchFilesForm
   Constraints.MinWidth = 300
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
-  Font.Name = 'MS Sans Serif'
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
   Font.Style = []
   Icon.Data = {
     0000010004002020000001000800A80800004600000010100000010008006805
@@ -306,11 +306,11 @@ object SearchFilesForm: TSearchFilesForm
   OnKeyDown = FormKeyDown
   OnShow = FormShow
   PixelsPerInch = 96
-  TextHeight = 13
+  TextHeight = 15
   object Bevel1: TBevel
     Left = 0
     Top = 161
-    Width = 686
+    Width = 678
     Height = 3
     Align = alTop
     Shape = bsTopLine
@@ -318,7 +318,7 @@ object SearchFilesForm: TSearchFilesForm
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 686
+    Width = 678
     Height = 161
     Align = alTop
     BevelOuter = bvNone
@@ -326,15 +326,15 @@ object SearchFilesForm: TSearchFilesForm
     object Label1: TLabel
       Left = 8
       Top = 16
-      Width = 33
-      Height = 13
+      Width = 36
+      Height = 15
       Caption = 'masks:'
     end
     object EditMasks: TEdit
       Left = 8
       Top = 32
       Width = 380
-      Height = 21
+      Height = 23
       MaxLength = 250
       TabOrder = 0
       OnKeyDown = EditMasksKeyDown
@@ -355,8 +355,8 @@ object SearchFilesForm: TSearchFilesForm
       Caption = 'begin search'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
+      Font.Height = -12
+      Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 3
@@ -371,7 +371,7 @@ object SearchFilesForm: TSearchFilesForm
       TabOrder = 2
     end
     object Panel3: TPanel
-      Left = 608
+      Left = 600
       Top = 0
       Width = 78
       Height = 161
@@ -388,8 +388,8 @@ object SearchFilesForm: TSearchFilesForm
   end
   object StatusBar: TStatusBar
     Left = 0
-    Top = 424
-    Width = 686
+    Top = 412
+    Width = 678
     Height = 24
     Panels = <
       item
@@ -405,16 +405,16 @@ object SearchFilesForm: TSearchFilesForm
   object Panel2: TPanel
     Left = 0
     Top = 164
-    Width = 686
-    Height = 260
+    Width = 678
+    Height = 248
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 2
     object PanelTools: TPanel
-      Left = 539
+      Left = 531
       Top = 0
       Width = 147
-      Height = 260
+      Height = 248
       Align = alRight
       BevelOuter = bvNone
       TabOrder = 0
@@ -440,8 +440,8 @@ object SearchFilesForm: TSearchFilesForm
     object PanelListView: TPanel
       Left = 0
       Top = 0
-      Width = 539
-      Height = 260
+      Width = 531
+      Height = 248
       Align = alClient
       BevelOuter = bvNone
       Caption = 'search...'
@@ -455,8 +455,8 @@ object SearchFilesForm: TSearchFilesForm
       object ListView: TListView
         Left = 0
         Top = 0
-        Width = 539
-        Height = 260
+        Width = 531
+        Height = 248
         Align = alClient
         Columns = <
           item
@@ -474,8 +474,8 @@ object SearchFilesForm: TSearchFilesForm
         ColumnClick = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
+        Font.Height = -12
+        Font.Name = 'Segoe UI'
         Font.Style = []
         HideSelection = False
         MultiSelect = True

@@ -25,7 +25,7 @@ void ReadGlobalConfig()
 {
   // the same code in service!!!
 
-  machine_type = ReadRegDword(HKLM,REGPATH,"machine_type",MACHINE_TYPE_GAMECLUB);
+  machine_type = ReadRegDword(HKLM,REGPATH,"machine_type",MACHINE_TYPE_STUDENT);
   ReadRegStr(HKLM,REGPATH,"machine_loc",machine_loc,"");
   if ( !machine_loc[0] )
      ReadRegStr(HKLM,"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion","RegisteredOrganization",machine_loc,"");

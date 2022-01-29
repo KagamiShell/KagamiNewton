@@ -15,7 +15,7 @@ type
     EditFolder: TEdit;
     ButtonOk: TButton;
     ButtonCancel: TButton;
-    ImageBook: TImage;
+    Label2: TLabel;
     procedure RadioButtonClick(Sender: TObject);
     procedure ButtonOkClick(Sender: TObject);
     procedure FormShow(Sender: TObject);

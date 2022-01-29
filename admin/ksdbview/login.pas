@@ -28,16 +28,16 @@ type
     procedure EditLoginChange(Sender: TObject);
   private
     { Private declarations }
-    inplicity : boolean;
+    inplicity: boolean;
   public
     { Public declarations }
     constructor CreateForm(); overload;
-    constructor CreateForm(server:string;server_type:integer;login,pwd:string); overload;
+    constructor CreateForm(server: string; server_type: integer; login, pwd: string); overload;
     destructor Destroy; override;
-    function GetServerType:integer;
-    function GetServer:string;
-    function GetLogin:string;
-    function GetPwd:string;
+    function GetServerType: integer;
+    function GetServer: string;
+    function GetLogin: string;
+    function GetPwd: string;
     procedure WriteConfig;
     procedure DefaultHandler(var Message); override;
   end;
@@ -50,205 +50,205 @@ uses tools;
 
 {$R *.dfm}
 
-var msg_ok : cardinal = WM_NULL;
+var msg_ok: cardinal = WM_NULL;
 
 
 procedure TLoginForm.DefaultHandler(var Message);
 begin
   with TMessage(Message) do
-    if msg=msg_ok then
-      begin
-       if ButtonOK.Enabled then
+    if msg = msg_ok then
+    begin
+      if ButtonOK.Enabled then
         ButtonOKClick(nil);
-      end
+    end
     else
       inherited;
 end;
 
 constructor TLoginForm.CreateForm();
-var s_server:string;
-    p:array[0..MAX_PATH] of char;
-    nSize:cardinal;
-    server_type : integer;
-    use_lm:boolean;
-    allow_empty:boolean;
+var s_server: string;
+  p: array[0..MAX_PATH] of char;
+  nSize: cardinal;
+  server_type: integer;
+  use_lm: boolean;
+  allow_empty: boolean;
 begin
- inherited Create(nil);
+  inherited Create(nil);
 
- inplicity:=false;
- use_lm:=IsOperator;
- allow_empty:=IsOperator;
+  inplicity := false;
+  use_lm := IsOperator;
+  allow_empty := IsOperator;
 
- s_server:=ReadConfigStr(use_lm,'','sql_server','');
- if (s_server='') and (not allow_empty) then
+  s_server := ReadConfigStr(use_lm, '', 'sql_server', '');
+  if (s_server = '') and (not allow_empty) then
   begin
-   p[0]:=#0;
-   nSize:=sizeof(p);
-   GetComputerName(p,nSize);
-   s_server:=p;
+    p[0] := #0;
+    nSize := sizeof(p);
+    GetComputerName(p, nSize);
+    s_server := p;
   end;
- EditServer.Text:=s_server;
+  EditServer.Text := s_server;
 
- server_type:=ReadConfigInt(use_lm,'','sql_type_rp',0);
- if (server_type<0) or (server_type>ComboBoxServerType.Items.Count-1) then
-  server_type:=0;
- ComboBoxServerType.ItemIndex:=server_type;
+  server_type := ReadConfigInt(use_lm, '', 'sql_type_ks', 0);
+  if (server_type < 0) or (server_type > ComboBoxServerType.Items.Count - 1) then
+    server_type := 0;
+  ComboBoxServerType.ItemIndex := server_type;
 
- EditLogin.Text:=ReadConfigStr(false,'','last_login_name','');
- EditPwd.Text:='';
+  EditLogin.Text := ReadConfigStr(false, '', 'last_login_name', '');
+  EditPwd.Text := '';
 end;
 
-constructor TLoginForm.CreateForm(server:string;server_type:integer;login,pwd:string);
+constructor TLoginForm.CreateForm(server: string; server_type: integer; login, pwd: string);
 begin
- inherited Create(nil);
+  inherited Create(nil);
 
- inplicity:=true;
+  inplicity := true;
 
- EditServer.Text:=server;
- if (server_type<0) or (server_type>ComboBoxServerType.Items.Count-1) then
-  server_type:=0;
- ComboBoxServerType.ItemIndex:=server_type;
- EditLogin.Text:=login;
- EditPwd.Text:=pwd;
+  EditServer.Text := server;
+  if (server_type < 0) or (server_type > ComboBoxServerType.Items.Count - 1) then
+    server_type := 0;
+  ComboBoxServerType.ItemIndex := server_type;
+  EditLogin.Text := login;
+  EditPwd.Text := pwd;
 end;
 
 destructor TLoginForm.Destroy;
 begin
 
- inherited;
+  inherited;
 end;
 
 procedure TLoginForm.FormShow(Sender: TObject);
 begin
- Label3.Enabled:=not IsOperator;
- Label4.Enabled:=not IsOperator;
- EditServer.Enabled:=not IsOperator;
- ComboBoxServerType.Enabled:=not IsOperator;
+  Label3.Enabled := not IsOperator;
+  Label4.Enabled := not IsOperator;
+  EditServer.Enabled := not IsOperator;
+  ComboBoxServerType.Enabled := not IsOperator;
 
- if not inplicity then
-  EditPwd.Text:='';
+  if not inplicity then
+    EditPwd.Text := '';
 
- EditServerChange(Sender);
+  EditServerChange(Sender);
 
- if (EditServer.Text='') and EditServer.Enabled then
-  EditServer.SetFocus
- else
- if (EditLogin.Text='') and EditLogin.Enabled then
-  EditLogin.SetFocus
- else
- if (EditPwd.Text='') and EditPwd.Enabled then
-  EditPwd.SetFocus
- else
- if ButtonOK.Enabled then
-  ButtonOK.SetFocus
- else
-  ButtonCancel.SetFocus;
+  if (EditServer.Text = '') and EditServer.Enabled then
+    EditServer.SetFocus
+  else
+  if (EditLogin.Text = '') and EditLogin.Enabled then
+    EditLogin.SetFocus
+  else
+  if (EditPwd.Text = '') and EditPwd.Enabled then
+    EditPwd.SetFocus
+  else
+  if ButtonOK.Enabled then
+    ButtonOK.SetFocus
+  else
+    ButtonCancel.SetFocus;
 
- if inplicity then
+  if inplicity then
   begin
-   inplicity:=false;
-   if ButtonOK.Enabled then
-    PostMessage(Handle,msg_ok,0,0);
+    inplicity := false;
+    if ButtonOK.Enabled then
+      PostMessage(Handle, msg_ok, 0, 0);
   end;
 end;
 
 procedure TLoginForm.ButtonOKClick(Sender: TObject);
 var
- Label1_Enabled,
- Label2_Enabled,
- Label3_Enabled,
- Label4_Enabled,
- EditServer_Enabled,
- EditLogin_Enabled,
- EditPwd_Enabled,
- ComboBoxServerType_Enabled,
- ButtonOK_Enabled,
- ButtonCancel_Enabled : boolean;
+  Label1_Enabled,
+  Label2_Enabled,
+  Label3_Enabled,
+  Label4_Enabled,
+  EditServer_Enabled,
+  EditLogin_Enabled,
+  EditPwd_Enabled,
+  ComboBoxServerType_Enabled,
+  ButtonOK_Enabled,
+  ButtonCancel_Enabled: boolean;
 begin
- Label1_Enabled:=             Label1.Enabled;
- Label2_Enabled:=             Label2.Enabled;
- Label3_Enabled:=             Label3.Enabled;
- Label4_Enabled:=             Label4.Enabled;
- EditServer_Enabled:=         EditServer.Enabled;
- EditLogin_Enabled:=          EditLogin.Enabled;
- EditPwd_Enabled:=            EditPwd.Enabled;
- ComboBoxServerType_Enabled:= ComboBoxServerType.Enabled;
- ButtonOK_Enabled:=           ButtonOK.Enabled;
- ButtonCancel_Enabled:=       ButtonCancel.Enabled;
+  Label1_Enabled := Label1.Enabled;
+  Label2_Enabled := Label2.Enabled;
+  Label3_Enabled := Label3.Enabled;
+  Label4_Enabled := Label4.Enabled;
+  EditServer_Enabled := EditServer.Enabled;
+  EditLogin_Enabled := EditLogin.Enabled;
+  EditPwd_Enabled := EditPwd.Enabled;
+  ComboBoxServerType_Enabled := ComboBoxServerType.Enabled;
+  ButtonOK_Enabled := ButtonOK.Enabled;
+  ButtonCancel_Enabled := ButtonCancel.Enabled;
 
- Label1.Enabled:=             false;
- Label2.Enabled:=             false;
- Label3.Enabled:=             false;
- Label4.Enabled:=             false;
- EditServer.Enabled:=         false;
- EditLogin.Enabled:=          false;
- EditPwd.Enabled:=            false;
- ComboBoxServerType.Enabled:= false;
- ButtonOK.Enabled:=           false;
- ButtonCancel.Enabled:=       false;
+  Label1.Enabled := false;
+  Label2.Enabled := false;
+  Label3.Enabled := false;
+  Label4.Enabled := false;
+  EditServer.Enabled := false;
+  EditLogin.Enabled := false;
+  EditPwd.Enabled := false;
+  ComboBoxServerType.Enabled := false;
+  ButtonOK.Enabled := false;
+  ButtonCancel.Enabled := false;
 
- WaitCursor(true,false);
- Update;
+  WaitCursor(true, false);
+  Update;
 
- Sleep(300);
+  Sleep(300);
 
- WaitCursor(false,false);
+  WaitCursor(false, false);
 
- Label1.Enabled:=             Label1_Enabled;
- Label2.Enabled:=             Label2_Enabled;
- Label3.Enabled:=             Label3_Enabled;
- Label4.Enabled:=             Label4_Enabled;
- EditServer.Enabled:=         EditServer_Enabled;
- EditLogin.Enabled:=          EditLogin_Enabled;
- EditPwd.Enabled:=            EditPwd_Enabled;
- ComboBoxServerType.Enabled:= ComboBoxServerType_Enabled;
- ButtonOK.Enabled:=           ButtonOK_Enabled;
- ButtonCancel.Enabled:=       ButtonCancel_Enabled;
+  Label1.Enabled := Label1_Enabled;
+  Label2.Enabled := Label2_Enabled;
+  Label3.Enabled := Label3_Enabled;
+  Label4.Enabled := Label4_Enabled;
+  EditServer.Enabled := EditServer_Enabled;
+  EditLogin.Enabled := EditLogin_Enabled;
+  EditPwd.Enabled := EditPwd_Enabled;
+  ComboBoxServerType.Enabled := ComboBoxServerType_Enabled;
+  ButtonOK.Enabled := ButtonOK_Enabled;
+  ButtonCancel.Enabled := ButtonCancel_Enabled;
 
- ModalResult:=mrOK;
+  ModalResult := mrOK;
 end;
 
 procedure TLoginForm.EditServerChange(Sender: TObject);
 begin
- ButtonOK.Enabled:=(trim(EditServer.Text)<>'') and (trim(EditLogin.Text)<>'');
+  ButtonOK.Enabled := (trim(EditServer.Text) <> '') and (trim(EditLogin.Text) <> '');
 end;
 
 procedure TLoginForm.EditLoginChange(Sender: TObject);
 begin
- EditServerChange(Sender);
+  EditServerChange(Sender);
 end;
 
-function TLoginForm.GetServerType:integer;
+function TLoginForm.GetServerType: integer;
 begin
- Result:=ComboBoxServerType.ItemIndex;
+  Result := ComboBoxServerType.ItemIndex;
 end;
 
-function TLoginForm.GetServer:string;
+function TLoginForm.GetServer: string;
 begin
- Result:=trim(EditServer.Text);
+  Result := trim(EditServer.Text);
 end;
 
-function TLoginForm.GetLogin:string;
+function TLoginForm.GetLogin: string;
 begin
- Result:=trim(EditLogin.Text);
+  Result := trim(EditLogin.Text);
 end;
 
-function TLoginForm.GetPwd:string;
+function TLoginForm.GetPwd: string;
 begin
- Result:=trim(EditPwd.Text);
+  Result := trim(EditPwd.Text);
 end;
 
 procedure TLoginForm.WriteConfig;
 begin
- if not IsOperator then
+  if not IsOperator then
   begin
-   WriteConfigStr(false,'','sql_server',EditServer.Text);
-   WriteConfigInt(false,'','sql_type_rp',ComboBoxServerType.ItemIndex);
+    WriteConfigStr(false, '', 'sql_server', EditServer.Text);
+    WriteConfigInt(false, '', 'sql_type_ks', ComboBoxServerType.ItemIndex);
   end;
- WriteConfigStr(false,'','last_login_name',EditLogin.Text);
+  WriteConfigStr(false, '', 'last_login_name', EditLogin.Text);
 end;
 
 
 begin
- msg_ok:=RegisterWindowMessage('_RSTLoginForm_MsgOK');
+  msg_ok := RegisterWindowMessage('_RSTLoginForm_MsgOK');
 end.

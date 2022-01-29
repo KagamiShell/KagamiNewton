@@ -124,7 +124,7 @@ begin
        s_server:='';
      end;
      try
-       db_type := reg.ReadInteger('sql_type_rp');
+       db_type := reg.ReadInteger('sql_type_ks');
      except
        db_type:=SQL_TYPE_UNKNOWN;
      end;
@@ -317,7 +317,7 @@ begin
              reg.WriteString('sql_server',EditServer.Text);
            except end;
            try
-             reg.WriteInteger('sql_type_rp',ComboBoxServerType.ItemIndex);
+             reg.WriteInteger('sql_type_ks',ComboBoxServerType.ItemIndex);
            except end;
            reg.CloseKey;
          end;

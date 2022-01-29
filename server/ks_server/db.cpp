@@ -33,7 +33,7 @@ CDBLibGCRP::CDBLibGCRP()
   gc = NULL;
   rp = NULL;
   m_dbtype_gc = SQL_TYPE_UNKNOWN;
-  m_dbtype_rp = SQL_TYPE_UNKNOWN;
+  m_dbtype_ks = SQL_TYPE_UNKNOWN;
 }
 
 
@@ -43,7 +43,7 @@ CDBLibGCRP::~CDBLibGCRP()
 }
 
 
-void CDBLibGCRP::SetLib(int type_gc,int type_rp)
+void CDBLibGCRP::SetLib(int type_gc,int type_ks)
 {
   if ( m_dbtype_gc != type_gc )
      {
@@ -53,12 +53,12 @@ void CDBLibGCRP::SetLib(int type_gc,int type_rp)
        m_dbtype_gc = type_gc;
      }
 
-  if ( m_dbtype_rp != type_rp )
+  if ( m_dbtype_ks != type_ks )
      {
        if ( rp )
           delete rp;
-       rp = (type_rp == SQL_TYPE_UNKNOWN ? NULL : new CSQLLib(type_rp));
-       m_dbtype_rp = type_rp;
+       rp = (type_ks == SQL_TYPE_UNKNOWN ? NULL : new CSQLLib(type_ks));
+       m_dbtype_ks = type_ks;
      }
 }
 
@@ -73,7 +73,7 @@ void CDBLibGCRP::Free()
   rp = NULL;
 
   m_dbtype_gc = SQL_TYPE_UNKNOWN;
-  m_dbtype_rp = SQL_TYPE_UNKNOWN;
+  m_dbtype_ks = SQL_TYPE_UNKNOWN;
 }
 
 
@@ -82,7 +82,7 @@ void CDBLibGCRP::ClearWithoutFree()
   gc = NULL;
   rp = NULL;
   m_dbtype_gc = SQL_TYPE_UNKNOWN;
-  m_dbtype_rp = SQL_TYPE_UNKNOWN;
+  m_dbtype_ks = SQL_TYPE_UNKNOWN;
 }
 
 
@@ -137,17 +137,17 @@ const char* CDBLibGCRP::GetLastError()
 
 
 
-CDBObj::CDBObj(HKEY root,const char *key,const char *value_server,const char *value_dbtype_rp,const char *value_dbtype_gc)
+CDBObj::CDBObj(HKEY root,const char *key,const char *value_server,const char *value_dbtype_ks,const char *value_dbtype_gc)
 {
   reg_root = root;
   reg_key = sys_copystring(key);
   reg_value_server = sys_copystring(value_server);
-  reg_value_dbtype_rp = sys_copystring(value_dbtype_rp);
+  reg_value_dbtype_ks = sys_copystring(value_dbtype_ks);
   reg_value_dbtype_gc = sys_copystring(value_dbtype_gc);
   last_reg_read_time = GetTickCount() - 60000;
 
   server_name[0] = 0;
-  dbtype_rp = SQL_TYPE_UNKNOWN;
+  dbtype_ks = SQL_TYPE_UNKNOWN;
   dbtype_gc = SQL_TYPE_UNKNOWN;
 
   last_poll_time = GetTickCount();
@@ -175,8 +175,8 @@ CDBObj::~CDBObj()
      sys_free(reg_key);
   if ( reg_value_server )
      sys_free(reg_value_server);
-  if ( reg_value_dbtype_rp )
-     sys_free(reg_value_dbtype_rp);
+  if ( reg_value_dbtype_ks )
+     sys_free(reg_value_dbtype_ks);
   if ( reg_value_dbtype_gc )
      sys_free(reg_value_dbtype_gc);
 }
@@ -291,21 +291,21 @@ void CDBObj::RetrieveServerName(BOOL *_changed)
      {
        char name[MAX_PATH];
        ReadRegStr(reg_root,reg_key,reg_value_server,name,"");
-       int type_rp = ReadRegDword(reg_root,reg_key,reg_value_dbtype_rp,SQL_TYPE_UNKNOWN);
+       int type_ks = ReadRegDword(reg_root,reg_key,reg_value_dbtype_ks,SQL_TYPE_UNKNOWN);
        int type_gc = ReadRegDword(reg_root,reg_key,reg_value_dbtype_gc,SQL_TYPE_UNKNOWN);
        last_reg_read_time = GetTickCount();
 
-       if ( lstrcmpi(name,server_name) || type_rp != dbtype_rp || type_gc != dbtype_gc )
+       if ( lstrcmpi(name,server_name) || type_ks != dbtype_ks || type_gc != dbtype_gc )
           {
             lstrcpy(server_name,name);
-            dbtype_rp = type_rp;
+            dbtype_ks = type_ks;
             dbtype_gc = type_gc;
 
             if ( _changed )
                *_changed = TRUE;
           }
 
-       ADD2LOG(("Retrieve SQL-server name: \"%s\" (%d,%d)",server_name,dbtype_rp,dbtype_gc));
+       ADD2LOG(("Retrieve SQL-server name: \"%s\" (%d,%d)",server_name,dbtype_ks,dbtype_gc));
      }
 }
 
@@ -337,7 +337,7 @@ void CDBObj::Connect()
      {
        if ( server_name[0] )
           {
-            gcrp.SetLib(dbtype_gc,dbtype_rp);
+            gcrp.SetLib(dbtype_gc,dbtype_ks);
 
             ADD2LOG(("Connecting..."));
             

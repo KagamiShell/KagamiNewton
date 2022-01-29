@@ -11,8 +11,8 @@
 #include "../../client/kshell/f0.h"
 #include "../../client/kshell/netcmd.h"
 #include "../../client/kshell/servicemgr.h"
-#include "../rs_server/def.h"
-#include "../rs_server/tools.h"
+#include "../ks_server/def.h"
+#include "../ks_server/tools.h"
 
 
 HINSTANCE our_instance;
@@ -26,7 +26,7 @@ typedef struct {
 HICON small_icon;
 HICON big_icon;
 char server_name[MAX_PATH];
-int dbtype_rp;
+int dbtype_ks;
 int dbtype_gc;
 } STARTUPDIALOGINFO;
 
@@ -98,25 +98,20 @@ void ShowDialog(void)
 {
   STARTUPDIALOGINFO i;
   
-  i.GetLicInfo = GetLicInfo;
-  i.SetLicKey = SetLicKey;
-  
   i.small_icon = (HICON)LoadImage(our_instance,MAKEINTRESOURCE(101),IMAGE_ICON,16,16,LR_SHARED);
   i.big_icon = (HICON)LoadImage(our_instance,MAKEINTRESOURCE(101),IMAGE_ICON,32,32,LR_SHARED);
 
   ReadRegStr(HKLM,REGPATH,"sql_server",i.server_name,"");
   if ( !i.server_name[0] )
      MyGetComputerName(i.server_name);
-  i.dbtype_rp = ReadRegDword(HKLM,REGPATH,"sql_type_rp",SQL_TYPE_MSSQL);
-  i.dbtype_gc = ReadRegDword(HKLM,REGPATH,"sql_type_gc",SQL_TYPE_MSSQL);
+  i.dbtype_ks = ReadRegDword(HKLM,REGPATH,"sql_type_ks",SQL_TYPE_MSSQL);
 
   if ( ShowStartupMasterDialog(&i) )
      {
        if ( !i.server_name[0] )
           MyGetComputerName(i.server_name);
        WriteRegStr(HKLM,REGPATH,"sql_server",i.server_name);
-       WriteRegDword(HKLM,REGPATH,"sql_type_rp",i.dbtype_rp);
-       WriteRegDword(HKLM,REGPATH,"sql_type_gc",i.dbtype_gc);
+       WriteRegDword(HKLM,REGPATH,"sql_type_ks",i.dbtype_ks);
      }
 }
 

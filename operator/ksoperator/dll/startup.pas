@@ -13,7 +13,7 @@ type
       small_icon : cardinal;
       big_icon : cardinal;
       sql_server : TSTRING;
-      dbtype_rp : integer;
+      dbtype_ks : integer;
       runpad_server : TSTRING;
       autorun : longbool;
      end;
@@ -101,7 +101,7 @@ begin
  Label8.Caption:='Работа мастера завершена!'#13#10#13#10'Мастер всегда можно запустить повторно из-под учетной записи администратора для изменения настроек'#13#10#13#10#13#10#13#10#13#10'-------'#13#10'Нажмите "Завершить" для выхода';
 
  Edit3.Text:=info.sql_server;
- ComboBox1.ItemIndex:=info.dbtype_rp;
+ ComboBox1.ItemIndex:=info.dbtype_ks;
  Edit1.Text:=info.runpad_server;
  CheckBox1.Checked:=info.autorun;
 
@@ -120,7 +120,7 @@ begin
   begin
    StrCopy(info.sql_server,pchar(Edit3.Text));
    StrCopy(info.runpad_server,pchar(Edit1.Text));
-   info.dbtype_rp:=ComboBox1.ItemIndex;
+   info.dbtype_ks:=ComboBox1.ItemIndex;
    info.autorun:=CheckBox1.Checked;
   end;
 

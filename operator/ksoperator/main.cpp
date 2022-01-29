@@ -22,7 +22,7 @@ void StartupMaster()
   ReadRegStr(HKLM,REGPATH,"sql_server",i.sql_server,"");
   if ( IsStrEmpty(i.sql_server) )
      MyGetComputerName(i.sql_server);
-  i.dbtype_rp = ReadRegDword(HKLM,REGPATH,"sql_type_rp",SQL_TYPE_MSSQL);
+  i.dbtype_ks = ReadRegDword(HKLM,REGPATH,"sql_type_ks",SQL_TYPE_MSSQL);
   ReadRegStr(HKLM,REGPATH,"server_ip",i.runpad_server,"");
   if ( IsStrEmpty(i.runpad_server) )
      MyGetComputerName(i.runpad_server);
@@ -31,7 +31,7 @@ void StartupMaster()
   if ( gui->StartupDialog(&i) )
      {
        WriteRegStr(HKLM,REGPATH,"sql_server",i.sql_server);
-       WriteRegDword(HKLM,REGPATH,"sql_type_rp",i.dbtype_rp);
+       WriteRegDword(HKLM,REGPATH,"sql_type_ks",i.dbtype_ks);
        WriteRegStr(HKLM,REGPATH,"server_ip",i.runpad_server);
        if ( i.autorun )
           {

@@ -14,13 +14,13 @@ class CDBLibGCRP
           CSQLLib *rp;
           
           int m_dbtype_gc;
-          int m_dbtype_rp;
+          int m_dbtype_ks;
 
   public:
           CDBLibGCRP();
           ~CDBLibGCRP();
 
-          void SetLib(int type_gc,int type_rp);
+          void SetLib(int type_gc,int type_ks);
           void Free();
           void ClearWithoutFree();
 
@@ -75,12 +75,12 @@ class CDBObj
           HKEY reg_root;
           char *reg_key;
           char *reg_value_server;
-          char *reg_value_dbtype_rp;
+          char *reg_value_dbtype_ks;
           char *reg_value_dbtype_gc;
           unsigned last_reg_read_time;
 
           char server_name[MAX_PATH];
-          int dbtype_rp;
+          int dbtype_ks;
           int dbtype_gc;
 
           HANDLE h_thread;
@@ -99,7 +99,7 @@ class CDBObj
 
 
   public:
-          CDBObj(HKEY root,const char *key,const char *value_server,const char *value_dbtype_rp,const char *value_dbtype_gc);
+          CDBObj(HKEY root,const char *key,const char *value_server,const char *value_dbtype_ks,const char *value_dbtype_gc);
           ~CDBObj();
 
           BOOL IsConnected();

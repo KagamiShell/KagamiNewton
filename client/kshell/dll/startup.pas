@@ -119,8 +119,8 @@ function TKSStartupForm.FromMachineType2Idx(machine_type:integer):integer;
 begin
  Result:=0;
  case machine_type of
-  MACHINE_TYPE_GAMECLUB:       Result:=0;
-  MACHINE_TYPE_INETCAFE:       Result:=1;
+  MACHINE_TYPE_STUDENT:       Result:=0;
+  MACHINE_TYPE_TEACHER:       Result:=1;
   MACHINE_TYPE_OPERATOR:       Result:=2;
   MACHINE_TYPE_ORGANIZATION:   Result:=3;
   MACHINE_TYPE_TERMINAL:       Result:=4;
@@ -131,10 +131,10 @@ end;
 
 function TKSStartupForm.FromIdx2MachineType(idx:integer):integer;
 begin
- Result:=MACHINE_TYPE_GAMECLUB;
+ Result:=MACHINE_TYPE_STUDENT;
  case idx of
-  0: Result:=MACHINE_TYPE_GAMECLUB;
-  1: Result:=MACHINE_TYPE_INETCAFE;
+  0: Result:=MACHINE_TYPE_STUDENT;
+  1: Result:=MACHINE_TYPE_TEACHER;
   2: Result:=MACHINE_TYPE_OPERATOR;
   3: Result:=MACHINE_TYPE_ORGANIZATION;
   4: Result:=MACHINE_TYPE_TERMINAL;

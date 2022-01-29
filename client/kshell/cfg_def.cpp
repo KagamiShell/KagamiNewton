@@ -128,7 +128,7 @@ BOOL is_internet;
 
 static const TDEFSHEET def_sheet_action         = {3118,NULL,RGB(249,135,60),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\vid01.wmv","%KS_FOLDER%\\default\\bg\\pic01_resize.jpg",0,24,NULL,-1,FALSE};
 static const TDEFSHEET def_sheet_internet       = {3119,NULL,RGB(94,204,51),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\vid02.wmv","%KS_FOLDER%\\default\\bg\\pic02_resize.jpg",0,24,NULL,-1,TRUE};
-static const TDEFSHEET def_sheet_rpg            = {3120,NULL,RGB(94,196,55),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\vid03.wmv","%KS_FOLDER%\\default\\bg\\pic03_resize.jpg",0,24,NULL,-1,FALSE};
+static const TDEFSHEET def_sheet_ksg            = {3120,NULL,RGB(94,196,55),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\vid03.wmv","%KS_FOLDER%\\default\\bg\\pic03_resize.jpg",0,24,NULL,-1,FALSE};
 static const TDEFSHEET def_sheet_adults         = {3121,"%KS_FOLDER%\\default\\icons\\icon01.ico",RGB(244,165,45),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\vid04.wmv","%KS_FOLDER%\\default\\bg\\pic04_resize.jpg",23,6,NULL,3127,FALSE};
 static const TDEFSHEET def_sheet_music          = {3122,NULL,RGB(243,140,65),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\vplugins\\vp_voxel.dll","%KS_FOLDER%\\default\\bg\\pic05_resize.jpg",0,24,NULL,-1,FALSE};
 static const TDEFSHEET def_sheet_programs       = {3123,NULL,RGB(255,255,255),0xA0A0A0,"%KS_FOLDER%\\default\\bg\\vid06.wmv","%KS_FOLDER%\\default\\bg\\pic06_resize.jpg",0,24,NULL,-1,FALSE};
@@ -148,51 +148,26 @@ int desc_id;
 } TDEFSHORTCUT;
 
 static const TDEFSHORTCUT def_shortcut_00 =
-    { 3128,
-      "http://www.runpad-shell.com",NULL,
-      -1,
-      -1 };
-static const TDEFSHORTCUT def_shortcut_01 =
-    { 3129,
-      "%KS_FOLDER%\\bodywb.exe",NULL,
-      3221,
-      3130 };
-static const TDEFSHORTCUT def_shortcut_02 =
-    { 3131,
-      "%KS_FOLDER%\\bodywb.exe","-simple http://www.runpad-shell.com",
-      3221,
-      3132 };
-static const TDEFSHORTCUT def_shortcut_03 =
-    { 3133,
-      "%KS_FOLDER%\\bodymail.exe",NULL,
-      3221,
-      3134 };
-static const TDEFSHORTCUT def_shortcut_04 =
-    { 3135,
-      "%KS_FOLDER%\\bodyexpl.exe",NULL,
-      3222,
-      3136 };
-static const TDEFSHORTCUT def_shortcut_05 =
     { 3137,
       "%KS_FOLDER%\\bodyexpl.exe",NULL,
       3222,
       3138 };
-static const TDEFSHORTCUT def_shortcut_06 =
+static const TDEFSHORTCUT def_shortcut_01 =
     { 3139,
       "%KS_FOLDER%\\bodywb.exe",NULL,
       3221,
       3140 };
-static const TDEFSHORTCUT def_shortcut_07 =
+static const TDEFSHORTCUT def_shortcut_02 =
     { 3141,
       "%KS_FOLDER%\\bodyword.exe",NULL,
       3222,
       3142 };
-static const TDEFSHORTCUT def_shortcut_08 =
+static const TDEFSHORTCUT def_shortcut_03 =
     { 3143,
       "%KS_FOLDER%\\bodyexcel.exe",NULL,
       3222,
       3144 };
-static const TDEFSHORTCUT def_shortcut_09 =
+static const TDEFSHORTCUT def_shortcut_04 =
     { 3145,
       "%KS_FOLDER%\\bodynotepad.exe",NULL,
       3222,
@@ -243,61 +218,31 @@ static const TDEFSHORTCUT def_shortcut_18 =
       3222,
       3164 };
 static const TDEFSHORTCUT def_shortcut_19 =
-    { 3165,
-      "%KS_FOLDER%\\bodyflash.exe",NULL,
-      3223,
-      3166 };
-static const TDEFSHORTCUT def_shortcut_20 =
     { 3167,
       "%KS_FOLDER%\\bodyscan.exe","-noui",
       3224,
       3168 };
-static const TDEFSHORTCUT def_shortcut_21 =
+static const TDEFSHORTCUT def_shortcut_20 =
     { 3169,
       "%KS_FOLDER%\\bodyscan.exe",NULL,
       3224,
       3170 };
-static const TDEFSHORTCUT def_shortcut_22 =
-    { 3171,
-      "%KS_FOLDER%\\bodymail.exe",NULL,
-      3221,
-      3172 };
-static const TDEFSHORTCUT def_shortcut_23 =
-    { 3173,
-      "%KS_FOLDER%\\bodybtw.exe",NULL,
-      3224,
-      3174 };
-static const TDEFSHORTCUT def_shortcut_24 =
-    { 3175,
-      "%KS_FOLDER%\\bodymobile.exe",NULL,
-      3224,
-      3176 };
-static const TDEFSHORTCUT def_shortcut_25 =
+static const TDEFSHORTCUT def_shortcut_21 =
     { 3177,
       "%KS_FOLDER%\\rsspoolcleaner.exe",NULL,
       3225,
       3178 };
-static const TDEFSHORTCUT def_shortcut_26 =
+static const TDEFSHORTCUT def_shortcut_22 =
     { 3179,
       "%KS_FOLDER%\\bodymouse.exe",NULL,
       3225,
       3180 };
-static const TDEFSHORTCUT def_shortcut_27 =
+static const TDEFSHORTCUT def_shortcut_23 =
     { 3214,
       "%KS_FOLDER%\\bodycam.exe",NULL,
       3224,
       3215 };
-static const TDEFSHORTCUT def_shortcut_28 =
-    { 3217,
-      "%KS_FOLDER%\\modem_restart.exe",NULL,
-      3225,
-      3218 };
-static const TDEFSHORTCUT def_shortcut_29 =
-    { 3128,
-      "http://www.runpad-shell.com",NULL,
-      3221,
-      -1 };
-static const TDEFSHORTCUT def_shortcut_30 =
+static const TDEFSHORTCUT def_shortcut_24 =
     { 3236,
       "%KS_FOLDER%\\bodyrecycle.exe",NULL,
       3222,
@@ -314,57 +259,57 @@ const TDEFSHORTCUT *shortcut;
 
 static const TDEFCONTENTITEM def_content[] = 
 {
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_TEACHER|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_29 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_TEACHER|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_04 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_TEACHER|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_05 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_TEACHER|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_30 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_TEACHER|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_06 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_TEACHER|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_07 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_TEACHER|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_08 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_TEACHER|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_09 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_TEACHER|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_10 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_TEACHER|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_11 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_TEACHER|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_12 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_TEACHER|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_13 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_TEACHER|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_14 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_TEACHER|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_15 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_TEACHER|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_16 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_TEACHER|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_17 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_TEACHER|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_18 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_TEACHER|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_19 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_TEACHER|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_25 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_TEACHER|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_20 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_TEACHER|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_21 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_TEACHER|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_22 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_TEACHER|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_23 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_TEACHER|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_24 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_TEACHER|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_26 },
-    { MACHINE_TYPE_GAMECLUB|MACHINE_TYPE_INETCAFE|MACHINE_TYPE_HOME,
+    { MACHINE_TYPE_STUDENT|MACHINE_TYPE_TEACHER|MACHINE_TYPE_HOME,
       &def_sheet_programs, &def_shortcut_27 },
 
     { MACHINE_TYPE_TERMINAL,
@@ -473,28 +418,28 @@ static const TDEFCONTENTITEM def_content[] =
     { MACHINE_TYPE_OPERATOR|MACHINE_TYPE_ORGANIZATION|MACHINE_TYPE_OTHER,
       &def_sheet_programs_other, &def_shortcut_27 },
 
-    { MACHINE_TYPE_GAMECLUB | MACHINE_TYPE_INETCAFE,
+    { MACHINE_TYPE_STUDENT | MACHINE_TYPE_TEACHER,
       &def_sheet_internet, &def_shortcut_29 },
-    { MACHINE_TYPE_GAMECLUB | MACHINE_TYPE_INETCAFE,
+    { MACHINE_TYPE_STUDENT | MACHINE_TYPE_TEACHER,
       &def_sheet_internet, &def_shortcut_01 },
-    { MACHINE_TYPE_GAMECLUB | MACHINE_TYPE_INETCAFE,
+    { MACHINE_TYPE_STUDENT | MACHINE_TYPE_TEACHER,
       &def_sheet_internet, &def_shortcut_02 },
-    { MACHINE_TYPE_GAMECLUB | MACHINE_TYPE_INETCAFE,
+    { MACHINE_TYPE_STUDENT | MACHINE_TYPE_TEACHER,
       &def_sheet_internet, &def_shortcut_03 },
 
-    { MACHINE_TYPE_GAMECLUB,
+    { MACHINE_TYPE_STUDENT,
       &def_sheet_action, &def_shortcut_00 },
-    { MACHINE_TYPE_GAMECLUB,
-      &def_sheet_rpg, &def_shortcut_00 },
-    { MACHINE_TYPE_GAMECLUB,
+    { MACHINE_TYPE_STUDENT,
+      &def_sheet_ksg, &def_shortcut_00 },
+    { MACHINE_TYPE_STUDENT,
       &def_sheet_simulators, &def_shortcut_00 },
-    { MACHINE_TYPE_GAMECLUB,
+    { MACHINE_TYPE_STUDENT,
       &def_sheet_strategies, &def_shortcut_00 },
-    { MACHINE_TYPE_GAMECLUB,
+    { MACHINE_TYPE_STUDENT,
       &def_sheet_adults, &def_shortcut_00 },
-    { MACHINE_TYPE_GAMECLUB,
+    { MACHINE_TYPE_STUDENT,
       &def_sheet_music, &def_shortcut_00 },
-    { MACHINE_TYPE_GAMECLUB,
+    { MACHINE_TYPE_STUDENT,
       &def_sheet_films, &def_shortcut_00 },
 
     { MACHINE_TYPE_OPERATOR,

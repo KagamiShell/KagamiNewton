@@ -250,13 +250,6 @@ static void PDFViewDisable(BOOL state,void *p1,void *p2,void *p3)
 }
 
 
-static void SWFFlashDisable(BOOL state,void *p1,void *p2,void *p3)
-{
-  const char *exts = "swf";
-  RegUnregExtensions(state,"BodyFlash","$bodyflash",1,"Flash Movie",exts);
-}
-
-
 static void RegisterOfficeAddin(const char *key,BOOL state)
 {
   if ( state )

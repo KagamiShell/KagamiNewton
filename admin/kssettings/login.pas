@@ -66,7 +66,7 @@ begin
   end;
  EditServer.Text:=s_server;
 
- server_type:=ReadConfigInt('','sql_type_rp',0);
+ server_type:=ReadConfigInt('','sql_type_ks',0);
  if (server_type<0) or (server_type>ComboBoxServerType.Items.Count-1) then
   server_type:=0;
  ComboBoxServerType.ItemIndex:=server_type;
@@ -161,7 +161,7 @@ end;
 procedure TLoginForm.WriteConfig;
 begin
  WriteConfigStr('','sql_server',EditServer.Text);
- WriteConfigInt('','sql_type_rp',ComboBoxServerType.ItemIndex);
+ WriteConfigInt('','sql_type_ks',ComboBoxServerType.ItemIndex);
  WriteConfigStr('','last_login_name',EditLogin.Text);
 end;
 

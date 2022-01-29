@@ -19,7 +19,7 @@ typedef struct {
 HICON small_icon;
 HICON big_icon;
 char sql_server[MAX_PATH];
-int dbtype_rp;
+int dbtype_ks;
 char runpad_server[MAX_PATH];
 BOOL autorun;
 } STARTUPDIALOGINFO;

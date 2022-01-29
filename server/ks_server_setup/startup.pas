@@ -17,7 +17,7 @@ type
       small_icon : cardinal;
       big_icon : cardinal;
       server_name : TSTRING;
-      dbtype_rp : integer;
+      dbtype_ks : integer;
       dbtype_gc : integer;
      end;
      PStartupInfo = ^TStartupInfo;
@@ -119,7 +119,7 @@ begin
  UpdateLicInfo();
 
  Edit3.Text:=info.server_name;
- ComboBox1.ItemIndex:=info.dbtype_rp;
+ ComboBox1.ItemIndex:=info.dbtype_ks;
  ComboBox2.ItemIndex:=info.dbtype_gc;
 
  SwitchToPage(0);
@@ -136,7 +136,7 @@ begin
  if ModalResult=mrOk then
   begin
    StrCopy(info.server_name,pchar(Edit3.Text));
-   info.dbtype_rp:=ComboBox1.ItemIndex;
+   info.dbtype_ks:=ComboBox1.ItemIndex;
    info.dbtype_gc:=ComboBox2.ItemIndex;
   end;
 
