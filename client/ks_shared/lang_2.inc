@@ -15,7 +15,7 @@ static const TLANGSTR lang_2[] =
   {    5, "ОК" },
   {    6, "Відмінити" },
            
-  // rp_shared
+  // ks_shared
   {  100, "Дискета" },
   {  101, "Flash-диск" },
   {  102, "CD-ROM" },

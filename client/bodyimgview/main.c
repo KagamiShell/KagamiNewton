@@ -124,7 +124,7 @@ int WINAPI WinMain(HINSTANCE hThisInstance,HINSTANCE hPrevInstance,LPSTR lpszCmd
   InitCommonControls();
   CoInitialize(0);
   
-  if ( !CheckRPVersion(RUNPAD_VERSION_DIG) )
+  if ( !CheckKSVersion(KAGAMI_VERSION_DIG) )
      return 0;
 
   instance = GetModuleHandle(NULL);

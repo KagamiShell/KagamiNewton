@@ -1265,7 +1265,7 @@ begin
   all:=rc=mrYes;
 
   repeat
-   if RPOpenSaveDialog(Handle, LSP(1544),LSP(LS_QUESTION),t,nil) = RPOPENSAVE_CANCEL then
+   if KSOpenSaveDialog(Handle, LSP(1544),LSP(LS_QUESTION),t,nil) = KSOPENSAVE_CANCEL then
     Exit;
    savepath:=t;
   until savepath<>'';

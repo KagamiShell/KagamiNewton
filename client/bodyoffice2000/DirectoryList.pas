@@ -405,7 +405,7 @@ begin
   ProtectRunInOffice:=true;
   AllowExtPrint := false;
   reg := TRegistry.Create;
-  if reg.OpenKeyReadOnly( 'Software\RunpadProShell' ) then 
+  if reg.OpenKeyReadOnly( 'Software\KagamineP\KagamiShell\KagamiShell' ) then 
    begin
     try
      AllowExtPrint := reg.ReadBool('ext_office_print');
@@ -1134,7 +1134,7 @@ begin
          end;
         q^:=#0;
 
-        idx:=RPMessageBox(GetForegroundWindow(),LSP(618),LSP(619),p,active_idx,RPICON_QUESTION);
+        idx:=KSMessageBox(GetForegroundWindow(),LSP(618),LSP(619),p,active_idx,KSICON_QUESTION);
 
         if idx<>-1 then
          begin

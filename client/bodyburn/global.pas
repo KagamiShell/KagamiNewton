@@ -24,7 +24,7 @@ begin
   begin
    net_burn_path:='';
    reg:=TRegistry.Create(KEY_READ);
-   if reg.OpenKeyReadOnly('Software\RunpadProShell') then
+   if reg.OpenKeyReadOnly('Software\KagamineP\KagamiShell\KagamiShell') then
      begin
        try
          net_burn_path := reg.ReadString('net_burn_path');

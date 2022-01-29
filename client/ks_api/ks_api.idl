@@ -1,0 +1,101 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+
+[
+	object,
+	uuid(83C12BF7-FF8F-4619-85CD-9DA77C8D7D5F),
+	helpstring("IKagamiShell Interface"),
+	pointer_default(unique)
+]
+
+interface IKagamiShell : IUnknown {
+
+	typedef enum {
+		KS_OFF = 0,
+		KS_TURNEDON = 1,
+		KS_ACTIVE = 3,
+		KS_INVALID = -1,
+	} KSHELLSTATE;
+
+	typedef enum {
+		KSM_ADMIN = 0x01,
+		KSM_MONITOR = 0x02,
+		KSM_INPUT = 0x04,
+		KSM_BLOCKED = 0x08,
+	} KSHELLMODE;
+
+	typedef enum {
+		KSF_SHELL = 0,
+		KSF_DESKTOP = 1,
+		KSF_BG = 2,
+		KSF_RULES = 3,
+		KSF_USERFOLDER = 4,
+		KSF_VIPFOLDER = 5,
+	} KSHELLFOLDER;
+
+	typedef enum {
+		KSMSG_DESKTOP = 0,
+		KSMSG_TRAY = 1,
+		KSMSG_STATUS = 2,
+	} KSHELLMESSAGE;
+
+	typedef enum {
+		KSA_SHOWPANEL = 0,
+		KSA_MINIMIZEALLWINDOWS = 1,
+		KSA_KILLALLTASKS = 2,
+		KSA_RESTOREVMODE = 3,
+		KSA_UPDATEDESKTOP = 4,
+		KSA_CLOSECHILDWINDOWS = 5,
+		KSA_SWITCHTOUSERMODE = 6,
+		KSA_TURNMONITORON = 7,
+		KSA_TURNMONITOROFF = 8,
+		KSA_ENDVIPSESSION = 9,
+		KSA_RUNPROGRAMDISABLE = 10,
+		KSA_RUNPROGRAMENABLE = 11,
+		KSA_LOGOFF = 12,
+		KSA_LOGOFFFORCE = 13,
+		KSA_RUNSCREENSAVER = 14,
+		KSA_LANGSELECTDIALOG = 15,
+		KSA_LANGSELECTRUS = 16,
+		KSA_LANGSELECTENG = 17,
+		KSA_CLOSEACTIVESHEET = 20,
+		KSA_SHOWLA = 21,
+	} KSHELLACTION;
+
+	HRESULT  GetShellPid([out] DWORD *lpdwPID);
+	HRESULT  GetShellMode([out] DWORD *lpdwFlags);
+	HRESULT  IsShellOwnedWindow([in] HWND hWnd, [out] BOOL *lpbOwned);
+	HRESULT  GetFolderPath([in] KSHELLFOLDER dwFolderType, [out,size_is(cbPathLen)] LPSTR lpszPath, [in] DWORD cbPathLen);
+	HRESULT  GetCurrentSheet([out,size_is(cbNameLen)] LPSTR lpszName, [in] DWORD cbNameLen);
+	HRESULT  EnableSheets([in] LPCSTR lpszName, [in] BOOL bEnable);
+	HRESULT  RegisterClient([in] LPCSTR lpszClientName, [in] LPCSTR lpszClientPath, [in] DWORD dwFlags);
+	HRESULT  ShowInfoMessage([in] LPCSTR lpszText, [in] DWORD dwFlags);
+	HRESULT  DoSingleAction([in] KSHELLACTION dwAction);
+	HRESULT  VipLogin([in] LPCSTR lpszLogin, [in] LPCSTR lpszPassword, [in] BOOL bWait);
+	HRESULT  VipRegister([in] LPCSTR lpszLogin, [in] LPCSTR lpszPassword, [in] BOOL bWait);
+	HRESULT  VipLogout([in] BOOL bWait);
+	HRESULT  TempOffShell([in] LPCSTR lpszPasswordMD5, [in] BOOL bShowReminder);
+};
+
+
+[
+	uuid(02988454-DBAC-48b9-A8A2-85AEE4E2486F),
+	version(1.0),
+	helpstring("KS_API 1.0 Type Library")
+]
+library KS_APILib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+
+	[
+		uuid(3D4B9FF0-329A-4ed9-A341-B07AE052B7D6),
+		helpstring("KagamiShell Class")
+	]
+	coclass KagamiShell
+	{
+		[default] interface IKagamiShell;
+	};
+};

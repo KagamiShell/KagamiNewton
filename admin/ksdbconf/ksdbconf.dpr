@@ -6,8 +6,11 @@ uses
 
 {$R *.res}
 
+{$I ..\..\buildversion\buildversion.inc}
+
 begin
   Application.Initialize;
-  Application.CreateForm(TForm1, Form1);
+  Application.Title := 'Средство конфигурации базы данных KagamiShell ' + BUILDVERSION;
+  Application.CreateForm(TDBConfForm, DBConfForm);
   Application.Run;
 end.

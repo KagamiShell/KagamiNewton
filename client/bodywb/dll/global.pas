@@ -182,7 +182,7 @@ end;
 
 
 function AddBrowser(parent:HWND;const url:string;show:boolean):IDispatch;
-const MUTEXNAME = 'RPBodyExplWindowStarted';
+const MUTEXNAME = 'KSBodyExplWindowStarted';
 var idx : integer;
     form : TBodyIEForm;
     mutex : cardinal;

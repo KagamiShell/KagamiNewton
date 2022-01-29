@@ -5,8 +5,8 @@
 
 #define MAXWINITEMS 200  //must be like in rshell!!!!
 
-#define RP_HIDEKEY   "Software\\RunpadProShell\\hide_tm_programs"
-#define RP_KEY       "Software\\RunpadProShell"
+#define KS_HIDEKEY   "Software\\KagamineP\\KagamiShell\\KagamiShell\\hide_tm_programs"
+#define KS_KEY       "Software\\KagamineP\\KagamiShell"
 
 #define MAXPIDS     200
 #define UPDATETIME  500
@@ -301,12 +301,12 @@ static void CollectFromConfig(void)
       {
         char s[32];
         wsprintf(s,"state_%d",n+1);
-        int state = ReadRegDword(HKEY_CURRENT_USER,RP_HIDEKEY,s,0);
+        int state = ReadRegDword(HKEY_CURRENT_USER,KS_HIDEKEY,s,0);
         if ( state )
            {
              char name[MAX_PATH];
              wsprintf(s,"parm1_%d",n+1);
-             ReadRegStr(HKEY_CURRENT_USER,RP_HIDEKEY,s,name,"");
+             ReadRegStr(HKEY_CURRENT_USER,KS_HIDEKEY,s,name,"");
              if ( name[0] )
                 {
                   AddToHiddenList(name);
@@ -703,18 +703,18 @@ int WINAPI WinMain(HINSTANCE hThisInstance,HINSTANCE hPrevInstance,LPSTR lpszCmd
 
   if ( kill_all )
      {
-       CreateMutex(NULL,FALSE,"_RSTMMutex");
+       CreateMutex(NULL,FALSE,"_KSTMMutex");
        if ( GetLastError() == ERROR_ALREADY_EXISTS )
           return 0;
      }
   
-  kill_hidden_tasks = (ReadRegDword(HKEY_CURRENT_USER,RP_KEY,"kill_hidden_tasks",0) != 0);
+  kill_hidden_tasks = (ReadRegDword(HKEY_CURRENT_USER,KS_KEY,"kill_hidden_tasks",0) != 0);
 
   InitCommonControls();
 
   if ( !kill_all )
      {
-       if ( !CheckRPVersion(RUNPAD_VERSION_DIG) )
+       if ( !CheckKSVersion(KAGAMI_VERSION_DIG) )
           return 0;
      }
 

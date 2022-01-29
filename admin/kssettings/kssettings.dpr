@@ -9,6 +9,7 @@ uses
 {$R resource.res}
 
 {$I ..\common\version.inc}
+{$I ..\..\buildversion\buildversion.inc}
 
 
 begin

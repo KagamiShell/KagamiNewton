@@ -133,7 +133,7 @@ begin
  atts:=TStringList.Create;
  labels:=nil;
 
- lang_change_message := RegisterWindowMessage('_RPLanguageChanged');
+ lang_change_message := RegisterWindowMessage('_KSLanguageChanged');
  Application.OnMessage:=AppMessage;
 
  ImageList.Handle := ImageList_Create(32, 32, ILC_MASK or ILC_COLOR32, 5, 1);

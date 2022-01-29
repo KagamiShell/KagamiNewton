@@ -5,7 +5,7 @@
 #include "config.h"
 
 
-#define REGPATH   "Software\\RunpadProShell"
+#define REGPATH   "Software\\KagamineP\\KagamiShell\\KagamiShell"
 
 TCONFIG g_config = 
 {

@@ -247,7 +247,7 @@ void Check4InvalidChars(char *file)
 
 static BOOL CALLBACK CalcAll(HWND hwnd,LPARAM lParam)
 {
-  if ( GetProp(hwnd,"_RunpadDownloaderPropInfo") )
+  if ( GetProp(hwnd,"_KagamiDownloaderPropInfo") )
      (*(int *)lParam)++;
 
   return TRUE;
@@ -356,7 +356,7 @@ DWORD ThreadProcInternal(GINFO *info)
        return 1;
      }
 
-  hinet = InternetOpen("Runpad Shell Downloader",INTERNET_OPEN_TYPE_PRECONFIG,NULL,NULL,0);
+  hinet = InternetOpen("KagamiShell Downloader",INTERNET_OPEN_TYPE_PRECONFIG,NULL,NULL,0);
   if ( !hinet )
      {
        Err(info,"Cannot open internet handle");
@@ -620,7 +620,7 @@ DWORD ThreadProcInternal(GINFO *info)
          char s[MAX_PATH];
          wsprintf(s,LS(1556),file);
 
-         if ( RPOpenSaveDialog(info->g_hwnd,s,LS(LS_QUESTION),dest_path,dest_name) == RPOPENSAVE_CANCEL )
+         if ( KSOpenSaveDialog(info->g_hwnd,s,LS(LS_QUESTION),dest_path,dest_name) == KSOPENSAVE_CANCEL )
             {
               InternetCloseHandle(hurl);
               InternetCloseHandle(hinet);
@@ -937,7 +937,7 @@ void StopThread(GINFO *info)
 
 BOOL CALLBACK MainDialog(HWND hwnd,UINT message,WPARAM wParam,LPARAM lParam)
 {
-  const char *szPropName = "_RunpadDownloaderPropInfo";
+  const char *szPropName = "_KagamiDownloaderPropInfo";
   
   if ( message == WM_INITDIALOG )
      {
@@ -1020,7 +1020,7 @@ void __cdecl DownloadFileAsync(const char *s,const char *referer,int msg_begin,i
   if ( !s || !*s )
      return;
 
-  g_endthreadmessage = RegisterWindowMessage("_RunpadDownloaderEndThreadMsg");
+  g_endthreadmessage = RegisterWindowMessage("_KagamiDownloaderEndThreadMsg");
   
   info = myalloc(sizeof(GINFO));
   ZeroMemory(info,sizeof(GINFO));

@@ -154,7 +154,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
 
 	::InitCommonControls();
 
-        if ( !CheckRPVersion(RUNPAD_VERSION_DIG) )
+        if ( !CheckKSVersion(KAGAMI_VERSION_DIG) )
            return 0;
 
         EnableFFDshowForOurApp();

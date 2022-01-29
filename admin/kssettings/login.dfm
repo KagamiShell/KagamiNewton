@@ -1,9 +1,9 @@
 object LoginForm: TLoginForm
-  Left = 402
-  Top = 189
+  Left = 415
+  Top = 193
   BorderStyle = bsDialog
   Caption = #1055#1086#1076#1082#1083#1102#1095#1077#1085#1080#1077' '#1082' '#1073#1072#1079#1077' '#1076#1072#1085#1085#1099#1093
-  ClientHeight = 376
+  ClientHeight = 268
   ClientWidth = 454
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -18,28 +18,28 @@ object LoginForm: TLoginForm
   TextHeight = 15
   object Label3: TLabel
     Left = 16
-    Top = 141
+    Top = 77
     Width = 67
     Height = 15
     Caption = 'SQL-'#1089#1077#1088#1074#1077#1088':'
   end
   object Label1: TLabel
     Left = 16
-    Top = 216
+    Top = 152
     Width = 80
     Height = 15
     Caption = #1055#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1100':'
   end
   object Label2: TLabel
     Left = 16
-    Top = 248
+    Top = 184
     Width = 45
     Height = 15
     Caption = #1055#1072#1088#1086#1083#1100':'
   end
   object Label4: TLabel
     Left = 16
-    Top = 181
+    Top = 117
     Width = 71
     Height = 15
     Caption = #1058#1080#1087' '#1089#1077#1088#1074#1077#1088#1072':'
@@ -70,7 +70,7 @@ object LoginForm: TLoginForm
   end
   object Panel2: TPanel
     Left = 0
-    Top = 326
+    Top = 218
     Width = 454
     Height = 50
     Align = alBottom
@@ -107,7 +107,7 @@ object LoginForm: TLoginForm
   end
   object EditServer: TEdit
     Left = 112
-    Top = 136
+    Top = 72
     Width = 321
     Height = 23
     MaxLength = 250
@@ -116,7 +116,7 @@ object LoginForm: TLoginForm
   end
   object EditLogin: TEdit
     Left = 112
-    Top = 211
+    Top = 147
     Width = 321
     Height = 23
     MaxLength = 250
@@ -125,7 +125,7 @@ object LoginForm: TLoginForm
   end
   object EditPwd: TEdit
     Left = 112
-    Top = 243
+    Top = 179
     Width = 321
     Height = 23
     MaxLength = 250
@@ -134,7 +134,7 @@ object LoginForm: TLoginForm
   end
   object ComboBoxServerType: TComboBox
     Left = 112
-    Top = 176
+    Top = 112
     Width = 321
     Height = 23
     Style = csDropDownList

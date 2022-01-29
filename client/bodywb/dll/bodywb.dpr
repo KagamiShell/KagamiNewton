@@ -25,12 +25,12 @@ begin
  list.Add('');
  list.Add('Внимание !!!');
  list.Add('Произошла ошибка в программе WB');
- list.Add('Просьба передать эту информацию в службу поддержки Runpad Shell');
+ list.Add('Просьба передать эту информацию разработчику на почту d-kiryanov03@mail.ru');
  list.Add('Также опишите ситуацию возникновения ошибки');
  list.Add('Рекомендуется также выполнить обновление Internet Explorer');
  list.Add('');
 
- list.Add('Runpad Ver: '+RUNPAD_VERSION_STR);
+ list.Add('Версия KagamiShell: '+KAGAMI_VERSION_STR);
  list.Add('');
 
  FillChar(os,sizeof(os),0);
@@ -155,10 +155,10 @@ begin
   msg_download_begin:=RegisterWindowMessage('rpdownloadui_begin');
   msg_download_end:=RegisterWindowMessage('rpdownloadui_end');
   msg_viewsource:=RegisterWindowMessage('IDM_VIEWSOURCE');
-  msg_vipend:=RegisterWindowMessage('_RPVIPSessionEnd');
-  msg_navigatefailed:=RegisterWindowMessage('_RPNavigateFailed');
-  msg_langchanged:=RegisterWindowMessage('_RPLanguageChanged');
-  msg_redirection:=RegisterWindowMessage('_RPURLRedirection');
+  msg_vipend:=RegisterWindowMessage('_KSVIPSessionEnd');
+  msg_navigatefailed:=RegisterWindowMessage('_KSNavigateFailed');
+  msg_langchanged:=RegisterWindowMessage('_KSLanguageChanged');
+  msg_redirection:=RegisterWindowMessage('_KSURLRedirection');
 
   g_config:=cfg;
   is_simple:=simple;

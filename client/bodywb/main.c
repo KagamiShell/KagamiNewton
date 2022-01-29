@@ -394,7 +394,7 @@ int WINAPI WinMain(HINSTANCE hThisInstance,HINSTANCE hPrevInstance,LPSTR lpszCmd
 
   InitCommonControls();
 
-  if ( !CheckRPVersion(RUNPAD_VERSION_DIG) )
+  if ( !CheckKSVersion(KAGAMI_VERSION_DIG) )
      return 0;
 
   OleInitialize(0);

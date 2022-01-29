@@ -8,6 +8,7 @@ uses
 {$R *.res}
 {$R resource.res}
 
+{$I ..\..\buildversion\buildversion.inc}
 
 
 function IsLoaded:boolean;
@@ -29,7 +30,7 @@ begin
    Exit;
 
   Application.Initialize;
-  Application.Title := 'Просмотр отчетов KagamiShell версия 1.0.0 от 25.01.2022 17:31';
+  Application.Title := 'Просмотр отчетов KagamiShell ' + BUILDVERSION';
   Application.CreateForm(TDBViewForm, DBViewForm);
   Application.CreateForm(TTipForm, TipForm);
   Application.Run;

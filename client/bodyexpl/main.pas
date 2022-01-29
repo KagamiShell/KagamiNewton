@@ -1429,9 +1429,9 @@ begin
 // except end;
  cf_cut:=RegisterClipboardFormat('BodyExpl.Cut');
 
- msg_langchanged:=RegisterWindowMessage('_RPLanguageChanged');
- vip_begin_message := RegisterWindowMessage('_RPVIPSessionBegin');
- vip_end_message := RegisterWindowMessage('_RPVIPSessionEnd');
+ msg_langchanged:=RegisterWindowMessage('_KSLanguageChanged');
+ vip_begin_message := RegisterWindowMessage('_KSVIPSessionBegin');
+ vip_end_message := RegisterWindowMessage('_KSVIPSessionEnd');
  Application.OnMessage := AppMessage;
 
  ImageListTB.Handle := ImageList_Create(32, 32, ILC_MASK or ILC_COLOR32, 1, 1);

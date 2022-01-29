@@ -194,7 +194,7 @@ BOOL CALLBACK MessageBoxDialog(HWND hwnd,UINT message,WPARAM wParam,LPARAM lPara
        POINT p = {0,0};
        HWND label = GetDlgItem(hwnd,IDC_LABEL);
 
-       SetProp(hwnd,"_RPMessageBoxProp",(HANDLE)1);
+       SetProp(hwnd,"_KSMessageBoxProp",(HANDLE)1);
 
        font = (HFONT)GetWindowLong(hwnd, GWL_USERDATA);
        if (font)
@@ -256,30 +256,30 @@ BOOL CALLBACK MessageBoxDialog(HWND hwnd,UINT message,WPARAM wParam,LPARAM lPara
 
             SendDlgItemMessage(hwnd, IDC_COMBO, LB_SETCURSEL, param->default_item, 0);
 
-            if ( param->type & ~RPICON_MASK )
+            if ( param->type & ~KSICON_MASK )
                {
                  SendDlgItemMessage(hwnd, IDC_ICOND, STM_SETIMAGE, IMAGE_ICON, (LPARAM)param->type );
                }
             else
                {
-                 switch ( param->type & RPICON_MASK )
+                 switch ( param->type & KSICON_MASK )
                         {
-                          case RPICON_SAVE:
+                          case KSICON_SAVE:
                                SendDlgItemMessage(hwnd, IDC_ICOND, STM_SETIMAGE, IMAGE_ICON, (LPARAM)LoadIcon(instance, MAKEINTRESOURCE(IDI_SAVE)));
                                break;
-                          case RPICON_OPEN:
+                          case KSICON_OPEN:
                                SendDlgItemMessage(hwnd, IDC_ICOND, STM_SETIMAGE, IMAGE_ICON, (LPARAM)LoadIcon(instance, MAKEINTRESOURCE(IDI_OPEN)));
                                break;
-                          case RPICON_QUESTION:
+                          case KSICON_QUESTION:
                                SendDlgItemMessage(hwnd, IDC_ICOND, STM_SETIMAGE, IMAGE_ICON, (LPARAM)LoadIcon(NULL, IDI_QUESTION));
                                break;
-                          case RPICON_INFO:
+                          case KSICON_INFO:
                                SendDlgItemMessage(hwnd, IDC_ICOND, STM_SETIMAGE, IMAGE_ICON, (LPARAM)LoadIcon(NULL, IDI_INFORMATION));
                                break;
-                          case RPICON_ERROR:
+                          case KSICON_ERROR:
                                SendDlgItemMessage(hwnd, IDC_ICOND, STM_SETIMAGE, IMAGE_ICON, (LPARAM)LoadIcon(NULL, IDI_ERROR));
                                break;
-                          case RPICON_WARNING:
+                          case KSICON_WARNING:
                                SendDlgItemMessage(hwnd, IDC_ICOND, STM_SETIMAGE, IMAGE_ICON, (LPARAM)LoadIcon(NULL, IDI_WARNING));
                                break;
                           default:
@@ -297,7 +297,7 @@ BOOL CALLBACK MessageBoxDialog(HWND hwnd,UINT message,WPARAM wParam,LPARAM lPara
   
   if ( message == WM_CLOSE || (message == WM_COMMAND && LOWORD(wParam) == IDCANCEL) )
      {
-       RemoveProp(hwnd,"_RPMessageBoxProp");
+       RemoveProp(hwnd,"_KSMessageBoxProp");
        EndDialog(hwnd,-1);
      }
   
@@ -305,7 +305,7 @@ BOOL CALLBACK MessageBoxDialog(HWND hwnd,UINT message,WPARAM wParam,LPARAM lPara
      {
        int c;
        c = SendDlgItemMessage(hwnd,IDC_COMBO,LB_GETCURSEL,0,0);
-       RemoveProp(hwnd,"_RPMessageBoxProp");
+       RemoveProp(hwnd,"_KSMessageBoxProp");
        EndDialog(hwnd,c);
      }
   
@@ -314,7 +314,7 @@ BOOL CALLBACK MessageBoxDialog(HWND hwnd,UINT message,WPARAM wParam,LPARAM lPara
 
 
 
-__declspec(dllexport) int __cdecl RPMessageBox(HWND hwnd, LPCSTR lpText, LPCSTR lpCaption, LPCSTR lpList, UINT uDefaultListItem, UINT uType)
+__declspec(dllexport) int __cdecl KSMessageBox(HWND hwnd, LPCSTR lpText, LPCSTR lpCaption, LPCSTR lpList, UINT uDefaultListItem, UINT uType)
 {
   SMessageBox p;
   p.caption = lpCaption;
@@ -424,7 +424,7 @@ static void GetDrivesInternal(const char *name,DWORD type,char *out,HWND hwnd)
           }
        else
           {
-            int rc = RPMessageBox(hwnd,S_DISKSELECT2,S_DISKSELECT1,fnames,0,RPICON_SAVE);
+            int rc = KSMessageBox(hwnd,S_DISKSELECT2,S_DISKSELECT1,fnames,0,KSICON_SAVE);
 
             if ( rc >= 0 && rc < count )
                {
@@ -815,7 +815,7 @@ __declspec(dllexport) char* __cdecl GetFavoritesPath(char *out)
   
   out[0] = 0;
    
-  w = FindWindow("_RunpadClass",NULL);
+  w = FindWindow("_KagamiClass",NULL);
   if ( w )
      {
        ATOM atom = (ATOM)SendMessage(w,WM_USER+171,0,0);
@@ -980,7 +980,7 @@ __declspec(dllexport) void __cdecl AddURL2Stat(const char *url)
 
             if ( atom )
                {
-                 HWND w = FindWindow("_RunpadClass",NULL);
+                 HWND w = FindWindow("_KagamiClass",NULL);
 
                  if ( w )
                     PostMessage(w,WM_USER+157,(int)atom,0);
@@ -1003,7 +1003,7 @@ __declspec(dllexport) char* __cdecl GetVIPFolderPath(char *out)
   
   out[0] = 0;
    
-  w = FindWindow("_RunpadClass",NULL);
+  w = FindWindow("_KagamiClass",NULL);
   if ( w )
      {
        ATOM atom = (ATOM)SendMessage(w,WM_USER+161,0,0);
@@ -1033,7 +1033,7 @@ __declspec(dllexport) char* __cdecl GetVIPFolderName(char *s)
   
   lstrcpy(s,S_VIPFOLDERNAME);
    
-  w = FindWindow("_RunpadClass",NULL);
+  w = FindWindow("_KagamiClass",NULL);
   if ( w )
      {
        ATOM atom = (ATOM)SendMessage(w,WM_USER+160,0,0);
@@ -1085,7 +1085,7 @@ __declspec(dllexport) void  __cdecl OpenWith(int idx,const char *filename)
      {
        if ( filename && filename[0] )
           {
-            HWND w = FindWindow("_RunpadClass",NULL);
+            HWND w = FindWindow("_KagamiClass",NULL);
             if ( w )
                {
                  ATOM atom = GlobalAddAtom(filename);
@@ -1310,9 +1310,9 @@ __declspec(dllexport) BOOL __cdecl ImportRegistryFile(const char *filename)
 
 
 
-__declspec(dllexport) int __cdecl RPOpenSaveDialog(HWND hwnd,const char *s_text,const char *s_caption,char *out,char *out_name)
+__declspec(dllexport) int __cdecl KSOpenSaveDialog(HWND hwnd,const char *s_text,const char *s_caption,char *out,char *out_name)
 {
-  int rc = RPOPENSAVE_CANCEL;
+  int rc = KSOPENSAVE_CANCEL;
   char s[2048],*p;
   char buff[MAX_PATH];
   int last_save_to;
@@ -1394,20 +1394,20 @@ __declspec(dllexport) int __cdecl RPOpenSaveDialog(HWND hwnd,const char *s_text,
        return rc;
      }
 
-  last_save_to = ReadRegDword(HKCU,REGPATH,"RPLastSaveTo",0);
-  idx = RPMessageBox(hwnd,s_text,s_caption,s,last_save_to,RPICON_SAVE);
+  last_save_to = ReadRegDword(HKCU,REGPATH,"KSLastSaveTo",0);
+  idx = KSMessageBox(hwnd,s_text,s_caption,s,last_save_to,KSICON_SAVE);
   
   if ( idx == -1 )
      {
        return rc;
      }
 
-  WriteRegDword(HKCU,REGPATH,"RPLastSaveTo",idx);
+  WriteRegDword(HKCU,REGPATH,"KSLastSaveTo",idx);
 
   if ( idx == iflash )
      {
        GetFlashPath(out,hwnd);
-       rc = RPOPENSAVE_FLASH;
+       rc = KSOPENSAVE_FLASH;
        if ( out_name )
           GetFlashName(out_name);
      }
@@ -1415,7 +1415,7 @@ __declspec(dllexport) int __cdecl RPOpenSaveDialog(HWND hwnd,const char *s_text,
   if ( idx == idiskette )
      {
        GetDiskettePath(out);
-       rc = RPOPENSAVE_DISKETTE;
+       rc = KSOPENSAVE_DISKETTE;
        if ( out_name )
           GetDisketteName(out_name);
      }
@@ -1423,7 +1423,7 @@ __declspec(dllexport) int __cdecl RPOpenSaveDialog(HWND hwnd,const char *s_text,
   if ( idx == icdrom )
      {
        GetCDROMPath(out,hwnd);
-       rc = RPOPENSAVE_CDROM;
+       rc = KSOPENSAVE_CDROM;
        if ( out_name )
           GetCDROMName(out_name);
      }
@@ -1431,7 +1431,7 @@ __declspec(dllexport) int __cdecl RPOpenSaveDialog(HWND hwnd,const char *s_text,
   if ( idx == ivipfolder )
      {
        GetVIPFolderPath(out);
-       rc = RPOPENSAVE_VIPFOLDER;
+       rc = KSOPENSAVE_VIPFOLDER;
        if ( out_name )
           GetVIPFolderName(out_name);
      }
@@ -1439,21 +1439,21 @@ __declspec(dllexport) int __cdecl RPOpenSaveDialog(HWND hwnd,const char *s_text,
   if ( idx == iuserfolder )
      {
        GetUserFolderPath(out,0);
-       rc = RPOPENSAVE_USERFOLDER;
+       rc = KSOPENSAVE_USERFOLDER;
        if ( out_name )
           GetUserFolderName(out_name,0);
      }
   else
      {
        GetAdditionalFolderPath(out,idx-iexfolder);
-       rc = RPOPENSAVE_EXFOLDER;
+       rc = KSOPENSAVE_EXFOLDER;
        if ( out_name )
           GetAdditionalFolderName(out_name,idx-iexfolder);
      }
 
   if ( !out[0] )
      {
-       if ( rc != RPOPENSAVE_VIPFOLDER )
+       if ( rc != KSOPENSAVE_VIPFOLDER )
           {
             MessageBox(hwnd,S_RESEMPTY,LS(LS_INFORMATION),MB_OK | MB_ICONWARNING);
           }
@@ -1565,11 +1565,11 @@ int GetCurrLang(void)
 }
 
 
-__declspec(dllexport) BOOL __cdecl CheckRPVersion(int version)
+__declspec(dllexport) BOOL __cdecl CheckKSVersion(int version)
 {
   char s[MAX_PATH];
   
-  HWND r_w = FindWindow("_RunpadClass",NULL);
+  HWND r_w = FindWindow("_KagamiClass",NULL);
   if ( r_w )
      {
        int ver = SendMessage(r_w,WM_USER+100,0,0);
@@ -1578,7 +1578,7 @@ __declspec(dllexport) BOOL __cdecl CheckRPVersion(int version)
           return TRUE;
      }
 
-  wsprintf(s,"Runpad Shell Pro v%d.%02d+ required",version/100,version%100);
+  wsprintf(s,"KagamiShell v%d.%02d+ required",version/100,version%100);
   MessageBox(NULL,s,"Error",MB_OK | MB_ICONERROR);
 
   return FALSE;

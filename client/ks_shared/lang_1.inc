@@ -15,7 +15,7 @@ static const TLANGSTR lang_1[] =
   {    5, "OK" },
   {    6, "Cancel" },
 
-  // rp_shared
+  // ks_shared
   {  100, "Diskette" },
   {  101, "Flash-drive" },
   {  102, "CD-ROM" },
@@ -600,7 +600,7 @@ static const TLANGSTR lang_1[] =
   { 3124, "Simulators" },
   { 3125, "Strategies" },
   { 3126, "Films" },
-  { 3127, "%RS_FOLDER%\\default\\rules\\rule01e.rtf" },
+  { 3127, "%KS_FOLDER%\\default\\rules\\rule01e.rtf" },
   { 3128, "Runpad Shell Site" },
   { 3129, "Safe Internet Explorer" },
   { 3130, "User safe Internet Explorer" },
@@ -693,7 +693,7 @@ static const TLANGSTR lang_1[] =
   { 3217, "Restart of DSL-modem" },
   { 3218, "Restart of DSL-modem or router" },
   { 3219, "Max allowed size of your private (VIP) folder is %d MB\nNow is used %d MB\nPlease, delete unused files!" },
-  { 3220, "%RS_FOLDER%\\default\\la\\la_ms_e.rtf" },
+  { 3220, "%KS_FOLDER%\\default\\la\\la_ms_e.rtf" },
   { 3221, "Internet" },
   { 3222, "Office" },
   { 3223, "Multimedia" },

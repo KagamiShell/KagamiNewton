@@ -27,7 +27,7 @@ begin
  if local_key<>'' then
   local_key:='\'+local_key;
  reg:=TRegistry.Create;
- if reg.OpenKey('Software\RunpadProShell'+local_key,true) then
+ if reg.OpenKey('Software\KagamineP\KagamiShell\KagamiShell'+local_key,true) then
    begin
      try
        reg.WriteString(value,data);
@@ -43,7 +43,7 @@ begin
  if local_key<>'' then
   local_key:='\'+local_key;
  reg:=TRegistry.Create;
- if reg.OpenKey('Software\RunpadProShell'+local_key,true) then
+ if reg.OpenKey('Software\KagamineP\KagamiShell\KagamiShell'+local_key,true) then
    begin
      try
        reg.WriteInteger(value,data);
@@ -61,7 +61,7 @@ begin
  if local_key<>'' then
   local_key:='\'+local_key;
  reg:=TRegistry.Create;
- if reg.OpenKeyReadOnly('Software\RunpadProShell'+local_key) then
+ if reg.OpenKeyReadOnly('Software\KagamineP\KagamiShell\KagamiShell'+local_key) then
    begin
      try
       s:=reg.ReadString(value);
@@ -82,7 +82,7 @@ begin
  if local_key<>'' then
   local_key:='\'+local_key;
  reg:=TRegistry.Create;
- if reg.OpenKeyReadOnly('Software\RunpadProShell'+local_key) then
+ if reg.OpenKeyReadOnly('Software\KagamineP\KagamiShell\KagamiShell'+local_key) then
    begin
      try
       rc:=reg.ReadInteger(value);

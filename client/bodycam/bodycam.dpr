@@ -40,7 +40,7 @@ begin
   r_w := FindWindow('_KagamiClass',nil);
   if r_w=0 then
    begin
-    Err('Runpad Shell not active');
+    Err('KagamiShell is not active');
     Exit;
    end;
        

@@ -24,21 +24,21 @@
 #define LS_CANCEL         6
 
 
-#define RPICON_MASK         0x0F
-#define RPICON_SAVE         0x01
-#define RPICON_OPEN         0x02
-#define RPICON_QUESTION     0x03
-#define RPICON_INFO         0x04
-#define RPICON_ERROR        0x05
-#define RPICON_WARNING      0x06
+#define KSICON_MASK         0x0F
+#define KSICON_SAVE         0x01
+#define KSICON_OPEN         0x02
+#define KSICON_QUESTION     0x03
+#define KSICON_INFO         0x04
+#define KSICON_ERROR        0x05
+#define KSICON_WARNING      0x06
 
-#define RPOPENSAVE_CANCEL          -1
-#define RPOPENSAVE_FLASH           0
-#define RPOPENSAVE_DISKETTE        1
-#define RPOPENSAVE_CDROM           2
-#define RPOPENSAVE_VIPFOLDER       3
-#define RPOPENSAVE_USERFOLDER      4
-#define RPOPENSAVE_EXFOLDER        5
+#define KSOPENSAVE_CANCEL          -1
+#define KSOPENSAVE_FLASH           0
+#define KSOPENSAVE_DISKETTE        1
+#define KSOPENSAVE_CDROM           2
+#define KSOPENSAVE_VIPFOLDER       3
+#define KSOPENSAVE_USERFOLDER      4
+#define KSOPENSAVE_EXFOLDER        5
 
 
 #ifdef __cplusplus
@@ -48,10 +48,10 @@ extern "C" {
 /* Displays the message box with rhe drop-down list
  * @param lpList           Items of drop-down list. This is a double-null-terminated list of null-terminated strings.
  * @param uDefaultListItem Index of initially selected item in the drop-down list.
- * @param uType            Combination of values: (RPICON_SAVE|RPICON_OPEN|RPICON_QUESTION|RPICON_INFO|RPICON_ERROR|RPICON_WARNING).
+ * @param uType            Combination of values: (KSICON_SAVE|KSICON_OPEN|KSICON_QUESTION|KSICON_INFO|KSICON_ERROR|KSICON_WARNING).
  * @return                 Index of selected item in the drop-down list, or -1 if "Cancel" was pressed.
  */
-EXTERN int __cdecl RPMessageBox(HWND hwnd, LPCSTR lpText, LPCSTR lpCaption, LPCSTR lpList, UINT uDefaultListItem, UINT uType);
+EXTERN int __cdecl KSMessageBox(HWND hwnd, LPCSTR lpText, LPCSTR lpCaption, LPCSTR lpList, UINT uDefaultListItem, UINT uType);
 
 EXTERN char* __cdecl GetDiskettePath(char*);
 EXTERN char* __cdecl GetDisketteName(char*);
@@ -115,11 +115,11 @@ EXTERN BOOL __cdecl ImportRegistryFile(const char *filename);
 EXTERN unsigned __cdecl GetDriveFreeSpace(const char *dir);
 EXTERN unsigned __cdecl GetDriveTotalSpace(const char *dir);
 
-EXTERN int __cdecl RPOpenSaveDialog(HWND hwnd,const char *s_text,const char *s_caption,char *out,char *out_name);
+EXTERN int __cdecl KSOpenSaveDialog(HWND hwnd,const char *s_text,const char *s_caption,char *out,char *out_name);
 
 EXTERN BOOL __cdecl IsRunningUnderVistaLonghorn(void);
 
-EXTERN BOOL __cdecl CheckRPVersion(int version);
+EXTERN BOOL __cdecl CheckKSVersion(int version);
 
 EXTERN const char* __cdecl GetLangStr(int id);
 EXTERN const char* __cdecl GetLangStrByLangId(int lang,int id);

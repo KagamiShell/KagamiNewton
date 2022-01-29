@@ -1711,7 +1711,7 @@ object BodyBurnForm: TBodyBurnForm
         Height = 51
         Align = alClient
         Alignment = taCenter
-        Caption = 'Nero-'#1080#1085#1090#1077#1075#1088#1072#1090#1086#1088' '#1076#1083#1103' Runpad Shell'
+        Caption = 'Nero-'#1080#1085#1090#1077#1075#1088#1072#1090#1086#1088' '#1076#1083#1103' KagamiShell'
         Enabled = False
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText

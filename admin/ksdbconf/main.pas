@@ -91,7 +91,6 @@ begin
  CoInitialize(nil);
 
  Caption:=Application.Title;
- LabelTitle.Color:=RGB(16,100,143);
  PageControl.ActivePageIndex:=0;
  ButtonBack.Visible:=false;
 

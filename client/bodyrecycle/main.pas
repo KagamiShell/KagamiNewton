@@ -92,7 +92,7 @@ end;
 
 procedure TBodyRecycleForm.FormCreate(Sender: TObject);
 begin
- lang_change_message := RegisterWindowMessage('_RPLanguageChanged');
+ lang_change_message := RegisterWindowMessage('_KSLanguageChanged');
  Application.OnMessage:=AppMessage;
  
  OnLangChanged;

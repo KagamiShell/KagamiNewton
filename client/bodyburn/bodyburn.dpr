@@ -50,7 +50,7 @@ end;
 
 
 begin
-  if not CheckRPVersion(RUNPAD_VERSION_DIG) then Exit;
+  if not CheckKSVersion(KAGAMI_VERSION_DIG) then Exit;
   
   if not Check then Exit;
 

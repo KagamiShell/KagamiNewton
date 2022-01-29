@@ -39,7 +39,7 @@ void ConvertFormat(HWND hwnd,const char *file,int rotate)
 
        wsprintf(text,S_CONVERT_FILE,PathFindFileName(file));
 
-       rc = RPMessageBox(hwnd,text,S_CONVERT_TITLE,"JPG\0BMP\0PNG\0GIF\0TIFF\0\0",0,RPICON_QUESTION);
+       rc = KSMessageBox(hwnd,text,S_CONVERT_TITLE,"JPG\0BMP\0PNG\0GIF\0TIFF\0\0",0,KSICON_QUESTION);
 
        if ( rc != -1 )
           {

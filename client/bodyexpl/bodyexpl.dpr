@@ -23,12 +23,12 @@ uses
 
 
 begin
-  if not CheckRPVersion(RUNPAD_VERSION_DIG) then
+  if not CheckKSVersion(KAGAMI_VERSION_DIG) then
    Exit;
 
   Application.Initialize;
-  //Application.Title := 'Проводник пользователя';
-  SetProp(Application.Handle,'_RPBodyExpl',1);
+  //Application.Title := 'Проводник ученика';
+  SetProp(Application.Handle,'_KSBodyExpl',1);
   Application.CreateForm(TBodyExplForm, BodyExplForm);
   Application.CreateForm(TFormArchive, FormArchive);
   Application.CreateForm(TCreateFolderForm, CreateFolderForm);
@@ -38,5 +38,5 @@ begin
   Application.CreateForm(TSEForm, SEForm);
   Application.CreateForm(TSearchFilesForm, SearchFilesForm);
   Application.Run;
-  RemoveProp(Application.Handle,'_RPBodyExpl');
+  RemoveProp(Application.Handle,'_KSBodyExpl');
 end.

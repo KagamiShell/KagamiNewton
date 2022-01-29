@@ -12,7 +12,7 @@ uses
 
 
 begin
-  if not CheckRPVersion(RUNPAD_VERSION_DIG) then
+  if not CheckKSVersion(KAGAMI_VERSION_DIG) then
    Exit;
 
   Application.Initialize;
