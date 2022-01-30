@@ -24,10 +24,10 @@
 using namespace Gdiplus;
 
 #include "../../admin/sql/h_sql.h"
-#include "../../client/rshell/f0.h"
-#include "../../client/rshell/f1.h"
-#include "../../client/rshell/netcmd.h"
-#include "../../client/rshell/netclient.h"
+#include "../../client/kshell/f0.h"
+#include "../../client/kshell/f1.h"
+#include "../../client/kshell/netcmd.h"
+#include "../../client/kshell/netclient.h"
 #include "cfg.h"
 #include "resource.h"
 #include "lang.h"

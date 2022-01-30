@@ -2,7 +2,7 @@
 #include "include.h"
 
 
-static const char *main_wnd_class = "_RSOperatorClass";
+static const char *main_wnd_class = "_KSOperatorClass";
 static HWND g_wnd = NULL;
 static int taskbar_message = WM_NULL;
 static int tray_message = WM_NULL;
@@ -60,7 +60,7 @@ BOOL CheckForAlreadyLoaded()
   HWND w = FindWindow(main_wnd_class,NULL);
   if ( w )
      {
-       PostMessage(w,RegisterWindowMessage("_RSOperatorShowWndMsg"),0,0);
+       PostMessage(w,RegisterWindowMessage("_KSOperatorShowWndMsg"),0,0);
      }
 
   return w == NULL;
@@ -276,9 +276,9 @@ LRESULT CALLBACK MainWindowProc(HWND hwnd,UINT message,WPARAM wParam,LPARAM lPar
 void CreateWnd()
 {
   taskbar_message = RegisterWindowMessage("TaskbarCreated");
-  tray_message = RegisterWindowMessage("_RSOperatorTrayNotifyMsg");
-  show_message = RegisterWindowMessage("_RSOperatorShowWndMsg");
-  alerts_message = RegisterWindowMessage("_RSOperatorAlertsNotifyMsg");
+  tray_message = RegisterWindowMessage("_KSOperatorTrayNotifyMsg");
+  show_message = RegisterWindowMessage("_KSOperatorShowWndMsg");
+  alerts_message = RegisterWindowMessage("_KSOperatorAlertsNotifyMsg");
 
   WNDCLASS wc;
   ZeroMemory(&wc,sizeof(wc));

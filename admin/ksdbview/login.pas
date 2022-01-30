@@ -250,5 +250,5 @@ end;
 
 
 begin
-  msg_ok := RegisterWindowMessage('_RSTLoginForm_MsgOK');
+  msg_ok := RegisterWindowMessage('_KSTLoginForm_MsgOK');
 end.

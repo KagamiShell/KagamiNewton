@@ -63,13 +63,13 @@
 }
 
 
-void AddLicInfoToEnv(CNetCmd &env)
-{
-  env.AddStringParm(NETPARM_S_LICORGANIZATION,LIC_DEMO_ORGANIZATION);
-  env.AddStringParm(NETPARM_S_LICOWNER,LIC_DEMO_OWNER);
-  env.AddIntParm(NETPARM_I_LICMACHINES,LIC_DEMO_MACHINES);
-  env.AddStringParm(NETPARM_S_LICFEATURES,LIC_DEMO_FEAT);
-}
+// void AddLicInfoToEnv(CNetCmd &env)
+// {
+//   env.AddStringParm(NETPARM_S_LICORGANIZATION,LIC_DEMO_ORGANIZATION);
+//   env.AddStringParm(NETPARM_S_LICOWNER,LIC_DEMO_OWNER);
+//   env.AddIntParm(NETPARM_I_LICMACHINES,LIC_DEMO_MACHINES);
+//   env.AddStringParm(NETPARM_S_LICFEATURES,LIC_DEMO_FEAT);
+// }
 
 
 void SmartThreadFinish(HANDLE &h)

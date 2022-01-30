@@ -9,14 +9,14 @@ char *xmlHead = \
 "                MARGIN-RIGHT:     20px;\n" \
 "                MARGIN-TOP:       20px;\n" \
 "                MARGIN-BOTTOM:    20px;\n" \
-"                FONT-FAMILY:      Verdana;\n" \
-"                FONT-SIZE:        8pt;\n" \
+"                FONT-FAMILY:      Segoe UI;\n" \
+"                FONT-SIZE:        9pt;\n" \
 "                COLOR:            #000000;\n" \
 "                BACKGROUND-COLOR: #FFFFFF;\n" \
 "     }\n" \
 "     td {\n" \
-"                FONT-FAMILY:      Verdana;\n" \
-"                FONT-SIZE:        8pt;\n" \
+"                FONT-FAMILY:      Segoe UI;\n" \
+"                FONT-SIZE:        9pt;\n" \
 "     }\n" \
 "</style>\n" \
 "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=windows-1251\">\n" \

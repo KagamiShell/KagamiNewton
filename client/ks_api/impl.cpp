@@ -122,7 +122,7 @@ BOOL KS_GetShellExecutable(LPSTR lpszExePath, DWORD cbPathLen, DWORD* lpdwPID)
      {
        if ( cbPathLen >= MAX_PATH )
           {
-            lstrcpy(lpszExePath,"rshell.exe");  // for backward compatibility
+            lstrcpy(lpszExePath,"kshell.exe");  // for backward compatibility
           }
      }
 

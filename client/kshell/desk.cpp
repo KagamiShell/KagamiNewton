@@ -238,7 +238,7 @@ static const char* __cdecl D_GetInputTextPos(char pwdchar,int x,int y,int w,int 
 
 
 // !!!!!!!!!!!!
-// must be changed in rshell.dll, ALL PLUGINS and plugin's test program too!!!!!
+// must be changed in kshell.dll, ALL PLUGINS and plugin's test program too!!!!!
 static const struct {
    void (__cdecl *OnError)(const char *err_text);
    void (__cdecl *OnRClick)();

@@ -45,7 +45,7 @@ void ApiInit(void)
   ChangeProcessTerminateRights(TRUE);
   EnableFFDshowForOurApp();
 
-  sett_lib = LoadLibrary("rshell.dll");
+  sett_lib = LoadLibrary("kshell.dll");
 
   *(void**)&GetInputTextPos = (void*)GetProcAddress(sett_lib,"GetInputTextPos");
   *(void**)&ShowStartupMasterDialog = (void*)GetProcAddress(sett_lib,"ShowStartupMasterDialog");

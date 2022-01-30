@@ -8,7 +8,7 @@ int guid;
 char class_name[MAX_PATH];
 char ip[MAX_PATH];
 char mac[MAX_PATH];
-char runpad_ver[MAX_PATH];
+char kagami_ver[MAX_PATH];
 char machine_loc[MAX_PATH];
 char machine_desc[MAX_PATH];
 char comp_name[MAX_PATH];

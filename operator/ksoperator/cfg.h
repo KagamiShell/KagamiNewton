@@ -5,7 +5,7 @@
 
 #define SHELL_REGPATH  "Software\\RunpadProShell"
 #define REGPATH  "Software\\RunpadProOperator"
-#define OURAPPNAME "RSOperator"     // do not change, used in rshell!
+#define OURAPPNAME "RSOperator"     // do not change, used in kshell!
 #define APP_RFM  "rfmclient.exe"
 #define APP_RD   "rsrdclient.exe"
 

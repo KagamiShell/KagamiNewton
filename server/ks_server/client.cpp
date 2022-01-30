@@ -661,7 +661,7 @@ void CClient::ProcessServerCommand(int cmd_id,const void *data_buff,unsigned dat
                 const char *s_kind = req.GetParmAsString(NETPARM_S_KIND);
                 const char *s_title = req.GetParmAsString(NETPARM_S_TITLE);
                 const char *s_name = req.GetParmAsString(NETPARM_S_NAME);
-                const char *s_age = req.GetParmAsString(NETPARM_S_AGE);
+                const char *s_age = req.GetParmAsString(NETPARM_S_CLASS);
                 const char *s_text = req.GetParmAsString(NETPARM_S_TEXT);
                 
                 p_db->AddUserResponse(s_kind,s_title,s_name,s_age,s_text);
@@ -773,7 +773,6 @@ void CClient::ProcessServerCommand(int cmd_id,const void *data_buff,unsigned dat
       else
          {
            CNetCmd cmd(NETCMD_GETSETTINGS_ERR_ACK);
-           cmd.AddIntParm(NETPARM_I_RESULT,NETERR_SETTINGS_OUTOFLICENSE);
            Push2Send(cmd);
          }
       break;

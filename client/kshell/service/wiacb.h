@@ -3,7 +3,7 @@
 #define __WIACB_H_
 
 
-// this implementation was moved from rshell.exe because of some conflicts with other threads (probably autorun thread)
+// this implementation was moved from kshell.exe because of some conflicts with other threads (probably autorun thread)
 // on win7 x64 (crash in RPCRT4.dll)
 // but as implemented here it is not supports terminal clients
 

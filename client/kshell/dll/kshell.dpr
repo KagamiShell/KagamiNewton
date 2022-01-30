@@ -1,5 +1,5 @@
 
-library rshell;
+library kshell;
 
 uses 
      Windows, desk_host, saver, startup, inputpos;

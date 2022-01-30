@@ -1564,7 +1564,7 @@ begin
  CheckBox19.Checked:=AnsiContainsText(s,UR_X_MACHINESINFO);
  CheckBox21.Checked:=AnsiContainsText(s,UR_X_CLIENTUPDATE);
  CheckBox22.Checked:=AnsiContainsText(s,UR_X_RFM);
- CheckBox23.Checked:=AnsiContainsText(s,UR_X_RSRD);
+ CheckBox23.Checked:=AnsiContainsText(s,UR_X_KSRD);
  CheckBox24.Checked:=AnsiContainsText(s,UR_EDITCOMPRULES);
  CheckBox25.Checked:=AnsiContainsText(s,UR_EDITCOMPVARS);
  CheckBox26.Checked:=AnsiContainsText(s,UR_X_ROLLBACK);
@@ -1598,7 +1598,7 @@ begin
  if CheckBox19.Checked then s:=s+UR_X_MACHINESINFO;
  if CheckBox21.Checked then s:=s+UR_X_CLIENTUPDATE;
  if CheckBox22.Checked then s:=s+UR_X_RFM;
- if CheckBox23.Checked then s:=s+UR_X_RSRD;
+ if CheckBox23.Checked then s:=s+UR_X_KSRD;
  if CheckBox24.Checked then s:=s+UR_EDITCOMPRULES;
  if CheckBox25.Checked then s:=s+UR_EDITCOMPVARS;
  if CheckBox26.Checked then s:=s+UR_X_ROLLBACK;

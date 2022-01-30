@@ -8,7 +8,7 @@ if exist *.obj del *.obj
 if exist *.res del *.res
 if exist *.exp del *.exp
 if exist *.lib del *.lib
-mycodesign ks_server.exe
+signtool sign /v /f ..\..\sign\kagaminep.pfx /t http://timestamp.digicert.com ks_server.exe
 if %ERRORLEVEL% NEQ 0 pause
 if exist ks_server.exe (
  if exist ..\test\ks_server.exe del /Q ..\test\ks_server.exe

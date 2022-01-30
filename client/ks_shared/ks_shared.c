@@ -11,7 +11,7 @@
 #define HKLM		HKEY_LOCAL_MACHINE
 #define REGPATH		"Software\\KagamineP\\KagamiShell\\KagamiShell"
 #define ONE_DAY		864000000000LL
-#define MAXWINITEMS	200  // must be like in rshell!!!
+#define MAXWINITEMS	200  // must be like in kshell!!!
 
 
 

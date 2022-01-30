@@ -6,8 +6,8 @@ interface
 uses WinTypes;
 
 
-const PATH_DBVIEW = 'rsdbview.exe';
-const REGPATH = 'Software\RunpadProOperator';
+const PATH_DBVIEW = 'ksdbview.exe';
+const REGPATH = 'Software\Team KagamineP\KagamiShell\KagamiShellOperator';
 const OURAPPNAME = 'RSOperator';
 
 
@@ -19,7 +19,7 @@ type
      class_name : TSTRING;
      ip : TSTRING;
      mac : TSTRING;
-     runpad_ver : TSTRING;
+     kagami_ver : TSTRING;
      machine_loc : TSTRING;
      machine_desc : TSTRING;
      comp_name : TSTRING;
@@ -40,7 +40,7 @@ type
      class_name : string;
      ip : string;
      mac : string;
-     runpad_ver : string;
+     kagami_ver : string;
      machine_loc : string;
      machine_desc : string;
      comp_name : string;

@@ -3,46 +3,46 @@ library rsoperator;
 uses
   Windows, StrUtils, SysUtils,
   global, textbox, usermessage, forceconfirm, autologon, turnshell, filebox, copyfiles, startup, clientupdate, clientuninstall,
-  main in 'main.pas' {RSOperatorForm};
+  main in 'main.pas' {KSOperatorForm};
 
 {$R resource.res}
 
 
 
 function GUI_CreateWindow(p:PHostConnection):pointer cdecl;
-var f:TRSOperatorForm;
+var f:TKSOperatorForm;
 begin
- f:=TRSOperatorForm.CreateForm(p);
+ f:=TKSOperatorForm.CreateForm(p);
  Result:=f;
 end;
 
 procedure GUI_DestroyWindow(obj:pointer) cdecl;
 begin
- TRSOperatorForm(obj).Free;
+ TKSOperatorForm(obj).Free;
 end;
 
 procedure GUI_ShowWindow(obj:pointer) cdecl;
 begin
  if obj<>nil then
-  TRSOperatorForm(obj).SelfShow();
+  TKSOperatorForm(obj).SelfShow();
 end;
 
 procedure GUI_HideWindow(obj:pointer) cdecl;
 begin
  if obj<>nil then
-  TRSOperatorForm(obj).SelfHide();
+  TKSOperatorForm(obj).SelfHide();
 end;
 
 function GUI_IsWindowVisible(obj:pointer):longbool cdecl;
 begin
- Result:=(obj<>nil) and TRSOperatorForm(obj).IsSelfVisible();
+ Result:=(obj<>nil) and TKSOperatorForm(obj).IsSelfVisible();
 end;
 
 function GUI_GetWindowHandle(obj:pointer):HWND cdecl;
 begin
  Result:=0;
  if (obj<>nil) then
-  Result:=TRSOperatorForm(obj).GetSelfHWND();
+  Result:=TKSOperatorForm(obj).GetSelfHWND();
 end;
 
 function GUI_TextBox(out_text:pchar;instance:cardinal;icon_idx:integer;const title,text,def:pchar;maxlength:integer;allow_empty:longbool;const list_id:pchar):longbool cdecl;

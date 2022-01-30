@@ -3,7 +3,7 @@
 
 
 
-#define MAXWINITEMS 200  //must be like in rshell!!!!
+#define MAXWINITEMS 200  //must be like in kshell!!!!
 
 #define KS_HIDEKEY   "Software\\KagamineP\\KagamiShell\\KagamiShell\\hide_tm_programs"
 #define KS_KEY       "Software\\KagamineP\\KagamiShell"
@@ -385,10 +385,10 @@ static void LoadHiddens(void)
   AddToHiddenList("rsrules.exe");
   AddToHiddenList("rfmserver.exe");
   AddToHiddenList("rsrdserver.exe");
-  AddToHiddenList("rshell_svc.exe");
-  AddToHiddenList("rshell.exe");
-  AddToHiddenList("rshell_asv2.exe");
-  AddToHiddenList("rshell_ams.exe");
+  AddToHiddenList("kshell_svc.exe");
+  AddToHiddenList("kshell.exe");
+  AddToHiddenList("kshell_asv2.exe");
+  AddToHiddenList("kshell_ams.exe");
   AddToHiddenList("rsoffindic.exe");
 }
 

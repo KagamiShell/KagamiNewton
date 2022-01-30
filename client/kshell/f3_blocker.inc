@@ -2,7 +2,7 @@
 
 static BOOL IsOurSSaverRunning(void)
 {
-  HANDLE event = OpenEvent(SYNCHRONIZE,FALSE,"_RSEventScreenSaver");
+  HANDLE event = OpenEvent(SYNCHRONIZE,FALSE,"_KSEventScreenSaver");
   if ( event )
      {
        CloseHandle(event);
@@ -15,7 +15,7 @@ static BOOL IsOurSSaverRunning(void)
 
 static BOOL IsOurBlockerRunning(void)
 {
-  HANDLE event = OpenEvent(SYNCHRONIZE,FALSE,"_RSEventBlocker");
+  HANDLE event = OpenEvent(SYNCHRONIZE,FALSE,"_KSEventBlocker");
   if ( event )
      {
        CloseHandle(event);
@@ -142,7 +142,7 @@ void RunOurBlocker(void)
 
   if ( IsOurSSaverRunning() )
      {
-       HANDLE event = OpenEvent(SYNCHRONIZE | EVENT_MODIFY_STATE,FALSE,"_RSEventScreenSaver");
+       HANDLE event = OpenEvent(SYNCHRONIZE | EVENT_MODIFY_STATE,FALSE,"_KSEventScreenSaver");
        if ( event )
           {
             SetEvent(event);
@@ -166,7 +166,7 @@ void CloseOurBlocker(void)
 {
   if ( IsOurBlockerRunning() )
      {
-       HANDLE event = OpenEvent(SYNCHRONIZE | EVENT_MODIFY_STATE,FALSE,"_RSEventBlocker");
+       HANDLE event = OpenEvent(SYNCHRONIZE | EVENT_MODIFY_STATE,FALSE,"_KSEventBlocker");
        if ( event )
           {
             SetEvent(event);

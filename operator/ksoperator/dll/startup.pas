@@ -21,7 +21,7 @@ type
 
 
 type
-  TRSStartupForm = class(TForm)
+  TKSStartupForm = class(TForm)
     Panel1: TPanel;
     Image1: TImage;
     Bevel1: TBevel;
@@ -76,15 +76,15 @@ uses tools, lang, h_sql;
 
 
 function ShowStartupMasterDialog(p:PStartupInfo):boolean;
-var f:TRSStartupForm;
+var f:TKSStartupForm;
 begin
- f:=TRSStartupForm.CreateForm(p);
+ f:=TKSStartupForm.CreateForm(p);
  Result:=f.ShowModal=idok;
  f.Free;
 end;
 
 
-constructor TRSStartupForm.CreateForm(p:PStartupInfo);
+constructor TKSStartupForm.CreateForm(p:PStartupInfo);
 var n:integer;
 begin
  inherited Create(nil);
@@ -114,7 +114,7 @@ begin
  SendMessage(Handle, WM_SETICON, ICON_BIG, info.big_icon);
 end;
 
-destructor TRSStartupForm.Destroy();
+destructor TKSStartupForm.Destroy();
 begin
  if ModalResult=mrOk then
   begin
@@ -130,7 +130,7 @@ begin
  inherited;
 end;
 
-procedure TRSStartupForm.UpdateButtons;
+procedure TKSStartupForm.UpdateButtons;
 var page,numpages:integer;
     s_cancel,s_next,s_prev,s_finish:string;
 begin
@@ -173,19 +173,19 @@ begin
  except end;
 end;
 
-procedure TRSStartupForm.SwitchToPage(idx:integer);
+procedure TKSStartupForm.SwitchToPage(idx:integer);
 begin
  if PageControl.ActivePageIndex<>idx then
   PageControl.ActivePageIndex:=idx;
 end;
 
-procedure TRSStartupForm.FormShow(Sender: TObject);
+procedure TKSStartupForm.FormShow(Sender: TObject);
 begin
  SetForegroundWindow(Handle);
  UpdateButtons;
 end;
 
-procedure TRSStartupForm.ButtonNextClick(Sender: TObject);
+procedure TKSStartupForm.ButtonNextClick(Sender: TObject);
 var page,numpages:integer;
 begin
  page:=PageControl.ActivePageIndex;
@@ -204,7 +204,7 @@ begin
   end;
 end;
 
-procedure TRSStartupForm.ButtonPrevClick(Sender: TObject);
+procedure TKSStartupForm.ButtonPrevClick(Sender: TObject);
 var page:integer;
 begin
  page:=PageControl.ActivePageIndex;
@@ -216,7 +216,7 @@ begin
   end;
 end;
 
-procedure TRSStartupForm.FormCloseQuery(Sender: TObject;
+procedure TKSStartupForm.FormCloseQuery(Sender: TObject;
   var CanClose: Boolean);
 begin
  CanClose:=can_close or (ButtonCancel.Visible and ButtonCancel.Enabled);
@@ -227,7 +227,7 @@ begin
   end;
 end;
 
-procedure TRSStartupForm.TabSheet4Show(Sender: TObject);
+procedure TKSStartupForm.TabSheet4Show(Sender: TObject);
 var rp:string;
 begin
  if ComboBox1.ItemIndex<>-1 then

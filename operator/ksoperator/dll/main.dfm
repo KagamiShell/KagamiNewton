@@ -1,4 +1,4 @@
-object RSOperatorForm: TRSOperatorForm
+object KSOperatorForm: TKSOperatorForm
   Left = 321
   Top = 91
   HorzScrollBar.Visible = False

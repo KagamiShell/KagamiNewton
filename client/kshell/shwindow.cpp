@@ -2,7 +2,7 @@
 #include "include.h"
 
 
-static const char *mainclass = "_RSSheetWindowClass";
+static const char *mainclass = "_KSSheetWindowClass";
 static const int min_width = 400;
 static const int min_height = 325;
 

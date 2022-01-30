@@ -94,7 +94,7 @@ void GetEnvListAt(int idx,TENVENTRY *out)
                                   lstrcpyn(out->class_name,env.GetParmAsString(NETPARM_S_CLASS,""),MAX_PATH);
                                   lstrcpyn(out->ip,env.GetParmAsString(NETPARM_S_IP,""),MAX_PATH);
                                   lstrcpyn(out->mac,env.GetParmAsString(NETPARM_S_MAC,""),MAX_PATH);
-                                  lstrcpyn(out->runpad_ver,env.GetParmAsString(NETPARM_S_VERSION,""),MAX_PATH);
+                                  lstrcpyn(out->kagami_ver,env.GetParmAsString(NETPARM_S_VERSION,""),MAX_PATH);
                                   lstrcpyn(out->machine_loc,env.GetParmAsString(NETPARM_S_MACHINELOC,""),MAX_PATH);
                                   lstrcpyn(out->machine_desc,env.GetParmAsString(NETPARM_S_MACHINEDESC,""),MAX_PATH);
                                   lstrcpyn(out->comp_name,env.GetParmAsString(NETPARM_S_COMPNAME,""),MAX_PATH);

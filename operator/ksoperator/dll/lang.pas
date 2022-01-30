@@ -54,7 +54,7 @@ const S_INFOFMT_MAC          = 'MAC: %s';
 const S_INFOFMT_RPVER        = 'Версия: %s';
 const S_INFOFMT_MACHINELOC   = 'Положение: %s';
 const S_INFOFMT_MACHINEDESC  = 'Описание: %s';
-const S_INFOFMT_COMPNAME     = 'Машина: %s';
+const S_INFOFMT_COMPNAME     = 'Компьютер: %s';
 const S_INFOFMT_DOMAIN       = 'Домен: %s';
 const S_INFOFMT_USERNAME     = 'Пользователь: %s';
 const S_INFOFMT_VIPSESSION   = 'VIP-сессия: %s';
@@ -71,10 +71,10 @@ const S_INFOFMT_RLBON        = 'Rollback (откат): Вкл';
 const S_INFOFMT_RLBOFF       = 'Rollback (откат): Откл или Вкл с сохранением';
 const S_EMPTYLOGIN = 'Логин не может быть пустым';
 const S_EMPTYLOGINPWD = 'Логин и пароль не могут быть пустыми';
-const S_TURNSHELLON = 'Включение клиентского шелла';
-const S_TURNSHELLOFF = 'Отключение клиентского шелла';
-const S_TURNSHELLON_BTN = 'Включить шелл';
-const S_TURNSHELLOFF_BTN = 'Отключить шелл';
+const S_TURNSHELLON = 'Включение ученической оболочки';
+const S_TURNSHELLOFF = 'Отключение ученической оболочки';
+const S_TURNSHELLON_BTN = 'Включить оболочку';
+const S_TURNSHELLOFF_BTN = 'Отключить оболочку';
 const S_CLEARWOLCACHE = 'Очистить кэш списка MAC-адресов?';
 
 

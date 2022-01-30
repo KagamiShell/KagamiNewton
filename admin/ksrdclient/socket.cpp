@@ -173,5 +173,5 @@ void CSocket::PostMessageToParentThread(const char *msg)
 
 void CSocket::PostDisconnectMessage()
 {
-  PostMessageToParentThread("_RSRDDisconnected");
+  PostMessageToParentThread("_KSRDDisconnected");
 }

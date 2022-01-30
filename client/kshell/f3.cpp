@@ -210,7 +210,7 @@ void ClearPrintSpooler()
 void InstallOurService()
 {
   char s[MAX_PATH];
-  wsprintf(s,"\"%srshell_svc.exe\" -install -silent",our_currpath);
+  wsprintf(s,"\"%skshell_svc.exe\" -install -silent",our_currpath);
   RunHiddenProcessAndWait(s,NULL);
 }
 
@@ -218,7 +218,7 @@ void InstallOurService()
 void UninstallOurService()
 {
   char s[MAX_PATH];
-  wsprintf(s,"\"%srshell_svc.exe\" -uninstall -silent",our_currpath);
+  wsprintf(s,"\"%skshell_svc.exe\" -uninstall -silent",our_currpath);
   RunHiddenProcessAndWait(s,NULL);
 }
 
@@ -544,7 +544,7 @@ BOOL IsOurShellTurnedOnForCurrentUser()
 {
   char s[MAX_PATH];
   ReadRegStr(HKCU,"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon","Shell",s,"");
-  return !lstrcmpi(PathFindFileName(s),"rshell.exe");
+  return !lstrcmpi(PathFindFileName(s),"kshell.exe");
 }
 
 
@@ -568,7 +568,7 @@ BOOL IsOurShellTurnedOnForAllUsers()
 {
   char s[MAX_PATH];
   ReadRegStr64(HKLM,"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon","Shell",s,"");
-  return !lstrcmpi(PathFindFileName(s),"rshell.exe");
+  return !lstrcmpi(PathFindFileName(s),"kshell.exe");
 }
 
 
@@ -644,19 +644,19 @@ void AddToAllowedFirewallProgramsList(const char *exe,const char *name)
 void AddOurAppPath()
 {
   char exe[MAX_PATH];
-  GetLocalPath("rshell.exe",exe);
+  GetLocalPath("kshell.exe",exe);
   
-  WriteRegStr(HKLM,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\rshell.exe",NULL,exe);
-  WriteRegStr(HKLM,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\rshell.exe","Path",our_currpath);
-  WriteRegStr64(HKLM,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\rshell.exe",NULL,exe);
-  WriteRegStr64(HKLM,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\rshell.exe","Path",our_currpath);
+  WriteRegStr(HKLM,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\kshell.exe",NULL,exe);
+  WriteRegStr(HKLM,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\kshell.exe","Path",our_currpath);
+  WriteRegStr64(HKLM,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\kshell.exe",NULL,exe);
+  WriteRegStr64(HKLM,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\kshell.exe","Path",our_currpath);
 }
 
 
 void RemoveOurAppPath()
 {
-  DeleteRegKeyNoRec(HKLM,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\rshell.exe");
-  DeleteRegKeyNoRec64(HKLM,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\rshell.exe");
+  DeleteRegKeyNoRec(HKLM,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\kshell.exe");
+  DeleteRegKeyNoRec64(HKLM,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\kshell.exe");
 }
 
 

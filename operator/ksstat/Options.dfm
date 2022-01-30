@@ -10,8 +10,8 @@ object FormOptions: TFormOptions
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
-  Font.Name = 'MS Sans Serif'
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
   Font.Style = []
   KeyPreview = True
   OldCreateOrder = False
@@ -20,13 +20,13 @@ object FormOptions: TFormOptions
   OnHelp = FormHelp
   OnKeyDown = FormKeyDown
   PixelsPerInch = 96
-  TextHeight = 13
+  TextHeight = 15
   object ButtonOk: TSpeedButton
     Left = 216
     Top = 216
     Width = 73
     Height = 25
-    Caption = #1054'k'
+    Caption = #1054#1050
     OnClick = ButtonOkClick
   end
   object ButtonCancel: TSpeedButton
@@ -42,7 +42,6 @@ object FormOptions: TFormOptions
     Top = 32
     Width = 257
     Height = 177
-    PageIndex = 1
     TabOrder = 1
     object TPage
       Left = 0
@@ -51,59 +50,41 @@ object FormOptions: TFormOptions
       object LabelCaption: TLabel
         Left = 16
         Top = 16
-        Width = 143
-        Height = 16
-        Caption = 'Runpad '#1057#1090#1072#1090#1080#1089#1090#1080#1082#1072
+        Width = 186
+        Height = 21
+        Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072' KagamiShell'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Verdana'
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
         Font.Style = [fsBold]
         ParentFont = False
       end
       object LabelVersion: TLabel
         Left = 16
-        Top = 40
-        Width = 92
-        Height = 13
-        Caption = #1042#1077#1088#1089#1080#1103' 4 (1.03)'
+        Top = 72
+        Width = 168
+        Height = 15
+        Caption = #1042#1077#1088#1089#1080#1103' 1.0.0 '#1086#1090' 30.01.2022 06:00'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Verdana'
+        Font.Height = -12
+        Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
       end
       object LabelCopyright: TLabel
         Left = 16
-        Top = 56
-        Width = 48
-        Height = 13
-        Caption = '(c) 2006'
+        Top = 96
+        Width = 70
+        Height = 15
+        Caption = '(c) 2020-2022'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Verdana'
+        Font.Height = -12
+        Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-      end
-      object LabelHyperlink: TLabel
-        Left = 112
-        Top = 152
-        Width = 130
-        Height = 13
-        Cursor = crHandPoint
-        Alignment = taRightJustify
-        Caption = 'www.runpad-shell.com'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Verdana'
-        Font.Style = []
-        ParentFont = False
-        OnClick = LabelHyperlinkClick
-        OnMouseEnter = LabelHyperlinkMouseEnter
-        OnMouseLeave = LabelHyperlinkMouseLeave
       end
     end
     object TPage
@@ -121,7 +102,7 @@ object FormOptions: TFormOptions
           Left = 120
           Top = 46
           Width = 41
-          Height = 21
+          Height = 23
           HelpContext = 2
           Enabled = False
           TabOrder = 2
@@ -178,15 +159,15 @@ object FormOptions: TFormOptions
           Left = 24
           Top = 56
           Width = 6
-          Height = 13
+          Height = 15
           HelpContext = 3
           Caption = #1089
         end
         object lTill: TLabel
           Left = 136
           Top = 56
-          Width = 12
-          Height = 13
+          Width = 13
+          Height = 15
           HelpContext = 3
           Caption = #1076#1086
         end
@@ -194,7 +175,7 @@ object FormOptions: TFormOptions
           Left = 40
           Top = 53
           Width = 89
-          Height = 21
+          Height = 23
           HelpContext = 3
           Date = 38495.965338171300000000
           Time = 38495.965338171300000000
@@ -204,7 +185,7 @@ object FormOptions: TFormOptions
           Left = 152
           Top = 53
           Width = 89
-          Height = 21
+          Height = 23
           HelpContext = 3
           Date = 38495.965338171300000000
           Time = 38495.965338171300000000
@@ -214,10 +195,10 @@ object FormOptions: TFormOptions
           Left = 16
           Top = 24
           Width = 225
-          Height = 21
+          Height = 23
           HelpContext = 3
           Style = csDropDownList
-          ItemHeight = 13
+          ItemHeight = 15
           ItemIndex = 0
           TabOrder = 0
           Text = #1052#1072#1082#1089#1080#1084#1072#1083#1100#1085#1086' '#1074#1086#1079#1084#1086#1078#1085#1099#1081' '#1080#1085#1090#1077#1088#1074#1072#1083
@@ -263,7 +244,7 @@ object FormOptions: TFormOptions
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindow
     Font.Height = -16
-    Font.Name = 'Microsoft Sans Serif'
+    Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False

@@ -472,7 +472,7 @@ static const TLANGSTR lang_1[] =
   { 1706, "Undeleted successfully!" },
   { 1707, "Error undeleting" },
 
-  // rshell
+  // kshell
   { 3000, "licenses" },
   { 3001, "Restore video-mode" },
   { 3002, "Cannot connect to SQL database\n\nTry again later" },

@@ -7,20 +7,20 @@ uses
   ComCtrls, StdCtrls, ExtCtrls;
 
 type
-     TSTRING = array [0..MAX_PATH-1] of char;
+  TSTRING = array [0..MAX_PATH - 1] of char;
      // TGetLicInfo = procedure(lic_organization,lic_owner,lic_machines,lic_type,lic_modules:ppchar); cdecl;
      // TSetLicKey = procedure(key:pchar); cdecl;
 
-     TStartupInfo = record
+  TStartupInfo = record
       // GetLicInfo : TGetLicInfo;
       // SetLicKey : TSetLicKey;
-      small_icon : cardinal;
-      big_icon : cardinal;
-      server_name : TSTRING;
-      dbtype_ks : integer;
-      dbtype_gc : integer;
-     end;
-     PStartupInfo = ^TStartupInfo;
+    small_icon: cardinal;
+    big_icon: cardinal;
+    server_name: TSTRING;
+    dbtype_ks: integer;
+    dbtype_gc: integer;
+  end;
+  PStartupInfo = ^TStartupInfo;
 
 
 type
@@ -54,19 +54,18 @@ type
     procedure TabSheet4Show(Sender: TObject);
   private
     { Private declarations }
-    info : PStartupInfo;
-    can_close : boolean;
-    procedure SwitchToPage(idx:integer);
+    info: PStartupInfo;
+    can_close: boolean;
+    procedure SwitchToPage(idx: integer);
     procedure UpdateButtons;
-    procedure UpdateLicInfo;
   public
     { Public declarations }
-    constructor CreateForm(p:PStartupInfo);
+    constructor CreateForm(p: PStartupInfo);
     destructor Destroy(); override;
   end;
 
 
-function ShowStartupMasterDialog(p:PStartupInfo):longbool; cdecl;
+function ShowStartupMasterDialog(p: PStartupInfo): longbool; cdecl;
 
 
 implementation
@@ -77,73 +76,70 @@ implementation
 {$INCLUDE ..\..\admin\sql\h_sql.inc}
 
 
-function GetLocalPath(local:string):string;
-var s:array[0..MAX_PATH] of char;
+function GetLocalPath(local: string): string;
+var s: array[0..MAX_PATH] of char;
 begin
- s[0]:=#0;
- GetModuleFileName(hInstance,s,sizeof(s));
- Result:=IncludeTrailingPathDelimiter(ExtractFilePath(s))+local;
+  s[0] := #0;
+  GetModuleFileName(hInstance, s, sizeof(s));
+  Result := IncludeTrailingPathDelimiter(ExtractFilePath(s)) + local;
 end;
 
 
-function ShowStartupMasterDialog(p:PStartupInfo):longbool; cdecl;
-var f:TKSStartupForm;
+function ShowStartupMasterDialog(p: PStartupInfo): longbool; cdecl;
+var f: TKSStartupForm;
 begin
- f:=TKSStartupForm.CreateForm(p);
- Result:=f.ShowModal=idok;
- f.Free;
+  f := TKSStartupForm.CreateForm(p);
+  Result := f.ShowModal = idok;
+  f.Free;
 end;
 
 
-constructor TKSStartupForm.CreateForm(p:PStartupInfo);
-var n:integer;
+constructor TKSStartupForm.CreateForm(p: PStartupInfo);
+var n: integer;
 begin
- inherited Create(nil);
+  inherited Create(nil);
 
- info:=p;
- can_close:=false;
+  info := p;
+  can_close := false;
 
- Caption:='Средство установки сервера KagamiShell';
- Label1.Caption:='Нажмите «Далее» для запуска мастера';
+  Caption := 'Средство установки сервера KagamiShell';
+  Label1.Caption := 'Нажмите «Далее» для запуска мастера';
  // GroupBox1.Caption:=' Информация о лицензии ';
  // Label3.Caption:='Организация:';
  // Label4.Caption:='Владелец:';
  // Label5.Caption:='Кол-во копий:';
  // Label7.Caption:='Тип лицензии:';
  // Label15.Caption:='Модули:';
- Label6.Caption:='Имя машины с SQL-базой:';
- Label13.Caption:='База Runpad Pro:';
- Label14.Caption:='База GameClass:';
- Label8.Caption:='Работа мастера завершена!'#13#10#13#10'Мастер всегда можно запустить повторно из-под учетной записи администратора для изменения настроек'#13#10#13#10#13#10#13#10#13#10'-------'#13#10'Нажмите "Завершить" для выхода';
+  Label6.Caption := 'Имя машины с SQL-базой:';
+  Label13.Caption := 'База KagamiShell:';
+  Label8.Caption := 'Работа мастера завершена!'#13#10#13#10'Мастер всегда можно запустить повторно из-под учетной записи администратора для изменения настроек'#13#10#13#10#13#10#13#10#13#10'-------'#13#10'Нажмите "Завершить" для выхода';
 
- UpdateLicInfo();
+  // UpdateLicInfo();
 
- Edit3.Text:=info.server_name;
- ComboBox1.ItemIndex:=info.dbtype_ks;
- ComboBox2.ItemIndex:=info.dbtype_gc;
+  Edit3.Text := info.server_name;
+  ComboBox1.ItemIndex := info.dbtype_ks;
 
- SwitchToPage(0);
- for n:=0 to PageControl.PageCount-1 do
-  PageControl.Pages[n].TabVisible:=false;
- SwitchToPage(0);
+  SwitchToPage(0);
+  for n := 0 to PageControl.PageCount - 1 do
+    PageControl.Pages[n].TabVisible := false;
+  SwitchToPage(0);
 
- SendMessage(Handle, WM_SETICON, ICON_SMALL, info.small_icon);
- SendMessage(Handle, WM_SETICON, ICON_BIG, info.big_icon);
+  SendMessage(Handle, WM_SETICON, ICON_SMALL, info.small_icon);
+  SendMessage(Handle, WM_SETICON, ICON_BIG, info.big_icon);
 end;
 
 destructor TKSStartupForm.Destroy();
 begin
- if ModalResult=mrOk then
+  if ModalResult = mrOk then
   begin
-   StrCopy(info.server_name,pchar(Edit3.Text));
-   info.dbtype_ks:=ComboBox1.ItemIndex;
-   info.dbtype_gc:=ComboBox2.ItemIndex;
+    StrCopy(info.server_name, pchar(Edit3.Text));
+    info.dbtype_ks := ComboBox1.ItemIndex;
   end;
 
- SendMessage(Handle, WM_SETICON, ICON_SMALL, 0);
- SendMessage(Handle, WM_SETICON, ICON_BIG, 0);
+  SendMessage(Handle, WM_SETICON, ICON_SMALL, 0);
+  SendMessage(Handle, WM_SETICON, ICON_BIG, 0);
 
- inherited;
+  inherited;
 end;
 
 // procedure TRSStartupForm.UpdateLicInfo;
@@ -165,131 +161,117 @@ end;
 // end;
 
 procedure TKSStartupForm.UpdateButtons;
-var page,numpages:integer;
-    s_cancel,s_next,s_prev,s_finish:string;
+var page, numpages: integer;
+  s_cancel, s_next, s_prev, s_finish: string;
 begin
- s_next:='Далее >>';
- s_prev:='<< Назад';
- s_finish:='Завершить';
- s_cancel:='Отмена';
+  s_next := 'Далее >>';
+  s_prev := '<< Назад';
+  s_finish := 'Завершить';
+  s_cancel := 'Отмена';
 
- page:=PageControl.ActivePageIndex;
- numpages:=PageControl.PageCount;
+  page := PageControl.ActivePageIndex;
+  numpages := PageControl.PageCount;
 
- if page=0 then
+  if page = 0 then
   begin
-   ButtonPrev.Visible:=false;
-   ButtonNext.Visible:=true;
-   ButtonNext.Caption:=s_next;
-   ButtonCancel.Visible:=true;
-   ButtonCancel.Caption:=s_cancel;
+    ButtonPrev.Visible := false;
+    ButtonNext.Visible := true;
+    ButtonNext.Caption := s_next;
+    ButtonCancel.Visible := true;
+    ButtonCancel.Caption := s_cancel;
   end
- else
- if page=numpages-1 then
+  else
+  if page = numpages - 1 then
   begin
-   ButtonPrev.Visible:=false;
-   ButtonCancel.Visible:=false;
-   ButtonNext.Visible:=true;
-   ButtonNext.Caption:=s_finish;
+    ButtonPrev.Visible := false;
+    ButtonCancel.Visible := false;
+    ButtonNext.Visible := true;
+    ButtonNext.Caption := s_finish;
   end
- else
+  else
   begin
-   ButtonCancel.Visible:=true;
-   ButtonCancel.Caption:=s_cancel;
-   ButtonPrev.Visible:=true;
-   ButtonPrev.Caption:=s_prev;
-   ButtonNext.Visible:=true;
-   ButtonNext.Caption:=s_next;
+    ButtonCancel.Visible := true;
+    ButtonCancel.Caption := s_cancel;
+    ButtonPrev.Visible := true;
+    ButtonPrev.Caption := s_prev;
+    ButtonNext.Visible := true;
+    ButtonNext.Caption := s_next;
   end;
 
- try
-  ButtonNext.SetFocus;
- except end;
+  try
+    ButtonNext.SetFocus;
+  except end;
 end;
 
-procedure TKSStartupForm.SwitchToPage(idx:integer);
+procedure TKSStartupForm.SwitchToPage(idx: integer);
 begin
- if PageControl.ActivePageIndex<>idx then
-  PageControl.ActivePageIndex:=idx;
+  if PageControl.ActivePageIndex <> idx then
+    PageControl.ActivePageIndex := idx;
 end;
 
 procedure TKSStartupForm.FormShow(Sender: TObject);
 begin
- SetForegroundWindow(Handle);
- UpdateButtons;
+  SetForegroundWindow(Handle);
+  UpdateButtons;
 end;
 
 procedure TKSStartupForm.ButtonNextClick(Sender: TObject);
-var page,numpages:integer;
+var page, numpages: integer;
 begin
- page:=PageControl.ActivePageIndex;
- numpages:=PageControl.PageCount;
+  page := PageControl.ActivePageIndex;
+  numpages := PageControl.PageCount;
 
- if page=numpages-1 then
+  if page = numpages - 1 then
   begin
-   can_close:=true;
-   ModalResult:=mrOk;
+    can_close := true;
+    ModalResult := mrOk;
   end
- else
+  else
   begin
-   inc(page);
-   PageControl.ActivePageIndex:=page;
-   UpdateButtons;
+    inc(page);
+    PageControl.ActivePageIndex := page;
+    UpdateButtons;
   end;
 end;
 
 procedure TKSStartupForm.ButtonPrevClick(Sender: TObject);
-var page:integer;
+var page: integer;
 begin
- page:=PageControl.ActivePageIndex;
- if page>0 then
+  page := PageControl.ActivePageIndex;
+  if page > 0 then
   begin
-   dec(page);
-   PageControl.ActivePageIndex:=page;
-   UpdateButtons;
+    dec(page);
+    PageControl.ActivePageIndex := page;
+    UpdateButtons;
   end;
 end;
 
 procedure TKSStartupForm.FormCloseQuery(Sender: TObject;
   var CanClose: Boolean);
 begin
- CanClose:=can_close or (ButtonCancel.Visible and ButtonCancel.Enabled);
- if CanClose and ButtonCancel.Visible then
+  CanClose := can_close or (ButtonCancel.Visible and ButtonCancel.Enabled);
+  if CanClose and ButtonCancel.Visible then
   begin
-   if MessageBox(Handle,'Прервать работу мастера?','Вопрос',MB_YESNO or MB_DEFBUTTON2 or MB_ICONQUESTION)<>IDYES then
-    CanClose:=false;
+    if MessageBox(Handle, 'Прервать работу мастера?', 'Вопрос', MB_YESNO or
+      MB_DEFBUTTON2 or MB_ICONQUESTION) <> IDYES then
+      CanClose := false;
   end;
 end;
 
 procedure TKSStartupForm.TabSheet4Show(Sender: TObject);
-var rp,gc:string;
+var ks: string;
 begin
- if ComboBox1.ItemIndex<>-1 then
-  rp:=ComboBox1.Items[ComboBox1.ItemIndex]
- else
-  rp:='';
- if ComboBox2.ItemIndex<>-1 then
-  gc:=ComboBox2.Items[ComboBox2.ItemIndex]
- else
-  gc:='';
+  if ComboBox1.ItemIndex <> -1 then
+    ks := ComboBox1.Items[ComboBox1.ItemIndex]
+  else
+    ks := '';
 
- Memo1.Clear;
- Memo1.Lines.Add(Label3.Caption);
- Memo1.Lines.Add(' '+Label9.Caption);
- Memo1.Lines.Add(Label4.Caption);
- Memo1.Lines.Add(' '+Label10.Caption);
- Memo1.Lines.Add(Label5.Caption);
- Memo1.Lines.Add(' '+Label11.Caption);
- Memo1.Lines.Add(Label7.Caption);
- Memo1.Lines.Add(' '+Label12.Caption);
- Memo1.Lines.Add(Label15.Caption);
- Memo1.Lines.Add(' '+Label16.Caption);
- Memo1.Lines.Add(Label6.Caption);
- Memo1.Lines.Add(' '+Edit3.Text);
- Memo1.Lines.Add(Label13.Caption);
- Memo1.Lines.Add(' '+rp);
- Memo1.Lines.Add(Label14.Caption);
- Memo1.Lines.Add(' '+gc);
+  Memo1.Clear;
+  Memo1.Lines.Add(Label3.Caption);
+  Memo1.Lines.Add(Label6.Caption);
+  Memo1.Lines.Add(' ' + Edit3.Text);
+  Memo1.Lines.Add(Label13.Caption);
+  Memo1.Lines.Add(' ' + ks);
 end;
 
 end.

@@ -7,8 +7,8 @@ object FormStat: TFormStat
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
-  Font.Name = 'MS Sans Serif'
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
   Font.Style = []
   Menu = MainMenu
   OldCreateOrder = False
@@ -16,19 +16,19 @@ object FormStat: TFormStat
   OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
-  TextHeight = 13
+  TextHeight = 15
   object SplitterH: TSplitter
     Left = 185
     Top = 26
-    Height = 389
+    Height = 376
     OnMoved = SplitterHMoved
   end
   object ToolBar: TToolBar
     Left = 0
     Top = 0
-    Width = 730
+    Width = 722
     Height = 26
-    ButtonWidth = 171
+    ButtonWidth = 177
     Caption = 'ToolBar'
     EdgeBorders = [ebTop, ebBottom]
     Flat = True
@@ -47,7 +47,7 @@ object FormStat: TFormStat
       Style = tbsCheck
     end
     object btnRating: TToolButton
-      Left = 96
+      Left = 102
       Top = 0
       Action = actRating
       AutoSize = True
@@ -55,7 +55,7 @@ object FormStat: TFormStat
       Style = tbsCheck
     end
     object ToolButton4: TToolButton
-      Left = 214
+      Left = 231
       Top = 0
       Width = 8
       Caption = 'ToolButton4'
@@ -63,7 +63,7 @@ object FormStat: TFormStat
       Style = tbsDivider
     end
     object btnTree: TToolButton
-      Left = 222
+      Left = 239
       Top = 0
       Action = actTree
       AutoSize = True
@@ -71,7 +71,7 @@ object FormStat: TFormStat
       Style = tbsCheck
     end
     object btnAll: TToolButton
-      Left = 369
+      Left = 390
       Top = 0
       Action = actAll
       AutoSize = True
@@ -79,7 +79,7 @@ object FormStat: TFormStat
       Style = tbsCheck
     end
     object btnSheet: TToolButton
-      Left = 544
+      Left = 571
       Top = 0
       Action = actSheet
       AutoSize = True
@@ -91,13 +91,13 @@ object FormStat: TFormStat
     Left = 0
     Top = 26
     Width = 185
-    Height = 389
+    Height = 376
     Align = alLeft
     BevelOuter = bvNone
     TabOrder = 1
     object SplitterV: TSplitter
       Left = 0
-      Top = 236
+      Top = 223
       Width = 185
       Height = 3
       Cursor = crVSplit
@@ -108,7 +108,7 @@ object FormStat: TFormStat
       Left = 0
       Top = 0
       Width = 185
-      Height = 236
+      Height = 223
       Align = alClient
       HideSelection = False
       Indent = 19
@@ -121,14 +121,14 @@ object FormStat: TFormStat
     end
     object ListView: TListView
       Left = 0
-      Top = 239
+      Top = 226
       Width = 185
       Height = 150
       Align = alBottom
       Checkboxes = True
       Columns = <
         item
-          Caption = #1052#1072#1096#1080#1085#1072
+          Caption = #1050#1086#1084#1087#1100#1102#1090#1077#1088
           Width = 55
         end
         item
@@ -146,15 +146,15 @@ object FormStat: TFormStat
   object PanelRight: TPanel
     Left = 188
     Top = 26
-    Width = 542
-    Height = 389
+    Width = 534
+    Height = 376
     Align = alClient
     TabOrder = 2
     object ScrollBox: TScrollBox
       Left = 1
       Top = 25
-      Width = 540
-      Height = 363
+      Width = 532
+      Height = 350
       HorzScrollBar.Tracking = True
       HorzScrollBar.Visible = False
       VertScrollBar.Tracking = True
@@ -178,7 +178,7 @@ object FormStat: TFormStat
     object PanelTitle: TPanel
       Left = 1
       Top = 1
-      Width = 540
+      Width = 532
       Height = 24
       Align = alTop
       BevelOuter = bvNone
@@ -199,8 +199,8 @@ object FormStat: TFormStat
   end
   object StatusBar: TStatusBar
     Left = 0
-    Top = 415
-    Width = 730
+    Top = 402
+    Width = 722
     Height = 19
     Panels = <
       item

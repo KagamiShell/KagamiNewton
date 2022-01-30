@@ -1,4 +1,4 @@
-object RSStartupForm: TRSStartupForm
+object KSStartupForm: TKSStartupForm
   Left = 314
   Top = 102
   BorderIcons = [biSystemMenu, biMinimize]

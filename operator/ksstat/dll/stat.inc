@@ -1,5 +1,5 @@
 
-const STAT_DLL      = 'rsstat.dll';
+const STAT_DLL      = 'ksstat.dll';
 
 const ST_TYPE_SHEET    = 1;
 const ST_TYPE_SHORTCUT = 2;

@@ -63,7 +63,7 @@ BOOL AreWeStartedFromOperatorProgram()
 {
   BOOL rc = FALSE;
 
-  HWND w = FindWindow("_RSOperatorClass",NULL);
+  HWND w = FindWindow("_KSOperatorClass",NULL);
   if ( w )
      {
        DWORD pid = -1;

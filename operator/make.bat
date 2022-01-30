@@ -1,13 +1,13 @@
 @echo off
 
-cd rsoperator
+cd ksoperator
  cd dll
  call make.bat
  cd..
  call make.bat
 cd..
 
-cd rsstat
+cd ksstat
  cd dll
  call make.bat
  cd..

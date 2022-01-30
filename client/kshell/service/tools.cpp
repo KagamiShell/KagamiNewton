@@ -43,9 +43,9 @@ static BOOL TurnShellInternal(BOOL state,HKEY root)
        char s[MAX_PATH] = "";
        GetModuleFileName(GetModuleHandle(NULL),s,sizeof(s));
        PathRemoveFileSpec(s);
-       PathAppend(s,"rshell.exe");
+       PathAppend(s,"kshell.exe");
 
-       rc = WriteRegStr64(root,"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon","Shell",s/*"rshell.exe"*/);
+       rc = WriteRegStr64(root,"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon","Shell",s/*"kshell.exe"*/);
      }
   else
      {

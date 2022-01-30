@@ -11,7 +11,7 @@ CServer::CServer()
   p_env->AddStringParm(NETPARM_S_CLASS,NETCLASS_SERVER);
   p_env->AddIntParm(NETPARM_I_GUID,NETGUID_SERVER);
   p_env->AddStringParm(NETPARM_S_VERSION,SERVER_VERSION_STR);
-  AddLicInfoToEnv(*p_env);
+  // AddLicInfoToEnv(*p_env);
   
   p_db = new CDBObj(HKLM,REGPATH,"sql_server","sql_type_ks","sql_type_gc");
 
@@ -371,39 +371,10 @@ BOOL CServer::CanAddNewClass(const char *new_class,int ip,BOOL is_operator_shell
 
   if ( !IsStrEmpty(new_class) )
      {
-       if ( !lstrcmpi(new_class,NETCLASS_USER) )
-          {
-            BOOL license_with_mo = (StrStrI(p_env->GetParmAsString(NETPARM_S_LICFEATURES,""),"Server") != NULL);
-
-            if ( is_operator_shell && !license_with_mo )
-               {
-                 rc = FALSE;
-               }
-            else
-               {
-                 rc = (GetNumActiveUsers() < p_env->GetParmAsInt(NETPARM_I_LICMACHINES) + 1/*!!!*/);
-                 // здесь может возникнуть ситуация, когда сервер еще не знает про отключение клиента и
-                 // этот клиент подключается снова (например, когда нажали Reset на клиентской машине),
-                 // в итоге можем получить "мертвые души" и как итог - "живому" клиенту может быть отказано
-                 // потому добавляем символическую единичку, хотя проблемы это не решит
-                 // todo: изменить как-то это
-               }
-          }
-       else
        if ( !lstrcmpi(new_class,NETCLASS_OPERATOR) )
           {
             //todo: check 'ip' here for only allowed ip's
             rc = TRUE;
-          }
-       else
-       if ( !lstrcmpi(new_class,NETCLASS_COMPUTER) )
-          {
-            rc = (GetNumActiveComputers() < p_env->GetParmAsInt(NETPARM_I_LICMACHINES) + 1/*!!!*/);
-            // здесь может возникнуть ситуация, когда сервер еще не знает про отключение клиента и
-            // этот клиент подключается снова (например, когда нажали Reset на клиентской машине),
-            // в итоге можем получить "мертвые души" и как итог - "живому" клиенту может быть отказано
-            // потому добавляем символическую единичку, хотя проблемы это не решит
-            // todo: изменить как-то это
           }
      }
 

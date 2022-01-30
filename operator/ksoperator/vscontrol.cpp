@@ -2,7 +2,7 @@
 #include "include.h"
 
 
-static const char *szClassName = "_RSOperatorHostWebCamScreenClass";
+static const char *szClassName = "_KSOperatorHostWebCamScreenClass";
 static const char *reg_path = REGPATH "\\" OURAPPNAME "\\VSControl";
 static const float fps_list1[] = {/*30,25,20,15,12,*/10,8,5,2,1,0.5,0.3,0.2,0.1,0.05};
 static const float fps_list2[] = {1,0.5,0.3,0.2,0.1,0.05};

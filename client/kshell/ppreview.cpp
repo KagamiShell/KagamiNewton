@@ -392,7 +392,7 @@ int CPicPreview::ShowModal(HWND parent,const WCHAR *title,int maxtime)
        ZeroMemory(&wc,sizeof(wc));
        wc.lpfnWndProc = WindowProcWrapper;
        wc.hInstance = our_instance;
-       wc.lpszClassName = "_RSPicsPreviewWindowClass3";
+       wc.lpszClassName = "_KSPicsPreviewWindowClass3";
        RegisterClass(&wc);
 
        HWND wnd = CreateWindowEx(WS_EX_TOPMOST | WS_EX_TOOLWINDOW,wc.lpszClassName,NULL,WS_CLIPCHILDREN | WS_CLIPSIBLINGS | WS_POPUP,0,0,back_buff.w,back_buff.h,parent,NULL,our_instance,NULL);

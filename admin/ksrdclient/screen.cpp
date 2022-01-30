@@ -108,7 +108,7 @@ void CScreenSocket::WorkWithServer()
         if ( !rc )
            break;
 
-        PostMessageToParentThread("_RSRDDataArrived");
+        PostMessageToParentThread("_KSRDDataArrived");
       }
 
    //wait

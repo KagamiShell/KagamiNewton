@@ -24,7 +24,6 @@ type
     dtpTimeTill: TDateTimePicker;
     udRatingMax: TUpDown;
     LabelCopyright: TLabel;
-    LabelHyperlink: TLabel;
     cbTime: TComboBox;
     lFrom: TLabel;
     lTill: TLabel;
@@ -38,9 +37,6 @@ type
       Shift: TShiftState);
     function FormHelp(Command: Word; Data: Integer;
       var CallHelp: Boolean): Boolean;
-    procedure LabelHyperlinkMouseEnter(Sender: TObject);
-    procedure LabelHyperlinkMouseLeave(Sender: TObject);
-    procedure LabelHyperlinkClick(Sender: TObject);
   private
     procedure LoadSettings(defaults: boolean);
     procedure SaveSettings;
@@ -147,25 +143,37 @@ end;
 function TFormOptions.ScaleDateManualFrom(): TDateTime;
 begin
   case ScaleDateManual(false) of
-    0: Result := Now; // Auto
-    1: Result := Now - 365; //Last year
-    2: Result := Now - 90; //Last 3 month
-    3: Result := Now - 30; //Last month
-    4: Result := Now - 7; //Last week
-    else Result := ScaleDateFrom(false);//Manual
-    end; {case}
+    0:
+      Result := Now; // Auto
+    1:
+      Result := Now - 365; //Last year
+    2:
+      Result := Now - 90; //Last 3 month
+    3:
+      Result := Now - 30; //Last month
+    4:
+      Result := Now - 7; //Last week
+  else
+    Result := ScaleDateFrom(false);//Manual
+  end; {case}
 end;
 
 function TFormOptions.ScaleDateManualTill(): TDateTime;
 begin
   case ScaleDateManual(false) of
-    0: Result := Now; // Auto
-    1: Result := Now; //Last year
-    2: Result := Now; //Last 3 month
-    3: Result := Now; //Last month
-    4: Result := Now; //Last week
-    else Result := ScaleDateTill(false);//Manual
-    end; {case}
+    0:
+      Result := Now; // Auto
+    1:
+      Result := Now; //Last year
+    2:
+      Result := Now; //Last 3 month
+    3:
+      Result := Now; //Last month
+    4:
+      Result := Now; //Last week
+  else
+    Result := ScaleDateTill(false);//Manual
+  end; {case}
 end;
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -188,35 +196,35 @@ end;
 
 procedure TFormOptions.SaveSettings;
 var
-  reg:TRegistry;
-  i : integer;
-  b : boolean;
-  date1, date2 : TDateTime;
+  reg: TRegistry;
+  i:   integer;
+  b:   boolean;
+  date1, date2: TDateTime;
 begin
   reg := TRegistry.Create();
   if reg.OpenKey(REGPATH, true) then
-    begin
+  begin
 
-      b := true;
-      if rbRatingMax.Checked then
-        b := false;
-      i := udRatingMax.Position;
-      try
-        reg.WriteBool('ScaleRatingAuto', b);
-        reg.WriteInteger('ScaleRating', i);
-      except end;  
+    b := true;
+    if rbRatingMax.Checked then
+      b := false;
+    i := udRatingMax.Position;
+    try
+      reg.WriteBool('ScaleRatingAuto', b);
+      reg.WriteInteger('ScaleRating', i);
+    except end;
 
-      i := cbTime.ItemIndex;
-      date1 := dtpTimeFrom.DateTime;
-      date2 := dtpTimeTill.DateTime;
-      try
-        reg.WriteInteger('ScaleDateManual', i);
-        reg.WriteDate('ScaleDateFrom', date1);
-        reg.WriteDate('ScaleDateTill', date2);
-      except end;
+    i := cbTime.ItemIndex;
+    date1 := dtpTimeFrom.DateTime;
+    date2 := dtpTimeTill.DateTime;
+    try
+      reg.WriteInteger('ScaleDateManual', i);
+      reg.WriteDate('ScaleDateFrom', date1);
+      reg.WriteDate('ScaleDateTill', date2);
+    except end;
 
-      reg.CloseKey;
-    end;
+    reg.CloseKey;
+  end;
   reg.Free;
 end;
 
@@ -253,7 +261,7 @@ procedure TFormOptions.cbTimeChange(Sender: TObject);
 var
   ManualEnbled: boolean;
 begin
-  ManualEnbled := cbTime.ItemIndex = cbTime.Items.Count-1;
+  ManualEnbled := cbTime.ItemIndex = cbTime.Items.Count - 1;
   dtpTimeFrom.Visible := ManualEnbled;
   dtpTimeTill.Visible := ManualEnbled;
   lFrom.Visible := ManualEnbled;
@@ -263,35 +271,21 @@ end;
 procedure TFormOptions.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-  if Key=VK_RETURN then
+  if Key = VK_RETURN then
     ButtonOk.Click;
-  if Key=VK_ESCAPE then
-    ButtonCancel.Click;  
+  if Key = VK_ESCAPE then
+    ButtonCancel.Click;
 end;
 
 function TFormOptions.FormHelp(Command: Word; Data: Integer;
   var CallHelp: Boolean): Boolean;
 begin
   Result := True;
-  if Command = HELP_CONTEXTPOPUP then begin
+  if Command = HELP_CONTEXTPOPUP then
+  begin
     WinHelp(Handle, PChar(Application.HelpFile), Command, Data);
     CallHelp := False;
   end;
-end;
-
-procedure TFormOptions.LabelHyperlinkMouseEnter(Sender: TObject);
-begin
-  LabelHyperlink.Font.Color := clBlue;
-end;
-
-procedure TFormOptions.LabelHyperlinkMouseLeave(Sender: TObject);
-begin
-  LabelHyperlink.Font.Color := clWindowText;
-end;
-
-procedure TFormOptions.LabelHyperlinkClick(Sender: TObject);
-begin
-  ShellExecute(0, nil, 'http://www.runpad-shell.com', nil, nil, SW_SHOWNORMAL);
 end;
 
 end.

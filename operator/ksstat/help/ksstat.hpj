@@ -1,10 +1,10 @@
 [OPTIONS]
 LCID=0x419 0x0 0x0 ; Russian
 REPORT=Yes
-HLP=rsstat.hlp
+HLP=ksstat.hlp
 
 [FILES]
-rsstat.rtf
+ksstat.rtf
 
 [MAP]
 IDH_1=1

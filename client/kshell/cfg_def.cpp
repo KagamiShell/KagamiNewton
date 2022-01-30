@@ -584,7 +584,7 @@ static const TDEFITEMLIST1 def_safe_tray_icons[] =
   {TRUE, "Ymsgr_tray.exe"},
   {TRUE, "utorrent.exe"},
   {TRUE, "bittorrent.exe"},
-  {TRUE, "rshell_asv2.exe"},
+  {TRUE, "kshell_asv2.exe"},
   {TRUE, "steam.exe"},
   {TRUE, "garena.exe"},
 {FALSE,NULL} //terminator

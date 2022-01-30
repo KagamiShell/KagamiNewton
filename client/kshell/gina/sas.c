@@ -123,17 +123,17 @@ int OnSASAction(DWORD dwSasType)
                       hdesk = OpenDesktop(s_desktop,0,FALSE,DESKTOP_ENUMERATE);
                       if ( hdesk )
                          {
-                           HWND w_rshell = FindWindowOnDesktop(hdesk,"_KagamiClass");
+                           HWND w_kshell = FindWindowOnDesktop(hdesk,"_KagamiClass");
                            HWND w_progman = FindWindowOnDesktop(hdesk,"Progman");
                            CloseDesktop(hdesk);
 
-                           if ( !w_rshell && !w_progman )
+                           if ( !w_kshell && !w_progman )
                               return WLX_SAS_ACTION_NONE;
 
-                           if ( w_rshell )
+                           if ( w_kshell )
                               {
                                 int atom = 0;
-                                if ( SendMessageTimeout(w_rshell,WM_USER+135,0,0,SMTO_BLOCK|SMTO_ABORTIFHUNG,4000,(void*)&atom) )
+                                if ( SendMessageTimeout(w_kshell,WM_USER+135,0,0,SMTO_BLOCK|SMTO_ABORTIFHUNG,4000,(void*)&atom) )
                                    {
                                      if ( atom )
                                         {
@@ -157,7 +157,7 @@ int OnSASAction(DWORD dwSasType)
                                                   gDispatchTable.WlxSetOption(ghWlx,WLX_OPTION_USE_CTRL_ALT_DEL,old_value,&old_value);
 
                                                if ( rc >= 0 && rc < 100 )
-                                                  PostMessage(w_rshell,WM_USER+136,rc,0);
+                                                  PostMessage(w_kshell,WM_USER+136,rc,0);
 
                                                return WLX_SAS_ACTION_NONE;
                                              }

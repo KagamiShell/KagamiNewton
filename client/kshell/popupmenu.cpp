@@ -143,7 +143,7 @@ int CPopupMenu::Popup(BOOL is_down_top,int x,int y)
   HBRUSH old_brush = GetMenuBrush(menu);
   SetMenuBrush(menu,menu_brush);
 
-  static const char *mainclass = "_RSMenuWindowClass";
+  static const char *mainclass = "_KSMenuWindowClass";
   WNDCLASS wc;
   ZeroMemory(&wc,sizeof(wc));
   wc.lpfnWndProc = WindowProcWrapper;

@@ -62,7 +62,7 @@ void SetAlternateShell(BOOL state,void *p1,void *p2,void *p3)
    
   if ( state )
      {
-       GetFileNameInLocalAppDir("rshell.exe",s);
+       GetFileNameInLocalAppDir("kshell.exe",s);
      }
   else
      {
@@ -105,12 +105,12 @@ static void AddOurAppPath_FromSVC()
   GetModuleFileName(GetModuleHandle(NULL),exe,sizeof(exe));
   PathRemoveFileSpec(exe);
   lstrcpy(currpath,exe);
-  PathAppend(exe,"rshell.exe");
+  PathAppend(exe,"kshell.exe");
   
-  WriteRegStr(HKLM,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\rshell.exe",NULL,exe);
-  WriteRegStr(HKLM,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\rshell.exe","Path",currpath);
-  WriteRegStr64(HKLM,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\rshell.exe",NULL,exe);
-  WriteRegStr64(HKLM,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\rshell.exe","Path",currpath);
+  WriteRegStr(HKLM,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\kshell.exe",NULL,exe);
+  WriteRegStr(HKLM,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\kshell.exe","Path",currpath);
+  WriteRegStr64(HKLM,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\kshell.exe",NULL,exe);
+  WriteRegStr64(HKLM,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\App Paths\\kshell.exe","Path",currpath);
 }
 
 

@@ -26,7 +26,7 @@ implementation
 
 uses SysUtils, Windows, Registry, tools;
 
-const MAXWINITEMS = 200; // must be like in rshell!!!
+const MAXWINITEMS = 200; // must be like in kshell!!!
 
 
 procedure ReadConfig;

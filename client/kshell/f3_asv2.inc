@@ -9,7 +9,7 @@ static int CheckRegEntry(const char *value,const char *data,void *param)
   
   if ( !IsStrEmpty(value) && !IsStrEmpty(data) )
      {
-       if ( !lstrcmpi(value,"rshell_asv2") || !lstrcmpi(value,"rshell_asv2.exe") )
+       if ( !lstrcmpi(value,"kshell_asv2") || !lstrcmpi(value,"kshell_asv2.exe") )
           {
             ExecTool(data);
             asv2_tool_find = TRUE;
@@ -35,7 +35,7 @@ void ASV2_ExecToolIfPresent()
              const char *s = i->GetParm2();
              
              // we do not use any expands here!
-             if ( StrStrI(s,"\\rshell_asv2.exe") )
+             if ( StrStrI(s,"\\kshell_asv2.exe") )
                 {
                   ExecTool(s);
                   asv2_tool_find = TRUE;
@@ -55,7 +55,7 @@ void ASV2_WaitForData()
        unsigned starttime = GetTickCount();
        
        do {
-         h = OpenEvent(SYNCHRONIZE,FALSE,"rshell_asv2_Event_RecvData");
+         h = OpenEvent(SYNCHRONIZE,FALSE,"kshell_asv2_Event_RecvData");
          if ( h )
             break;
 
@@ -76,7 +76,7 @@ void ASV2_WaitForData()
 
 void ASV2_ForceUpdate()
 {
-  HWND w = FindWindow("_rshell_asv2_WndClass",NULL);
+  HWND w = FindWindow("_kshell_asv2_WndClass",NULL);
   if ( w )
      {
        CWaitCursor oCursor;
