@@ -21,7 +21,7 @@ void M_Monitoroff(void);
 void InternalLogOff(BOOL force);
 void M_Logoff(void); 
 void M_Mycomp(void);
-void M_Calladmin(void);
+void M_Callteacher(void);
 void M_Showgcinfo(void);
 void CAD_TaskManager(void);
 void CAD_KillAllTasks(void);

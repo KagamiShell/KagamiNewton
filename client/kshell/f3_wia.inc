@@ -102,7 +102,7 @@ void InitCameraCallback()
 
        if ( hwnd )
           {
-            g_camera_cb = new CCameraCB(hwnd,RS_CAMERACONNECTED);
+            g_camera_cb = new CCameraCB(hwnd,KS_CAMERACONNECTED);
           }
      }
 }

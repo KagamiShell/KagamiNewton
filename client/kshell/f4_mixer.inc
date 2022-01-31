@@ -143,7 +143,7 @@ void CheckVolumes(HWND w_main)
   if ( is_volume_mute != mute )
      {
        is_volume_mute = mute;
-       PostMessage(w_main,RS_MIXERUPDATEICON,0,0);
+       PostMessage(w_main,KS_MIXERUPDATEICON,0,0);
      }
   
   in_use = 0;

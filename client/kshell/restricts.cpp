@@ -100,7 +100,6 @@ static RESTRICT restricts[] =
   {RF_REGULAR,&use_bodytool_notepad,NotepadDisable,NULL,NULL,NULL},
   {RF_REGULAR,&use_bodytool_imgview,ImgViewDisable,NULL,NULL,NULL},
   {RF_REGULAR,&use_bodytool_pdf,PDFViewDisable,NULL,NULL,NULL},
-  {RF_REGULAR,&use_bodytool_swf,SWFFlashDisable,NULL,NULL,NULL},
 };
 
 

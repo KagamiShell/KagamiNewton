@@ -57,7 +57,7 @@ BOOL reboot_in_menu;
 BOOL shutdown_in_menu;
 BOOL gc_info_in_menu;
 BOOL mycomp_in_menu;
-BOOL calladmin_in_menu;
+BOOL callteacher_in_menu;
 
 // безопасность: системные запреты
 BOOL sysrestrict00;

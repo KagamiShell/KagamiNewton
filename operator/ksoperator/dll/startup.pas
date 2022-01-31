@@ -14,7 +14,7 @@ type
       big_icon : cardinal;
       sql_server : TSTRING;
       dbtype_ks : integer;
-      runpad_server : TSTRING;
+      kagami_server : TSTRING;
       autorun : longbool;
      end;
      PStartupInfo = ^TStartupInfo;
@@ -92,17 +92,17 @@ begin
  info:=p;
  can_close:=false;
 
- Caption:='Мастер установок Runpad Pro Оператор';
+ Caption:='Мастер установок KagamiShell Оператор';
  Label1.Caption:='Нажмите "Далее" для запуска мастера';
  Label6.Caption:='Имя машины с SQL-базой:';
  Label13.Caption:='Тип базы:';
- Label3.Caption:='Сервер Runpad Pro:';
+ Label3.Caption:='Сервер KagamiShell:';
  CheckBox1.Caption:='Добавить программу оператора в автозагрузку';
  Label8.Caption:='Работа мастера завершена!'#13#10#13#10'Мастер всегда можно запустить повторно из-под учетной записи администратора для изменения настроек'#13#10#13#10#13#10#13#10#13#10'-------'#13#10'Нажмите "Завершить" для выхода';
 
  Edit3.Text:=info.sql_server;
  ComboBox1.ItemIndex:=info.dbtype_ks;
- Edit1.Text:=info.runpad_server;
+ Edit1.Text:=info.kagami_server;
  CheckBox1.Checked:=info.autorun;
 
  SwitchToPage(0);
@@ -119,7 +119,7 @@ begin
  if ModalResult=mrOk then
   begin
    StrCopy(info.sql_server,pchar(Edit3.Text));
-   StrCopy(info.runpad_server,pchar(Edit1.Text));
+   StrCopy(info.kagami_server,pchar(Edit1.Text));
    info.dbtype_ks:=ComboBox1.ItemIndex;
    info.autorun:=CheckBox1.Checked;
   end;
@@ -228,18 +228,18 @@ begin
 end;
 
 procedure TKSStartupForm.TabSheet4Show(Sender: TObject);
-var rp:string;
+var ks:string;
 begin
  if ComboBox1.ItemIndex<>-1 then
-  rp:=ComboBox1.Items[ComboBox1.ItemIndex]
+  ks:=ComboBox1.Items[ComboBox1.ItemIndex]
  else
-  rp:='';
+  ks:='';
 
  Memo1.Clear;
  Memo1.Lines.Add(Label6.Caption);
  Memo1.Lines.Add(' '+Edit3.Text);
  Memo1.Lines.Add(Label13.Caption);
- Memo1.Lines.Add(' '+rp);
+ Memo1.Lines.Add(' '+ks);
  Memo1.Lines.Add(Label3.Caption);
  Memo1.Lines.Add(' '+Edit1.Text);
  Memo1.Lines.Add('Автозагрузка:');

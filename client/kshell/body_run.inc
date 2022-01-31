@@ -80,11 +80,6 @@ void RunProgram(const CShortcut *shortcut,BOOL checkext,const CSheet *sheet,BOOL
      }
 #endif
 
-  if ( !IsLicenseWithShell() )
-     {
-       MsgBox(LS(3239));
-       return;
-     }
      
   if ( protect_run_from_api )
      {

@@ -161,7 +161,7 @@ void CODItemSmall::Measure(int *_w,int *_h)
   if ( text && text[0] )
      {
        HDC hdc = CreateCompatibleDC(NULL);
-       HFONT font = CreateFont(-11,0,0,0,FW_NORMAL,0,0,0,DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH,"Tahoma");
+       HFONT font = CreateFont(-11,0,0,0,FW_NORMAL,0,0,0,DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH,"Segoe UI");
        HFONT oldfont = (HFONT)SelectObject(hdc,font);
        GetTextExtentPoint32(hdc,text,lstrlen(text),&size);
        SelectObject(hdc,oldfont);
@@ -202,7 +202,7 @@ void CODItemSmall::Draw(int item_state,RBUFF *buff,HDC screen_hdc,int screen_x,i
   const char *text = GetText();
   if ( text && text[0] )
      {
-       HFONT font = CreateFont(-11,0,0,0,FW_NORMAL,0,0,0,DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH,"Tahoma");
+       HFONT font = CreateFont(-11,0,0,0,FW_NORMAL,0,0,0,DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH,"Segoe UI");
        HFONT oldfont = (HFONT)SelectObject(buff->hdc,font);
        SetBkMode(buff->hdc,TRANSPARENT);
        SetTextColor(buff->hdc,text_color);
@@ -409,7 +409,7 @@ const char* CODItemMain::GetText()
 
 void CODItemMain::Execute()
 {
-  PostMessage(GetMainWnd(),RS_EXECMAINMENUITEM,m_idx,0);
+  PostMessage(GetMainWnd(),KS_EXECMAINMENUITEM,m_idx,0);
 }
 
 
@@ -431,11 +431,11 @@ void CODItemShortcut::Execute()
 {
   if ( b_allow_execute )
      {
-       PostMessage(GetMainWnd(),RS_RUNPROGRAMINTERNAL,(WPARAM)m_shortcut,(LPARAM)m_sheet);
+       PostMessage(GetMainWnd(),KS_RUNPROGRAMINTERNAL,(WPARAM)m_shortcut,(LPARAM)m_sheet);
      }
   else
      {
-       PostMessage(GetMainWnd(),RS_MESSAGE,(WPARAM)(LS(3052)),0);
+       PostMessage(GetMainWnd(),KS_MESSAGE,(WPARAM)(LS(3052)),0);
      }
 }
 
@@ -519,7 +519,7 @@ CODItemUserTool::~CODItemUserTool()
 
 void CODItemUserTool::Execute()
 {
-  PostMessage(GetMainWnd(),RS_EXECQLITEM,(WPARAM)m_item,0);
+  PostMessage(GetMainWnd(),KS_EXECQLITEM,(WPARAM)m_item,0);
 }
 
 HICON CODItemUserTool::GetIcon()

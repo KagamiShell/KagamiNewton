@@ -92,7 +92,7 @@ static HICON CreateLangIcon(HWND hwnd,int id)
   DeleteObject(brush);
   
   // text
-  font = CreateFont(-11,0,0,0,FW_NORMAL,0,0,0,DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH,"Tahoma");
+  font = CreateFont(-11,0,0,0,FW_NORMAL,0,0,0,DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH,"Segoe UI");
   oldfont = (HFONT)SelectObject(hdc,font);
   SetBkMode(hdc,TRANSPARENT);
   SetTextColor(hdc,0xFFFFFF);
@@ -160,7 +160,7 @@ static void IndicSwitch(void)
             i.uID = 1;
             i.uFlags = NIF_ICON | NIF_MESSAGE | NIF_TIP;
             lstrcpyn(i.szTip,LS(3047),sizeof(i.szTip)-1);
-            i.uCallbackMessage = RS_INDICCLICK;
+            i.uCallbackMessage = KS_INDICCLICK;
             i.hIcon = CreateLangIcon(NULL,0);
             Shell_NotifyIcon(NIM_ADD,&i);
             DestroyIcon(i.hIcon);
@@ -285,7 +285,7 @@ static void MixerSwitch(void)
        i.hWnd = GetMainWnd();
        i.uID = 2;
        i.uFlags = NIF_ICON | NIF_MESSAGE | NIF_TIP;
-       i.uCallbackMessage = RS_MIXERCLICK;
+       i.uCallbackMessage = KS_MIXERCLICK;
        i.hIcon = (is_volume_mute == 1) ? LoadIcon(our_instance,MAKEINTRESOURCE(IDI_MIXEROFF)) : LoadIcon(our_instance,MAKEINTRESOURCE(IDI_MIXER));
        lstrcpyn(i.szTip,LS(3048),sizeof(i.szTip)-1);
        Shell_NotifyIcon(NIM_ADD,&i);
@@ -335,7 +335,7 @@ static void MinimizeAllSwitch(void)
        i.hWnd = GetMainWnd();
        i.uID = 3;
        i.uFlags = NIF_ICON | NIF_MESSAGE | NIF_TIP;
-       i.uCallbackMessage = RS_MINIMIZEALLCLICK;
+       i.uCallbackMessage = KS_MINIMIZEALLCLICK;
        i.hIcon = LoadIcon(our_instance,MAKEINTRESOURCE(IDI_MINIMIZE));
        lstrcpyn(i.szTip,LS(3049),sizeof(i.szTip)-1);
        Shell_NotifyIcon(NIM_ADD,&i);
@@ -369,7 +369,7 @@ static void MicrophoneSwitch(void)
        i.hWnd = GetMainWnd();
        i.uID = 4;
        i.uFlags = NIF_ICON | NIF_MESSAGE | NIF_TIP;
-       i.uCallbackMessage = RS_MICROPHONECLICK;
+       i.uCallbackMessage = KS_MICROPHONECLICK;
        i.hIcon = LoadIcon(our_instance,MAKEINTRESOURCE(IDI_REC));
        lstrcpyn(i.szTip,LS(3050),sizeof(i.szTip)-1);
        Shell_NotifyIcon(NIM_ADD,&i);

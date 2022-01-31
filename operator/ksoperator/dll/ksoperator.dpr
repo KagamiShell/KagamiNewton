@@ -1,4 +1,4 @@
-library rsoperator;
+library ksoperator;
 
 uses
   Windows, StrUtils, SysUtils,

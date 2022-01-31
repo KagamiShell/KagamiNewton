@@ -1302,7 +1302,7 @@ begin
    SetCheck(CheckBox43,'mycomp_in_menu');
    SetCheck(CheckBox62,'monitor_off_in_menu');
    SetCheck(CheckBox164,'show_book_in_menu');
-   SetCheck(CheckBox2,'calladmin_in_menu');
+   SetCheck(CheckBox2,'callteacher_in_menu');
    SetCheck(CheckBox67,'use_cad_catcher');
    SetCheck(CheckBox68,'cad_taskman');
    SetCheck(CheckBox69,'cad_killall');
@@ -1647,7 +1647,7 @@ begin
    GetCheck(CheckBox43,'mycomp_in_menu');
    GetCheck(CheckBox62,'monitor_off_in_menu');
    GetCheck(CheckBox164,'show_book_in_menu');
-   GetCheck(CheckBox2,'calladmin_in_menu');
+   GetCheck(CheckBox2,'callteacher_in_menu');
    GetCheck(CheckBox67,'use_cad_catcher');
    GetCheck(CheckBox68,'cad_taskman');
    GetCheck(CheckBox69,'cad_killall');

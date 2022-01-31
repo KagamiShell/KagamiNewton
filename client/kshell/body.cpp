@@ -627,10 +627,10 @@ void M_Mycomp(void)
 }
 
 
-void M_Calladmin(void)
+void M_Callteacher(void)
 {
   char msg[MAX_PATH];
-  wsprintf(msg,STR_001,machine_loc,machine_desc);
+  wsprintf(msg,STR_001,machine_desc);
   SendMessageToOperator(msg,FALSE);
   MsgBox(LS(3010));
 }

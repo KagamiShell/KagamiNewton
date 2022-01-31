@@ -294,7 +294,7 @@ LRESULT CWorkSpace::WindowProc(HWND hwnd,UINT message,WPARAM wParam,LPARAM lPara
                    OnDisplayChange(LOWORD(lParam),HIWORD(lParam));
                    return 0;
 
-    case RS_BALLOONMESSAGE:
+    case KS_BALLOONMESSAGE:
                    OnBalloonNotifyMessage(wParam,lParam);
                    return 0;
     
@@ -644,7 +644,7 @@ void CWorkSpace::InitBalloonNotify()
   i.hWnd = w_main;
   i.uID = BALLOON_ID;
   i.uFlags = NIF_ICON | NIF_MESSAGE | NIF_STATE;
-  i.uCallbackMessage = RS_BALLOONMESSAGE;
+  i.uCallbackMessage = KS_BALLOONMESSAGE;
   i.hIcon = LoadIcon(our_instance,MAKEINTRESOURCE(IDI_ICON));
   i.dwStateMask = NIS_HIDDEN;
   i.dwState = NIS_HIDDEN;

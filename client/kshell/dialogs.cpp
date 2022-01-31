@@ -21,7 +21,7 @@ static void MDraw(HWND hwnd,HDC hdc)
   GetClientRect(hwnd,&r);
   FrameRect(hdc,&r,(HBRUSH)GetStockObject(WHITE_BRUSH));
 
-  font = CreateFont(-12,0,0,0,FW_BOLD,0,0,0,DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH,"Verdana");
+  font = CreateFont(-12,0,0,0,FW_BOLD,0,0,0,DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH,"Segoe UI");
   oldfont = (HFONT)SelectObject(hdc,font);
   SetBkMode(hdc,TRANSPARENT);
   SetTextColor(hdc,0xFFFFFF);
@@ -258,7 +258,7 @@ static LRESULT CALLBACK PictureWindowProc(HWND hwnd,UINT message,WPARAM wParam,L
                             delete pBitmap;
                          
                          ReleaseCapture();
-                         PostMessage(GetMainWnd(),RS_DESTROYSHADER,(unsigned)shader,0);
+                         PostMessage(GetMainWnd(),KS_DESTROYSHADER,(unsigned)shader,0);
                        }
                        return 0;
   }

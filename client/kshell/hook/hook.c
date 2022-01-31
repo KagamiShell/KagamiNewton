@@ -1,5 +1,5 @@
 
-#define _WIN32_WINNT  0x0501
+#define _WIN32_WINNT  0x0601
 
 #include <windows.h>
 #include <shlobj.h>
@@ -63,7 +63,7 @@ LRESULT CALLBACK ShellProc(int code,WPARAM wParam,LPARAM lParam)
          break;
     
     case HSHELL_LANGUAGE:
-         PostMessage(hwnd,RS_LANGUAGE,wParam,lParam);
+         PostMessage(hwnd,KS_LANGUAGE,wParam,lParam);
          break;
   };
 
@@ -92,7 +92,7 @@ LRESULT CALLBACK KeyboardProc(int code,WPARAM wParam,LPARAM lParam)
           {
             if ( !wkey_ignore )
                {
-                 PostMessage(FindWindow("_KagamiClass",NULL),RS_WINKEY,0,0);
+                 PostMessage(FindWindow("_KagamiClass",NULL),KS_WINKEY,0,0);
                }
           }
 

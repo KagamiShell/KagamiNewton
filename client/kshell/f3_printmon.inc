@@ -151,7 +151,7 @@ static void Add2PrintCollection(int id,int field,const void *pdata,int idata)
                  ATOM atom = GlobalAddAtom(s);
                  int l = (work->total_pages << 20) + ((work->total_bytes/1024) & 0xFFFFF);
                  
-                 PostMessage(GetMainWnd(),RS_PRINTERJOBADD,atom,l);
+                 PostMessage(GetMainWnd(),KS_PRINTERJOBADD,atom,l);
                }
           }
      }

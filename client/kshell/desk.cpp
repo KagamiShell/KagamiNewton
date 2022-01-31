@@ -125,7 +125,7 @@ static BOOL __cdecl D_IsSheetActive(int idx)
 
 static void __cdecl D_SetSheetActive(int idx, BOOL active)
 {
-  PostMessage(GetMainWnd(),RS_SETSHEETACTIVEBYIDX,idx,active);
+  PostMessage(GetMainWnd(),KS_SETSHEETACTIVEBYIDX,idx,active);
 }
 
 static const char* __cdecl D_GetSheetBGPic(int idx)

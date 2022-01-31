@@ -319,7 +319,7 @@ int ProcessKagamiInternalMessage(HWND hwnd,int message,int wParam,int lParam,BOO
                                           cmd.AddStringParm(NETPARM_S_KIND,p);  p += lstrlen(p)+1; //kind
                                           cmd.AddStringParm(NETPARM_S_TITLE,p); p += lstrlen(p)+1; //title
                                           cmd.AddStringParm(NETPARM_S_NAME,p);  p += lstrlen(p)+1; //name
-                                          cmd.AddStringParm(NETPARM_S_AGE,p);   p += lstrlen(p)+1; //age
+                                          cmd.AddStringParm(NETPARM_S_CLASS,p);   p += lstrlen(p)+1; //age
                                           cmd.AddStringParm(NETPARM_S_TEXT,p);  p += lstrlen(p)+1; //text
                                           p += lstrlen(p)+1; //terminator
 
