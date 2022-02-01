@@ -17,7 +17,6 @@ type
     rbRatingMax: TRadioButton;
     TreeView: TTreeView;
     LabelCaption: TLabel;
-    LabelVersion: TLabel;
     StaticText: TStaticText;
     GroupBox2: TGroupBox;
     dtpTimeFrom: TDateTimePicker;
@@ -60,7 +59,7 @@ implementation
 
 {$R *.dfm}
 
-const REGPATH = 'Software\RunpadProOperator\Stat';
+const REGPATH = 'Software\KagamineP\KagamiShell\Stat';
 
 
 function TFormOptions.ScaleRatingAuto(defaults: boolean): boolean;

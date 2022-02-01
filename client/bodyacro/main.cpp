@@ -150,7 +150,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
 	
 	if ( __argc != 2 )
 	   {
-             MessageBoxW(NULL,L"Для просмотра PDF просто откройте нужный файл в проводнике пользователя",L"Информация",MB_OK | MB_ICONINFORMATION);
+             MessageBoxW(NULL,L"Для просмотра PDF просто откройте нужный файл в проводнике ученика",L"Информация",MB_OK | MB_ICONINFORMATION);
    	     return 0;
   	   }	
 	

@@ -1,9 +1,9 @@
 object FormStat: TFormStat
-  Left = 192
-  Top = 107
+  Left = 556
+  Top = 140
   Width = 738
   Height = 480
-  Caption = #1057#1090#1072#1090#1080#1089#1090#1080#1082#1072' '#1079#1072#1087#1091#1089#1082#1072' '#1087#1088#1086#1075#1088#1072#1084#1084
+  Caption = 'Статистика запуска программ'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -128,12 +128,12 @@ object FormStat: TFormStat
       Checkboxes = True
       Columns = <
         item
-          Caption = #1050#1086#1084#1087#1100#1102#1090#1077#1088
+          Caption = 'Компьютер'
           Width = 55
         end
         item
           AutoSize = True
-          Caption = 'IP '#1040#1076#1088#1077#1089
+          Caption = 'IP Адрес'
         end>
       ReadOnly = True
       RowSelect = True
@@ -1187,23 +1187,23 @@ object FormStat: TFormStat
     Left = 24
     Top = 45
     object miFile: TMenuItem
-      Caption = #1060#1072#1081#1083
+      Caption = 'Файл'
       object miFileOpen: TMenuItem
-        Caption = #1054#1090#1082#1088#1099#1090#1100'...'
+        Caption = 'Открыть...'
         ShortCut = 16463
         OnClick = miFileOpenClick
       end
       object miFileSave: TMenuItem
-        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100'...'
+        Caption = 'Сохранить...'
         ShortCut = 16467
         OnClick = miFileSaveClick
       end
       object miFileClose: TMenuItem
-        Caption = #1047#1072#1082#1088#1099#1090#1100
+        Caption = 'Закрыть'
         OnClick = miFileCloseClick
       end
       object miFileExport: TMenuItem
-        Caption = #1069#1082#1089#1087#1086#1088#1090#1080#1088#1086#1074#1072#1090#1100' '#1074
+        Caption = 'Экспортировать в'
         object miFileExportHTML: TMenuItem
           Caption = 'HTML'
           OnClick = miFileExportHTMLClick
@@ -1223,7 +1223,7 @@ object FormStat: TFormStat
         Visible = False
       end
       object miFilePrint: TMenuItem
-        Caption = #1055#1077#1095#1072#1090#1100'...'
+        Caption = 'Печать...'
         ShortCut = 16464
         Visible = False
       end
@@ -1232,14 +1232,14 @@ object FormStat: TFormStat
         Visible = False
       end
       object miFileExit: TMenuItem
-        Caption = #1042#1099#1093#1086#1076
+        Caption = 'Выход'
         OnClick = miFileExitClick
       end
     end
     object MeniItemView: TMenuItem
-      Caption = #1042#1080#1076
+      Caption = 'Вид'
       object miSort: TMenuItem
-        Caption = #1059#1087#1086#1088#1103#1076#1086#1095#1080#1090#1100
+        Caption = 'Упорядочить'
         GroupIndex = 1
         object miAlphabetical: TMenuItem
           Action = actAlphabetical
@@ -1281,23 +1281,23 @@ object FormStat: TFormStat
         GroupIndex = 1
       end
       object miViewOptions: TMenuItem
-        Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080'...'
+        Caption = 'Настройки...'
         GroupIndex = 1
         OnClick = miViewOptionsClick
       end
     end
     object N2: TMenuItem
-      Caption = #1055#1086#1084#1086#1097#1100
+      Caption = 'Помощь'
       Hint = 'MenuItemHelp'
       object MenuItemHelpIndex: TMenuItem
-        Caption = #1057#1087#1088#1072#1074#1082#1072
+        Caption = 'Справка'
         OnClick = MenuItemHelpIndexClick
       end
       object N3: TMenuItem
         Caption = '-'
       end
       object MenuItemHelpAbout: TMenuItem
-        Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077'...'
+        Caption = 'О программе...'
         OnClick = MenuItemHelpAboutClick
       end
     end
@@ -1309,7 +1309,7 @@ object FormStat: TFormStat
     object actAlphabetical: TAction
       Category = 'Sort'
       AutoCheck = True
-      Caption = #1055#1086' '#1072#1083#1092#1072#1074#1080#1090#1091
+      Caption = 'По алфавиту'
       Checked = True
       GroupIndex = 1
       ImageIndex = 1
@@ -1318,7 +1318,7 @@ object FormStat: TFormStat
     object actRating: TAction
       Category = 'Sort'
       AutoCheck = True
-      Caption = #1055#1086' '#1087#1086#1087#1091#1083#1103#1088#1085#1086#1089#1090#1080
+      Caption = 'По популярности'
       GroupIndex = 1
       ImageIndex = 2
       OnExecute = actViewExecute
@@ -1326,7 +1326,7 @@ object FormStat: TFormStat
     object actTree: TAction
       Category = 'Separate'
       AutoCheck = True
-      Caption = #1056#1072#1079#1073#1080#1090#1100' '#1087#1086' '#1079#1072#1082#1083#1072#1076#1082#1072#1084
+      Caption = 'Разбить по закладкам'
       Checked = True
       GroupIndex = 2
       ImageIndex = 3
@@ -1335,7 +1335,7 @@ object FormStat: TFormStat
     object actAll: TAction
       Category = 'Separate'
       AutoCheck = True
-      Caption = #1053#1077' '#1088#1072#1079#1073#1080#1074#1072#1090#1100' '#1087#1086' '#1079#1072#1082#1083#1072#1076#1082#1072#1084
+      Caption = 'Не разбивать по закладкам'
       GroupIndex = 2
       ImageIndex = 4
       OnExecute = actViewExecute
@@ -1343,7 +1343,7 @@ object FormStat: TFormStat
     object actSheet: TAction
       Category = 'Separate'
       AutoCheck = True
-      Caption = #1058#1086#1083#1100#1082#1086' '#1079#1072#1082#1083#1072#1076#1082#1080
+      Caption = 'Только закладки'
       GroupIndex = 2
       ImageIndex = 5
       OnExecute = actViewExecute
@@ -1351,7 +1351,7 @@ object FormStat: TFormStat
   end
   object OpenDialog: TOpenDialog
     DefaultExt = 'stat'
-    Filter = #1060#1072#1081#1083#1099' '#1089#1090#1072#1090#1080#1089#1090#1080#1082#1080'|*.stat'
+    Filter = 'Файлы статистики|*.stat'
     InitialDir = '.'
     Options = [ofReadOnly, ofHideReadOnly, ofPathMustExist, ofFileMustExist, ofEnableSizing]
     Left = 220
@@ -1359,7 +1359,7 @@ object FormStat: TFormStat
   end
   object SaveDialog: TSaveDialog
     DefaultExt = 'stat'
-    Filter = #1060#1072#1081#1083#1099' '#1089#1090#1072#1090#1080#1089#1090#1080#1082#1080'|*.stat'
+    Filter = 'Файлы статистики|*.stat'
     InitialDir = '.'
     Options = [ofOverwritePrompt, ofHideReadOnly, ofPathMustExist, ofEnableSizing]
     Left = 253

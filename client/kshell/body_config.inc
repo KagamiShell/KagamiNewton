@@ -28,7 +28,7 @@ void ReadConfig()
 
 
   BOOL b_connected = FALSE;
-  // BOOL b_licfeat_received = FALSE;
+  BOOL b_licfeat_received = FALSE;
   BOOL b_settings_received = FALSE;
 
   char err_string[MAX_PATH*2] = "";
@@ -102,6 +102,26 @@ void ReadConfig()
                 {
                   int id = cmd.GetCmdId();
 
+                  if ( id == NETCMD_GETENV_ACK )
+                     {
+                       if ( cmd.GetParmAsInt(NETPARM_I_GUID,NETGUID_UNKNOWN) == NETGUID_SERVER )
+                          {
+                            const char *lic_organization = cmd.GetParmAsString(NETPARM_S_LICORGANIZATION,"");
+                            const char *lic_owner = cmd.GetParmAsString(NETPARM_S_LICOWNER,"");
+                            int lic_machines = cmd.GetParmAsInt(NETPARM_I_LICMACHINES,0);
+                            const char *lic_features = cmd.GetParmAsString(NETPARM_S_LICFEATURES,"");
+
+                            if ( lic_organization[0] && lic_machines != 0 )
+                               {
+                                 AboutBoxUpdateLicInfo(lic_organization,lic_machines);
+                               }
+
+                            lstrcpyn(lic_feat,lic_features,sizeof(lic_feat));
+                            WriteLicFeatToCache(lic_features);
+                            b_licfeat_received = TRUE;
+                          }
+                     }
+                  else
                   if ( id == NETCMD_GETSETTINGS_OK_ACK )
                      {
                        if ( cmd.GetCmdBuffSize() > 0 )
@@ -124,6 +144,9 @@ void ReadConfig()
                        if ( rc == NETERR_SETTINGS_DBNOTREADY )
                           err_msg = 3232; // SQL-server isn't ready
                        else
+                       if ( rc == NETERR_SETTINGS_OUTOFLICENSE )
+                          err_msg = 3234; // license error
+                       else
                           err_msg = 3233; // server error
 
                        wsprintf(err_string,"%s (%s)",LS(err_msg),server_err);
@@ -140,6 +163,11 @@ void ReadConfig()
                                break; //assume that licfeat is already received
                           }
                        else
+                       if ( rc == NETERR_SETTINGS_OUTOFLICENSE )
+                          {
+                            break; //assume that licfeat is already received
+                          }
+                       else
                           {
                             // any other error
                             break; //assume that licfeat is already received
@@ -148,7 +176,7 @@ void ReadConfig()
                 }
            }
 
-        if ( /* b_licfeat_received &&*/ b_settings_received )
+        if ( b_licfeat_received && b_settings_received )
            break;
         
         Sleep(20);
@@ -165,13 +193,13 @@ void ReadConfig()
      }
 
 
-//   if ( !b_licfeat_received )
-//      {
-//        if ( !ReadLicFeatFromCache(lic_feat,sizeof(lic_feat)) )
-//           {
-//             lstrcpy(lic_feat,"" /*"NoShell"*/ );  //default is nothing, but with Shell?
-//           }                       
-//      }
+  if ( !b_licfeat_received )
+     {
+       if ( !ReadLicFeatFromCache(lic_feat,sizeof(lic_feat)) )
+          {
+            lstrcpy(lic_feat,"" /*"NoShell"*/ );  //default is nothing, but with Shell?
+          }                       
+     }
 
   if ( !b_settings_received )
      {

@@ -1,3 +1,3 @@
 
-const BUILDVERSION = 'версия 1.0.0 от 25.01.2022 00:00';
+const BUILDVERSION = 'версия 1.0.0 от 01.02.2022 00:00';
 

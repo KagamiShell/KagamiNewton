@@ -49,7 +49,7 @@ uses
     i := Length(Application.ExeName);
     while (i > 1) and (Application.ExeName[i] <> '\') do
       i := i - 1;
-    Application.HelpFile := Copy(Application.ExeName, 1, i) + 'rsstat.hlp';
+    Application.HelpFile := Copy(Application.ExeName, 1, i) + 'ksstat.hlp';
 
     Result := true;
   end;

@@ -1,6 +1,6 @@
 object FormOptions: TFormOptions
-  Left = 317
-  Top = 109
+  Left = 850
+  Top = 113
   ActiveControl = TreeView
   BorderIcons = [biSystemMenu, biHelp]
   BorderStyle = bsDialog
@@ -42,6 +42,7 @@ object FormOptions: TFormOptions
     Top = 32
     Width = 257
     Height = 177
+    PageIndex = 1
     TabOrder = 1
     object TPage
       Left = 0
@@ -58,19 +59,6 @@ object FormOptions: TFormOptions
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = [fsBold]
-        ParentFont = False
-      end
-      object LabelVersion: TLabel
-        Left = 16
-        Top = 72
-        Width = 168
-        Height = 15
-        Caption = #1042#1077#1088#1089#1080#1103' 1.0.0 '#1086#1090' 30.01.2022 06:00'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Segoe UI'
-        Font.Style = []
         ParentFont = False
       end
       object LabelCopyright: TLabel
@@ -139,7 +127,7 @@ object FormOptions: TFormOptions
           Left = 161
           Top = 46
           Width = 15
-          Height = 21
+          Height = 23
           HelpContext = 2
           Associate = teRatingMax
           Enabled = False

@@ -7,15 +7,15 @@ object FileFolderForm: TFileFolderForm
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
-  Font.Name = 'MS Sans Serif'
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
   Font.Style = []
   KeyPreview = True
   OldCreateOrder = False
   Position = poScreenCenter
   OnCreate = FormCreate
   PixelsPerInch = 96
-  TextHeight = 13
+  TextHeight = 15
   object Label1: TLabel
     Left = 8
     Top = 8
@@ -28,7 +28,7 @@ object FileFolderForm: TFileFolderForm
     Left = 8
     Top = 26
     Width = 257
-    Height = 21
+    Height = 23
     MaxLength = 250
     TabOrder = 0
     OnKeyPress = Edit1KeyPress

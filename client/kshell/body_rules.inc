@@ -28,7 +28,7 @@ void ShowRulesWindow(const char *s)
   if ( !s || !s[0] || !IsFileExist(s) )
      return;
 
-  wsprintf(cmd,"\"%s%s\" \"%s\"",our_currpath,"ksrules.exe",s);
+  wsprintf(cmd,"\"%s%s\" \"%s\"",our_currpath,"rsrules.exe",s);
 
   ZeroMemory(&si,sizeof(si));
   si.cb = sizeof(si);

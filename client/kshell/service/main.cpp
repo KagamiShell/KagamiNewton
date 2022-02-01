@@ -66,10 +66,10 @@ BOOL RemoteUninstallInternal(CServiceManager *sm,BOOL b_restart,BOOL b_force)
 
   if ( StrStrI(PathFindFileName(our_exe),"tmp") )
      {
-       // schedule deletion of this .exe and rs_shared.dll
+       // schedule deletion of this .exe and ks_shared.dll
        MoveFileEx(our_exe,NULL,MOVEFILE_DELAY_UNTIL_REBOOT);
        char t[MAX_PATH] = "";
-       GetFileNameInLocalAppDir("rs_shared.dll",t);
+       GetFileNameInLocalAppDir("ks_shared.dll",t);
        MoveFileEx(t,NULL,MOVEFILE_DELAY_UNTIL_REBOOT);
 
        // get original install path
@@ -236,7 +236,7 @@ int main()
        //we're run from installer
        if ( IsAdminAccount() )
           {
-            printf("KagamiShell Client Setup\n");  // for decoration
+            printf("--= KagamiShell Client Setup =--\n");  // for decoration
             
             if ( StartupMasterDialog() )
                {

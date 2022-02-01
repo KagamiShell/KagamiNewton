@@ -10,7 +10,7 @@ void (__cdecl *GetServerName)(char *out);
 BOOL (__cdecl *IsServerConnected)();
 int (__cdecl *GetEnvListCount)();
 void (__cdecl *GetEnvListAt)(int idx,TENVENTRY *out);
-void (__cdecl *WakeupOnLAN)(const char *ip,const char *mac);
+void (__cdecl *WakeOnLAN)(const char *ip,const char *mac);
 BOOL (__cdecl *IsOurIP)(const char *s_ip);
 void (__cdecl *ExecFunction)(int id,const TENVENTRY *list,int count);
 } TGUICONNECTION;

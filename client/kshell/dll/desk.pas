@@ -460,6 +460,6 @@ end;
 
 
 initialization
- msg_rclick:=RegisterWindowMessage('RSDeskForm.RClick');
- msg_mousedown:=RegisterWindowMessage('RSDeskForm.MouseDown');
+ msg_rclick:=RegisterWindowMessage('KSDeskForm.RClick');
+ msg_mousedown:=RegisterWindowMessage('KSDeskForm.MouseDown');
 end.

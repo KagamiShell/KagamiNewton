@@ -10,13 +10,11 @@ type
   TRenameFileOrFolderForm = class(TForm)
     LabelInfo: TLabel;
     EditName: TEdit;
-    OKButton: TButton;
-    CancelButton: TButton;
+    Label1: TLabel;
+    Label2: TLabel;
     procedure FormShow(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
-    procedure OKButtonClick(Sender: TObject);
-    procedure CancelButtonClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -117,68 +115,6 @@ begin
       ModalResult := mrCancel;
       Key := 0;
     end;
-end;
-
-procedure TRenameFileOrFolderForm.OKButtonClick(Sender: TObject);
-begin
-if EditName.Text = '' then
-        begin
-          MessageBox(Handle,LSP(1315),LSP(LS_ERROR),MB_OK or MB_ICONERROR);
-          Exit;
-        end;
-
-      if (EditName.Text = '.') or (EditName.Text = '..') then
-        begin
-          MessageBox(Handle,LSP(1316),LSP(LS_ERROR),MB_OK or MB_ICONERROR);
-          Exit;
-        end;
-
-      for i:=1 to Length(EditName.Text) do
-        if (EditName.Text[i]='\') or (EditName.Text='+') or (EditName.Text='/') then
-          begin
-            MessageBox(Handle,LSP(1317),LSP(LS_ERROR),MB_OK or MB_ICONERROR);
-            Exit;
-          end;
-
-      s := root + EditName.Text;
-
-      if AnsiCompareText(s,folder)=0 then
-       Exit;
-
-      if DirectoryExists(s) then
-        begin
-          MessageBox(Handle,LSP(1318),LSP(LS_ERROR),MB_OK or MB_ICONERROR);
-          Exit;
-        end;
-
-      if FileExists(s) then
-       begin
-          if MessageBox(Handle,LSP(1319),LSP(LS_QUESTION),MB_OKCANCEL or MB_ICONQUESTION)<>IDOK then
-           Exit
-          else
-           Windows.DeleteFile(pchar(s));
-       end;
-
-      BodyExplForm.Cursor := crHourglass;
-      Application.ProcessMessages;
-
-      if MoveFile(PChar(folder), PChar(s)) then
-       begin
-        ModalResult := mrOk;
-        out_file:=s;
-       end
-      else
-        MessageBox(Handle,LSP(1320),LSP(LS_ERROR),MB_OK or MB_ICONERROR);
-
-      BodyExplForm.Cursor := crDefault;
-
-      Key := 0;
-end;
-
-procedure TRenameFileOrFolderForm.CancelButtonClick(Sender: TObject);
-begin
-      ModalResult := mrCancel;
-      Key := 0;
 end;
 
 end.

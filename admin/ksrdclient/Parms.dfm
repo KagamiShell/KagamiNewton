@@ -10,7 +10,7 @@ object ParmsForm: TParmsForm
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
-  Font.Name = 'MS Sans Serif'
+  Font.Name = 'Segoe UI'
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
@@ -957,7 +957,7 @@ object ParmsForm: TParmsForm
       Font.Charset = RUSSIAN_CHARSET
       Font.Color = clWhite
       Font.Height = -16
-      Font.Name = 'Verdana'
+      Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentColor = False
       ParentFont = False

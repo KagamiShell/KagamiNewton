@@ -99,7 +99,7 @@ object BodyBookForm: TBodyBookForm
       TabOrder = 2
       Text = 'EditName'
     end
-    object ComboBoxAge: TComboBox
+    object ComboBoxClass: TComboBox
       Left = 120
       Top = 107
       Width = 65
@@ -162,7 +162,7 @@ object BodyBookForm: TBodyBookForm
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
-      Font.Name = 'Verdana'
+      Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentCtl3D = False
       ParentFont = False

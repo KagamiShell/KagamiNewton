@@ -404,9 +404,9 @@ void __cdecl C_GetEnvListAt(int idx,TENVENTRY *out)
 }
 
 
-void __cdecl C_WakeupOnLAN(const char *ip,const char *mac)
+void __cdecl C_WakeOnLAN(const char *ip,const char *mac)
 {
-  WakeupOnLAN(ip,mac);
+  WakeOnLAN(ip,mac);
 }
 
 
@@ -429,7 +429,7 @@ static const TGUICONNECTION gui_conn =
   C_IsServerConnected,
   C_GetEnvListCount,
   C_GetEnvListAt,
-  C_WakeupOnLAN,
+  C_WakeOnLAN,
   C_IsOurIP,
   C_ExecFunction,
 };

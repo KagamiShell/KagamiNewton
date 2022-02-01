@@ -8,7 +8,7 @@ uses WinTypes;
 
 const PATH_DBVIEW = 'ksdbview.exe';
 const REGPATH = 'Software\Team KagamineP\KagamiShell\KagamiShellOperator';
-const OURAPPNAME = 'RSOperator';
+const OURAPPNAME = 'KSOperator';
 
 
 type
@@ -25,7 +25,6 @@ type
      comp_name : TSTRING;
      domain : TSTRING;
      user_name : TSTRING;
-     vip_session : TSTRING;
      active_task : TSTRING;
      monitor_state : longbool;
      blocked_state : longbool;
@@ -46,7 +45,6 @@ type
      comp_name : string;
      domain : string;
      user_name : string;
-     vip_session : string;
      active_task : string;
      monitor_state : longbool;
      blocked_state : longbool;
@@ -62,7 +60,7 @@ type
      IsServerConnected : function():longbool cdecl;
      GetEnvListCount : function():integer cdecl;
      GetEnvListAt : procedure(idx:integer;_out:PENVENTRY) cdecl;
-     WakeupOnLAN : procedure(const ip,mac:pchar) cdecl;
+     WakeOnLAN : procedure(const ip,mac:pchar) cdecl;
      IsOurIP : function(const ip:pchar):longbool cdecl;
      ExecFunction : procedure(id:integer;const list:PENVENTRY;count:integer) cdecl;
     end;

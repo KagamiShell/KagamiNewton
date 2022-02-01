@@ -18,7 +18,7 @@ char* GetGlobalCommonPath(const char *local,char *out)
 
   if ( out[0] )
      {
-       PathAppend(out,"KagamiShell\\KagamiShell\\Shell");
+       PathAppend(out,"KagamineP\\KagamiShell\\Shell");
        PathAppend(out,local);
      }
   else

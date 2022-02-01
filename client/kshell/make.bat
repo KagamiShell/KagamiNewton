@@ -13,7 +13,7 @@ if exist kshell.exe copy /Y kshell.exe ..\test\
 
 if exist kscfg.dll del kscfg.dll
 set cl=
-cl -Fekscfg -nologo -DCFG_DLL -DNDEBUG /O2t /EHsc /MT /LD cfg_def.cpp cfg_impl.cpp cfg_vars.cpp f0.cpp md5.cpp kernel32.lib user32.lib advapi32.lib shlwapi.lib ws2_32.lib ..\ks_shared\ks_shared.lib
+cl -Ferscfg -nologo -DCFG_DLL -DNDEBUG /O2t /EHsc /MT /LD cfg_def.cpp cfg_impl.cpp cfg_vars.cpp f0.cpp md5.cpp kernel32.lib user32.lib advapi32.lib shlwapi.lib ws2_32.lib ..\ks_shared\ks_shared.lib
 if %ERRORLEVEL% NEQ 0 pause
 if exist *.exp del *.exp
 if exist *.lib del *.lib

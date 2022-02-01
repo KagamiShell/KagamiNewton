@@ -50,7 +50,7 @@ static void WOL(int ip,unsigned char *mac)
 }
 
 
-void WakeupOnLAN(const char *s_ip,const char *s_mac)
+void WakeOnLAN(const char *s_ip,const char *s_mac)
 {
   if ( !IsStrEmpty(s_mac) && lstrlen(s_mac) == lstrlen("XX:XX:XX:XX:XX:XX") )
      {

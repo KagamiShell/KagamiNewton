@@ -13,6 +13,19 @@
 #include "body_turnshell.inc"
 
 
+
+BOOL IsLicenseWithMO()
+{
+  return StrStrI(lic_feat,"Server") != NULL;
+}
+
+
+BOOL IsLicenseWithShell()
+{
+  return StrStrI(lic_feat,"NoShell") == NULL;
+}
+
+
 void GlobalOnSheetsStateChanged()
 {
   CSheet *sh = GetActiveSheet();
@@ -627,10 +640,10 @@ void M_Mycomp(void)
 }
 
 
-void M_Callteacher(void)
+void M_Calladmin(void)
 {
   char msg[MAX_PATH];
-  wsprintf(msg,STR_001,machine_desc);
+  wsprintf(msg,STR_001,machine_loc,machine_desc);
   SendMessageToOperator(msg,FALSE);
   MsgBox(LS(3010));
 }
@@ -926,7 +939,7 @@ void ShowLA(void)
      {
        char cmd[MAX_PATH];
        
-       wsprintf(cmd,"\"%sksrules.exe\" -ls \"%s\"",our_currpath,CPathExpander(la_startup_path).GetPath());
+       wsprintf(cmd,"\"%srsrules.exe\" -ls \"%s\"",our_currpath,CPathExpander(la_startup_path).GetPath());
 
        STARTUPINFO si;
        PROCESS_INFORMATION pi;

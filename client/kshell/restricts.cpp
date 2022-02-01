@@ -100,6 +100,7 @@ static RESTRICT restricts[] =
   {RF_REGULAR,&use_bodytool_notepad,NotepadDisable,NULL,NULL,NULL},
   {RF_REGULAR,&use_bodytool_imgview,ImgViewDisable,NULL,NULL,NULL},
   {RF_REGULAR,&use_bodytool_pdf,PDFViewDisable,NULL,NULL,NULL},
+  {RF_REGULAR,&use_bodytool_swf,SWFFlashDisable,NULL,NULL,NULL},
 };
 
 
@@ -246,6 +247,13 @@ static void PDFViewDisable(BOOL state,void *p1,void *p2,void *p3)
 {
   const char *exts = "pdf";
   RegUnregExtensions(state,"BodyAcro","$bodyacro",1,"PDF Document",exts);
+}
+
+
+static void SWFFlashDisable(BOOL state,void *p1,void *p2,void *p3)
+{
+  const char *exts = "swf";
+  RegUnregExtensions(state,"BodyFlash","$bodyflash",1,"Flash Movie",exts);
 }
 
 

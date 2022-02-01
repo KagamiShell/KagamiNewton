@@ -135,7 +135,7 @@ static const TLANGSTR lang_1[] =
 
   // bodyscan
   {  700, "Win9x is unsupported for this program" },
-  {  701, "Runpad Shell is not running" },
+  {  701, "KagamiShell is not running" },
   {  702, "Do you want to view scanned image?" },
   {  703, "Error loading ActiveX-control" },
   {  704, "Error initializing devices" },
@@ -501,7 +501,7 @@ static const TLANGSTR lang_1[] =
   { 3025, "Rename" },
   { 3026, "Operation \"%s\" is protected by administrator!\nObject: %s" },
   { 3027, "Administrator has accept your request" },
-  { 3028, "Runpad Service was not started or deleted\n\nPlease call admin" },
+  { 3028, "Kagami Service was not started or deleted\n\nPlease call admin" },
   { 3029, "Programs execution at this moment is prohibited" },
   { 3030, "Programs execution in safe mode is protected by administrator" },
   { 3031, "Please try again later\nAdministrator is doing some profylaxis works" },

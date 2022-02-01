@@ -2,8 +2,8 @@
 #ifndef ___INCLUDE_H___
 #define ___INCLUDE_H___
 
-#define _WIN32_IE     0x0601   //WinXP
-#define _WIN32_WINNT  0x0601   //WinXP
+#define _WIN32_IE     0x0501   //WinXP
+#define _WIN32_WINNT  0x0501   //WinXP
 #define _WIN32_DCOM
 
 // это дополнение делалось для болгарина, раскомментить если нужны доп. языки:

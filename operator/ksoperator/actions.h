@@ -14,7 +14,6 @@ char machine_desc[MAX_PATH];
 char comp_name[MAX_PATH];
 char domain[MAX_PATH];
 char user_name[MAX_PATH];
-char vip_session[MAX_PATH];
 char active_task[MAX_PATH];
 BOOL monitor_state;
 BOOL blocked_state;
@@ -32,7 +31,7 @@ void ClearEnvList();
 int GetEnvListCount();
 void GetEnvListAt(int idx,TENVENTRY *out);
 
-void WakeupOnLAN(const char *ip,const char *mac);
+void WakeOnLAN(const char *ip,const char *mac);
 
 
 

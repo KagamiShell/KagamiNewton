@@ -23,7 +23,6 @@ type
 type
   TKSStartupForm = class(TForm)
     Panel1: TPanel;
-    Image1: TImage;
     Bevel1: TBevel;
     Panel2: TPanel;
     Bevel2: TBevel;
@@ -47,6 +46,7 @@ type
     Label3: TLabel;
     Edit1: TEdit;
     CheckBox1: TCheckBox;
+    Label4: TLabel;
     procedure FormShow(Sender: TObject);
     procedure ButtonNextClick(Sender: TObject);
     procedure ButtonPrevClick(Sender: TObject);

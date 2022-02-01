@@ -251,7 +251,7 @@ begin
 
   AllowSaveToAddonFolders := false;
   reg := TRegistry.Create;
-  if reg.OpenKeyReadOnly( 'Software\RunpadProShell' ) then 
+  if reg.OpenKeyReadOnly( 'Software\KagamineP\KagamiShell\KagamiShell' ) then 
    begin
     try
      AllowSaveToAddonFolders := reg.ReadBool('allow_save_to_addon_folders');

@@ -41,7 +41,6 @@ object CreateFolderForm: TCreateFolderForm
     Cancel = True
     Caption = #1054#1090#1084#1077#1085#1072
     TabOrder = 1
-    OnClick = CancelButtonClick
   end
   object OKButton: TButton
     Left = 104
@@ -50,6 +49,5 @@ object CreateFolderForm: TCreateFolderForm
     Height = 25
     Caption = #1054#1050
     TabOrder = 2
-    OnClick = OKButtonClick
   end
 end

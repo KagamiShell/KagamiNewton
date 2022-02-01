@@ -18,6 +18,9 @@ res_make:
 $(APP).dll: $(OBJS)
          $(CC) $(LFLAGS) $(OBJS) $(LOPT) $(LIBS)
 
+delphi:
+       tlibimp -Dexamples\include $(APP).tlb
+
 clean: 
        if exist $(APP)_i.c move /Y $(APP)_i.c "examples\include\"
        if exist $(APP).h move /Y $(APP).h "examples\include\"
@@ -31,14 +34,14 @@ clean:
        if exist $(APP)_p.c del $(APP)_p.c
 
 
-all: type_lib res_make $(APP).dll clean
+all: type_lib res_make $(APP).dll delphi clean
 
 
 .cpp.obj:
         $(CC) $(CFLAGS) -c $<
 
 ks_api.obj	   : ks_api.cpp
-kagamishell.obj : kagamishell.cpp
+kagamishell.obj  : kagamishell.cpp
 impl.obj	   : impl.cpp
 utils.obj	   : utils.cpp
 

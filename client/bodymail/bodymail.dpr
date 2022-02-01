@@ -27,7 +27,7 @@ begin
  mail_to:='';
 
  reg:=TRegistry.Create;
- if reg.OpenKeyReadOnly('Software\RunpadProShell') then
+ if reg.OpenKeyReadOnly('Software\KagamineP\KagamiShell\KagamiShell') then
   begin
    try
     mail_smtp:=reg.ReadString('bodymail_smtp');

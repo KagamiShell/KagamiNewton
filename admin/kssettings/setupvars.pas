@@ -5,7 +5,7 @@ interface
 uses
   Windows, ShellApi, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   ExtCtrls, ComCtrls, StdCtrls, CheckLst, StrUtils, Dialogs, global,
-  Buttons;
+  Buttons, XPMan;
 
 type
   TSetupVarsForm = class(TForm)
@@ -68,6 +68,7 @@ type
     TabSheet6: TTabSheet;
     Panel7: TPanel;
     Label20: TLabel;
+    Label22: TLabel;
     GroupBox4: TGroupBox;
     CheckListBox2: TCheckListBox;
     Button5: TButton;
@@ -499,10 +500,6 @@ type
     Label90: TLabel;
     Edit82: TEdit;
     Button2: TButton;
-    TabSheet49: TTabSheet;
-    Panel54: TPanel;
-    CheckBox78: TCheckBox;
-    Label96: TLabel;
     Label99: TLabel;
     Label100: TLabel;
     Edit91: TEdit;
@@ -544,7 +541,7 @@ type
     Edit100: TEdit;
     Memo2: TMemo;
     Button4: TButton;
-    Label22: TLabel;
+    XPManifest1: TXPManifest;
     procedure TabSheet5Show(Sender: TObject);
     procedure TabSheet6Show(Sender: TObject);
     procedure TabSheet7Show(Sender: TObject);
@@ -1302,7 +1299,7 @@ begin
    SetCheck(CheckBox43,'mycomp_in_menu');
    SetCheck(CheckBox62,'monitor_off_in_menu');
    SetCheck(CheckBox164,'show_book_in_menu');
-   SetCheck(CheckBox2,'callteacher_in_menu');
+   SetCheck(CheckBox2,'calladmin_in_menu');
    SetCheck(CheckBox67,'use_cad_catcher');
    SetCheck(CheckBox68,'cad_taskman');
    SetCheck(CheckBox69,'cad_killall');
@@ -1647,7 +1644,7 @@ begin
    GetCheck(CheckBox43,'mycomp_in_menu');
    GetCheck(CheckBox62,'monitor_off_in_menu');
    GetCheck(CheckBox164,'show_book_in_menu');
-   GetCheck(CheckBox2,'callteacher_in_menu');
+   GetCheck(CheckBox2,'calladmin_in_menu');
    GetCheck(CheckBox67,'use_cad_catcher');
    GetCheck(CheckBox68,'cad_taskman');
    GetCheck(CheckBox69,'cad_killall');

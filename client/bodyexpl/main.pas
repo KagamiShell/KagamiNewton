@@ -565,7 +565,7 @@ var
 begin
   Result := true;
   reg := TRegistry.Create;
-  if reg.OpenKeyReadOnly('Software\RunpadProShell') then
+  if reg.OpenKeyReadOnly('Software\KagamineP\KagamiShell\KagamiShell') then
   begin
     try
       Result := reg.ReadBool('allow_write_to_removable');
@@ -595,7 +595,7 @@ begin
 
   allow_from_cfg := true;
   reg := TRegistry.Create;
-  if reg.OpenKeyReadOnly('Software\RunpadProShell') then
+  if reg.OpenKeyReadOnly('Software\KagamiShell\KagamiShell') then
   begin
     try
       allow_from_cfg := reg.ReadBool('allow_drag_anywhere');
@@ -1470,7 +1470,7 @@ begin
 
   count := 0;
   reg := TRegistry.Create;
-  if reg.OpenKeyReadOnly('Software\RunpadProShell\menu_ext') then
+  if reg.OpenKeyReadOnly('Software\KagamineP\KagamiShell\KagamiShell\menu_ext') then
   begin
     for n := 1 to MAXWINITEMS do
     begin
@@ -1500,7 +1500,7 @@ begin
 
   count := 0;
   reg := TRegistry.Create;
-  if reg.OpenKeyReadOnly('Software\RunpadProShell\menu_ext_rev') then
+  if reg.OpenKeyReadOnly('Software\KagamineP\KagamiShell\KagamiShell\menu_ext_rev') then
   begin
     for n := 1 to MAXWINITEMS do
     begin
@@ -1537,7 +1537,7 @@ begin
   allow_hiddens := false;
   name := '';
   reg := TRegistry.Create;
-  if reg.OpenKeyReadOnly('Software\RunpadProShell') then
+  if reg.OpenKeyReadOnly('Software\KagamineP\KagamiShell\KagamiShell') then
   begin
     try
       name := reg.ReadString('BodyExplViewStyle');
@@ -2414,7 +2414,7 @@ var
   reg: TRegistry;
 begin
   reg := TRegistry.Create;
-  if reg.OpenKey('Software\RunpadProShell', true) then
+  if reg.OpenKey('Software\KagamineP\KagamiShell\KagamiShell', true) then
   begin
     try
       reg.WriteString('BodyExplViewStyle', s);
@@ -2509,7 +2509,7 @@ var WinRarPath: string;
 begin
   WinRARPath := '';
   reg := TRegistry.Create;
-  if reg.OpenKeyReadOnly('Software\RunpadProShell') then
+  if reg.OpenKeyReadOnly('Software\KagamineP\KagamiShell\KagamiShell') then
   begin
     try
       WinRARPath := reg.ReadString('winrar_path');

@@ -111,15 +111,15 @@ void CConfigurator::OnCfgReceived(const void *buff,int buff_size)
 
 void CConfigurator::OnServerVarsReceived(const CNetCmd &cmd)
 {
-  if ( !b_lic_set )  //only first is accepted
-     {
-       const char *s = cmd.GetParmAsString(NETPARM_S_LICFEATURES,"");
+  // if ( !b_lic_set )  //only first is accepted
+  //    {
+  //      // const char *s = cmd.GetParmAsString(NETPARM_S_LICFEATURES,"");
 
-       lstrcpyn(s_licfeat,s,sizeof(s_licfeat));
-       WriteLicFeatToCache(s_licfeat);
+  //      lstrcpyn(s_licfeat,s,sizeof(s_licfeat));
+  //      WriteLicFeatToCache(s_licfeat);
 
-       b_lic_set = TRUE;
-     }
+  //      b_lic_set = TRUE;
+  //    }
 }
 
 

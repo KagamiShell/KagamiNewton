@@ -47,7 +47,7 @@ BOOL sql_base_ready = FALSE;
 BOOL monitor_off = FALSE;
 
 // license vars
-// TSTRING lic_feat = "";
+TSTRING lic_feat = "";
 
 // config related vars
 int g_cfg_recv_type = 0;

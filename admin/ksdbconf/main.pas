@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, ExtCtrls, StdCtrls, ActiveX, h_sql;
+  Dialogs, ComCtrls, ExtCtrls, StdCtrls, ActiveX, h_sql, XPMan;
 
 type
   TDBConfForm = class(TForm)
@@ -40,6 +40,7 @@ type
     Label9: TLabel;
     Label10: TLabel;
     ButtonOpenFolder: TButton;
+    XPManifest1: TXPManifest;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);

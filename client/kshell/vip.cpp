@@ -340,7 +340,7 @@ static BOOL CALLBACK VipDlgProc(HWND hwnd,UINT message,WPARAM wParam,LPARAM lPar
        i.label_color = 0xFF0000;
        i.bg_color = GetSysColor(COLOR_BTNFACE);
        i.brush = CreateSolidBrush(i.bg_color);
-       i.font = CreateFont(-10,0,0,0,FW_NORMAL,0,TRUE,0,DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH,"Segoe UI");
+       i.font = CreateFont(-10,0,0,0,FW_NORMAL,0,TRUE,0,DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH,"MS Shell Dlg");
        i.can_close = TRUE;
        i.ticks = 0;
        i.i = (VIPINFO*)lParam;

@@ -447,9 +447,9 @@ void CNetObj::OnNetCmdReceived(const CNetCmd &cmd,unsigned src_guid)
                      if ( rc == NETERR_SETTINGS_DBNOTREADY )
                         p_cfg->SetLastErrorI(CConfigurator::ERR_DBNOTREADY);
                      else
-                     if ( rc == NETERR_SETTINGS_OUTOFLICENSE )
-                        p_cfg->SetLastErrorI(CConfigurator::ERR_OUTOFLICENSE);
-                     else
+                    //  if ( rc == NETERR_SETTINGS_OUTOFLICENSE )
+                    //     p_cfg->SetLastErrorI(CConfigurator::ERR_OUTOFLICENSE);
+                    //  else
                         p_cfg->SetLastErrorI(CConfigurator::ERR_SERVER);
 
                      p_cfg->SetLastErrorS(cmd.GetParmAsString(NETPARM_S_RESULT,""));

@@ -51,7 +51,7 @@ extern BOOL sql_base_ready;
 extern BOOL monitor_off;
 
 // license vars
-// extern TSTRING lic_feat;
+extern TSTRING lic_feat;
 
 // config related vars
 extern int g_cfg_recv_type;

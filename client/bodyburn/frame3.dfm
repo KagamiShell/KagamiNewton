@@ -42,7 +42,7 @@ object Page3: TPage3
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clRed
     Font.Height = -11
-    Font.Name = 'MS Sans Serif'
+    Font.Name = 'Segoe UI'
     Font.Style = []
     ParentFont = False
     WordWrap = True

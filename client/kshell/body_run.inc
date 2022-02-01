@@ -52,7 +52,7 @@ static void RunBatScript(const char *cwd,const char *token)
             char s[MAX_PATH] = "";
 
             GetTempPath(MAX_PATH,s);
-            PathAppend(s,"ks_scrpt.bat");
+            PathAppend(s,"rs_scrpt.bat");
             sys_deletefile(s);
 
             WriteFullFile(s,script,lstrlen(script));
@@ -80,6 +80,11 @@ void RunProgram(const CShortcut *shortcut,BOOL checkext,const CSheet *sheet,BOOL
      }
 #endif
 
+  if ( !IsLicenseWithShell() )
+     {
+       MsgBox(LS(3239));
+       return;
+     }
      
   if ( protect_run_from_api )
      {

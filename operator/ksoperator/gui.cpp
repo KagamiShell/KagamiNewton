@@ -5,7 +5,7 @@
 
 CGUI::CGUI()
 {
-  lib = LoadLibrary("rsoperator.dll");
+  lib = LoadLibrary("ksoperator.dll");
 
   *(void**)&pCreateWindow      = (void*)GetProcAddress(lib,"GUI_CreateWindow");
   *(void**)&pDestroyWindow     = (void*)GetProcAddress(lib,"GUI_DestroyWindow");

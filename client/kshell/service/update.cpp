@@ -206,7 +206,7 @@ BOOL CUpdate::ExpandEnvPath(const char *envpath,char *_fullpath,char *_basedir)
 
                  char base[MAX_PATH] = "";
 
-                 if ( !lstrcmpi(s,"RS_FOLDER") )
+                 if ( !lstrcmpi(s,"KS_FOLDER") )
                     {
                       GetModuleFileName(GetModuleHandle(NULL),base,sizeof(base));
                       PathRemoveFileSpec(base);

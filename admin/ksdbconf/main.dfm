@@ -38,11 +38,11 @@ object DBConfForm: TDBConfForm
     BevelOuter = bvNone
     TabOrder = 0
     object LabelTitle: TLabel
-      Left = 240
-      Top = 16
-      Width = 102
-      Height = 32
-      Align = alCustom
+      Left = 0
+      Top = 0
+      Width = 607
+      Height = 72
+      Align = alTop
       Alignment = taCenter
       BiDiMode = bdLeftToRight
       Caption = 'LabelTitle'
@@ -144,7 +144,7 @@ object DBConfForm: TDBConfForm
       Top = 0
       Width = 607
       Height = 320
-      ActivePage = TabSheet1
+      ActivePage = TabSheet2
       Align = alClient
       Style = tsFlatButtons
       TabOrder = 0
@@ -159,7 +159,7 @@ object DBConfForm: TDBConfForm
           Width = 599
           Height = 310
           TabStop = False
-          Align = alClient
+          Align = alBottom
           BevelInner = bvNone
           BevelOuter = bvNone
           BorderStyle = bsNone
@@ -237,7 +237,7 @@ object DBConfForm: TDBConfForm
         object Label4: TLabel
           Left = 8
           Top = 35
-          Width = 555
+          Width = 554
           Height = 45
           Caption = 
             #1058#1077#1087#1077#1088#1100' '#1085#1077#1086#1073#1093#1086#1076#1080#1084#1086' '#1091#1082#1072#1079#1072#1090#1100' '#1080#1084#1103' '#1080' '#1087#1072#1088#1086#1083#1100' '#1057#1059#1065#1045#1057#1058#1042#1059#1070#1065#1045#1043#1054' '#1072#1076#1084#1080#1085#1080#1089#1090#1088#1072#1090 +
@@ -255,7 +255,7 @@ object DBConfForm: TDBConfForm
         object Label8: TLabel
           Left = 8
           Top = 133
-          Width = 71
+          Width = 70
           Height = 15
           Caption = #1058#1080#1087' '#1089#1077#1088#1074#1077#1088#1072':'
           Font.Charset = DEFAULT_CHARSET
@@ -335,7 +335,7 @@ object DBConfForm: TDBConfForm
         object Label6: TLabel
           Left = 8
           Top = 3
-          Width = 572
+          Width = 570
           Height = 60
           Caption = 
             #1053#1072' '#1076#1072#1085#1085#1086#1084' '#1101#1090#1072#1087#1077' '#1084#1086#1078#1085#1086' '#1076#1086#1073#1072#1074#1080#1090#1100' '#1089#1074#1086#1080' '#1092#1072#1081#1083#1099' '#1076#1083#1103' '#1079#1072#1085#1077#1089#1077#1085#1080#1103' '#1080#1093' '#1074' '#1073#1072#1079 +
@@ -355,7 +355,7 @@ object DBConfForm: TDBConfForm
         object Label7: TLabel
           Left = 8
           Top = 72
-          Width = 567
+          Width = 542
           Height = 30
           Caption = 
             #1045#1089#1083#1080' '#1091' '#1074#1072#1089' '#1077#1089#1090#1100' '#1090#1072#1082#1080#1077' '#1092#1072#1081#1083#1099', '#1090#1086' '#1087#1088#1103#1084#1086' '#1089#1077#1081#1095#1072#1089' '#1087#1077#1088#1077#1087#1080#1096#1080#1090#1077' '#1080#1093' '#1074' '#1087#1072#1087 +
@@ -434,7 +434,7 @@ object DBConfForm: TDBConfForm
         object Label5: TLabel
           Left = 8
           Top = 3
-          Width = 564
+          Width = 563
           Height = 45
           Caption = 
             #1055#1086#1076#1075#1086#1090#1086#1074#1082#1072' '#1073#1072#1079#1099' '#1079#1072#1074#1077#1088#1096#1077#1085#1072'! '#1058#1077#1087#1077#1088#1100' '#1088#1077#1082#1086#1084#1077#1085#1076#1091#1077#1090#1089#1103' '#1079#1072#1087#1091#1089#1090#1080#1090#1100' '#1087#1088#1086#1075#1088#1072 +
@@ -450,5 +450,9 @@ object DBConfForm: TDBConfForm
         end
       end
     end
+  end
+  object XPManifest1: TXPManifest
+    Left = 320
+    Top = 408
   end
 end

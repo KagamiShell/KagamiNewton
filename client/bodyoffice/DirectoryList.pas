@@ -1225,7 +1225,7 @@ end;
 
 procedure TDirectoryListFactory.UpdateRegistry(Register: Boolean);
 begin
-// this is done externally by Runpad Shell !!!!!
+// this is done externally by KagamiShell !!!!!
 {  inherited UpdateRegistry(Register);
   
   RegAddin('Software\Microsoft\Office\Word\Addins\BodyOffice.DTExtensibility2',Register);

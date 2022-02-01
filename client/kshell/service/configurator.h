@@ -19,7 +19,7 @@ class CConfigurator
            ERR_NOTCONNECTED,   // not connected to server
            ERR_NORESPONCE,     // no answer from server
            ERR_DBNOTREADY,     // SQL-DB not ready
-           ERR_OUTOFLICENSE,   // licensing error
+           // ERR_OUTOFLICENSE,   // licensing error
            ERR_SERVER,         // other error (maybe rules)
           };
           

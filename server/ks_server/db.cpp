@@ -236,7 +236,7 @@ DWORD CDBObj::ThreadProc()
   ZeroMemory(&wc,sizeof(wc));
   wc.lpfnWndProc = WindowProcWrapper;
   wc.hInstance = instance;
-  wc.lpszClassName = "_RunpadProServerMessageOnlyWindowClass";
+  wc.lpszClassName = "_KagamiShellServerMessageOnlyWindowClass";
   ATOM class_atom = RegisterClass(&wc);
 
   HWND t_hwnd = CreateWindowEx(0,(LPCSTR)class_atom,NULL,0,0,0,0,0,HWND_MESSAGE,NULL,instance,NULL);
@@ -1052,7 +1052,7 @@ BOOL CDBObj::OnCmdProcess(int cmd,DWORD_PTR data)
                        {SQL_PD_INPUT,SQL_DT_STRING,(void*)s_comment,0},
                      };
 
-                     if ( gc->CallStoredProc("ServicesRunpadInsert3",SQL_DEF_TIMEOUT,argv,sizeof(argv)/sizeof(argv[0])) )
+                     if ( gc->CallStoredProc("ServicesKagamiInsert3",SQL_DEF_TIMEOUT,argv,sizeof(argv)/sizeof(argv[0])) )
                         {
                         }
                    }

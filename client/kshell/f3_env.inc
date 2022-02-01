@@ -290,12 +290,12 @@ static void RedirectSysFolders(int state)
 
 void SetShellEnvStrings(void)
 {
-  SetSingleEnvVar("RS_FOLDER",our_currpath,TRUE);
-  SetSingleEnvVar("RS_MACHINE",machine_desc);
-  SetSingleEnvVar("RS_LOC",machine_loc);
-  SetSingleEnvVar("RS_VIPSESSION",vip_session);
-  SetSingleEnvVar("RS_VIPFOLDER",vip_folder,TRUE);
-  SetSingleEnvVar("RS_USERFOLDER",user_folder,TRUE);
+  SetSingleEnvVar("KS_FOLDER",our_currpath,TRUE);
+  SetSingleEnvVar("KS_MACHINE",machine_desc);
+  SetSingleEnvVar("KS_LOC",machine_loc);
+  SetSingleEnvVar("KS_VIPSESSION",vip_session);
+  SetSingleEnvVar("KS_VIPFOLDER",vip_folder,TRUE);
+  SetSingleEnvVar("KS_USERFOLDER",user_folder,TRUE);
 //  SendMessageTimeout( (HWND)-1, WM_WININICHANGE, 0, (LPARAM)"Environment", SMTO_ABORTIFHUNG, 1000, NULL );
 
   RedirectSysFolders(vip_session[0] && redirect_sys_folders);

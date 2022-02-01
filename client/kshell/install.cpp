@@ -118,8 +118,8 @@ static void InstallUninstallOurClassesInternal(BOOL b_inst)
 {
   char s[MAX_PATH] = "";
 
-  // RS_API
-  GetFileNameInTrueSystem32Dir("rs_api.dll",s);
+  // KS_API
+  GetFileNameInTrueSystem32Dir("ks_api.dll",s);
   if ( b_inst )
      ActiveXRegisterFromDLL32(s);
   else
@@ -250,14 +250,14 @@ static void InstallOurClasses_FromSVC()
 }
 
 
-
+// remove some left from old versions of Runpad/RunpadPro 
 void RemoveOldClassEntries()
 {
   // VintaSoft twain
   DeleteRegKey(HKCU,"Software\\Classes\\CLSID\\{1169e0cd-9e76-11d7-b1d8-fb63945de96d}");
   DeleteRegKey(HKCU,"Software\\Classes\\TypeLib\\{1169E0C0-9E76-11D7-B1D8-FB63945DE96D}");
 
-  // RS_API
+  // KS_API
   DeleteRegKey(HKCU,"Software\\Classes\\CLSID\\{D163EEE3-540A-48DA-9009-C194588263B9}");
   DeleteRegKey(HKCU,"Software\\Classes\\CLSID\\{D7346301-B73F-4a94-ABE6-234A0D49521D}");
   DeleteRegKey(HKCU,"Software\\Classes\\CLSID\\{3D4B9FF0-329A-4ed9-A341-B07AE052B7D6}");

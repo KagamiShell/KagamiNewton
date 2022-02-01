@@ -90,7 +90,7 @@ void SetGlobalHook64(BOOL state)
   if ( IsWOW64() )
      {
        const char *hook_name = "GlobalHook";
-       const char *event_name = "_RPS64_Event_Hook_Global";
+       const char *event_name = "_KSS64_Event_Hook_Global";
 
        SetHook64Internal(state,hook_name,event_name);
      }
@@ -103,7 +103,7 @@ void SetDialogsHook64(BOOL state)
   if ( IsWOW64() )
      {
        const char *hook_name = "DialogsHook";
-       const char *event_name = "_RPS64_Event_Hook_Dialogs";
+       const char *event_name = "_KSS64_Event_Hook_Dialogs";
 
        SetHook64Internal(state,hook_name,event_name);
      }

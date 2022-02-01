@@ -161,7 +161,7 @@ void CODItemSmall::Measure(int *_w,int *_h)
   if ( text && text[0] )
      {
        HDC hdc = CreateCompatibleDC(NULL);
-       HFONT font = CreateFont(-11,0,0,0,FW_NORMAL,0,0,0,DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH,"Segoe UI");
+       HFONT font = CreateFont(-11,0,0,0,FW_NORMAL,0,0,0,DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH,"Tahoma");
        HFONT oldfont = (HFONT)SelectObject(hdc,font);
        GetTextExtentPoint32(hdc,text,lstrlen(text),&size);
        SelectObject(hdc,oldfont);
@@ -202,7 +202,7 @@ void CODItemSmall::Draw(int item_state,RBUFF *buff,HDC screen_hdc,int screen_x,i
   const char *text = GetText();
   if ( text && text[0] )
      {
-       HFONT font = CreateFont(-11,0,0,0,FW_NORMAL,0,0,0,DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH,"Segoe UI");
+       HFONT font = CreateFont(-11,0,0,0,FW_NORMAL,0,0,0,DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH,"Tahoma");
        HFONT oldfont = (HFONT)SelectObject(buff->hdc,font);
        SetBkMode(buff->hdc,TRANSPARENT);
        SetTextColor(buff->hdc,text_color);
@@ -226,7 +226,7 @@ void CODItemBig::Measure(int *_w,int *_h)
   if ( text && text[0] )
      {
        HDC hdc = CreateCompatibleDC(NULL);
-       HFONT font = CreateFont(-11,0,0,0,FW_NORMAL,0,0,0,DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH,"Segoe UI");
+       HFONT font = CreateFont(-11,0,0,0,FW_NORMAL,0,0,0,DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH,"Tahoma");
        HFONT oldfont = (HFONT)SelectObject(hdc,font);
        GetTextExtentPoint32(hdc,text,lstrlen(text),&size);
        SelectObject(hdc,oldfont);
@@ -270,7 +270,7 @@ void CODItemBig::Draw(int item_state,RBUFF *buff,HDC screen_hdc,int screen_x,int
   const char *text = GetText();
   if ( text && text[0] )
      {
-       HFONT font = CreateFont(-11,0,0,0,FW_NORMAL,0,0,0,DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH,"Segoe UI");
+       HFONT font = CreateFont(-11,0,0,0,FW_NORMAL,0,0,0,DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH,"Tahoma");
        HFONT oldfont = (HFONT)SelectObject(buff->hdc,font);
        SetBkMode(buff->hdc,TRANSPARENT);
        SetTextColor(buff->hdc,text_color);
@@ -325,7 +325,7 @@ enum {
 IDM_VIPBEGIN  ,
 IDM_VIPEND    ,
 IDM_SHOWGCINFO,
-IDM_CALLTEACHER , // CALLTEACHER
+IDM_CALLADMIN ,
 IDM_OFFERSBOOK,
 IDM_MONITOROFF,
 IDM_RESTORE   ,
@@ -350,7 +350,7 @@ static const MAINMENUITEM mmitems[] =
   {10, 3053, M_Vipsession, IDM_VIPBEGIN     },
   {9,  3054, M_Vipsession, IDM_VIPEND       },
   {0,  3055, M_Showgcinfo, IDM_SHOWGCINFO   },
-  {1,  3056, M_Callteacher,  IDM_CALLTEACHER    },
+  {1,  3056, M_Calladmin,  IDM_CALLADMIN    },
   {11, 3057, M_Offersbook, IDM_OFFERSBOOK   },
   {8,  3058, M_Monitoroff, IDM_MONITOROFF   },
   {2,  3059, M_Restore,    IDM_RESTORE      },
@@ -765,8 +765,8 @@ CMainMenu::CMainMenu(const CContent *content,const CSheet *curr_sheet,const CQui
      AddMMItem(vip_session[0]?IDM_VIPEND:IDM_VIPBEGIN);
   if ( gc_info_in_menu )
      AddMMItem(IDM_SHOWGCINFO);
-  if ( callteacher_in_menu )
-     AddMMItem(IDM_CALLTEACHER);
+  if ( calladmin_in_menu )
+     AddMMItem(IDM_CALLADMIN);
   if ( show_book_in_menu )
      AddMMItem(IDM_OFFERSBOOK);
   if ( monitor_off_in_menu )

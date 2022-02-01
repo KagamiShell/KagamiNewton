@@ -21,7 +21,7 @@ static void MDraw(HWND hwnd,HDC hdc)
   GetClientRect(hwnd,&r);
   FrameRect(hdc,&r,(HBRUSH)GetStockObject(WHITE_BRUSH));
 
-  font = CreateFont(-12,0,0,0,FW_BOLD,0,0,0,DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH,"Segoe UI");
+  font = CreateFont(-12,0,0,0,FW_BOLD,0,0,0,DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH,"Verdana");
   oldfont = (HFONT)SelectObject(hdc,font);
   SetBkMode(hdc,TRANSPARENT);
   SetTextColor(hdc,0xFFFFFF);

@@ -62,7 +62,7 @@ void CExecStatCollector::OnFinish()
             m_file = NULL; //to correct destructor work
 
             char cmdline[MAX_PATH*2];
-            wsprintf(cmdline,"\"%s\\%s\" \"%s\"",our_currpath,"rsstat.exe",m_filename);
+            wsprintf(cmdline,"\"%s\\%s\" \"%s\"",our_currpath,"ksstat.exe",m_filename);
 
             RunProcess(cmdline,our_currpath);
           }

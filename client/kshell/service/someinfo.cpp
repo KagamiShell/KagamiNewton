@@ -339,12 +339,12 @@ void S_GetCfgInfo(CNetCmd &cmd,const CConfigurator *_cfg,const CNetClient *_net)
                  lstrcpyn(s3,_cfg->GetLastErrorS(),sizeof(s3));
                }
             else
-            if ( err == CConfigurator::ERR_OUTOFLICENSE )
-               {
-                 s2 = S_ERR_OUTOFLICENSE;
-                 lstrcpyn(s3,_cfg->GetLastErrorS(),sizeof(s3));
-               }
-            else
+            // if ( err == CConfigurator::ERR_OUTOFLICENSE )
+            //    {
+            //      s2 = S_ERR_OUTOFLICENSE;
+            //      lstrcpyn(s3,_cfg->GetLastErrorS(),sizeof(s3));
+            //    }
+            // else
             if ( err == CConfigurator::ERR_SERVER )
                {
                  s2 = S_ERR_SERVER;
@@ -493,12 +493,12 @@ void PrepareRollbackInfo(CNetCmd &cmd,CConfigurator *_cfg)
             lstrcat(t,")");
           }
        
-       cmd.AddStringParm(NETPARM_S_RLBLICENSE,t);
+      //  cmd.AddStringParm(NETPARM_S_RLBLICENSE,t);
      }
-  else
-     {
-       cmd.AddStringParm(NETPARM_S_RLBLICENSE,S_RLB_LICNOTRECEIVEDJET);
-     }
+  // else
+  //    {
+  //      cmd.AddStringParm(NETPARM_S_RLBLICENSE,S_RLB_LICNOTRECEIVEDJET);
+  //    }
 
 
   int err = CRollback::ERR_NONE;

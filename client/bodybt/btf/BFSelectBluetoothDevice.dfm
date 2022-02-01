@@ -10,7 +10,7 @@ object fmSelectBluetoothDevice: TfmSelectBluetoothDevice
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
-  Font.Name = 'MS Sans Serif'
+  Font.Name = 'Segoe UI'
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
@@ -36,7 +36,7 @@ object fmSelectBluetoothDevice: TfmSelectBluetoothDevice
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'MS Sans Serif'
+    Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
   end
@@ -58,7 +58,7 @@ object fmSelectBluetoothDevice: TfmSelectBluetoothDevice
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'MS Sans Serif'
+    Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
     Transparent = True
@@ -185,7 +185,7 @@ object fmSelectBluetoothDevice: TfmSelectBluetoothDevice
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
-    Font.Name = 'MS Sans Serif'
+    Font.Name = 'Segoe UI'
     Font.Style = [fsItalic]
     ParentFont = False
     TabOrder = 3

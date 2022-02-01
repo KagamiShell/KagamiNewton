@@ -181,7 +181,7 @@ begin
     begin
      s_ip:=SubItems[3];
      s_mac:=SubItems[4];
-     host.WakeupOnLAN(pchar(s_ip),pchar(s_mac));
+     host.WakeOnLAN(pchar(s_ip),pchar(s_mac));
     end;
  WaitCursor(false,false);
  ButtonTurnOn.Enabled:=true;

@@ -1,9 +1,9 @@
 
-const CFG_DLL_NAME = 'kscfg.dll';
+const CFG_DLL_NAME = 'rscfg.dll';
 
 
-const MACHINE_TYPE_STUDENT = 1; // Ученический комп (ex GAMECLUB)
-const MACHINE_TYPE_TEACHER = 2; // Учительский комп (ex INETCAFE)
+const MACHINE_TYPE_STUDENT = 1;
+const MACHINE_TYPE_TEACHER = 2;
 const MACHINE_TYPE_OPERATOR = 4;
 const MACHINE_TYPE_ORGANIZATION = 8;
 const MACHINE_TYPE_TERMINAL = 16;

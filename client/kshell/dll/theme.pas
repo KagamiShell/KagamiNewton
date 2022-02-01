@@ -6,7 +6,7 @@ interface
 
 
 type
-  // external connection with host (kagami)
+  // external connection with host (runpad)
   TDeskExternalConnection = record
    OnError : procedure (const err_text:pchar); cdecl;
    OnRClick : procedure (); cdecl;

@@ -11,7 +11,7 @@ if %ERRORLEVEL% NEQ 0 pause
 if exist *.obj del *.obj
 if exist *.exp del *.exp
 if exist *.lib del *.lib
-mycodesign ksexhook.dll
+signtool sign /v /f ..\..\..\sign\kagaminep.pfx /t http://timestamp.digicert.com ksexhook.dll
 if %ERRORLEVEL% NEQ 0 pause
 
 rem ---- 64-bit ----
@@ -22,7 +22,7 @@ if %ERRORLEVEL% NEQ 0 pause
 if exist *.obj del *.obj
 if exist *.exp del *.exp
 if exist *.lib del *.lib
-mycodesign ksexhook64.dll
+signtool sign /v /f ..\..\..\sign\kagaminep.pfx /t http://timestamp.digicert.com ksexhook64.dll
 if %ERRORLEVEL% NEQ 0 pause
 call popvcvars.bat
 

@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, ComCtrls, ToolWin, ImgList, StdCtrls, ActiveX,
-  global, login, h_sql;
+  global, login, h_sql, XPMan;
 
 
 type
@@ -109,6 +109,7 @@ type
     ListViewRules: TListView;
     CheckBox26: TCheckBox;
     CheckBox27: TCheckBox;
+    XPManifest1: TXPManifest;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);

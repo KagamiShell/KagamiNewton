@@ -128,7 +128,7 @@ NETERR_VIP_ALREADYEXIST = -4,
 NETERR_VIP_UNKNOWN = -5,
 NETERR_VIP_NEWSERVER = -6,
 NETERR_SETTINGS_DBNOTREADY = -1,
-// NETERR_SETTINGS_OUTOFLICENSE = -2,
+NETERR_SETTINGS_OUTOFLICENSE = -2,
 NETERR_SETTINGS_OTHER = -3,
 
 };
@@ -170,15 +170,15 @@ NETERR_SETTINGS_OTHER = -3,
 #define NETPARM_S_KIND            "sKind"
 #define NETPARM_S_TITLE           "sTitle"
 #define NETPARM_S_NAME            "sName"
-#define NETPARM_S_CLASS           "sClass"
+#define NETPARM_S_CLASS             "sClass"
 #define NETPARM_B_MOBILECONTENT   "bMobileContent"
 #define NETPARM_I_GUID            "iGUID"
-// #define NETPARM_S_LICORGANIZATION "sLicOrganization"  //this parm must be changed also in licgen.exe utility !
-// #define NETPARM_S_LICOWNER        "sLicOwner"         //this parm must be changed also in licgen.exe utility !
-// #define NETPARM_I_LICMACHINES     "iLicMachines"      //this parm must be changed also in licgen.exe utility !
-// #define NETPARM_S_LICFEATURES     "sLicFeatures"      //this parm must be changed also in licgen.exe utility !
-// #define NETPARM_I_LICNUMBER       "iLicNumber"        //this parm must be changed also in licgen.exe utility !
-// #define NETPARM_S_LICEXPDATE      "sLicExpDate"       //this parm must be changed also in licgen.exe utility !
+#define NETPARM_S_LICORGANIZATION "sLicOrganization"  //this parm must be changed also in licgen.exe utility !
+#define NETPARM_S_LICOWNER        "sLicOwner"         //this parm must be changed also in licgen.exe utility !
+#define NETPARM_I_LICMACHINES     "iLicMachines"      //this parm must be changed also in licgen.exe utility !
+#define NETPARM_S_LICFEATURES     "sLicFeatures"      //this parm must be changed also in licgen.exe utility !
+#define NETPARM_I_LICNUMBER       "iLicNumber"        //this parm must be changed also in licgen.exe utility !
+#define NETPARM_S_LICEXPDATE      "sLicExpDate"       //this parm must be changed also in licgen.exe utility !
 #define NETPARM_S_VERSION         "sVersion"
 #define NETPARM_I_YEAR            "iYear"
 #define NETPARM_I_MONTH           "iMonth"
@@ -207,7 +207,7 @@ NETERR_SETTINGS_OTHER = -3,
 #define NETPARM_B_IMMEDIATELY     "bImmediately"
 #define NETPARM_B_ISROLLBACK      "bIsRollback"
 #define NETPARM_S_RLBVERSION      "sRlbVersion"
-// #define NETPARM_S_RLBLICENSE      "sRlbLicense"
+#define NETPARM_S_RLBLICENSE      "sRlbLicense"
 #define NETPARM_S_RLBDRVNOW       "sRlbDrvNow"
 #define NETPARM_S_RLBDRVAFTER     "sRlbDrvAfter"
 #define NETPARM_S_RLBRLBNOW       "sRlbRlbNow"

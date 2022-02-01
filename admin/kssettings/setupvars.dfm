@@ -1,6 +1,6 @@
 object SetupVarsForm: TSetupVarsForm
-  Left = 250
-  Top = 79
+  Left = 308
+  Top = 51
   Width = 756
   Height = 629
   HorzScrollBar.Visible = False
@@ -25,7 +25,7 @@ object SetupVarsForm: TSetupVarsForm
     Left = 0
     Top = 0
     Width = 200
-    Height = 591
+    Height = 590
     Align = alLeft
     AutoExpand = True
     Ctl3D = True
@@ -43,13 +43,13 @@ object SetupVarsForm: TSetupVarsForm
     Left = 200
     Top = 0
     Width = 540
-    Height = 591
+    Height = 590
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 1
     object Bevel2: TBevel
       Left = 0
-      Top = 546
+      Top = 545
       Width = 540
       Height = 1
       Align = alBottom
@@ -60,8 +60,8 @@ object SetupVarsForm: TSetupVarsForm
       Left = 0
       Top = 0
       Width = 540
-      Height = 546
-      ActivePage = TabSheet45
+      Height = 545
+      ActivePage = TabSheet32
       Align = alClient
       Style = tsFlatButtons
       TabOrder = 0
@@ -74,7 +74,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -158,7 +158,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -425,7 +425,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelOuter = bvNone
           Caption = #1042#1099#1073#1077#1088#1080#1090#1077' '#1085#1091#1078#1085#1099#1081' '#1087#1086#1076#1088#1072#1079#1076#1077#1083
@@ -446,7 +446,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -461,7 +461,7 @@ object SetupVarsForm: TSetupVarsForm
             object Label1: TLabel
               Left = 8
               Top = 24
-              Width = 37
+              Width = 38
               Height = 15
               Caption = #1057#1093#1077#1084#1072':'
             end
@@ -690,7 +690,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -705,7 +705,7 @@ object SetupVarsForm: TSetupVarsForm
             object Label121: TLabel
               Left = 8
               Top = 23
-              Width = 113
+              Width = 114
               Height = 15
               Caption = #1057#1093#1077#1084#1072' '#1087#1072#1085#1077#1083#1080' '#1079#1072#1076#1072#1095':'
             end
@@ -995,7 +995,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -1199,7 +1199,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -1207,7 +1207,7 @@ object SetupVarsForm: TSetupVarsForm
           object Label105: TLabel
             Left = 8
             Top = 16
-            Width = 448
+            Width = 449
             Height = 15
             Caption = 
               #1057#1087#1080#1089#1086#1082' '#1091#1090#1080#1083#1080#1090', '#1076#1086#1089#1090#1091#1087#1085#1099#1093' '#1095#1077#1088#1077#1079' '#1084#1077#1085#1102' '#1087#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1103' '#1080' '#1087#1072#1085#1077#1083#1100' '#1073#1099#1089#1090#1088#1086 +
@@ -1290,7 +1290,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -1409,7 +1409,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -1514,7 +1514,7 @@ object SetupVarsForm: TSetupVarsForm
             object Label144: TLabel
               Left = 8
               Top = 25
-              Width = 265
+              Width = 266
               Height = 15
               Caption = #1042#1082#1083#1102#1095#1072#1090#1100' '#1093#1088#1072#1085#1080#1090#1077#1083#1100' '#1101#1082#1088#1072#1085#1072' '#1087#1088#1080' '#1087#1088#1086#1089#1090#1086#1077' '#1073#1086#1083#1077#1077':'
             end
@@ -1613,7 +1613,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -1636,7 +1636,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -1651,14 +1651,14 @@ object SetupVarsForm: TSetupVarsForm
             object Label16: TLabel
               Left = 238
               Top = 23
-              Width = 47
+              Width = 46
               Height = 15
               Caption = 'C:\TEMP'
             end
             object Label79: TLabel
               Left = 8
               Top = 48
-              Width = 93
+              Width = 94
               Height = 15
               Caption = #1057#1086#1093#1088#1072#1085#1103#1090#1100' '#1087#1072#1087#1082#1080
             end
@@ -1746,21 +1746,21 @@ object SetupVarsForm: TSetupVarsForm
             object Label91: TLabel
               Left = 246
               Top = 41
-              Width = 47
+              Width = 46
               Height = 15
               Caption = 'C:\TEMP'
             end
             object Label67: TLabel
               Left = 246
               Top = 81
-              Width = 47
+              Width = 46
               Height = 15
               Caption = 'C:\TEMP'
             end
             object Label15: TLabel
               Left = 246
               Top = 121
-              Width = 47
+              Width = 46
               Height = 15
               Caption = 'C:\TEMP'
             end
@@ -1846,7 +1846,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelOuter = bvNone
           Caption = #1042#1099#1073#1077#1088#1080#1090#1077' '#1085#1091#1078#1085#1099#1081' '#1087#1086#1076#1088#1072#1079#1076#1077#1083
@@ -1868,7 +1868,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -1930,7 +1930,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -1938,7 +1938,7 @@ object SetupVarsForm: TSetupVarsForm
           object Label61: TLabel
             Left = 8
             Top = 14
-            Width = 265
+            Width = 266
             Height = 15
             Caption = #1056#1072#1079#1088#1077#1096#1077#1085#1085#1099#1077' '#1090#1080#1087#1099' '#1076#1083#1103' '#1079#1072#1087#1091#1089#1082#1072' '#1074' '#1087#1088#1080#1083#1086#1078#1077#1085#1080#1103#1093':'
           end
@@ -1952,7 +1952,7 @@ object SetupVarsForm: TSetupVarsForm
           object Label143: TLabel
             Left = 8
             Top = 200
-            Width = 420
+            Width = 422
             Height = 15
             Caption = 
               #1047#1072#1087#1088#1077#1090#1080#1090#1100' '#1080#1089#1087#1086#1083#1100#1079#1086#1074#1072#1085#1080#1077' '#1076#1080#1072#1083#1086#1075#1086#1074' '#1088#1072#1073#1086#1090#1099' '#1089' '#1092#1072#1081#1083#1072#1084#1080' '#1074' '#1101#1090#1080#1093' '#1087#1088#1080#1083#1086#1078#1077 +
@@ -2037,7 +2037,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -2045,7 +2045,7 @@ object SetupVarsForm: TSetupVarsForm
           object Label20: TLabel
             Left = 8
             Top = 10
-            Width = 393
+            Width = 395
             Height = 15
             Caption = 
               #1047#1072#1087#1088#1077#1090#1080#1090#1100'/'#1089#1082#1088#1099#1090#1100' '#1076#1086#1089#1090#1091#1087' '#1082' '#1076#1080#1089#1082#1072#1084' '#1074' '#171#1055#1088#1086#1074#1086#1076#1085#1080#1082#187' '#1080' '#1076#1080#1072#1083#1086#1075#1086#1074#1099#1093' '#1086#1082#1085#1072 +
@@ -2235,7 +2235,7 @@ object SetupVarsForm: TSetupVarsForm
           object Label54: TLabel
             Left = 8
             Top = 416
-            Width = 398
+            Width = 399
             Height = 15
             Caption = 
               '(*) '#1088#1072#1079#1088#1077#1096#1077#1085#1085#1099#1081' '#1089#1087#1080#1089#1086#1082' '#1076#1083#1103' '#1079#1072#1087#1088#1077#1090#1072' '#1079#1072#1087#1091#1089#1082#1072' '#1080#1079' '#1089#1090#1086#1088#1086#1085#1085#1080#1093' '#1087#1088#1080#1083#1086#1078#1077#1085 +
@@ -2244,7 +2244,7 @@ object SetupVarsForm: TSetupVarsForm
           object Label29: TLabel
             Left = 8
             Top = 440
-            Width = 236
+            Width = 237
             Height = 15
             Caption = #1042' '#1089#1087#1080#1089#1082#1072#1093' '#1084#1086#1078#1085#1086' '#1080#1089#1087#1086#1083#1100#1079#1086#1074#1072#1090#1100' '#1084#1072#1089#1082#1080' * '#1080' ?'
             Font.Charset = DEFAULT_CHARSET
@@ -2325,7 +2325,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -2423,7 +2423,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -2542,7 +2542,7 @@ object SetupVarsForm: TSetupVarsForm
           object Label14: TLabel
             Left = 197
             Top = 78
-            Width = 47
+            Width = 46
             Height = 15
             Caption = 'C:\TEMP'
           end
@@ -2617,7 +2617,7 @@ object SetupVarsForm: TSetupVarsForm
           object Label66: TLabel
             Left = 24
             Top = 72
-            Width = 47
+            Width = 46
             Height = 15
             Caption = 'C:\TEMP'
           end
@@ -2721,7 +2721,7 @@ object SetupVarsForm: TSetupVarsForm
           object Label28: TLabel
             Left = 8
             Top = 376
-            Width = 320
+            Width = 321
             Height = 15
             Caption = #1042' '#1089#1082#1086#1073#1082#1072#1093' '#1084#1086#1078#1085#1086' '#1091#1082#1072#1079#1099#1074#1072#1090#1100' '#1072#1090#1088#1080#1073#1091#1090#1099' '#1087#1072#1087#1082#1080' ('#1089#1084'. '#1089#1087#1088#1072#1074#1082#1091')'
             Font.Charset = DEFAULT_CHARSET
@@ -2841,7 +2841,7 @@ object SetupVarsForm: TSetupVarsForm
           object Label77: TLabel
             Left = 8
             Top = 438
-            Width = 364
+            Width = 365
             Height = 15
             Caption = #1042' '#1089#1082#1086#1073#1082#1072#1093' '#1087#1086#1089#1083#1077' '#1085#1072#1079#1074#1072#1085#1080#1103' '#1084#1086#1078#1085#1086' '#1091#1089#1090#1072#1085#1086#1074#1080#1090#1100' '#1088#1072#1089#1096#1080#1088#1077#1085#1080#1103'/'#1092#1072#1081#1083#1099
             Color = clBtnFace
@@ -2989,7 +2989,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelOuter = bvNone
           Caption = #1042#1099#1073#1077#1088#1080#1090#1077' '#1085#1091#1078#1085#1099#1081' '#1087#1086#1076#1088#1072#1079#1076#1077#1083
@@ -3010,7 +3010,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -3032,7 +3032,7 @@ object SetupVarsForm: TSetupVarsForm
           object Label49: TLabel
             Left = 8
             Top = 123
-            Width = 267
+            Width = 268
             Height = 15
             Caption = #1052#1072#1082#1089#1080#1084#1072#1083#1100#1085#1086#1077' '#1082#1086#1083'-'#1074#1086' '#1086#1090#1082#1088#1099#1090#1099#1093' '#1086#1082#1086#1085' '#1073#1088#1072#1091#1079#1077#1088#1072':'
           end
@@ -3252,7 +3252,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -3505,7 +3505,7 @@ object SetupVarsForm: TSetupVarsForm
           object Label154: TLabel
             Left = 8
             Top = 24
-            Width = 153
+            Width = 154
             Height = 15
             Caption = #1055#1077#1088#1077#1085#1072#1087#1088#1072#1074#1083#1103#1090#1100' '#1089' '#1101#1090#1080#1093' URL:'
           end
@@ -3564,7 +3564,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -3572,14 +3572,14 @@ object SetupVarsForm: TSetupVarsForm
           object Label135: TLabel
             Left = 8
             Top = 91
-            Width = 264
+            Width = 265
             Height = 15
             Caption = #1052#1072#1082#1089#1080#1084#1072#1083#1100#1085#1086#1077' '#1082#1086#1083'-'#1074#1086' '#1086#1090#1082#1088#1099#1090#1099#1093' '#1086#1082#1086#1085' '#1079#1072#1075#1088#1091#1079#1082#1080':'
           end
           object Label94: TLabel
             Left = 8
             Top = 119
-            Width = 294
+            Width = 295
             Height = 15
             Caption = #1052#1072#1082#1089#1080#1084#1072#1083#1100#1085#1099#1081' '#1088#1072#1079#1084#1077#1088' '#1089#1082#1072#1095#1080#1074#1072#1077#1084#1099#1093' '#1092#1072#1081#1083#1086#1074' (0-'#1085#1077#1090'):'
           end
@@ -3593,7 +3593,7 @@ object SetupVarsForm: TSetupVarsForm
           object Label97: TLabel
             Left = 8
             Top = 174
-            Width = 259
+            Width = 260
             Height = 15
             Caption = #1056#1072#1079#1088#1077#1096#1080#1090#1100' '#1079#1072#1075#1088#1091#1079#1082#1091' '#1090#1086#1083#1100#1082#1086' '#1101#1090#1080#1093' '#1090#1080#1087#1086#1074' '#1092#1072#1081#1083#1086#1074':'
           end
@@ -3621,7 +3621,7 @@ object SetupVarsForm: TSetupVarsForm
           object Label195: TLabel
             Left = 8
             Top = 36
-            Width = 429
+            Width = 430
             Height = 15
             Caption = 
               #1042#1089#1077#1075#1076#1072' '#1080#1089#1087#1086#1083#1100#1079#1086#1074#1072#1090#1100' '#1089#1090#1072#1085#1076#1072#1088#1090#1085#1099#1081' '#1079#1072#1075#1088#1091#1079#1095#1080#1082' Windows '#1076#1083#1103' '#1089#1083#1077#1076#1091#1102#1097#1080#1093' ' +
@@ -3816,7 +3816,7 @@ object SetupVarsForm: TSetupVarsForm
           object Label104: TLabel
             Left = 8
             Top = 11
-            Width = 329
+            Width = 330
             Height = 15
             Caption = #1057#1087#1080#1089#1086#1082' '#1076#1086#1087#1086#1083#1085#1080#1090#1077#1083#1100#1085#1099#1093' '#1087#1088#1086#1075#1088#1072#1084#1084' '#1076#1083#1103' '#1079#1072#1087#1091#1089#1082#1072' '#1087#1088#1080' '#1089#1090#1072#1088#1090#1077':'
           end
@@ -3830,7 +3830,7 @@ object SetupVarsForm: TSetupVarsForm
           object Label149: TLabel
             Left = 8
             Top = 339
-            Width = 458
+            Width = 459
             Height = 15
             Caption = 
               #1042#1085#1080#1084#1072#1085#1080#1077'! '#1045#1089#1083#1080' '#1087#1091#1090#1100' '#1089#1086#1076#1077#1088#1078#1080#1090' '#1087#1088#1086#1073#1077#1083#1099', '#1090#1086' '#1085#1077#1086#1073#1093#1086#1076#1080#1084#1086' '#1077#1075#1086' '#1079#1072#1082#1083#1102#1095#1080#1090 +
@@ -3921,7 +3921,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -3929,7 +3929,7 @@ object SetupVarsForm: TSetupVarsForm
           object Label116: TLabel
             Left = 8
             Top = 195
-            Width = 151
+            Width = 152
             Height = 15
             Caption = '('#1080#1083#1080': mplayerc.exe %1 /dvd)'
           end
@@ -4031,7 +4031,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -4140,7 +4140,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -4155,14 +4155,14 @@ object SetupVarsForm: TSetupVarsForm
             object Label59: TLabel
               Left = 8
               Top = 23
-              Width = 64
+              Width = 65
               Height = 15
               Caption = 'Master max:'
             end
             object Label60: TLabel
               Left = 193
               Top = 23
-              Width = 57
+              Width = 58
               Height = 15
               Caption = 'Wave max:'
             end
@@ -4389,7 +4389,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelOuter = bvNone
           Caption = #1042#1099#1073#1077#1088#1080#1090#1077' '#1085#1091#1078#1085#1099#1081' '#1087#1086#1076#1088#1072#1079#1076#1077#1083
@@ -4410,7 +4410,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -4520,7 +4520,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -4549,7 +4549,7 @@ object SetupVarsForm: TSetupVarsForm
             object Label140: TLabel
               Left = 8
               Top = 100
-              Width = 126
+              Width = 125
               Height = 15
               Caption = #1058#1080#1087#1099' '#1092#1072#1081#1083#1086#1074' Winamp:'
             end
@@ -4637,7 +4637,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -4645,7 +4645,7 @@ object SetupVarsForm: TSetupVarsForm
           object Label57: TLabel
             Left = 8
             Top = 16
-            Width = 332
+            Width = 333
             Height = 15
             Caption = #1057#1087#1080#1089#1086#1082' '#1089#1082#1088#1099#1090#1099#1093' '#1087#1088#1086#1075#1088#1072#1084#1084' '#1074' '#1073#1077#1079#1086#1087#1072#1089#1085#1086#1084' '#1076#1080#1089#1087#1077#1090#1095#1077#1088#1077' '#1079#1072#1076#1072#1095':'
           end
@@ -4659,7 +4659,7 @@ object SetupVarsForm: TSetupVarsForm
           object ListView4: TListView
             Left = 8
             Top = 40
-            Width = 185
+            Width = 505
             Height = 257
             Checkboxes = True
             Columns = <
@@ -4680,7 +4680,7 @@ object SetupVarsForm: TSetupVarsForm
           object Edit9: TEdit
             Left = 67
             Top = 304
-            Width = 126
+            Width = 446
             Height = 23
             MaxLength = 100
             TabOrder = 1
@@ -4704,7 +4704,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelOuter = bvNone
           Caption = #1042#1099#1073#1077#1088#1080#1090#1077' '#1085#1091#1078#1085#1099#1081' '#1087#1086#1076#1088#1072#1079#1076#1077#1083
@@ -4717,51 +4717,6 @@ object SetupVarsForm: TSetupVarsForm
           TabOrder = 0
         end
       end
-      object TabSheet49: TTabSheet
-        Tag = 1001
-        Caption = 'Rollback ('#1054#1090#1082#1072#1090'): AstalaVista/ShadowUser'
-        ImageIndex = 48
-        object Panel54: TPanel
-          Left = 0
-          Top = 0
-          Width = 467
-          Height = 501
-          Align = alClient
-          BevelInner = bvRaised
-          BevelOuter = bvLowered
-          TabOrder = 0
-          object Label96: TLabel
-            Left = 8
-            Top = 40
-            Width = 450
-            Height = 73
-            AutoSize = False
-            Caption = 
-              #1045#1089#1083#1080' Rollback ('#1086#1090#1082#1072#1090') '#1091#1078#1077' '#1080#1089#1087#1086#1083#1100#1079#1091#1077#1090#1089#1103' ('#1080#1083#1080' '#1087#1083#1072#1085#1080#1088#1091#1077#1090#1077' '#1080#1089#1087#1086#1083#1100#1079#1086#1074 +
-              #1072#1090#1100') '#1074' '#1087#1088#1086#1075#1088#1072#1084#1084#1072#1093' AstalaVista '#1080#1083#1080' ShadowUser, '#1090#1086' '#1085#1077#1086#1073#1093#1086#1076#1080#1084#1086' '#1074#1082#1083#1102 +
-              #1095#1080#1090#1100' '#1101#1090#1091' '#1086#1087#1094#1080#1102' '#1080' '#1085#1077' '#1074#1082#1083#1102#1095#1072#1090#1100' '#1086#1090#1082#1072#1090' '#1079#1076#1077#1089#1100' '#1074' KagamiShell, '#1090'.'#1082'. '#1074' '#1087 +
-              #1088#1086#1090#1080#1074#1085#1086#1084' '#1089#1083#1091#1095#1072#1077' '#1073#1091#1076#1077#1090' '#1088#1080#1089#1082' '#1082#1086#1085#1092#1083#1080#1082#1090#1072'. '#1055#1088#1080' '#1080#1089#1087#1086#1083#1100#1079#1086#1074#1072#1085#1080#1080' '#1086#1090#1082#1072#1090#1072' '#1074 +
-              ' '#1076#1088#1091#1075#1080#1093' '#1087#1088#1086#1075#1088#1072#1084#1084#1072#1093' '#1085#1091#1078#1085#1086' '#1087#1088#1086#1089#1090#1086' '#1085#1077' '#1074#1082#1083#1102#1095#1072#1090#1100' '#1077#1075#1086' '#1074' KagamiShell.'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'MS Sans Serif'
-            Font.Style = [fsBold]
-            ParentFont = False
-            WordWrap = True
-          end
-          object CheckBox78: TCheckBox
-            Left = 8
-            Top = 11
-            Width = 450
-            Height = 17
-            Caption = 
-              'Rollback ('#1086#1090#1082#1072#1090') '#1080#1089#1087#1086#1083#1100#1079#1091#1077#1090#1089#1103' '#1074' Astalavista/ShadowUser, '#1072' '#1085#1077' Run' +
-              'padPro'
-            TabOrder = 0
-          end
-        end
-      end
       object TabSheet47: TTabSheet
         Tag = 1002
         Caption = 'Rollback ('#1054#1090#1082#1072#1090'): '#1044#1080#1089#1082#1080
@@ -4771,7 +4726,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -4779,7 +4734,7 @@ object SetupVarsForm: TSetupVarsForm
           object Label81: TLabel
             Left = 8
             Top = 16
-            Width = 306
+            Width = 307
             Height = 15
             Caption = #1042#1099#1073#1077#1088#1080#1090#1077' '#1076#1080#1089#1082#1080', '#1076#1083#1103' '#1082#1086#1090#1086#1088#1099#1093' '#1073#1091#1076#1077#1090' '#1074#1099#1087#1086#1083#1085#1103#1090#1100#1089#1103' '#1086#1090#1082#1072#1090':'
           end
@@ -4842,8 +4797,8 @@ object SetupVarsForm: TSetupVarsForm
         object Panel53: TPanel
           Left = 0
           Top = 0
-          Width = 467
-          Height = 501
+          Width = 532
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -4851,7 +4806,7 @@ object SetupVarsForm: TSetupVarsForm
           object Label89: TLabel
             Left = 8
             Top = 16
-            Width = 332
+            Width = 333
             Height = 15
             Caption = #1055#1072#1087#1082#1080', '#1076#1083#1103' '#1082#1086#1090#1086#1088#1099#1093' '#1085#1077' '#1073#1091#1076#1077#1090' '#1074#1099#1087#1086#1083#1085#1103#1090#1100#1089#1103' '#1086#1090#1082#1072#1090' '#1080#1079#1084#1077#1085#1077#1085#1080#1081':'
           end
@@ -4924,7 +4879,7 @@ object SetupVarsForm: TSetupVarsForm
           Left = 0
           Top = 0
           Width = 532
-          Height = 513
+          Height = 512
           Align = alClient
           BevelInner = bvRaised
           BevelOuter = bvLowered
@@ -4957,7 +4912,7 @@ object SetupVarsForm: TSetupVarsForm
     end
     object Panel40: TPanel
       Left = 0
-      Top = 547
+      Top = 546
       Width = 540
       Height = 44
       Align = alBottom
@@ -5077,5 +5032,9 @@ object SetupVarsForm: TSetupVarsForm
     Options = [cdFullOpen]
     Left = 85
     Top = 11
+  end
+  object XPManifest1: TXPManifest
+    Left = 440
+    Top = 554
   end
 end

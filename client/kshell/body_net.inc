@@ -197,6 +197,14 @@ static void OnSQLTestAck(const CNetCmd &cmd,unsigned src_guid)
 
 void AddServiceString2SQLBase(int s_id,int s_count,int s_size,int s_time,const char *s_comments)
 {
+  if ( !IsLicenseWithMO() )
+     {
+       s_count = 0;
+       s_size = 0;
+       s_time = 0;
+       s_comments = STR_002;
+     }
+
   CNetCmd cmd(NETCMD_ADDSERVICESTR2BASE);
   cmd.AddIntParm(NETPARM_I_ID,s_id);
   cmd.AddIntParm(NETPARM_I_COUNT,s_count);
@@ -479,7 +487,7 @@ static void OnNetCmdReceived(const CNetCmd &cmd,unsigned src_guid)
     case NETCMD_EXECSTAT_REQ:
     {
       char file[MAX_PATH];
-      GetFileNameInTempDir("ks_stat.stat",file);
+      GetFileNameInTempDir("rs_stat.stat",file);
       sys_deletefile(file);
       SaveStatToFile(file);
       NetSendFile(file,NETCMD_EXECSTAT_ACK,src_guid,TRUE);

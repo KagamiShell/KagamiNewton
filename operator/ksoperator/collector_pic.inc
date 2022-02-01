@@ -23,7 +23,7 @@ void CPicCollector::OnDataAccepted(const CNetCmd &cmd,unsigned src_guid)
      {
        char filename[MAX_PATH];
        char local[MAX_PATH];
-       wsprintf(local,"rs_operator_pic_%d.jpg",GetRecvdList().size());
+       wsprintf(local,"ks_operator_pic_%d.jpg",GetRecvdList().size());
        GetFileNameInTempDir(local,filename);
        if ( WriteFullFile(filename,buff,size) )
           {

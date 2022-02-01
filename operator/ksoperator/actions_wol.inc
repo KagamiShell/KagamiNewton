@@ -50,7 +50,7 @@ static void WOL(int ip,unsigned char *mac)
 }
 
 
-static void WakeupOnLANInternal(const char *s_ip,const char *s_mac)
+static void WakeOnLANInternal(const char *s_ip,const char *s_mac)
 {
   if ( !IsStrEmpty(s_mac) && lstrlen(s_mac) == lstrlen("XX:XX:XX:XX:XX:XX") )
      {
@@ -96,7 +96,7 @@ static void WakeupOnLANInternal(const char *s_ip,const char *s_mac)
 }
 
 
-void WakeupOnLAN(const char *s_ip,const char *s_mac)
+void WakeOnLAN(const char *s_ip,const char *s_mac)
 {
   if ( NetIsConnected() )
      {
@@ -107,7 +107,7 @@ void WakeupOnLAN(const char *s_ip,const char *s_mac)
      }
   else
      {
-       WakeupOnLANInternal(s_ip,s_mac);
+       WakeOnLANInternal(s_ip,s_mac);
      }
 }
 

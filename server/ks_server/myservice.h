@@ -17,8 +17,8 @@ class CMyService : public CService
           CMyService();
           ~CMyService();
           
-          const char* GetName() const { return "RunpadProServer"; }
-          const char* GetDisplayName() const { return "Runpad Pro Server"; }
+          const char* GetName() const { return "KagamiShellServer"; }
+          const char* GetDisplayName() const { return "KagamiShell Server"; }
           BOOL IsInteractive() const { return FALSE; }
           BOOL Start();
           BOOL Stop();

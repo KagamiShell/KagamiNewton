@@ -618,7 +618,7 @@ void CClient::ProcessServerCommand(int cmd_id,const void *data_buff,unsigned dat
            const char *s_ip = req.GetParmAsString(NETPARM_S_IP);
            const char *s_mac = req.GetParmAsString(NETPARM_S_MAC);
 
-           WakeupOnLAN(s_ip,s_mac);
+           WakeOnLAN(s_ip,s_mac);
          }
       break;
     }

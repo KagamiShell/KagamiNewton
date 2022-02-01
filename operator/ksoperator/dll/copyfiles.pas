@@ -22,7 +22,6 @@ type
     ButtonSelectFileTo: TButton;
     Label4: TLabel;
     Label5: TLabel;
-    Label6: TLabel;
     Label7: TLabel;
     GroupBox3: TGroupBox;
     CheckBoxKillAll: TCheckBox;

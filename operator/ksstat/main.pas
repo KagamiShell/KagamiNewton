@@ -146,6 +146,8 @@ const STATEINDEX_OFF = 1;
 const STATEINDEX_ON = 2;
 {$R *.dfm}
 
+{$I ..\..\buildversion\buildversion.inc}
+
 procedure TFormStat.DefaultHandler(var Message);
 var
   s: string;

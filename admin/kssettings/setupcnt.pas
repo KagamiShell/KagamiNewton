@@ -143,8 +143,6 @@ type
     procedure Button5Click(Sender: TObject);
     procedure Button6Click(Sender: TObject);
     procedure Button7Click(Sender: TObject);
-    procedure Button8Click(Sender: TObject);
-    procedure Button11Click(Sender: TObject);
     procedure Button9Click(Sender: TObject);
     procedure Button12Click(Sender: TObject);
     procedure Button14Click(Sender: TObject);
@@ -171,7 +169,6 @@ type
     procedure Button18Click(Sender: TObject);
     procedure Button19Click(Sender: TObject);
     procedure ButtonSortClick(Sender: TObject);
-    procedure Button20Click(Sender: TObject);
   private
     { Private declarations }
     icons : array of TCACHEDICON;
@@ -297,7 +294,7 @@ begin
     end
    else
     begin
-     temp:=IncludeTrailingPathDelimiter(temp)+'rs_tmp_null_file'+ext;
+     temp:=IncludeTrailingPathDelimiter(temp)+'ks_tmp_null_file'+ext;
      FileClose(FileCreate(temp));
      h_icon:=GetFileNameIcon(temp);
      Windows.DeleteFile(pchar(temp));
@@ -767,22 +764,6 @@ begin
   Edit10.Text:=s;
 end;
 
-procedure TSetupContentForm.Button8Click(Sender: TObject);
-var s:string;
-begin
- s:=GetOpenFile(pchar('Virtual CD (VCD,D00,VC4,FCD,ISO,MDS,CCD,CUE,NRG,BWT,CDI,B5T,PDI,B6T,B6I,B00)'#0'*.vcd;*.d00;*.vc4;*.fcd;*.iso;*.mds;*.ccd;*.cue;*.nrg;*.bwt;*.cdi;*.b5t;*.pdi;*.b6t;*.b6i;*.b00'#0#0),'');
- if s<>'' then
-  Edit16.Text:=s;
-end;
-
-procedure TSetupContentForm.Button11Click(Sender: TObject);
-var s:string;
-begin
- s:=GetOpenFile(pchar('JPEG/BMP/PNG/GIF/TIFF'#0'*.jpg;*.jpe;*.jpeg;*.bmp;*.png;*.gif;*.tif;*.tiff'#0#0),'');
- if s<>'' then
-  Edit18.Text:=s;
-end;
-
 procedure TSetupContentForm.Button9Click(Sender: TObject);
 begin
  Memo1.Text:='';
@@ -820,14 +801,6 @@ begin
  s:=GetOpenFile(pchar('INI Files'#0'*.ini'#0#0),'');
  if s<>'' then
   Memo3.Text:=s;
-end;
-
-procedure TSetupContentForm.Button20Click(Sender: TObject);
-var s:string;
-begin
- s:=GetOpenFile(pchar('INI Files'#0'*.ini'#0#0),'');
- if s<>'' then
-  Edit19.Text:=s;
 end;
 
 procedure TSetupContentForm.Button16Click(Sender: TObject);
@@ -939,14 +912,10 @@ begin
  Edit13.Text:=v.s_runas_domain;
  Edit14.Text:=v.s_runas_user;
  Edit15.Text:=v.s_runas_pwd;
- Edit16.Text:=v.s_vcd;
- ComboBoxVCD.ItemIndex:=v.i_vcd_num;
- Edit18.Text:=v.s_sshot;
  Memo1.Text:=v.s_desc;
  Memo2.Text:=v.s_script1;
  Memo3.Text:=v.s_saver;
  ComboBoxGroup.Text:=v.s_group;
- Edit19.Text:=v.s_floatlic;
 end;
 
 procedure TSetupContentForm.StoreShortcutPage(v:PSHORTCUTVARS);
@@ -969,15 +938,11 @@ begin
  StrLCopy(v.s_runas_domain,pchar(Edit13.Text),sizeof(v.s_runas_domain)-1);
  StrLCopy(v.s_runas_user,pchar(Edit14.Text),sizeof(v.s_runas_user)-1);
  StrLCopy(v.s_runas_pwd,pchar(Edit15.Text),sizeof(v.s_runas_pwd)-1);
- StrLCopy(v.s_vcd,pchar(Edit16.Text),sizeof(v.s_vcd)-1);
- v.i_vcd_num:=ComboBoxVCD.ItemIndex;
- StrLCopy(v.s_sshot,pchar(Edit18.Text),sizeof(v.s_sshot)-1);
  StrLCopy(v.s_desc,pchar(Memo1.Text),sizeof(v.s_desc)-1);
  StrLCopy(v.s_script1,pchar(Memo2.Text),sizeof(v.s_script1)-1);
  StrLCopy(v.s_saver,pchar(Memo3.Text),sizeof(v.s_saver)-1);
  StrLCopy(v.s_group,pchar(ComboBoxGroup.Text),sizeof(v.s_group)-1);
  UpdateHistoryFromComboBox(ComboBoxGroup,'Groups');
- StrLCopy(v.s_floatlic,pchar(Edit19.Text),sizeof(v.s_floatlic)-1);
 end;
 
 procedure TSetupContentForm.TreeViewChanging(Sender: TObject;

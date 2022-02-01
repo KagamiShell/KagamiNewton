@@ -10,10 +10,6 @@ uses
 
 type
   TKSOperatorForm = class(TForm)
-    Panel1: TPanel;
-    ImageTop: TImage;
-    ImageBottom: TImage;
-    Bevel1: TBevel;
     Panel2: TPanel;
     StatusBar: TStatusBar;
     CoolBar: TCoolBar;
@@ -29,7 +25,6 @@ type
     ImageList1: TImageList;
     Panel4: TPanel;
     Bevel3: TBevel;
-    ImageCenter: TImage;
     PageControl: TPageControl;
     TabSheet0: TTabSheet;
     ImageList3: TImageList;
@@ -43,12 +38,7 @@ type
     ButtonRefresh: TToolButton;
     TreeView: TTreeView;
     ImageListFunctions: TImageList;
-    ButtonVipUsers: TToolButton;
     ButtonWOL: TToolButton;
-    PopupMenuVip: TPopupMenu;
-    MenuItemVipAdd: TMenuItem;
-    MenuItemVipDel: TMenuItem;
-    MenuItemVipClearPass: TMenuItem;
     ImageList2: TImageList;
     ButtonSep3: TToolButton;
     ImageList4: TImageList;
@@ -59,7 +49,6 @@ type
     MemoHint: TMemo;
     Timer1: TTimer;
     FPopup: TPopupMenu;
-    procedure ButtonVipUsersClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure ButtonConnectClick(Sender: TObject);
     procedure ButtonDisconnectClick(Sender: TObject);
@@ -67,9 +56,6 @@ type
     procedure ButtonChangePassClick(Sender: TObject);
     procedure ButtonDBViewClick(Sender: TObject);
     procedure ButtonWOLClick(Sender: TObject);
-    procedure MenuItemVipAddClick(Sender: TObject);
-    procedure MenuItemVipDelClick(Sender: TObject);
-    procedure MenuItemVipClearPassClick(Sender: TObject);
     procedure TreeViewChange(Sender: TObject; Node: TTreeNode);
     procedure TreeViewEditing(Sender: TObject; Node: TTreeNode;
       var AllowEdit: Boolean);
@@ -701,7 +687,6 @@ begin
     ButtonConnect.Enabled := false;
     ButtonDisconnect.Enabled := true;
     ButtonChangePass.Enabled := true;
-    ButtonVipUsers.Enabled := true;
     Caption := S_VERSION + '  (' + LoginForm.GetServer() + '/' + LoginForm.GetLogin() + ')';
     UpdateStatusString(1, S_SQLCONNECTED + '  (' + LoginForm.GetServer() + '/' + LoginForm.GetLogin() + ')', false);
   end
@@ -710,7 +695,6 @@ begin
     ButtonConnect.Enabled := true;
     ButtonDisconnect.Enabled := false;
     ButtonChangePass.Enabled := false;
-    ButtonVipUsers.Enabled := false;
     Caption := S_VERSION + ' - ' + S_NOTSQLCONNECTEDTITLE;
     UpdateStatusString(1, S_NOTSQLCONNECTED, false);
   end;
@@ -807,7 +791,6 @@ begin
     begin
       list.Add(Format(S_INFOFMT_DOMAIN, [i.domain]));
       list.Add(Format(S_INFOFMT_USERNAME, [i.user_name]));
-      list.Add(Format(S_INFOFMT_VIPSESSION, [i.vip_session]));
       list.Add(Format(S_INFOFMT_ACTIVETASK, [i.active_task]));
       if i.monitor_state then
         list.Add(S_INFOFMT_MONITORON)
@@ -889,7 +872,8 @@ begin
         or (cnt <= 0) then
       begin
         user_rights := '';
-        MessageBox(Handle, pchar(S_USERNOTADDED2DB + #13#10 + #13#10 + sql.GetLastError), S_ERR, MB_OK or MB_ICONERROR);
+        MessageBox(Handle, pchar(S_USERNOTADDED2DB + #13#10 + #13#10 + sql.GetLastError),
+          S_ERR, MB_OK or MB_ICONERROR);
       end;
       LoginForm.WriteConfig;
       UpdateView();
@@ -952,77 +936,6 @@ procedure TKSOperatorForm.ButtonWOLClick(Sender: TObject);
 begin
   UpdateComputerMACs();
   ShowWOLFormModal(host);
-end;
-
-procedure TKSOperatorForm.MenuItemVipAddClick(Sender: TObject);
-var s: string;
-  rc:  boolean;
-  cnt: integer;
-begin
-  if ShowTextBoxFormModal(s, hinstance, 230, S_VIPADD, S_ENTERVIPNAME, '', 250, false, 'VipUsers') then
-  begin
-    Update;
-    WaitCursor(true, true);
-
-    cnt := 0;
-    rc := sql.InplaceCallStoredProc('PVipRegister', '''' + sql.EscapeString(s) + ''',''''', SQL_DEF_TIMEOUT, @cnt) and (cnt > 0);
-
-    WaitCursor(false, false);
-
-    if rc then
-      MessageBox(Handle, S_VIPADDED, S_INFO, MB_OK or MB_ICONINFORMATION)
-    else
-      MessageBox(Handle, pchar(S_ERRVIPADD + #13#10 + #13#10 + sql.GetLastError), S_ERR, MB_OK or MB_ICONERROR);
-  end;
-end;
-
-procedure TKSOperatorForm.MenuItemVipDelClick(Sender: TObject);
-var s: string;
-  rc:  boolean;
-begin
-  if ShowTextBoxFormModal(s, hinstance, 231, S_VIPDEL, S_ENTERVIPNAME, '', 250, false, 'VipUsers') then
-  begin
-    Update;
-    WaitCursor(true, true);
-
-    rc := sql.InplaceCallStoredProc('PVipDelete', '''' + sql.EscapeString(s) + '''');
-
-    WaitCursor(false, false);
-
-    if rc then
-      MessageBox(Handle, S_VIPDELETED, S_INFO, MB_OK or MB_ICONINFORMATION)
-    else
-      MessageBox(Handle, pchar(S_ERRVIPDELETE + #13#10 + #13#10 + sql.GetLastError), S_ERR, MB_OK or MB_ICONERROR);
-  end;
-end;
-
-procedure TKSOperatorForm.MenuItemVipClearPassClick(Sender: TObject);
-var s: string;
-  rc:  boolean;
-begin
-  if ShowTextBoxFormModal(s, hinstance, 232, S_VIPCLEARPWD, S_ENTERVIPNAME, '', 250, false, 'VipUsers') then
-  begin
-    Update;
-    WaitCursor(true, true);
-
-    rc := sql.InplaceCallStoredProc('PVipClearPass', '''' + sql.EscapeString(s) + '''');
-
-    WaitCursor(false, false);
-
-    if rc then
-      MessageBox(Handle, S_VIPCLEARED, S_INFO, MB_OK or MB_ICONINFORMATION)
-    else
-      MessageBox(Handle, pchar(S_ERRVIPCLEAR + #13#10 + #13#10 + sql.GetLastError), S_ERR, MB_OK or MB_ICONERROR);
-  end;
-end;
-
-procedure TKSOperatorForm.ButtonVipUsersClick(Sender: TObject);
-var p: TPoint;
-begin
-  p.x := 0;
-  p.y := ButtonVipUsers.Height;
-  p := ButtonVipUsers.ClientToScreen(p);
-  ButtonVipUsers.DropdownMenu.Popup(p.x, p.y);
 end;
 
 procedure TKSOperatorForm.TreeViewChange(Sender: TObject; Node: TTreeNode);
@@ -1131,7 +1044,6 @@ begin
             StrLCopy(d.comp_name, pchar(env.comp_name), sizeof(TSTRING) - 1);
             StrLCopy(d.domain, pchar(env.domain), sizeof(TSTRING) - 1);
             StrLCopy(d.user_name, pchar(env.user_name), sizeof(TSTRING) - 1);
-            StrLCopy(d.vip_session, pchar(env.vip_session), sizeof(TSTRING) - 1);
             StrLCopy(d.active_task, pchar(env.active_task), sizeof(TSTRING) - 1);
             d.monitor_state := env.monitor_state;
             d.blocked_state := env.blocked_state;
@@ -1338,7 +1250,6 @@ begin
     env.comp_name := t_env.comp_name;
     env.domain := t_env.domain;
     env.user_name := t_env.user_name;
-    env.vip_session := t_env.vip_session;
     env.active_task := t_env.active_task;
     env.monitor_state := t_env.monitor_state;
     env.blocked_state := t_env.blocked_state;
@@ -1422,7 +1333,6 @@ begin
           n := FindGuidInList(env.guid, list);
           if n <> -1 then
           begin
-            env.vip_session := list[n].vip_session;
             env.active_task := list[n].active_task;
             env.monitor_state := list[n].monitor_state;
             env.blocked_state := list[n].blocked_state;
@@ -1555,12 +1465,6 @@ begin
           s := p.domain + '\' + p.user_name;
         s2 := '';
       //todo: добавить сюда вывод IP если он не совпадает с родительским
-        if p.vip_session <> '' then
-        begin
-          if s2 <> '' then
-            s2 := s2 + ', ';
-          s2 := s2 + S_INFO_VIP + ': "' + p.vip_session + '"';
-        end;
         if not p.monitor_state then
         begin
           if s2 <> '' then

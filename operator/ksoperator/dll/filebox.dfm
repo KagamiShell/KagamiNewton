@@ -8,14 +8,14 @@ object FileBoxForm: TFileBoxForm
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
-  Font.Name = 'MS Sans Serif'
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
   OnShow = FormShow
   PixelsPerInch = 96
-  TextHeight = 13
+  TextHeight = 15
   object Image1: TImage
     Left = 16
     Top = 22
@@ -54,7 +54,7 @@ object FileBoxForm: TFileBoxForm
     Left = 72
     Top = 32
     Width = 289
-    Height = 22
+    Height = 24
     ItemsEx = <>
     ItemHeight = 16
     TabOrder = 0

@@ -9,7 +9,6 @@ uses
 type
   TLoginForm = class(TForm)
     Panel1: TPanel;
-    Image1: TImage;
     Panel2: TPanel;
     Bevel1: TBevel;
     ButtonOK: TButton;
@@ -25,6 +24,7 @@ type
     EditLogin: TEdit;
     EditPwd: TEdit;
     CheckBoxSavePwd: TCheckBox;
+    Label5: TLabel;
     procedure FormShow(Sender: TObject);
     procedure ButtonOKClick(Sender: TObject);
     procedure EditServerChange(Sender: TObject);

@@ -9,8 +9,8 @@ object ChangePwdForm: TChangePwdForm
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -11
-  Font.Name = 'MS Sans Serif'
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
@@ -18,26 +18,26 @@ object ChangePwdForm: TChangePwdForm
   OnDestroy = FormDestroy
   OnShow = FormShow
   PixelsPerInch = 96
-  TextHeight = 13
+  TextHeight = 15
   object Label1: TLabel
     Left = 16
     Top = 24
-    Width = 80
-    Height = 13
+    Width = 88
+    Height = 15
     Caption = #1057#1090#1072#1088#1099#1081' '#1087#1072#1088#1086#1083#1100':'
   end
   object Label2: TLabel
     Left = 16
     Top = 64
-    Width = 113
-    Height = 13
+    Width = 122
+    Height = 15
     Caption = #1053#1086#1074#1099#1081' ('#1053#1045' '#1055#1059#1057#1058#1054#1049'!):'
   end
   object Label3: TLabel
     Left = 16
     Top = 88
-    Width = 57
-    Height = 13
+    Width = 62
+    Height = 15
     Caption = #1055#1086#1074#1090#1086#1088#1080#1090#1100':'
   end
   object Image1: TImage
@@ -70,7 +70,7 @@ object ChangePwdForm: TChangePwdForm
     Left = 144
     Top = 19
     Width = 121
-    Height = 21
+    Height = 23
     PasswordChar = '*'
     TabOrder = 2
   end
@@ -78,7 +78,7 @@ object ChangePwdForm: TChangePwdForm
     Left = 144
     Top = 59
     Width = 121
-    Height = 21
+    Height = 23
     PasswordChar = '*'
     TabOrder = 3
   end
@@ -86,7 +86,7 @@ object ChangePwdForm: TChangePwdForm
     Left = 144
     Top = 83
     Width = 121
-    Height = 21
+    Height = 23
     PasswordChar = '*'
     TabOrder = 4
   end

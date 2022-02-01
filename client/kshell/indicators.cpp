@@ -92,7 +92,7 @@ static HICON CreateLangIcon(HWND hwnd,int id)
   DeleteObject(brush);
   
   // text
-  font = CreateFont(-11,0,0,0,FW_NORMAL,0,0,0,DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH,"Segoe UI");
+  font = CreateFont(-11,0,0,0,FW_NORMAL,0,0,0,DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH,"Tahoma");
   oldfont = (HFONT)SelectObject(hdc,font);
   SetBkMode(hdc,TRANSPARENT);
   SetTextColor(hdc,0xFFFFFF);

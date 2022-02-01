@@ -2,8 +2,8 @@
 #ifndef __INCLUDE_H__
 #define __INCLUDE_H__
 
-#define _WIN32_IE     0x0601   //WinXP
-#define _WIN32_WINNT  0x0601   //WinXP
+#define _WIN32_IE     0x0A00   //IE 11
+#define _WIN32_WINNT  0x0601   //Win7
 #define _WIN32_DCOM
 
 #include <winsock2.h>

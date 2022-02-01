@@ -5,7 +5,7 @@
                 MARGIN-TOP:       20px;
                 MARGIN-BOTTOM:    20px;
 
-                FONT-FAMILY:      Verdana;
+                FONT-FAMILY:      "Segoe UI";
                 FONT-SIZE:        9pt;
                 COLOR:            #000000;
                 BACKGROUND-COLOR: #FFFFFF;
@@ -14,8 +14,8 @@
      }
 
      td {
-                FONT-FAMILY:      Verdana;
-                FONT-SIZE:        8pt;
+                FONT-FAMILY:      "Segoe UI";
+                FONT-SIZE:        9pt;
      }
 
      a:link {

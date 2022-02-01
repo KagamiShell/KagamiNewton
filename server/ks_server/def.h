@@ -5,7 +5,7 @@
 
 #define HKLM     HKEY_LOCAL_MACHINE
 
-#define REGPATH  "Software\\RunpadProServer"
+#define REGPATH  "Software\\KagamineP\\KagamiShell\\KagamiShellServer"
 
 #define LIC_DEMO_ORGANIZATION   "FREE Version"
 #define LIC_DEMO_OWNER          "FREE Version"

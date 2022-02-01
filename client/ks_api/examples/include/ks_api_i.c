@@ -6,7 +6,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0555 */
-/* at Sat Nov 21 15:41:24 2020
+/* at Tue Feb 01 19:42:40 2022
  */
 /* Compiler settings for ks_api.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 

@@ -62,7 +62,7 @@ extern BOOL reboot_in_menu;
 extern BOOL shutdown_in_menu;
 extern BOOL gc_info_in_menu;
 extern BOOL mycomp_in_menu;
-extern BOOL callteacher_in_menu;
+extern BOOL calladmin_in_menu;
 
 // безопасность: системные запреты
 extern BOOL sysrestrict00;

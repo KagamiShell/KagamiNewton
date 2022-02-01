@@ -100,7 +100,6 @@ void GetEnvListAt(int idx,TENVENTRY *out)
                                   lstrcpyn(out->comp_name,env.GetParmAsString(NETPARM_S_COMPNAME,""),MAX_PATH);
                                   lstrcpyn(out->domain,env.GetParmAsString(NETPARM_S_DOMAIN,""),MAX_PATH);
                                   lstrcpyn(out->user_name,env.GetParmAsString(NETPARM_S_USERNAME,""),MAX_PATH);
-                                  lstrcpyn(out->vip_session,env.GetParmAsString(NETPARM_S_VIPSESSION,""),MAX_PATH);
                                   lstrcpyn(out->active_task,env.GetParmAsString(NETPARM_S_ACTIVETASK,""),MAX_PATH);
                                   out->monitor_state = env.GetParmAsBool(NETPARM_B_MONITORSTATE,TRUE);
                                   out->blocked_state = env.GetParmAsBool(NETPARM_B_BLOCKEDSTATE,FALSE);

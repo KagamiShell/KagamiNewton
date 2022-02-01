@@ -1,6 +1,6 @@
 @echo off
-if exist rsstat.hlp del rsstat.hlp
-start /WAIT /MIN hcw /c /e rsstat.hpj
+if exist ksstat.hlp del ksstat.hlp
+start /WAIT /MIN hcw /c /e ksstat.hpj
 if %ERRORLEVEL% NEQ 0 pause
-copy /Y rsstat.hlp ..\..\TEST\
+copy /Y ksstat.hlp ..\..\TEST\
 

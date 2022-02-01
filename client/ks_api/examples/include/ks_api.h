@@ -4,9 +4,9 @@
 
 
  /* File created by MIDL compiler version 7.00.0555 */
-/* at Sat Nov 21 15:41:24 2020
+/* at Tue Feb 01 19:42:40 2022
  */
-/* Compiler settings for rs_api.idl:
+/* Compiler settings for ks_api.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 
     protocol : dce , ms_ext, c_ext, robust
     error checks: allocation ref bounds_check enum stub_data 
@@ -36,8 +36,8 @@
 #include "ole2.h"
 #endif /*COM_NO_WINDOWS_H*/
 
-#ifndef __rs_api_h__
-#define __rs_api_h__
+#ifndef __ks_api_h__
+#define __ks_api_h__
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
@@ -50,6 +50,9 @@
 typedef interface IKagamiShell IKagamiShell;
 #endif 	/* __IKagamiShell_FWD_DEFINED__ */
 
+
+#ifndef __KagamiShell_FWD_DEFINED__
+#define __KagamiShell_FWD_DEFINED__
 
 #ifdef __cplusplus
 typedef class KagamiShell KagamiShell;
@@ -69,12 +72,68 @@ extern "C"{
 #endif 
 
 
-
 #ifndef __IKagamiShell_INTERFACE_DEFINED__
 #define __IKagamiShell_INTERFACE_DEFINED__
 
 /* interface IKagamiShell */
 /* [unique][helpstring][uuid][object] */ 
+
+typedef /* [public] */ 
+enum __MIDL_IKagamiShell_0001
+    {	KS_OFF	= 0,
+	KS_TURNEDON	= 1,
+	KS_ACTIVE	= 3,
+	KS_INVALID	= -1
+    } 	KSHELLSTATE;
+
+typedef /* [public] */ 
+enum __MIDL_IKagamiShell_0002
+    {	KSM_ADMIN	= 0x1,
+	KSM_MONITOR	= 0x2,
+	KSM_INPUT	= 0x4,
+	KSM_BLOCKED	= 0x8
+    } 	KSHELLMODE;
+
+typedef /* [public][public] */ 
+enum __MIDL_IKagamiShell_0003
+    {	KSF_SHELL	= 0,
+	KSF_DESKTOP	= 1,
+	KSF_BG	= 2,
+	KSF_RULES	= 3,
+	KSF_USERFOLDER	= 4,
+	KSF_VIPFOLDER	= 5
+    } 	KSHELLFOLDER;
+
+typedef /* [public] */ 
+enum __MIDL_IKagamiShell_0004
+    {	KSMSG_DESKTOP	= 0,
+	KSMSG_TRAY	= 1,
+	KSMSG_STATUS	= 2
+    } 	KSHELLMESSAGE;
+
+typedef /* [public][public] */ 
+enum __MIDL_IKagamiShell_0005
+    {	KSA_SHOWPANEL	= 0,
+	KSA_MINIMIZEALLWINDOWS	= 1,
+	KSA_KILLALLTASKS	= 2,
+	KSA_RESTOREVMODE	= 3,
+	KSA_UPDATEDESKTOP	= 4,
+	KSA_CLOSECHILDWINDOWS	= 5,
+	KSA_SWITCHTOUSERMODE	= 6,
+	KSA_TURNMONITORON	= 7,
+	KSA_TURNMONITOROFF	= 8,
+	KSA_ENDVIPSESSION	= 9,
+	KSA_RUNPROGRAMDISABLE	= 10,
+	KSA_RUNPROGRAMENABLE	= 11,
+	KSA_LOGOFF	= 12,
+	KSA_LOGOFFFORCE	= 13,
+	KSA_RUNSCREENSAVER	= 14,
+	KSA_LANGSELECTDIALOG	= 15,
+	KSA_LANGSELECTRUS	= 16,
+	KSA_LANGSELECTENG	= 17,
+	KSA_CLOSEACTIVESHEET	= 20,
+	KSA_SHOWLA	= 21
+    } 	KSHELLACTION;
 
 
 EXTERN_C const IID IID_IKagamiShell;
