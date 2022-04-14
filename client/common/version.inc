@@ -1,6 +1,0 @@
-
-
-const KAGAMI_VERSION_DIG = 100;
-const KAGAMI_VERSION_STR = 'v1.0.0';
-
-

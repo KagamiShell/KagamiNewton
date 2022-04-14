@@ -1,5 +1,0 @@
-root = true
-
-[*]
-charset = windows-1251
-insert_final_newline = true
