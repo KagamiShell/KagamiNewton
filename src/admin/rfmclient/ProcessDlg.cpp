@@ -6,24 +6,26 @@
 #include "ProcessDlg.h"
 #include "RfmThreads.h"
 
+
 UINT WM_UPDATE_POS = RegisterWindowMessage("Update pos");
 UINT WM_UPDATE_TEST = RegisterWindowMessage("Update text");
 UINT WM_UPDATE_POS_MAX = RegisterWindowMessage("Update pos max");
 UINT WM_UPDATE_POS_COPY = RegisterWindowMessage("Update pos copy");
 UINT WM_UPDATE_POS_MAX_COPY = RegisterWindowMessage("Update pos max copy");
 
+
 // CProcessDlg dialog
 
 IMPLEMENT_DYNAMIC(CProcessDlg, CDialog)
 
-CProcessDlg::CProcessDlg(CWnd *pParent /*=NULL*/)
+CProcessDlg::CProcessDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CProcessDlg::IDD, pParent)
 {
 	m_strNameWnd = "";
 	m_liSizeMax = 0;
 	m_liSizeCurrent = 0;
 	InitializeCriticalSection(&m_cs_data_status);
-	m_pb_flag_global_stop = NULL;
+	m_pb_flag_global_stop = NULL;	
 }
 
 CProcessDlg::~CProcessDlg()
@@ -31,7 +33,7 @@ CProcessDlg::~CProcessDlg()
 	DeleteCriticalSection(&m_cs_data_status);
 }
 
-void CProcessDlg::DoDataExchange(CDataExchange *pDX)
+void CProcessDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_PROGRESS_OPER, m_ctrlProgress);
@@ -40,36 +42,43 @@ void CProcessDlg::DoDataExchange(CDataExchange *pDX)
 	DDX_Control(pDX, IDC_PROGRESS_COPY, m_ctrlProgressCopy);
 }
 
+
 BEGIN_MESSAGE_MAP(CProcessDlg, CDialog)
-ON_BN_CLICKED(IDCANCEL, &CProcessDlg::OnBnClickedCancel)
-ON_BN_CLICKED(IDOK, &CProcessDlg::OnBnClickedOk)
-ON_BN_CLICKED(IDC_BTN_OPERATION_BREAK, &CProcessDlg::OnBnClickedBreakOperation)
-ON_REGISTERED_MESSAGE(WM_UPDATE_POS, &CProcessDlg::OnUpdateProgress)
-ON_REGISTERED_MESSAGE(WM_UPDATE_TEST, &CProcessDlg::OnUpdateText)
-ON_REGISTERED_MESSAGE(WM_UPDATE_POS_MAX, &CProcessDlg::OnUpdatePosMax)
-ON_REGISTERED_MESSAGE(WM_UPDATE_POS_COPY, &CProcessDlg::OnUpdateProgressCopy)
-ON_REGISTERED_MESSAGE(WM_UPDATE_POS_MAX_COPY, &CProcessDlg::OnUpdatePosMaxCopy)
-ON_WM_KEYDOWN()
+	ON_BN_CLICKED(IDCANCEL, &CProcessDlg::OnBnClickedCancel)
+	ON_BN_CLICKED(IDOK, &CProcessDlg::OnBnClickedOk)
+	ON_BN_CLICKED(IDC_BTN_OPERATION_BREAK, &CProcessDlg::OnBnClickedBreakOperation)
+	ON_REGISTERED_MESSAGE(WM_UPDATE_POS, &CProcessDlg::OnUpdateProgress)
+	ON_REGISTERED_MESSAGE(WM_UPDATE_TEST, &CProcessDlg::OnUpdateText)
+	ON_REGISTERED_MESSAGE(WM_UPDATE_POS_MAX, &CProcessDlg::OnUpdatePosMax)
+	ON_REGISTERED_MESSAGE(WM_UPDATE_POS_COPY, &CProcessDlg::OnUpdateProgressCopy)
+	ON_REGISTERED_MESSAGE(WM_UPDATE_POS_MAX_COPY, &CProcessDlg::OnUpdatePosMaxCopy)
+	ON_WM_KEYDOWN()
 END_MESSAGE_MAP()
+
 
 // Установить максимум
 
-void CProcessDlg::SetMaxProcess(ULONGLONG nMax)
+void CProcessDlg::SetMaxProcess(ULONGLONG  nMax)
 {
 	m_liSizeMax = nMax;
 	m_liSizeCurrent = 0;
 }
 
+
+
+
 // Обновить прогресс
 
 void CProcessDlg::UpdateProgress(ULONGLONG nCurrentPos)
 {
-	if (m_liSizeMax == 0L)
+	if(m_liSizeMax == 0L)
 		return;
-
+	
 	int nPosNew = (int)((nCurrentPos * 100) / m_liSizeMax);
 
+	
 	m_ctrlProgress.SetPos(nPosNew);
+
 }
 
 // Установить максимум прогреса копирования
@@ -84,13 +93,16 @@ void CProcessDlg::SetMaxProcessCopy(ULONGLONG nMax)
 
 void CProcessDlg::UpdateProgressCopy(ULONGLONG nCurrentPos)
 {
-	if (m_liSizeMaxCopy == 0L)
+	if(m_liSizeMaxCopy == 0L)
 		return;
-
+	
 	int nPosNew = (int)((nCurrentPos * 100) / m_liSizeMaxCopy);
 
+	
 	m_ctrlProgressCopy.SetPos(nPosNew);
 }
+
+
 
 // Установить текст 1
 
@@ -116,19 +128,19 @@ BOOL CProcessDlg::OnInitDialog()
 	m_liSizeCurrentCopy = 0;
 	m_liSizeMax = 0;
 	m_liSizeCurrent = 0;
-
+	
 	SetText1("");
 	SetText2("");
-
+	
 	SetWindowText(m_strNameWnd);
 
 	m_ctrlProgress.SetRange(0, 100);
-
+	
 	// Сигнал старта потока
 
 	::SetEvent(m_h_thread_start);
 
-	return TRUE;
+	return TRUE;  
 }
 
 // Сообщение обновления максимальной границы
@@ -150,7 +162,7 @@ LRESULT CProcessDlg::OnUpdateProgress(WPARAM wp, LPARAM lp)
 	m_liSizeCurrent += CRfmThreads::g_li_cur_pos;
 	LeaveCriticalSection(&m_cs_data_status);
 	UpdateProgress(m_liSizeCurrent);
-
+	
 	return TRUE;
 }
 
@@ -159,8 +171,8 @@ LRESULT CProcessDlg::OnUpdateProgress(WPARAM wp, LPARAM lp)
 LRESULT CProcessDlg::OnUpdateText(WPARAM wp, LPARAM lp)
 {
 	EnterCriticalSection(&m_cs_data_status);
-	SetText1((const char *)CRfmThreads::g_sz_text1);
-	SetText2((const char *)CRfmThreads::g_sz_text2);
+	SetText1((const char*)CRfmThreads::g_sz_text1);
+	SetText2((const char*)CRfmThreads::g_sz_text2);
 	LeaveCriticalSection(&m_cs_data_status);
 	return TRUE;
 }
@@ -172,7 +184,7 @@ LRESULT CProcessDlg::OnUpdateProgressCopy(WPARAM wp, LPARAM lp)
 	m_liSizeCurrentCopy += CRfmThreads::g_li_cur_pos_copy;
 	LeaveCriticalSection(&m_cs_data_status);
 	UpdateProgressCopy(m_liSizeCurrentCopy);
-
+	
 	return TRUE;
 }
 
@@ -187,6 +199,7 @@ LRESULT CProcessDlg::OnUpdatePosMaxCopy(WPARAM wp, LPARAM lp)
 	return TRUE;
 }
 
+
 void CProcessDlg::OnBnClickedCancel()
 {
 	// Дать сигнал на остановку текущей операции
@@ -196,38 +209,40 @@ void CProcessDlg::OnBnClickedCancel()
 	// Подождать завершения
 
 	::WaitForSingleObject(m_h_thread_was_stoped, INFINITE);
-
+	
 	OnCancel();
 }
 
-void CProcessDlg::OnBnClickedOk() {}
+void CProcessDlg::OnBnClickedOk(){}
+
 
 void CProcessDlg::OnBnClickedBreakOperation()
 {
 	// Установить флаг глобального прерывания операции
-
-	if (m_pb_flag_global_stop)
+	
+	if(m_pb_flag_global_stop)
 		*m_pb_flag_global_stop = false;
-
+	
 	// Сгенерировать сообщение останова
 
 	OnBnClickedCancel();
 }
 void CProcessDlg::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
+	
 
 	CDialog::OnKeyDown(nChar, nRepCnt, nFlags);
 }
 
-BOOL CProcessDlg::PreTranslateMessage(MSG *pMsg)
+BOOL CProcessDlg::PreTranslateMessage(MSG* pMsg)
 {
-	if (pMsg->message == WM_KEYDOWN)
+	if(pMsg->message == WM_KEYDOWN)
 	{
-		if (pMsg->wParam == 0x1B)
+		if(pMsg->wParam == 0x1B)
 		{
 			// Глобальное прерывание операции по клавише <ESC>
-
-			if (m_pb_flag_global_stop)
+			
+			if(m_pb_flag_global_stop)
 				*m_pb_flag_global_stop = false;
 		}
 	}

@@ -5,15 +5,18 @@
 #include "rfmclient.h"
 #include "MainFrm.h"
 
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
 
+
 // CClientRFMApp
 
 BEGIN_MESSAGE_MAP(CClientRFMApp, CWinApp)
-ON_COMMAND(ID_APP_ABOUT, &CClientRFMApp::OnAppAbout)
+	ON_COMMAND(ID_APP_ABOUT, &CClientRFMApp::OnAppAbout)
 END_MESSAGE_MAP()
+
 
 // CClientRFMApp construction
 
@@ -23,18 +26,20 @@ CClientRFMApp::CClientRFMApp()
 	// Place all significant initialization in InitInstance
 }
 
+
 // The one and only CClientRFMApp object
 
 CClientRFMApp theApp;
 
-extern BOOL CheckAtStartup(HWND parent, BOOL silent);
+extern BOOL CheckAtStartup(HWND parent,BOOL silent);
+
 
 // CClientRFMApp initialization
 
 BOOL CClientRFMApp::InitInstance()
 {
-	if (!CheckAtStartup(NULL, FALSE))
-		return FALSE;
+        if ( !CheckAtStartup(NULL,FALSE) )
+           return FALSE;
 
 	// InitCommonControlsEx() is required on Windows XP if an application
 	// manifest specifies use of ComCtl32.dll version 6 or later to enable
@@ -65,14 +70,19 @@ BOOL CClientRFMApp::InitInstance()
 	SetRegistryKey(_T("Local AppWizard-Generated Applications"));
 	// To create the main window, this code creates a new frame window
 	// object and then sets it as the application's main window object
-	CMainFrame *pFrame = new CMainFrame;
+	CMainFrame* pFrame = new CMainFrame;
 	if (!pFrame)
 		return FALSE;
 	m_pMainWnd = pFrame;
 	// create and load the frame with its resources
 	pFrame->LoadFrame(IDR_MAINFRAME,
-					  WS_OVERLAPPEDWINDOW | FWS_ADDTOTITLE, NULL,
-					  NULL);
+		WS_OVERLAPPEDWINDOW | FWS_ADDTOTITLE, NULL,
+		NULL);
+
+
+	
+
+
 
 	// The one and only window has been initialized, so show and update it
 	pFrame->ShowWindow(SW_SHOWMAXIMIZED);
@@ -82,13 +92,20 @@ BOOL CClientRFMApp::InitInstance()
 	return TRUE;
 }
 
+
 // CClientRFMApp message handlers
+
+
+
+
 
 // App command to run the dialog
 void CClientRFMApp::OnAppAbout()
 {
-	// CAboutDlg aboutDlg;
-	// aboutDlg.DoModal();
+	//CAboutDlg aboutDlg;
+	//aboutDlg.DoModal();
 }
 
+
 // CClientRFMApp message handlers
+

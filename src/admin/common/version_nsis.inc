@@ -1,2 +1,2 @@
 
-Caption "Администратор KagamiShell (1.0.0)"
+Caption "Runpad Pro Администратор (2.25)"

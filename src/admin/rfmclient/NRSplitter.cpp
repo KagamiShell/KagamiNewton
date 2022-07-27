@@ -1,30 +1,34 @@
 #include "stdafx.h"
 #include "NRSplitter.h"
 
+
 #define FULL_SIZE 32768
+
 
 inline int MulDivRound(int x, int mul, int div)
 {
 	return (x * mul + div / 2) / div;
 }
 
+
 BEGIN_MESSAGE_MAP(CNRSplitter, CWnd)
-//{{AFX_MSG_MAP(CNRSplitter)
-ON_WM_PAINT()
-ON_WM_LBUTTONDOWN()
-ON_WM_LBUTTONUP()
-ON_WM_MOUSEMOVE()
-ON_WM_SIZE()
-ON_WM_NCCREATE()
-ON_WM_WINDOWPOSCHANGING()
-ON_WM_CREATE()
-//}}AFX_MSG_MAP
+	//{{AFX_MSG_MAP(CNRSplitter)
+	ON_WM_PAINT()
+	ON_WM_LBUTTONDOWN()
+	ON_WM_LBUTTONUP()
+	ON_WM_MOUSEMOVE()
+	ON_WM_SIZE()
+	ON_WM_NCCREATE()
+	ON_WM_WINDOWPOSCHANGING()
+	ON_WM_CREATE()
+	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
-CNRSplitter::CNRSplitter(int nPanes, UINT nOrientation, int nMinSize, int nBarThickness) : m_nPanes(nPanes),
-																						   m_nOrientation(nOrientation),
-																						   m_nMinSize(nMinSize),
-																						   m_nBarThickness(nBarThickness)
+CNRSplitter::CNRSplitter(int nPanes, UINT nOrientation, int nMinSize, int nBarThickness):
+	m_nPanes(nPanes),
+	m_nOrientation(nOrientation),
+	m_nMinSize(nMinSize), 
+	m_nBarThickness(nBarThickness)
 {
 	int total = 0;
 
@@ -33,12 +37,12 @@ CNRSplitter::CNRSplitter(int nPanes, UINT nOrientation, int nMinSize, int nBarTh
 	ASSERT(nMinSize >= 0);
 	ASSERT(nBarThickness >= 0);
 
-	m_pane = new CWnd *[m_nPanes];
+	m_pane = new CWnd*[m_nPanes];
 	m_size = new int[m_nPanes];
 	m_orig = new int[m_nPanes + 1];
-	::ZeroMemory(m_pane, m_nPanes * sizeof(CWnd *));
-
-	for (int i = 0; i < m_nPanes - 1; i++) // default, set equal size to all panes
+	::ZeroMemory(m_pane, m_nPanes * sizeof(CWnd*));
+	
+	for (int i = 0; i < m_nPanes - 1; i++)			// default, set equal size to all panes
 	{
 		m_size[i] = (FULL_SIZE + m_nPanes / 2) / m_nPanes;
 		total += m_size[i];
@@ -53,7 +57,8 @@ CNRSplitter::~CNRSplitter()
 	delete[] m_orig;
 }
 
-BOOL CNRSplitter::Create(CWnd *pParent, UINT nID)
+
+BOOL CNRSplitter::Create(CWnd* pParent, UINT nID)
 {
 	HCURSOR crsResize;
 	CRect rcOuter;
@@ -66,7 +71,7 @@ BOOL CNRSplitter::Create(CWnd *pParent, UINT nID)
 	return CreateEx(0, AfxRegisterWndClass(CS_DBLCLKS, crsResize, NULL, NULL), NULL, WS_CHILD | WS_VISIBLE, rcOuter, pParent, nID, NULL);
 }
 
-BOOL CNRSplitter::CreatePane(int nIndex, CWnd *pPaneWnd, DWORD dwStyle, DWORD dwExStyle, LPCTSTR lpszClassName)
+BOOL CNRSplitter::CreatePane(int nIndex, CWnd* pPaneWnd, DWORD dwStyle, DWORD dwExStyle, LPCTSTR lpszClassName)
 {
 	CRect rcPane;
 
@@ -77,7 +82,7 @@ BOOL CNRSplitter::CreatePane(int nIndex, CWnd *pPaneWnd, DWORD dwStyle, DWORD dw
 	return pPaneWnd->CreateEx(dwExStyle, lpszClassName, NULL, dwStyle, rcPane, this, AFX_IDW_PANE_FIRST + nIndex);
 }
 
-void CNRSplitter::SetPane(int nIndex, CWnd *pPaneWnd)
+void CNRSplitter::SetPane(int nIndex, CWnd* pPaneWnd)
 {
 	CRect rcPane;
 
@@ -90,7 +95,7 @@ void CNRSplitter::SetPane(int nIndex, CWnd *pPaneWnd)
 	pPaneWnd->MoveWindow(rcPane, false);
 }
 
-CWnd *CNRSplitter::GetPane(int nIndex) const
+CWnd* CNRSplitter::GetPane(int nIndex) const
 {
 	ASSERT((nIndex >= 0) && (nIndex < m_nPanes));
 	return m_pane[nIndex];
@@ -102,7 +107,7 @@ void CNRSplitter::SetActivePane(int nIndex)
 	m_pane[nIndex]->SetFocus();
 }
 
-CWnd *CNRSplitter::GetActivePane(int *pIndex) const
+CWnd* CNRSplitter::GetActivePane(int* pIndex) const
 {
 	for (int i = 0; i < m_nPanes; i++)
 		if (m_pane[i]->GetFocus())
@@ -113,10 +118,10 @@ CWnd *CNRSplitter::GetActivePane(int *pIndex) const
 	return NULL;
 }
 
-void CNRSplitter::SetPaneSizes(const int *sizes)
+void CNRSplitter::SetPaneSizes(const int* sizes)
 {
 	int i, total = 0, total_in = 0;
-
+	
 	for (i = 0; i < m_nPanes; i++)
 	{
 		ASSERT(sizes[i] >= 0);
@@ -132,7 +137,7 @@ void CNRSplitter::SetPaneSizes(const int *sizes)
 	ResizePanes();
 }
 
-void CNRSplitter::GetPaneRect(int nIndex, CRect &rcPane) const
+void CNRSplitter::GetPaneRect(int nIndex, CRect& rcPane) const
 {
 	ASSERT(nIndex >= 0 && nIndex < m_nPanes);
 	GetClientRect(&rcPane);
@@ -148,7 +153,7 @@ void CNRSplitter::GetPaneRect(int nIndex, CRect &rcPane) const
 	}
 }
 
-void CNRSplitter::GetBarRect(int nIndex, CRect &rcBar) const
+void CNRSplitter::GetBarRect(int nIndex, CRect& rcBar) const
 {
 	ASSERT(nIndex > 0 && nIndex < m_nPanes);
 	GetClientRect(&rcBar);
@@ -176,11 +181,11 @@ void CNRSplitter::RecalcLayout()
 	size_sum = m_nOrientation == SSP_HORZ ? rcOuter.Width() : rcOuter.Height();
 	size_sum -= (m_nPanes - 1) * m_nBarThickness;
 
-	while (bGrow) // adjust sizes on the beginning
-	{			  // and while we have growed something
+	while (bGrow)									// adjust sizes on the beginning
+	{												// and while we have growed something
 		bGrow = false;
 		remain = remain_new = FULL_SIZE;
-		for (i = 0; i < m_nPanes; i++) // grow small panes to minimal size
+		for (i = 0; i < m_nPanes; i++)				// grow small panes to minimal size
 			if (MulDivRound(m_size[i], size_sum, FULL_SIZE) <= m_nMinSize)
 			{
 				remain -= m_size[i];
@@ -194,9 +199,9 @@ void CNRSplitter::RecalcLayout()
 				}
 				remain_new -= m_size[i];
 			}
-		if (remain_new <= 0)	// if there isn't place to all panes
-		{						// set the minimal size to the leftmost/topmost
-			remain = FULL_SIZE; // and set zero size to the remainimg
+		if (remain_new <= 0)						// if there isn't place to all panes
+		{											// set the minimal size to the leftmost/topmost
+			remain = FULL_SIZE;						// and set zero size to the remainimg
 			for (i = 0; i < m_nPanes; i++)
 			{
 				if (size_sum == 0)
@@ -209,13 +214,13 @@ void CNRSplitter::RecalcLayout()
 			}
 			break;
 		}
-		if (remain_new != FULL_SIZE) // adjust other pane sizes, if we have growed some
+		if (remain_new != FULL_SIZE)				// adjust other pane sizes, if we have growed some
 			for (i = 0; i < m_nPanes; i++)
 				if (MulDivRound(m_size[i], size_sum, FULL_SIZE) != m_nMinSize)
 					m_size[i] = MulDivRound(m_size[i], remain_new, remain);
 	}
 
-	m_orig[0] = 0; // calculate positions (in pixels) from relative sizes
+	m_orig[0] = 0;									// calculate positions (in pixels) from relative sizes
 	for (i = 0; i < m_nPanes - 1; i++)
 		m_orig[i + 1] = m_orig[i] + MulDivRound(m_size[i], size_sum, FULL_SIZE) + m_nBarThickness;
 	m_orig[m_nPanes] = size_sum + m_nBarThickness * m_nPanes;
@@ -227,7 +232,7 @@ void CNRSplitter::ResizePanes()
 	CRect rcOuter;
 
 	GetClientRect(rcOuter);
-	if (m_nOrientation == SSP_HORZ)
+	if (m_nOrientation == SSP_HORZ)	
 		for (i = 0; i < m_nPanes; i++)
 		{
 			if (m_pane[i])
@@ -243,10 +248,10 @@ void CNRSplitter::ResizePanes()
 
 void CNRSplitter::InvertTracker()
 {
-	CDC *pDC = GetDC();
-	CBrush *pBrush = CDC::GetHalftoneBrush();
+	CDC* pDC = GetDC();
+	CBrush* pBrush = CDC::GetHalftoneBrush();
 	HBRUSH hOldBrush;
-
+	
 	hOldBrush = (HBRUSH)SelectObject(pDC->m_hDC, pBrush->m_hObject);
 	if (m_nOrientation == SSP_HORZ)
 		pDC->PatBlt(m_nTracker - m_nBarThickness, 0, m_nBarThickness, m_nTrackerLength, PATINVERT);
@@ -259,7 +264,7 @@ void CNRSplitter::InvertTracker()
 
 // CNRSplitter messages
 
-void CNRSplitter::OnPaint()
+void CNRSplitter::OnPaint() 
 {
 	CPaintDC dc(this);
 	CRect rcPaint = dc.m_ps.rcPaint;
@@ -274,21 +279,20 @@ void CNRSplitter::OnPaint()
 			dc.FillSolidRect(rcPaint.left, m_orig[i] - m_nBarThickness, rcPaint.Width(), m_nBarThickness, clrBar);
 }
 
-void CNRSplitter::OnSize(UINT nType, int cx, int cy)
+void CNRSplitter::OnSize(UINT nType, int cx, int cy) 
 {
 	CWnd::OnSize(nType, cx, cy);
 	RecalcLayout();
 	ResizePanes();
 }
 
-void CNRSplitter::OnLButtonDown(UINT nFlags, CPoint point)
+void CNRSplitter::OnLButtonDown(UINT nFlags, CPoint point) 
 {
 	CRect rcClient;
 	int mouse_pos = m_nOrientation == SSP_HORZ ? point.x : point.y;
 
 	SetCapture();
-	for (m_nTrackIndex = 1; (m_nTrackIndex < m_nPanes && m_orig[m_nTrackIndex] < mouse_pos); m_nTrackIndex++)
-		;
+	for (m_nTrackIndex = 1; (m_nTrackIndex < m_nPanes && m_orig[m_nTrackIndex] < mouse_pos); m_nTrackIndex++);
 	m_nTracker = m_orig[m_nTrackIndex];
 	m_nTrackerMouseOffset = mouse_pos - m_nTracker;
 	GetClientRect(&rcClient);
@@ -296,9 +300,9 @@ void CNRSplitter::OnLButtonDown(UINT nFlags, CPoint point)
 	InvertTracker();
 }
 
-void CNRSplitter::OnLButtonUp(UINT nFlags, CPoint point)
+void CNRSplitter::OnLButtonUp(UINT nFlags, CPoint point) 
 {
-	if (GetCapture() != this)
+	if (GetCapture() != this) 
 		return;
 
 	CRect rcOuter;
@@ -312,13 +316,13 @@ void CNRSplitter::OnLButtonUp(UINT nFlags, CPoint point)
 	ReleaseCapture();
 	m_orig[m_nTrackIndex] = m_nTracker;
 	m_size[m_nTrackIndex - 1] = MulDivRound(m_orig[m_nTrackIndex] - m_orig[m_nTrackIndex - 1] - m_nBarThickness, FULL_SIZE, size_sum);
-	m_size[m_nTrackIndex] = MulDivRound(m_orig[m_nTrackIndex + 1] - m_orig[m_nTrackIndex] - m_nBarThickness, FULL_SIZE, size_sum);
+	m_size[m_nTrackIndex]     = MulDivRound(m_orig[m_nTrackIndex + 1] - m_orig[m_nTrackIndex] - m_nBarThickness, FULL_SIZE, size_sum);
 	ResizePanes();
 }
 
-void CNRSplitter::OnMouseMove(UINT nFlags, CPoint point)
+void CNRSplitter::OnMouseMove(UINT nFlags, CPoint point) 
 {
-	if (GetCapture() != this)
+	if (GetCapture() != this) 
 		return;
 	InvertTracker();
 	m_nTracker = (m_nOrientation == SSP_HORZ ? point.x : point.y) - m_nTrackerMouseOffset;
@@ -329,19 +333,20 @@ void CNRSplitter::OnMouseMove(UINT nFlags, CPoint point)
 	InvertTracker();
 }
 
-BOOL CNRSplitter::OnNcCreate(LPCREATESTRUCT lpCreateStruct)
+BOOL CNRSplitter::OnNcCreate(LPCREATESTRUCT lpCreateStruct) 
 {
 	if (!CWnd::OnNcCreate(lpCreateStruct))
 		return FALSE;
 
-	CWnd *pParent = GetParent();
+	CWnd* pParent = GetParent();
 	ASSERT_VALID(pParent);
 	pParent->ModifyStyleEx(WS_EX_CLIENTEDGE, 0, SWP_DRAWFRAME);
 	return TRUE;
 }
 
-void CNRSplitter::OnWindowPosChanging(WINDOWPOS FAR *lpwndpos)
+void CNRSplitter::OnWindowPosChanging(WINDOWPOS FAR* lpwndpos) 
 {
 	lpwndpos->flags |= SWP_NOCOPYBITS;
 	CWnd::OnWindowPosChanging(lpwndpos);
 }
+

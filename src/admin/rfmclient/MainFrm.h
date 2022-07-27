@@ -1,6 +1,7 @@
 // MainFrm.h : interface of the CMainFrame class
 //
 
+
 #pragma once
 
 #include "ChildView.h"
@@ -14,54 +15,55 @@
 #include <vector>
 using namespace std;
 
+
 typedef map<char, PATH_DISC> CArrPathDrives;
 
 class CMainFrame : public CFrameWnd
 {
-
+	
 public:
 	CMainFrame();
-
-protected:
+protected: 
 	DECLARE_DYNAMIC(CMainFrame)
 
-	// Attributes
+// Attributes
 public:
-	// Operations
-public:
-	// Overrides
-public:
-	virtual BOOL PreCreateWindow(CREATESTRUCT &cs);
-	virtual BOOL OnCmdMsg(UINT nID, int nCode, void *pExtra, AFX_CMDHANDLERINFO *pHandlerInfo);
 
-	// Implementation
+// Operations
+public:
+
+// Overrides
+public:
+	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
+	virtual BOOL OnCmdMsg(UINT nID, int nCode, void* pExtra, AFX_CMDHANDLERINFO* pHandlerInfo);
+
+// Implementation
 public:
 	virtual ~CMainFrame();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
-	virtual void Dump(CDumpContext &dc) const;
+	virtual void Dump(CDumpContext& dc) const;
 #endif
 
-protected: // control bar embedded members
-	CStatusBar m_wndStatusBar;
-	CReBar m_wndReBar;
-	CToolBarDlg m_wndToolBar;
-	CDiscSelectDlg m_wndDlgBar;
-	CCmdLineDlg m_wndDlgCmdLine;
-	// Generated message map functions
+protected:  // control bar embedded members
+	CStatusBar		m_wndStatusBar;
+	CReBar			m_wndReBar;
+	CToolBarDlg		m_wndToolBar;
+	CDiscSelectDlg  m_wndDlgBar;
+	CCmdLineDlg		m_wndDlgCmdLine;
+// Generated message map functions
 protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void OnSetFocus(CWnd *pOldWnd);
 	DECLARE_MESSAGE_MAP()
-	virtual BOOL OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext *pContext);
-
+	virtual BOOL OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext);
 public:
-	CNRTabNetCtrl m_tabCtrlNet;
+	CNRTabNetCtrl	m_tabCtrlNet;	
 	// Класс разделителя окна
-	CNRSplitter m_wndSplitter;
+	CNRSplitter	m_wndSplitter; 
 	// Список файлов, который находится с правой стороны
 	// на пользовательской машине
-	CNRListCtrl m_ctrlListUserFiles;
+	CNRListCtrl	m_ctrlListUserFiles;
 	// Переключение дисков на локальной машине
 	afx_msg LRESULT OnSwichLocalDisc(WPARAM wp, LPARAM lp);
 	// Перейти в другой каталог
@@ -72,17 +74,16 @@ public:
 	{
 		return &m_wndDlgBar;
 	}
-	CImageList *GetImageSysList() { return &m_imageListSys; }
+	CImageList *GetImageSysList(){return &m_imageListSys;}
 	// Запуск указанного файла
 	BOOL ExecuteFile(CString strPath, CString sz_dir, CString sz_params);
 	// Переключение курсора между окнами ро <Tab>
-	bool m_bCursorWindow;
-
+	bool	m_bCursorWindow;
 private:
-	CDisableWOW64FSRedirection *p_fsguard; // for x64
-
+        CDisableWOW64FSRedirection *p_fsguard; // for x64
+	
 	// системный список икнок для файлов и дисков
-	CImageList m_imageListSys;
+	CImageList	m_imageListSys;
 	char m_chCurrentDisc;
 	// Текущие пути по всем найденным дискам в системе
 	CArrPathDrives m_arrPathOfDrivesLocal;
@@ -90,16 +91,16 @@ private:
 	void UpdateLocalSide();
 	// Загрука данными о дисках списка по локальной системе
 	void LoadDataDrivesLocal();
-	// Шрифт для текта названий файлов
-	CFont m_fontTab;
-	// Инициализировать список для отображения файлов на
+	// Шрифт для текта названий файлов 
+	CFont  m_fontTab;
+	// Инициализировать список для отображения файлов на 
 	// локальной машине
 	void InitListLocalSystem();
 	// Загрузить новые данные в список файлов
 	// szPathroot - путь к главному каталогу
 	BOOL LoadNewDataFile(CString szPathroot);
 	afx_msg void OnSize(UINT nType, int cx, int cy);
-	afx_msg void OnActivate(UINT nState, CWnd *pWndOther, BOOL bMinimized);
+	afx_msg void OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized);
 	afx_msg void OnBnClickedButton1();
 	afx_msg void OnBnClickedBtnConnect();
 	afx_msg void OnBnClickedBtnDisconnect();
@@ -136,3 +137,5 @@ private:
 	afx_msg void OnUpdateEnterCommand(CCmdUI *pCmdUI);
 	afx_msg void OnAccelSelAll();
 };
+
+

@@ -1,0 +1,2 @@
+
+Caption "Клиент KagamiShell"

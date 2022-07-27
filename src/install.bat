@@ -1,8 +1,6 @@
 @echo off
-echo [%date% %time%] Building started
-
-if exist release del /Q release\*.*
-if not exist release md release
+if exist !out del /Q !out\*.*
+if not exist !out md !out
 
 cd admin\install
 call install.bat
@@ -12,7 +10,7 @@ cd client\install
 call install.bat
 cd ..\..\
 
-cd teacher\install
+cd operator\install
 call install.bat
 cd ..\..\
 
@@ -20,11 +18,23 @@ cd server\install
 call install.bat
 cd ..\..\
 
-rem This must be last!
+rem must be last!!!
 cd common\install
 call install.bat
 cd ..\..\
 
-echo [%date% %time%] Build complete.
-
+echo _
+echo _
+echo _
+echo        ЫЫЫЫЫЫЫЫ  ЫЫ   ЫЫ   ЫЫ ЫЫ ЫЫ
+echo        ЫЫЫЫЫЫЫЫ  ЫЫ  ЫЫЫ   ЫЫ ЫЫ ЫЫ
+echo        ЫЫ    ЫЫ  ЫЫ ЫЫЫ    ЫЫ ЫЫ ЫЫ
+echo        ЫЫ    ЫЫ  ЫЫЫЫЫ     ЫЫ ЫЫ ЫЫ
+echo        ЫЫ    ЫЫ  ЫЫЫЫЫ     ЫЫ ЫЫ ЫЫ
+echo        ЫЫ    ЫЫ  ЫЫ ЫЫЫ    ЫЫ ЫЫ ЫЫ
+echo        ЫЫЫЫЫЫЫЫ  ЫЫ  ЫЫЫ           
+echo        ЫЫЫЫЫЫЫЫ  ЫЫ   ЫЫ   ЫЫ ЫЫ ЫЫ
+echo _
+echo _
+echo _
 pause

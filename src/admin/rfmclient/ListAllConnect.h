@@ -1,5 +1,6 @@
 #pragma once
 
+
 // CListAllConnect
 
 class CListAllConnect : public CCheckListBox
@@ -13,3 +14,5 @@ public:
 protected:
 	DECLARE_MESSAGE_MAP()
 };
+
+

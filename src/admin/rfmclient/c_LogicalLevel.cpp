@@ -1,13 +1,15 @@
 #include "StdAfx.h"
 #include "c_LogicalLevel.h"
 
+
+
 c_LogicalLevel::c_LogicalLevel(CRfmClientSocket *pTransportLevel)
 {
-	if (!pTransportLevel)
+	if(!pTransportLevel) 
 		throw;
 
 	c_LogicCommand *pCommand = NULL;
-
+	
 	// Наполнить обработчиками команд
 
 	pCommand = new c_get_list_drive_cmd(pTransportLevel);
@@ -36,11 +38,11 @@ c_LogicalLevel::c_LogicalLevel(CRfmClientSocket *pTransportLevel)
 
 c_LogicalLevel::~c_LogicalLevel(void)
 {
-	for (CArrHandlersCmds::iterator iter = m_arrHandlersCmds.begin();
-		 iter != m_arrHandlersCmds.end(); iter++)
-		if ((*iter).second)
+	for(CArrHandlersCmds::iterator iter = m_arrHandlersCmds.begin(); 
+		iter != m_arrHandlersCmds.end(); iter++)
+		if((*iter).second)
 			delete (*iter).second;
-
+	
 	m_arrHandlersCmds.clear();
 }
 
@@ -49,29 +51,30 @@ c_LogicalLevel::~c_LogicalLevel(void)
 void c_LogicalLevel::set_break_operation()
 {
 	// Дать всем командам знать что соединение утеряно
-
-	for (CArrHandlersCmds::iterator iter = m_arrHandlersCmds.begin(); iter != m_arrHandlersCmds.end(); iter++)
+	
+	for(CArrHandlersCmds::iterator iter = m_arrHandlersCmds.begin(); iter != m_arrHandlersCmds.end(); iter++)
 		(*iter).second->break_operation();
+			
 }
 
-// Обработать пакет на логическом уровне
+
+// Обработать пакет на логическом уровне 
 // pData - данные для логического уровня
 // iSize - размер данных
 
 bool c_LogicalLevel::ProcessData(char *pData, int iSize)
 {
-	if (!pData || !iSize)
+	if(!pData || !iSize)
 		return false;
-
+	
 	PPACKET_DATA pPacket = (PPACKET_DATA)pData;
-
+	
 	// Определить обработчик команды
 
 	c_LogicCommand *pLogicCommand = GetHandlerByID(pPacket->c_id_packet);
-	if (!pLogicCommand)
-		return false;
+	if(!pLogicCommand) return false;
 
-	// Передать данные на обрабоку конкретному обработчику
+	// Передать данные на обрабоку конкретному обработчику		
 
 	pLogicCommand->ProcessCommand(pData, iSize);
 
@@ -84,24 +87,24 @@ bool c_LogicalLevel::ProcessData(char *pData, int iSize)
 
 void c_LogicalLevel::AddNewHandler(unsigned char id_command, c_LogicCommand *pCommand)
 {
-	if (!pCommand)
-		throw;
-	typedef pair<unsigned char, c_LogicCommand *> Mgr_Pair;
+	if(!pCommand) throw;
+	typedef pair <unsigned char, c_LogicCommand*> Mgr_Pair;
 	m_arrHandlersCmds.insert(Mgr_Pair(id_command, pCommand));
 }
 
-// Удалить команду
+
+// Удалить команду 
 // id_command - ID соманды к которому привязан обработчик
 
 void c_LogicalLevel::DeleteHandler(unsigned char id_command)
 {
-	CArrHandlersCmds::iterator iter = m_arrHandlersCmds.find(id_command);
-	if (iter == m_arrHandlersCmds.end())
+	CArrHandlersCmds::iterator iter = m_arrHandlersCmds.find(id_command); 
+	if(iter == m_arrHandlersCmds.end())
 		return;
-
-	if ((*iter).second)
+	
+	if((*iter).second)
 		delete (*iter).second;
-
+	
 	m_arrHandlersCmds.erase(iter);
 }
 
@@ -110,9 +113,10 @@ void c_LogicalLevel::DeleteHandler(unsigned char id_command)
 
 c_LogicCommand *c_LogicalLevel::GetHandlerByID(unsigned char id_command)
 {
-
-	CArrHandlersCmds::iterator iter = m_arrHandlersCmds.find(id_command);
-	if (iter == m_arrHandlersCmds.end())
+	
+	
+	CArrHandlersCmds::iterator iter = m_arrHandlersCmds.find(id_command); 
+	if(iter == m_arrHandlersCmds.end())
 		return NULL;
 	return (*iter).second;
 }

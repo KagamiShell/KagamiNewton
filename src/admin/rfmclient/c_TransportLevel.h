@@ -2,34 +2,38 @@
 #include ".\Rfmclientsocket.h"
 #include "c_LogicalLevel.h"
 
-#define SIGN_BEGIN_PACK 0x2A		// Признак начала пакета
-#define COUNT_TRY_SEND 0xA			// Количество раз передачи пакета, после которого происходит
-									// отключение клиента
+#define SIGN_BEGIN_PACK		0x2A	// Признак начала пакета
+#define COUNT_TRY_SEND		0xA		// Количество раз передачи пакета, после которого происходит
+									// отключение клиента	
 #define MAX_SIZE_CICLE_BUFER 102400 // Максимальный размер приемного кольцевого буфера
 #define MAX_SIZE_PACK 30720			// Максимальный размер вычитаных данных
 
-/////////////////////////////////////////////////////////////////////////////////////
-// Возможные ошибки транспортного уровня
-/////////////////////////////////////////////////////////////////////////////////////
 
-#define ERR_SIGN_PACK 0x50 // Не найден признак пакета
-#define ERR_ID_PACK 0x51   // Не правильный тип пакета
-#define ERR_SIZE_PACK 0x52 // Не правильный размер пакета
-#define ERR_SRC_PACK 0x53  // Не правильная контрольная сумма пакета
+
 
 /////////////////////////////////////////////////////////////////////////////////////
-// Описание очереди из одного пакета (по запросу передать пакет повторно)
+// Возможные ошибки транспортного уровня  
+/////////////////////////////////////////////////////////////////////////////////////
+
+#define ERR_SIGN_PACK		0x50 // Не найден признак пакета
+#define ERR_ID_PACK			0x51 // Не правильный тип пакета
+#define ERR_SIZE_PACK	    0x52 // Не правильный размер пакета
+#define ERR_SRC_PACK	    0x53 // Не правильная контрольная сумма пакета
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+// Описание очереди из одного пакета (по запросу передать пакет повторно)  
 /////////////////////////////////////////////////////////////////////////////////////
 
 typedef struct __ORDER_DATA__
 {
-	unsigned short iSize; // Размер предыщего пакета
-	char *pData;		  // Данные предыдущего пакета
-} ORDER_DATA;
+	unsigned short iSize;			   // Размер предыщего пакета
+	char		   *pData;			   // Данные предыдущего пакета	
+}ORDER_DATA;
 
 /////////////////////////////////////////////////////////////////////////////////////
 // Класс	: c_TransportLevel
-// Описание	: Данный класс отвечает за передачу пакета на транспортном уровне.
+// Описание	: Данный класс отвечает за передачу пакета на транспортном уровне.  
 /////////////////////////////////////////////////////////////////////////////////////
 
 class c_TransportLevel : public CRfmClientSocket
@@ -42,24 +46,23 @@ public:
 	// nSize - размер данных
 	void SendData(char *pData, int nSize);
 	// Генерация пакета на передачу в сеть
-	int c_TransportLevel::make_packet(unsigned char c_id_packet, unsigned char c_code_err,
-									  unsigned __int64 ui_total_size, unsigned short i_size_data,
+	int c_TransportLevel::make_packet(unsigned char c_id_packet, unsigned char	c_code_err, 
+									  unsigned __int64 ui_total_size, unsigned short	i_size_data, 
 									  char *pData, char **pp_packet);
 	// Получить указатель на логический уровень протокола
-	c_LogicalLevel *get_logic_level() { return &m_LogicLevel; }
+	c_LogicalLevel *get_logic_level(){return &m_LogicLevel;}
 	// Проверить соединение с сервером
 	void OnCheckConnect();
 	// Установить имя сервера
 	void set_name_server(CString sz_name_srv);
 	// Определить имя сервера
-	CString get_name_server() { return m_sz_name_server; }
+	CString get_name_server(){return m_sz_name_server;}
 	// Событие пропадания связи с сервером
 	void OnDisconnect();
 	// Определить идентификатор соединения
-	UINT get_id_connected() const { return m_i_indx_tab; }
+	UINT get_id_connected() const {return m_i_indx_tab;}
 	// Определить событие останова текущей операции
-	HANDLE get_event_stop() const { return m_h_stop_current_process; }
-
+	HANDLE get_event_stop() const { return m_h_stop_current_process;}
 private:
 	// Событие останова текущей операции по инициативе
 	// разрыва связи с сервером
@@ -95,9 +98,9 @@ private:
 	// Сохраненный предыдущий пакет на случай повторной передачи
 	ORDER_DATA m_prevPack;
 	// Счетчик передач одного и того же пакета клиенту
-	short m_iCountSend;
+	short	   m_iCountSend;
 	// Счетчик принятых ошибочных пакетов из сети
-	short m_iCountErrPack;
+	short	   m_iCountErrPack;	
 	// Обьект логического уровня протокола
 	c_LogicalLevel m_LogicLevel;
 	// Кольцевой приемный буфер

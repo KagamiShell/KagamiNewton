@@ -3,7 +3,9 @@
 #include <map>
 using namespace std;
 
-typedef map<unsigned char, c_LogicCommand *> CArrHandlersCmds;
+
+typedef map<unsigned char, c_LogicCommand*> CArrHandlersCmds; 
+
 
 /////////////////////////////////////////////////////////////////////////////////////
 // Класс	: c_LogicalLevel
@@ -15,7 +17,7 @@ class c_LogicalLevel
 public:
 	c_LogicalLevel(CRfmClientSocket *pTransportLevel);
 	~c_LogicalLevel(void);
-	// Обработать пакет на логическом уровне
+	// Обработать пакет на логическом уровне 
 	// pData - данные для логического уровня
 	// iSize - размер данных
 	bool ProcessData(char *pData, int iSize);
@@ -23,7 +25,7 @@ public:
 	// id_command - ID соманды к которому привязан обработчик
 	// pCommand - обьект обработки команды
 	void AddNewHandler(unsigned char id_command, c_LogicCommand *pCommand);
-	// Удалить команду
+	// Удалить команду 
 	// id_command - ID соманды к которому привязан обработчик
 	void DeleteHandler(unsigned char id_command);
 	// Определить обработчик команды по ее ID
@@ -31,7 +33,6 @@ public:
 	c_LogicCommand *GetHandlerByID(unsigned char id_command);
 	// Дать знать текущей операци что соединение с сервером пропало
 	void set_break_operation();
-
 private:
 	// Хранилище обработчиков команд
 	CArrHandlersCmds m_arrHandlersCmds;

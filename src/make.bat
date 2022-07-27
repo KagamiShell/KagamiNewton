@@ -1,30 +1,39 @@
 @echo off
-echo [%date% %time%] Building started
-
-if exist release del /Q release\*.*
-if not exist release md release
 
 cd admin
 call make.bat
-cd ..\..\
+cd..
 
 cd client
 call make.bat
-cd ..\..\
+cd..
 
-cd teacher
+cd operator
 call make.bat
-cd ..\..\
+cd..
 
 cd server
 call make.bat
-cd ..\..\
+cd..
 
-rem This must be last!
+rem common must be last!
 cd common
 call make.bat
-cd ..\..\
+cd..
 
-echo [%date% %time%] Build complete.
 
+echo _
+echo _
+echo _
+echo        ЫЫЫЫЫЫЫЫ  ЫЫ   ЫЫ   ЫЫ ЫЫ ЫЫ
+echo        ЫЫЫЫЫЫЫЫ  ЫЫ  ЫЫЫ   ЫЫ ЫЫ ЫЫ
+echo        ЫЫ    ЫЫ  ЫЫ ЫЫЫ    ЫЫ ЫЫ ЫЫ
+echo        ЫЫ    ЫЫ  ЫЫЫЫЫ     ЫЫ ЫЫ ЫЫ
+echo        ЫЫ    ЫЫ  ЫЫЫЫЫ     ЫЫ ЫЫ ЫЫ
+echo        ЫЫ    ЫЫ  ЫЫ ЫЫЫ    ЫЫ ЫЫ ЫЫ
+echo        ЫЫЫЫЫЫЫЫ  ЫЫ  ЫЫЫ           
+echo        ЫЫЫЫЫЫЫЫ  ЫЫ   ЫЫ   ЫЫ ЫЫ ЫЫ
+echo _
+echo _
+echo _
 pause

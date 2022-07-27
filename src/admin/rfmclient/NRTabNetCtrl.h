@@ -15,23 +15,25 @@ using namespace std;
 typedef map<char, PATH_DISC> CArrDrives;
 
 typedef struct __NET_WINDOWS__
-{
-	__NET_WINDOWS__() : chCurrentDisc('C'), pSrvConn(NULL), i_current_pos_cursor(0)
-	{
-	}
+{	
+	__NET_WINDOWS__() : 
+		chCurrentDisc('C'), pSrvConn(NULL), i_current_pos_cursor(0)
+	{}
 	// Массив текущих путей
-	CArrDrives arrPath;
+	CArrDrives		 arrPath;	
 	// Обьект соединения с сервером
 	c_TransportLevel *pSrvConn;
 	// Текущий выбранный диск
-	char chCurrentDisc;
+	char			  chCurrentDisc;
 	// Позиция курсора для текущего окна
-	int i_current_pos_cursor;
-} NET_WINDOWS, *PNET_WINDOWS;
+	int				  i_current_pos_cursor;	 
+}NET_WINDOWS, *PNET_WINDOWS;
 
 // Открытые соединения
 
 typedef vector<PNET_WINDOWS> CArrTabWindows;
+
+
 
 // CNRTabNetCtrl
 
@@ -42,12 +44,11 @@ class CNRTabNetCtrl : public CTabCtrl
 public:
 	CNRTabNetCtrl(CDiscSelectDlg *pSelectDriveDlg);
 	virtual ~CNRTabNetCtrl();
-	// Добавить новое соединение
+	// Добавить новое соединение 
 	void AddNewConnect(CString strNameNet, UINT iPort);
 	// Удалить указанное соединение
 	void DeleteNet(int indx_net, BOOL bUpdate = TRUE);
-	CString get_current_path() const { return m_sz_curent_path.IsEmpty() ? "" : m_sz_curent_path + "\\"; }
-
+	CString get_current_path() const {return m_sz_curent_path.IsEmpty() ? "" : m_sz_curent_path + "\\";}
 protected:
 	DECLARE_MESSAGE_MAP()
 public:
@@ -59,10 +60,10 @@ public:
 	// Обработчик обновления локальной строны
 	afx_msg LRESULT OnUpdateLocalSide(WPARAM wp, LPARAM lp);
 	// Пропадание связи с сервером
-	// wp - индекс подключения
+	// wp - индекс подключения 
 	afx_msg LRESULT OnDisconnectServer(WPARAM wp, LPARAM lp);
 	// Позиция курсора
-	// int m_nCursorItem;
+	//int m_nCursorItem;
 	// Переключение дисков на локальной машине
 	afx_msg LRESULT OnSwichLocalDisc(WPARAM wp, LPARAM lp);
 	// Выбор элемента списка
@@ -87,22 +88,21 @@ public:
 	void UpdateAllOnActive();
 	// Выполнить команду на сервере
 	BOOL ExecuteFile(CString strPath, CString sz_dir, CString sz_params);
-	CNRListCtrl *get_list_files() { return &m_ListCtrlNet; }
-
+	CNRListCtrl *get_list_files(){return &m_ListCtrlNet;}
 private:
 	// Указатель на класс выбора дисков
 	CDiscSelectDlg *m_pSelectDriveDlg;
 	// Палитра иконок
 	CImageList m_imgList;
-	// Загрузить данные по соответствующему
+	// Загрузить данные по соответствующему 
 	// сетевому окну
 	void SetActiveData(int indx);
 	// Иконки для таб списка
-	CImageList m_tabImageList;
-	// Основное окно для отображения файлов
-	CNRListCtrlNet m_ListCtrlNet;
-	// Массив сетевых функций
-	CArrTabWindows m_arrNetWindows;
+	CImageList	m_tabImageList;
+	// Основное окно для отображения файлов 
+	CNRListCtrlNet	m_ListCtrlNet;
+	// Массив сетевых функций 
+	CArrTabWindows	m_arrNetWindows;
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void OnTcnSelchange(NMHDR *pNMHDR, LRESULT *pResult);
 	// подключение к серверу
@@ -118,6 +118,8 @@ private:
 	UINT m_i_ids_conn;
 	// Текущий выбранный путь
 	CString m_sz_curent_path;
-	afx_msg void OnSetFocus(CWnd *pOldWnd);
+	afx_msg void OnSetFocus(CWnd* pOldWnd);
 	CImageList m_img_list;
 };
+
+
