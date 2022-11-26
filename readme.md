@@ -1,4 +1,4 @@
-# KagamiNewton
+# KagamiShell
 Оболочка пользовательского интерфейса учеников на основе кода от RunpadShell, разработанного NodaSoft.
 
 Кодовое название на время разработки: KagamiNewton
