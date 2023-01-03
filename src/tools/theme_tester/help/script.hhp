@@ -6,9 +6,9 @@ Default Window=Main
 Default topic=index.html
 Display compile progress=No
 Language=0x419 Russian
-Title=Создание собственных HTML-схем рабочего стола для KagamiNewton
+Title=Создание собственных HTML-схем рабочего стола для KagamiShell
 
 [WINDOWS]
-Main="Создание собственных HTML-схем рабочего стола для KagamiNewton",,,"index.html","index.html",,,,,0x2000,,0x0,[0,0,900,700],,,,,,,0
+Main="Создание собственных HTML-схем рабочего стола для KagamiShell",,,"index.html","index.html",,,,,0x2000,,0x0,[0,0,900,700],,,,,,,0
 
 [INFOTYPES]
