@@ -1,2 +1,0 @@
-
-Caption "Оператор KagamiShell"
