@@ -1,0 +1,47 @@
+body {
+    MARGIN-LEFT: 15px;
+    MARGIN-RIGHT: 15px;
+    MARGIN-TOP: 15px;
+    MARGIN-BOTTOM: 15px;
+
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    FONT-SIZE: 9pt;
+    COLOR: #000000;
+    BACKGROUND-COLOR: #FFFFFF;
+}
+
+td {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    FONT-SIZE: 9pt;
+}
+
+td.title {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 14pt;
+}
+
+.copy {
+    FONT-SIZE: 9pt;
+}
+
+.symbol {
+    FONT-FAMILY: Symbol;
+    FONT-SIZE: 10pt;
+}
+
+a:link {
+    COLOR: #000000;
+}
+
+a:visited {
+    COLOR: #000000;
+}
+
+a:hover {
+    COLOR: #000000;
+}
+
+A {
+    text-decoration: none;
+}
