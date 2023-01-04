@@ -427,7 +427,7 @@ void CNetObj::OnNetCmdReceived(const CNetCmd &cmd,unsigned src_guid)
          {
            int rc = cmd.GetParmAsInt(NETPARM_I_RESULT,NETERR_SETTINGS_DBNOTREADY);
 
-           if ( rc == NETERR_SETTINGS_DBNOTREADY && (computer_type == COMPUTER_TYPE_OPERATOR || computer_type == COMPUTER_TYPE_HOME) )
+           if ( rc == NETERR_SETTINGS_DBNOTREADY && (computer_type == COMPUTER_TYPE_TEACHERPC || computer_type == COMPUTER_TYPE_HOME) )
               {
                 if ( !p_cfg->CanAccess() ) // to avoid infinite sending
                    {

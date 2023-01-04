@@ -37,7 +37,7 @@ function ShowSaverWindow(parent:HWND;direction:integer;const title:pchar;filenam
 
 implementation
 
-uses ShellApi;
+uses ShellApi, VistaAltFixUnit;
 
 {$R *.dfm}
 

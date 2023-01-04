@@ -16,7 +16,7 @@ static BOOL g_b_warn;
 
 static void DrawTextOnBitmap(HDC hdc,int w,int h)
 {
-  HFONT font = CreateFont(-10,0,0,0,FW_NORMAL,0,0,0,DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH,"Verdana");
+  HFONT font = CreateFont(-12,0,0,0,FW_NORMAL,0,0,0,DEFAULT_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,DEFAULT_PITCH,"Segoe UI");
   HFONT oldfont = (HFONT)SelectObject(hdc,font);
 
   if ( !g_b_warn )

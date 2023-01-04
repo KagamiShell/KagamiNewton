@@ -233,7 +233,7 @@ BOOL IsRemoteDesktopRunning(void)
 {
   BOOL rc = FALSE;
 
-  HANDLE m = OpenMutex(READ_CONTROL,FALSE,RSRD_MUTEX);
+  HANDLE m = OpenMutex(READ_CONTROL,FALSE,KNRD_MUTEX);
   if ( m )
      {
        rc = TRUE;

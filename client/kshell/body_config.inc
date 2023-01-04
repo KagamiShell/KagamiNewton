@@ -40,7 +40,7 @@ void ReadConfig()
        AboutBoxUpdateProgress(LS(3014));
        unsigned starttime = GetTickCount();
 #ifndef DEBUG
-       unsigned timeout = (computer_type == COMPUTER_TYPE_OPERATOR || computer_type == COMPUTER_TYPE_HOME) ? (is_vista?70000:40000) : 8000;
+       unsigned timeout = (computer_type == COMPUTER_TYPE_TEACHERPC || computer_type == COMPUTER_TYPE_HOME) ? (is_vista?70000:40000) : 8000;
 #else
        unsigned timeout = 3000;
 #endif
@@ -106,7 +106,7 @@ void ReadConfig()
                      {
                        if ( cmd.GetParmAsInt(NETPARM_I_GUID,NETGUID_UNKNOWN) == NETGUID_SERVER )
                           {
-                            const char *lic_organization = cmd.GetParmAsString(NETPARM_S_LICORGANIZATION,"");
+                            const char *lic_organization = cmd.GetParmAsString(NETPARM_S_LICTEACHERLAPTOP,"");
                             const char *lic_owner = cmd.GetParmAsString(NETPARM_S_LICOWNER,"");
                             int lic_computers = cmd.GetParmAsInt(NETPARM_I_LICCOMPUTERS,0);
                             const char *lic_features = cmd.GetParmAsString(NETPARM_S_LICFEATURES,"");
@@ -154,7 +154,7 @@ void ReadConfig()
 
                        if ( rc == NETERR_SETTINGS_DBNOTREADY )
                           {
-                            if ( computer_type == COMPUTER_TYPE_OPERATOR || computer_type == COMPUTER_TYPE_HOME )
+                            if ( computer_type == COMPUTER_TYPE_TEACHERPC || computer_type == COMPUTER_TYPE_HOME )
                                {
                                  NetSend(CNetCmd(NETCMD_GETSETTINGS_REQ));
                                  last_recv_time = GetTickCount(); //timeout for next cmd

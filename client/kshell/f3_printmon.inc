@@ -7,7 +7,7 @@ static HANDLE ev_printerthreadstop = NULL;
 
 enum {
  PRINTCOL_PRINTER_NAME,
- PRINTCOL_COMPUTER_NAME,
+ PRINTCOL_MACHINE_NAME,
  PRINTCOL_USER_NAME,
  PRINTCOL_DOC_NAME,
  PRINTCOL_TOTAL_PAGES,
@@ -22,7 +22,7 @@ typedef struct {
 BOOL done;
 int id;
 char printer_name[MAX_PATH];
-char computer_name[MAX_PATH];
+char machine_name[MAX_PATH];
 char user_name[MAX_PATH];
 char doc_name[MAX_PATH];
 int total_pages;
@@ -103,9 +103,9 @@ static void Add2PrintCollection(int id,int field,const void *pdata,int idata)
                                      if ( pdata )
                                         lstrcpyn(work->printer_name,(LPCSTR)pdata,sizeof(work->printer_name)-1);
                                      break;
-         case PRINTCOL_COMPUTER_NAME:
+         case PRINTCOL_MACHINE_NAME:
                                      if ( pdata )
-                                        lstrcpyn(work->computer_name,(LPCSTR)pdata,sizeof(work->computer_name)-1);
+                                        lstrcpyn(work->machine_name,(LPCSTR)pdata,sizeof(work->machine_name)-1);
                                      break;
          case PRINTCOL_USER_NAME:
                                      if ( pdata )
@@ -138,15 +138,15 @@ static void Add2PrintCollection(int id,int field,const void *pdata,int idata)
                  char s_printer[50];
                  char s_doc[50];
                  char s_user[17];
-                 char s_computer[17];
+                 char s_machine[17];
 
                  lstrcpyn(s_printer,work->printer_name,sizeof(s_printer)-1);
                  lstrcpyn(s_doc,work->doc_name,sizeof(s_doc)-1);
                  lstrcpyn(s_user,work->user_name,sizeof(s_user)-1);
-                 lstrcpyn(s_computer,work->computer_name,sizeof(s_computer)-1);
+                 lstrcpyn(s_machine,work->machine_name,sizeof(s_machine)-1);
 
                  char s[MAX_PATH];
-                 wsprintf(s,"%s, %s/%s, %d %s, %d KB, %s",s_printer,s_computer,s_user,work->total_pages,STR_008,work->total_bytes/1024,s_doc);
+                 wsprintf(s,"%s, %s/%s, %d %s, %d KB, %s",s_printer,s_machine,s_user,work->total_pages,STR_008,work->total_bytes/1024,s_doc);
 
                  ATOM atom = GlobalAddAtom(s);
                  int l = (work->total_pages << 20) + ((work->total_bytes/1024) & 0xFFFFF);
@@ -200,8 +200,8 @@ static BOOL ProcessSinglePrintNotify(HANDLE h,PRINTER_NOTIFY_OPTIONS& pn)
                          case JOB_NOTIFY_FIELD_PRINTER_NAME:
                                   Add2PrintCollection(id,PRINTCOL_PRINTER_NAME,pni->aData[n].NotifyData.Data.pBuf,0);
                                   break;
-                         case JOB_NOTIFY_FIELD_COMPUTER_NAME:
-                                  Add2PrintCollection(id,PRINTCOL_COMPUTER_NAME,pni->aData[n].NotifyData.Data.pBuf,0);
+                         case JOB_NOTIFY_FIELD_MACHINE_NAME:
+                                  Add2PrintCollection(id,PRINTCOL_MACHINE_NAME,pni->aData[n].NotifyData.Data.pBuf,0);
                                   break;
                          case JOB_NOTIFY_FIELD_USER_NAME:
                                   Add2PrintCollection(id,PRINTCOL_USER_NAME,pni->aData[n].NotifyData.Data.pBuf,0);
@@ -317,7 +317,7 @@ static DWORD WINAPI PrinterThreadProc(LPVOID lpParameter)
    };
   WORD jnf[] = {  
     JOB_NOTIFY_FIELD_PRINTER_NAME,
-    JOB_NOTIFY_FIELD_COMPUTER_NAME,
+    JOB_NOTIFY_FIELD_MACHINE_NAME,
     JOB_NOTIFY_FIELD_PORT_NAME,
     JOB_NOTIFY_FIELD_USER_NAME,
     JOB_NOTIFY_FIELD_NOTIFY_NAME,

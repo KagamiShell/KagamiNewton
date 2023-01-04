@@ -125,7 +125,7 @@ void CConfigurator::OnServerVarsReceived(const CNetCmd &cmd)
 
 unsigned CConfigurator::GetWaitTime() const
 {
-  return (m_computer_type == COMPUTER_TYPE_OPERATOR || m_computer_type == COMPUTER_TYPE_HOME) ? 60000 : 15000;
+  return (m_computer_type == COMPUTER_TYPE_TEACHERPC || m_computer_type == COMPUTER_TYPE_HOME) ? 60000 : 15000;
 }
 
 

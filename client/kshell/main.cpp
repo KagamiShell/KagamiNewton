@@ -25,7 +25,7 @@ void ReadGlobalConfig()
 {
   // the same code in service!!!
 
-  machine_type = ReadRegDword(HKLM,REGPATH,"machine_type",MACHINE_TYPE_GAMECLUB);
+  computer_type = ReadRegDword(HKLM,REGPATH,"computer_type",COMPUTER_TYPE_STUDENTPC);
   ReadRegStr(HKLM,REGPATH,"computer_loc",computer_loc,"");
   if ( !computer_loc[0] )
      ReadRegStr(HKLM,"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion","RegisteredOrganization",computer_loc,"");
@@ -45,7 +45,7 @@ void WriteGlobalConfig()
 {
   // the same code in service!!!
 
-  WriteRegDword(HKLM,REGPATH,"machine_type",machine_type);
+  WriteRegDword(HKLM,REGPATH,"computer_type",computer_type);
   WriteRegStr(HKLM,REGPATH,"computer_loc",computer_loc);
   WriteRegStr(HKLM,REGPATH,"computer_desc",computer_desc);
   WriteRegStr(HKLM,REGPATH,"server_ip",server_ip_internal);
@@ -164,7 +164,7 @@ typedef struct {
 int cbSize;
 HICON small_icon;
 HICON big_icon;
-int machine_type;
+int computer_type;
 TSTRING computer_loc;
 TSTRING computer_desc;
 TSTRING server_ip;
@@ -184,7 +184,7 @@ void StartupMasterDialog(void)
   i.cbSize = sizeof(i);
   i.small_icon = (HICON)LoadImage(our_instance,MAKEINTRESOURCE(IDI_SETTINGS),IMAGE_ICON,16,16,LR_SHARED);
   i.big_icon = (HICON)LoadImage(our_instance,MAKEINTRESOURCE(IDI_SETTINGS),IMAGE_ICON,32,32,LR_SHARED);
-  i.machine_type = is_operator ? MACHINE_TYPE_OPERATOR : machine_type;
+  i.computer_type = is_operator ? COMPUTER_TYPE_TEACHERPC : computer_type;
   lstrcpy(i.computer_loc,computer_loc);
   lstrcpy(i.computer_desc,computer_desc);
   lstrcpy(i.server_ip,/*is_operator ? GetMyIPAsString(s) :*/ server_ip_internal);
@@ -199,7 +199,7 @@ void StartupMasterDialog(void)
 
   if ( ShowStartupMasterDialog(&i) )
      {
-       machine_type = i.machine_type;
+       computer_type = i.computer_type;
        lstrcpy(computer_loc,i.computer_loc);
        lstrcpy(computer_desc,i.computer_desc);
        lstrcpy(server_ip_internal,i.server_ip);

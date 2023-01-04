@@ -12,7 +12,7 @@ function GetScriptErrorText(const vaIn: OleVariant): string;
 
 implementation
 
-uses Windows, Messages, Classes, mshtml, OleCtrls, ComObj;
+uses Windows, Messages, Classes, mshtml, OleCtrls, ComObj, VistaAltFixUnit;
 
 
 

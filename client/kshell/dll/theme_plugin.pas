@@ -52,7 +52,7 @@ type
 
 implementation
 
-uses SysUtils, StrUtils;
+uses SysUtils, StrUtils, VistaAltFixUnit;
 
 
 function PathIsURL(const pszPath:pchar):longbool; stdcall; external 'shlwapi.dll' name 'PathIsURLA';

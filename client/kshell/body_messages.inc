@@ -1071,7 +1071,7 @@ int ProcessNewtonInternalMessage(HWND hwnd,int message,int wParam,int lParam,BOO
                              cmd.AddStringParm(NETPARM_S_DOMAIN,GetDomainName(s));
                              cmd.AddStringParm(NETPARM_S_USERNAME,MyGetUserName(s));
                              cmd.AddStringParm(NETPARM_S_PATH,path);
-                             NetSend(cmd,NETGUID_FIRST_OPERATOR);
+                             NetSend(cmd,NETGUID_FIRST_TEACHERPC);
                            }
                       }
                    return 0;
@@ -1095,7 +1095,7 @@ int ProcessNewtonInternalMessage(HWND hwnd,int message,int wParam,int lParam,BOO
                              cmd.AddStringParm(NETPARM_S_USERNAME,MyGetUserName(s));
                              cmd.AddStringParm(NETPARM_S_PATH,path);
                              cmd.AddBoolParm(NETPARM_B_MOBILECONTENT,lParam?TRUE:FALSE);
-                             NetSend(cmd,NETGUID_FIRST_OPERATOR);
+                             NetSend(cmd,NETGUID_FIRST_TEACHERPC);
                            }
                       }
                    return 0;

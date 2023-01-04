@@ -32,6 +32,8 @@ function GetInputTextPos(parent:HWND;pwdchar:char;x,y,w,h,maxlen:integer;const i
 
 implementation
 
+uses VistaAltFixUnit;
+
 {$R *.dfm}
 
 

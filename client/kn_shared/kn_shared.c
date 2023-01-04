@@ -1244,14 +1244,14 @@ static BOOL WriteResourceToFile(const char *filename,int id)
 }
 
 
-__declspec(dllexport) BOOL __cdecl CreateNewEmptyDOC(const char *filename)
+__declspec(dllexport) BOOL __cdecl CreateNewEmptyDOCX(const char *filename)
 {
-  return WriteResourceToFile(filename,ID_NEWDOC);
+  return WriteResourceToFile(filename,ID_NEWDOCX);
 }
 
-__declspec(dllexport) BOOL __cdecl CreateNewEmptyXLS(const char *filename)
+__declspec(dllexport) BOOL __cdecl CreateNewEmptyXLSX(const char *filename)
 {
-  return WriteResourceToFile(filename,ID_NEWXLS);
+  return WriteResourceToFile(filename,ID_NEWXLSX);
 }
 
 __declspec(dllexport) BOOL __cdecl CreateNewEmptyTXT(const char *filename)

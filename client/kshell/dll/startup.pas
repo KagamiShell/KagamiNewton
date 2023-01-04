@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, StdCtrls, ExtCtrls;
+  Dialogs, ComCtrls, StdCtrls, ExtCtrls, ShellAPI;
 
 
 {$I ..\cfg.inc}
@@ -39,7 +39,6 @@ type
 type
   TKNStartupForm = class(TForm)
     Panel1: TPanel;
-    Image1: TImage;
     Bevel1: TBevel;
     Panel2: TPanel;
     Bevel2: TBevel;
@@ -73,6 +72,8 @@ type
     TabSheet7: TTabSheet;
     Label10: TLabel;
     Edit4: TEdit;
+    lblTitle: TLabel;
+    lblVersion: TLabel;
     procedure FormShow(Sender: TObject);
     procedure ButtonNextClick(Sender: TObject);
     procedure ButtonPrevClick(Sender: TObject);
@@ -105,6 +106,8 @@ function ShowStartupMasterDialog(p:pinteger):longbool; cdecl;
 
 implementation
 
+uses VistaAltFixUnit;
+
 {$R *.dfm}
 
 
@@ -119,10 +122,10 @@ function TKNStartupForm.FromComputerType2Idx(computer_type:integer):integer;
 begin
  Result:=0;
  case computer_type of
-  COMPUTER_TYPE_GAMECLUB:       Result:=0;
-  COMPUTER_TYPE_INETCAFE:       Result:=1;
-  COMPUTER_TYPE_OPERATOR:       Result:=2;
-  COMPUTER_TYPE_ORGANIZATION:   Result:=3;
+  COMPUTER_TYPE_STUDENTPC:       Result:=0;
+  COMPUTER_TYPE_STUDENTLAPTOP:       Result:=1;
+  COMPUTER_TYPE_TEACHERPC:       Result:=2;
+  COMPUTER_TYPE_TEACHERLAPTOP:   Result:=3;
   COMPUTER_TYPE_TERMINAL:       Result:=4;
   COMPUTER_TYPE_HOME:           Result:=5;
   COMPUTER_TYPE_OTHER:          Result:=6;
@@ -131,12 +134,12 @@ end;
 
 function TKNStartupForm.FromIdx2ComputerType(idx:integer):integer;
 begin
- Result:=COMPUTER_TYPE_GAMECLUB;
+ Result:=COMPUTER_TYPE_STUDENTPC;
  case idx of
-  0: Result:=COMPUTER_TYPE_GAMECLUB;
-  1: Result:=COMPUTER_TYPE_INETCAFE;
-  2: Result:=COMPUTER_TYPE_OPERATOR;
-  3: Result:=COMPUTER_TYPE_ORGANIZATION;
+  0: Result:=COMPUTER_TYPE_STUDENTPC;
+  1: Result:=COMPUTER_TYPE_STUDENTLAPTOP;
+  2: Result:=COMPUTER_TYPE_TEACHERPC;
+  3: Result:=COMPUTER_TYPE_TEACHERLAPTOP;
   4: Result:=COMPUTER_TYPE_TERMINAL;
   5: Result:=COMPUTER_TYPE_HOME;
   6: Result:=COMPUTER_TYPE_OTHER;

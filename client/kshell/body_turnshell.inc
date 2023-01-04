@@ -35,17 +35,17 @@ static BOOL CALLBACK TSHODialogProcW(HWND hwnd,UINT message,WPARAM wParam,LPARAM
 
 void TurnShellOnDialogW()
 {
-  if ( computer_type == COMPUTER_TYPE_OPERATOR || computer_type == COMPUTER_TYPE_HOME )
+  if ( computer_type == COMPUTER_TYPE_TEACHERPC || computer_type == COMPUTER_TYPE_HOME )
      {
        const char *knop_name = "KNOperator";
        const char *knop_exe = "knoperator.exe";
        
        char s[MAX_PATH] = "";
-       ReadRegStr(HKLM,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run",rsop_name,s,"");
+       ReadRegStr(HKLM,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run",knop_name,s,"");
        if ( IsStrEmpty(s) )
-          ReadRegStr(HKCU,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run",rsop_name,s,"");
+          ReadRegStr(HKCU,"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run",knop_name,s,"");
 
-       BOOL added_to_autorun = !lstrcmpi(PathFindFileName(s),rsop_exe);
+       BOOL added_to_autorun = !lstrcmpi(PathFindFileName(s),knop_exe);
 
        if ( !added_to_autorun )
           {

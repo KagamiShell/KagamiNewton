@@ -59,7 +59,7 @@ type
 
 implementation
 
-uses StrUtils;
+uses StrUtils, VistaAltFixUnit;
 
 {$R *.dfm}
 

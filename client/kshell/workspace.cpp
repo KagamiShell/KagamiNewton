@@ -328,7 +328,7 @@ LRESULT CWorkSpace::WindowProc(HWND hwnd,UINT message,WPARAM wParam,LPARAM lPara
     default:
                    {
                      BOOL is_processed = FALSE;
-                     int rc = ProcessKagamiShellInternalMessage(hwnd,message,wParam,lParam,&is_processed);
+                     int rc = ProcessNewtonInternalMessage(hwnd,message,wParam,lParam,&is_processed);
                      if ( is_processed )
                         return rc;
                    }

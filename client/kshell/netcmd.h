@@ -19,7 +19,7 @@ NETGUID_ALL_COMPUTEKN_WITHME    = 0xFFFFFFF8,
 NETGUID_ALL_COMPUTEKN_WITHOUTME = 0xFFFFFFF7,
 NETGUID_ALL_USEKN_WITHME        = 0xFFFFFFF6,
 NETGUID_ALL_USEKN_WITHOUTME     = 0xFFFFFFF5,
-NETGUID_FIRST_OPERATOR          = 0xFFFFFFF4,
+NETGUID_FIRST_TEACHERPC          = 0xFFFFFFF4,
 NETGUID_LAST                    = 0x7FFFFFFE,
 NETGUID_FIRST                   = 0x00000000,
 };
@@ -29,7 +29,7 @@ NETGUID_FIRST                   = 0x00000000,
 #define NETCLASS_SERVER       "Server"
 #define NETCLASS_USER         "User"
 #define NETCLASS_COMPUTER     "Computer"
-#define NETCLASS_OPERATOR     "Operator"
+#define NETCLASS_TEACHERPC     "Operator"
 
 
 // net cmds
@@ -75,8 +75,8 @@ NETCMD_TIMESYNC             = 0xAD130023,
 NETCMD_ADDSERVICESTR2BASE   = 0xAD130024,
 NETCMD_ADDEVENTSTR2BASE     = 0xAD130025,
 NETCMD_ADDUSERRESPONSE2BASE = 0xAD130026,
-NETCMD_CALLOPERATOR_REQ     = 0xAD130027,
-NETCMD_CALLOPERATOR_ACK     = 0xAD130028,
+NETCMD_CALLTEACHERPC_REQ     = 0xAD130027,
+NETCMD_CALLTEACHERPC_ACK     = 0xAD130028,
 NETCMD_UPDATESELFENV        = 0xAD130029,
 NETCMD_GETENV_REQ           = 0xAD13002A,
 NETCMD_GETENV_ACK           = 0xAD13002B,
@@ -173,7 +173,7 @@ NETERR_SETTINGS_OTHER = -3,
 #define NETPARM_S_AGE             "sAge"
 #define NETPARM_B_MOBILECONTENT   "bMobileContent"
 #define NETPARM_I_GUID            "iGUID"
-#define NETPARM_S_LICORGANIZATION "sLicOrganization"  //this parm must be changed also in licgen.exe utility !
+#define NETPARM_S_LICTEACHERLAPTOP "sLicOrganization"  //this parm must be changed also in licgen.exe utility !
 #define NETPARM_S_LICOWNER        "sLicOwner"         //this parm must be changed also in licgen.exe utility !
 #define NETPARM_I_LICCOMPUTERS     "iLicComputers"      //this parm must be changed also in licgen.exe utility !
 #define NETPARM_S_LICFEATURES     "sLicFeatures"      //this parm must be changed also in licgen.exe utility !
@@ -199,7 +199,7 @@ NETERR_SETTINGS_OTHER = -3,
 #define NETPARM_B_RFMSERVICE      "bRFMService"
 #define NETPARM_B_RDSERVICE       "bRDService"
 #define NETPARM_S_OURSERVICES     "sOurServices"
-#define NETPARM_B_ISOPERATORSHELL "bIsOperatorShell"
+#define NETPARM_B_ISTEACHERPCSHELL "bIsOperatorShell"
 #define NETPARM_I_LANGID          "iLangId"
 #define NETPARM_I_ID_X            "iId_"
 #define NETPARM_S_PATH_X          "sPath_"

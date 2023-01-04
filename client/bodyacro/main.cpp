@@ -81,7 +81,7 @@ LRESULT CWMPHost::OnCreate(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandl
     return 0;
 
 FAILURE:
-    ::MessageBox(NULL,"Acrobat Reader version 7.0+ is needed!","Error",MB_ICONERROR | MB_OK);
+    ::MessageBox(NULL,"Для данного модуля требуется Acrobat Reader версии 7.0 и выше!","Ошибка",MB_ICONERROR | MB_OK);
     ::PostQuitMessage(0);
     ::error = 1;
     return 0;
@@ -150,7 +150,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
 	
 	if ( __argc != 2 )
 	   {
-             MessageBoxW(NULL,L"Для просмотра PDF просто откройте нужный файл в проводнике пользователя",L"Информация",MB_OK | MB_ICONINFORMATION);
+             MessageBoxW(NULL,L"Для просмотра PDF просто откройте нужный файл в проводнике ученика.",L"Информация",MB_OK | MB_ICONINFORMATION);
    	     return 0;
   	   }	
 	

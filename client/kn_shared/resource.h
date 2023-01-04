@@ -6,7 +6,7 @@
 #define IDC_LABEL                       1001
 #define IDC_COMBO                       1004
 #define IDC_ICOND                       1005
-#define ID_NEWDOC                       2001
-#define ID_NEWXLS                       2002
+#define ID_NEWDOCX                       2001
+#define ID_NEWXLSX                       2002
 #define ID_NEWTXT                       2003
 

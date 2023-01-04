@@ -19,7 +19,7 @@ static void SetHook64Internal(BOOL state,const char *hook_name,const char *event
             CDisableWOW64FSRedirection g;
 
             char s[MAX_PATH];
-            GetFileNameInLocalAppDir("rshelper64.dll",s);
+            GetFileNameInLocalAppDir("knhelper64.dll",s);
             //GetShortPathName(s,s,sizeof(s));
 
             char exe[MAX_PATH];

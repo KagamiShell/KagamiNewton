@@ -227,13 +227,13 @@ void AddEventString2SQLBaseInternal(int s_level,const char *s_comments)
 void SendMessageToOperator(const char *msg,BOOL to_all)
 {
   char s[MAX_PATH];
-  CNetCmd cmd(NETCMD_CALLOPERATOR_REQ);
+  CNetCmd cmd(NETCMD_CALLTEACHERPC_REQ);
   cmd.AddStringParm(NETPARM_S_COMPUTERLOC,computer_loc);
   cmd.AddStringParm(NETPARM_S_COMPUTERDESC,computer_desc);
   cmd.AddStringParm(NETPARM_S_DOMAIN,GetDomainName(s));
   cmd.AddStringParm(NETPARM_S_USERNAME,MyGetUserName(s));
   cmd.AddStringParm(NETPARM_S_TEXT,msg);
-  NetSend(cmd,to_all ? NETGUID_ALL_OPERATOKN_WITHOUTME : NETGUID_FIRST_OPERATOR);
+  NetSend(cmd,to_all ? NETGUID_ALL_OPERATOKN_WITHOUTME : NETGUID_FIRST_TEACHERPC);
 }
 
 
@@ -282,7 +282,7 @@ void SendStaticInfoToServer()
   CNetCmd cmd(NETCMD_UPDATESELFENV);
 
   cmd.AddStringParm(NETPARM_S_CLASS,NETCLASS_USER); //we are user
-  cmd.AddBoolParm(NETPARM_B_ISOPERATORSHELL,(computer_type == COMPUTER_TYPE_OPERATOR));
+  cmd.AddBoolParm(NETPARM_B_ISTEACHERPCSHELL,(computer_type == COMPUTER_TYPE_TEACHERPC));
   cmd.AddStringParm(NETPARM_S_COMPUTERLOC,computer_loc);
   cmd.AddStringParm(NETPARM_S_COMPUTERDESC,computer_desc);
   cmd.AddStringParm(NETPARM_S_COMPNAME,MyGetComputerName(s));
@@ -359,7 +359,7 @@ static void OnNetCmdReceived(const CNetCmd &cmd,unsigned src_guid)
 
     case NETCMD_BLOCKCOMPUTER:
     {
-      //if ( computer_type != COMPUTER_TYPE_OPERATOR && computer_type != COMPUTER_TYPE_HOME )  checks in operator program!
+      //if ( computer_type != COMPUTER_TYPE_TEACHERPC && computer_type != COMPUTER_TYPE_HOME )  checks in operator program!
          {
            OnBlockAction();
          }
@@ -374,7 +374,7 @@ static void OnNetCmdReceived(const CNetCmd &cmd,unsigned src_guid)
  
     case NETCMD_MONITOROFF:
     {
-      //if ( computer_type != COMPUTER_TYPE_OPERATOR && computer_type != COMPUTER_TYPE_HOME )  checks in operator program!
+      //if ( computer_type != COMPUTER_TYPE_TEACHERPC && computer_type != COMPUTER_TYPE_HOME )  checks in operator program!
          {
            TurnOffMonitor(disable_input_when_monitor_off,0);
            SendDynamicInfoToServer();
@@ -524,7 +524,7 @@ static void OnNetCmdReceived(const CNetCmd &cmd,unsigned src_guid)
       break;
     }
 
-    case NETCMD_CALLOPERATOR_ACK:
+    case NETCMD_CALLTEACHERPC_ACK:
     case NETCMD_NETBURN_ACK:
     case NETCMD_NETBT_ACK:
     {

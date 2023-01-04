@@ -67,3 +67,7 @@ __recovery/
 
 # Boss dependency manager vendor folder https://github.com/HashLoad/boss
 modules/
+
+# Отменить игнорирование Internat. Требуется для индикации раскладки в оболочке.
+!indicdll.dll
+!internat.exe

@@ -106,8 +106,8 @@ EXTERN BOOL __cdecl UnhackAPIFunction(void *hack_handle);
 
 EXTERN void __cdecl ChangeProcessTerminateRights(BOOL state);
 
-EXTERN BOOL __cdecl CreateNewEmptyDOC(const char *filename);
-EXTERN BOOL __cdecl CreateNewEmptyXLS(const char *filename);
+EXTERN BOOL __cdecl CreateNewEmptyDOCX(const char *filename);
+EXTERN BOOL __cdecl CreateNewEmptyXLSX(const char *filename);
 EXTERN BOOL __cdecl CreateNewEmptyTXT(const char *filename);
 
 EXTERN BOOL __cdecl ImportRegistryFile(const char *filename);
