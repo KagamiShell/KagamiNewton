@@ -160,6 +160,7 @@ object MainForm: TMainForm
     Height = 25
     Caption = #1059#1089#1090#1072#1085#1086#1074#1080#1090#1100
     TabOrder = 3
+    OnClick = ButtonSetClick
   end
   object btnReset: TButton
     Left = 424
@@ -168,6 +169,7 @@ object MainForm: TMainForm
     Height = 25
     Caption = #1057#1073#1088#1086#1089
     TabOrder = 4
+    OnClick = ButtonResetClick
   end
   object edtSheetPic: TEdit
     Left = 128

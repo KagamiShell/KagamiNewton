@@ -5,7 +5,7 @@
 #include <oleauto.h>
 #include <shlwapi.h>
 #include <stdlib.h>
-#include "../rp_shared/rp_shared.h"
+#include "../kn_shared/kn_shared.h"
 #include "../common/version.h"
 
 //#import "acropdf.dll"
@@ -145,7 +145,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLin
 {
 	::InitCommonControls();
 
-        if ( !CheckRPVersion(RUNPAD_VERSION_DIG) )
+        if ( !CheckKNVersion(NEWTON_VERSION_DIG) )
            return 0;
 	
 	if ( __argc != 2 )

@@ -189,7 +189,7 @@ begin
 
          if s<>'' then
           begin
-           s:=IncludeTrailingPathDelimiter(s)+'rs_themes_res_tmp\';
+           s:=IncludeTrailingPathDelimiter(s)+'kn_themes_res_tmp\';
            CreateDirectory(pchar(s),nil);
 
            s:=s+Format('%.8x%s',[ComputeResUID(lib_path,res_name),ExtractFileExt(res_name)]);
@@ -452,8 +452,8 @@ begin
     WebBrowser.OnWindowClosing := WebBrowserWindowClosing;
     WebBrowser.OnDocumentComplete := WebBrowserDocumentComplete;
 
-    WebBrowser.Bind('getMachineLoc',KNGetCompLoc);
-    WebBrowser.Bind('getMachineDesc',KNGetCompDesc);
+    WebBrowser.Bind('getComputerLoc',KNGetCompLoc);
+    WebBrowser.Bind('getComputerDesc',KNGetCompDesc);
     WebBrowser.Bind('getStudentSessionName',KNGetStudentSessionName);
     WebBrowser.Bind('getStatusString',KNGetStatusString);
     WebBrowser.Bind('getInfoText',KNGetInfoText);

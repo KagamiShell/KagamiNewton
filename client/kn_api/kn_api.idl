@@ -1,0 +1,168 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(0CBC0D60-02DB-434d-99C0-003702C65934),
+	helpstring("IRunpadShell Interface"),
+	pointer_default(unique)
+]
+
+interface IRunpadShell : IUnknown {
+
+	typedef enum {
+		KNS_OFF = 0,
+		KNS_TURNEDON = 1,
+		KNS_ACTIVE = 3,
+		KNS_INVALID = -1,
+	} KSHELLSTATE;
+
+	typedef enum {
+		KNM_ADMIN = 0x01,
+		KNM_MONITOR = 0x02,
+		KNM_INPUT = 0x04,
+		KNM_BLOCKED = 0x08,
+	} KSHELLMODE;
+
+	typedef enum {
+		KNF_SHELL = 0,
+		KNF_DESKTOP = 1,
+		KNF_BG = 2,
+		KNF_RULES = 3,
+		KNF_USERFOLDER = 4,
+		KNF_STUDENTFOLDER = 5,
+	} KSHELLFOLDER;
+
+	typedef enum {
+		KNMSG_DESKTOP = 0,
+		KNMSG_TRAY = 1,
+		KNMSG_STATUS = 2,
+	} KSHELLMESSAGE;
+
+	typedef enum {
+		KNA_SHOWPANEL = 0,
+		KNA_MINIMIZEALLWINDOWS = 1,
+		KNA_KILLALLTASKS = 2,
+		KNA_RESTOREVMODE = 3,
+		KNA_UPDATEDESKTOP = 4,
+		KNA_CLOSECHILDWINDOWS = 5,
+		KNA_SWITCHTOUSERMODE = 6,
+		KNA_TURNMONITORON = 7,
+		KNA_TURNMONITOROFF = 8,
+		KNA_ENDSTUDENTSESSION = 9,
+		KNA_RUNPROGRAMDISABLE = 10,
+		KNA_RUNPROGRAMENABLE = 11,
+		KNA_LOGOFF = 12,
+		KNA_LOGOFFFORCE = 13,
+		KNA_RUNSCREENSAVER = 14,
+		KNA_LANGSELECTDIALOG = 15,
+		KNA_LANGSELECTRUS = 16,
+		KNA_LANGSELECTENG = 17,
+		KNA_CLOSEACTIVESHEET = 20,
+		KNA_SHOWLA = 21,
+	} KSHELLACTION;
+
+	HRESULT  GetShellState([out] KSHELLSTATE *pState);
+	HRESULT  GetShellExecutable([out,size_is(cbPathLen)] LPSTR lpszExePath, [in] DWORD cbPathLen, [out] DWORD *lpdwPID);
+	HRESULT  TurnShell([in] BOOL bNewState);
+	HRESULT  GetShellMode([out] DWORD *lpdwFlags);
+	HRESULT  IsShellOwnedWindow([in] HWND hWnd, [out] BOOL *lpbOwned);
+	HRESULT  GetFolderPath([in] KSHELLFOLDER dwFolderType, [out,size_is(cbPathLen)] LPSTR lpszPath, [in] DWORD cbPathLen);
+	HRESULT  GetComputerNumber([out] DWORD *lpdwNum);
+	HRESULT  GetCurrentSheet([out,size_is(cbNameLen)] LPSTR lpszName, [in] DWORD cbNameLen);
+	HRESULT  EnableSheets([in] LPCSTR lpszName, [in] BOOL bEnable);
+	HRESULT  RegisterClient([in] LPCSTR lpszClientName, [in] LPCSTR lpszClientPath, [in] DWORD dwFlags);
+	HRESULT  ShowInfoMessage([in] LPCSTR lpszText, [in] DWORD dwFlags);
+	HRESULT  DoSingleAction([in] KSHELLACTION dwAction);
+};
+
+
+[
+	object,
+	uuid(548856D7-555A-445B-BDEB-EEE491A14C39),
+	helpstring("IRunpadShell2 Interface"),
+	pointer_default(unique)
+]
+
+interface IRunpadShell2 : IUnknown {
+
+	HRESULT  GetShellState([out] KSHELLSTATE *pState);
+	HRESULT  GetShellExecutable([out,size_is(cbPathLen)] LPSTR lpszExePath, [in] DWORD cbPathLen, [out] DWORD *lpdwPID);
+	HRESULT  TurnShell([in] BOOL bNewState);
+	HRESULT  GetShellMode([out] DWORD *lpdwFlags);
+	HRESULT  IsShellOwnedWindow([in] HWND hWnd, [out] BOOL *lpbOwned);
+	HRESULT  GetFolderPath([in] KSHELLFOLDER dwFolderType, [out,size_is(cbPathLen)] LPSTR lpszPath, [in] DWORD cbPathLen);
+	HRESULT  GetComputerNumber([out] DWORD *lpdwNum);
+	HRESULT  GetCurrentSheet([out,size_is(cbNameLen)] LPSTR lpszName, [in] DWORD cbNameLen);
+	HRESULT  EnableSheets([in] LPCSTR lpszName, [in] BOOL bEnable);
+	HRESULT  RegisterClient([in] LPCSTR lpszClientName, [in] LPCSTR lpszClientPath, [in] DWORD dwFlags);
+	HRESULT  ShowInfoMessage([in] LPCSTR lpszText, [in] DWORD dwFlags);
+	HRESULT  DoSingleAction([in] KSHELLACTION dwAction);
+	HRESULT  StudentLogin([in] LPCSTR lpszLogin, [in] LPCSTR lpszPassword, [in] BOOL bWait);
+	HRESULT  StudentRegister([in] LPCSTR lpszLogin, [in] LPCSTR lpszPassword, [in] BOOL bWait);
+	HRESULT  StudentLogout([in] BOOL bWait);
+};
+
+
+[
+	object,
+	uuid(83C12BF7-FF8F-4619-85CD-9DA77C8D7D5F),
+	helpstring("IKagamiShell Interface"),
+	pointer_default(unique)
+]
+
+interface IKagamiShell : IUnknown {
+
+	HRESULT  GetShellPid([out] DWORD *lpdwPID);
+	HRESULT  GetShellMode([out] DWORD *lpdwFlags);
+	HRESULT  IsShellOwnedWindow([in] HWND hWnd, [out] BOOL *lpbOwned);
+	HRESULT  GetFolderPath([in] KSHELLFOLDER dwFolderType, [out,size_is(cbPathLen)] LPSTR lpszPath, [in] DWORD cbPathLen);
+	HRESULT  GetCurrentSheet([out,size_is(cbNameLen)] LPSTR lpszName, [in] DWORD cbNameLen);
+	HRESULT  EnableSheets([in] LPCSTR lpszName, [in] BOOL bEnable);
+	HRESULT  RegisterClient([in] LPCSTR lpszClientName, [in] LPCSTR lpszClientPath, [in] DWORD dwFlags);
+	HRESULT  ShowInfoMessage([in] LPCSTR lpszText, [in] DWORD dwFlags);
+	HRESULT  DoSingleAction([in] KSHELLACTION dwAction);
+	HRESULT  StudentLogin([in] LPCSTR lpszLogin, [in] LPCSTR lpszPassword, [in] BOOL bWait);
+	HRESULT  StudentRegister([in] LPCSTR lpszLogin, [in] LPCSTR lpszPassword, [in] BOOL bWait);
+	HRESULT  StudentLogout([in] BOOL bWait);
+	HRESULT  TempOffShell([in] LPCSTR lpszPasswordMD5, [in] BOOL bShowReminder);
+};
+
+
+[
+	uuid(02988454-DBAC-48b9-A8A2-85AEE4E2486F),
+	version(1.0),
+	helpstring("KN_API 1.0 Type Library")
+]
+library KN_APILib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(D7346301-B73F-4a94-ABE6-234A0D49521D),
+		helpstring("RunpadShell Class")
+	]
+	coclass RunpadShell
+	{
+		[default] interface IRunpadShell;
+	};
+
+	[
+		uuid(D163EEE3-540A-48DA-9009-C194588263B9),
+		helpstring("RunpadShell2 Class")
+	]
+	coclass RunpadShell2
+	{
+		[default] interface IRunpadShell2;
+	};
+
+	[
+		uuid(3D4B9FF0-329A-4ed9-A341-B07AE052B7D6),
+		helpstring("KagamiShell Class")
+	]
+	coclass KagamiShell
+	{
+		[default] interface IKagamiShell;
+	};
+};

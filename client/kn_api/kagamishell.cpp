@@ -26,7 +26,7 @@ STDMETHODIMP CKagamiShell::IsShellOwnedWindow(HWND hWnd, BOOL* lpbOwned)
 	return BOOL2HRESULT( KN_IsShellOwnedWindow(hWnd,lpbOwned) );
 }
 
-STDMETHODIMP CKagamiShell::GetFolderPath(RSHELLFOLDER dwFolderType, LPSTR lpszPath, DWORD cbPathLen)
+STDMETHODIMP CKagamiShell::GetFolderPath(KSHELLFOLDER dwFolderType, LPSTR lpszPath, DWORD cbPathLen)
 {
 	return BOOL2HRESULT( KN_GetFolderPath(dwFolderType, lpszPath, cbPathLen) );
 }
@@ -51,7 +51,7 @@ STDMETHODIMP CKagamiShell::ShowInfoMessage(LPCSTR lpszText, DWORD dwFlags)
 	return BOOL2HRESULT( KN_ShowInfoMessage(lpszText, dwFlags) );
 }
 
-STDMETHODIMP CKagamiShell::DoSingleAction(RSHELLACTION dwAction)
+STDMETHODIMP CKagamiShell::DoSingleAction(KSHELLACTION dwAction)
 {
 	return BOOL2HRESULT( KN_DoSingleAction(dwAction) );
 }

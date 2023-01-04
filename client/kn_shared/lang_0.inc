@@ -600,7 +600,7 @@ static const TLANGSTR lang_0[] =
   { 3124, "Симуляторы" },
   { 3125, "Стратегии" },
   { 3126, "Фильмы" },
-  { 3127, "%RS_FOLDER%\\default\\rules\\rule01r.rtf" },
+  { 3127, "%KN_FOLDER%\\default\\rules\\rule01r.rtf" },
   { 3128, "Сайт KagamiShell" },
   { 3129, "Безопасный Internet Explorer" },
   { 3130, "Пользовательский (безопасный) Internet Explorer" },

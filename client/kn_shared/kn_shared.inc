@@ -1,5 +1,5 @@
 
-const KN_SHARED_DLL      = 'rp_shared.dll';
+const KN_SHARED_DLL      = 'kn_shared.dll';
 
 
 const LS_ERROR         = 0;

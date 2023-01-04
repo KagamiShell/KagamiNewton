@@ -1,0 +1,6 @@
+
+
+const NEWTON_VERSION_DIG = 100;
+const NEWTON_VERSION_STR = 'v1.00';
+
+

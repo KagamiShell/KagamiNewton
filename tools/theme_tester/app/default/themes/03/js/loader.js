@@ -18,7 +18,7 @@ function setLoader(statusId, menuId, promoId, infoId)
 	kSet.promoText = external.getInfoText;
 	kSet.infoId = infoId;
 	kSet.infoBlock = $(kSet.infoId).childNodes[0].childNodes[0];
-	kSet.infoText = external.getMachineDesc;
+	kSet.infoText = external.getComputerDesc;
 	statusLoader();
 	menuLoader();
 	promoLoader();

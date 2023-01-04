@@ -24,14 +24,14 @@ function IsSheetActive(idx)
   return external.isSheetActive(idx);
 }
 
-function GetMachineDesc()
+function GetComputerDesc()
 {
-  return external.getMachineDesc;
+  return external.getComputerDesc;
 }
 
-function GetMachineLoc()
+function GetComputerLoc()
 {
-  return external.getMachineLoc;
+  return external.getComputerLoc;
 }
 
 function GetInfoText()

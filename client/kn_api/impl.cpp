@@ -88,7 +88,7 @@ BOOL RegisterComponent(BOOL bReg,const CLSID &clsid,const char *desc,const char 
 }
 
 
-BOOL KN_GetShellState(KNHELLSTATE* pState)
+BOOL KN_GetShellState(KSHELLSTATE* pState)
 {
   if ( !pState )
      return FALSE;
@@ -218,7 +218,7 @@ BOOL KN_IsShellOwnedWindow(HWND hWnd, BOOL* lpbOwned)
 }
 
 
-BOOL KN_GetFolderPath(KNHELLFOLDER dwFolderType, LPSTR lpszPath, DWORD cbPathLen)
+BOOL KN_GetFolderPath(KSHELLFOLDER dwFolderType, LPSTR lpszPath, DWORD cbPathLen)
 {
   if ( lpszPath )
      *lpszPath = 0;
@@ -244,7 +244,7 @@ BOOL KN_GetFolderPath(KNHELLFOLDER dwFolderType, LPSTR lpszPath, DWORD cbPathLen
 }
 
 
-BOOL KN_GetMachineNumber(DWORD* lpdwNum)
+BOOL KN_GetComputerNumber(DWORD* lpdwNum)
 {
   if ( !lpdwNum )
      return FALSE;
@@ -254,7 +254,7 @@ BOOL KN_GetMachineNumber(DWORD* lpdwNum)
   if ( !IsShellActive() )
      return FALSE;
    
-  DWORD num = SendKNMessage(KN_GETMACHINENUM,0,0);
+  DWORD num = SendKNMessage(KN_GETCOMPUTERNUM,0,0);
 
   if ( num == 0 )
      return FALSE;
@@ -330,7 +330,7 @@ BOOL KN_ShowInfoMessage(LPCSTR lpszText, DWORD dwFlags)
 }
 
 
-BOOL KN_DoSingleAction(KNHELLACTION dwAction)
+BOOL KN_DoSingleAction(KSHELLACTION dwAction)
 {
   if ( !IsShellActive() )
      return FALSE;

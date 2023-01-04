@@ -13,7 +13,7 @@ function setLoader(statusId, companyId, menuId, promoId, infoId)
 	kSet.statusBlock = $(kSet.statusId);
 	kSet.companyId = companyId;
 	kSet.companyBlock = $(kSet.companyId).childNodes[0];
-	kSet.companyText = external.getMachineLoc;
+	kSet.companyText = external.getComputerLoc;
 	kSet.menuId = menuId;
 	kSet.menuCount = external.getNumSheets;
 	kSet.menuBlock = $(kSet.menuId);
@@ -22,7 +22,7 @@ function setLoader(statusId, companyId, menuId, promoId, infoId)
 	kSet.promoText = external.getInfoText;
 	kSet.infoId = infoId;
 	kSet.infoBlock = $(kSet.infoId).childNodes[0].childNodes[0];
-	kSet.infoText = external.getMachineDesc;
+	kSet.infoText = external.getComputerDesc;
 	statusLoader();
 	companyLoader();
 	menuLoader();

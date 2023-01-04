@@ -20,21 +20,21 @@ public:
 
 // IRunpadShell2
 public:
-	STDMETHOD(GetShellState)(RSHELLSTATE* pState);
+	STDMETHOD(GetShellState)(KSHELLSTATE* pState);
 	STDMETHOD(GetShellExecutable)(LPSTR lpszExePath, DWORD cbPathLen, DWORD* lpdwPID);
 	STDMETHOD(TurnShell)(BOOL bNewState);
 	STDMETHOD(GetShellMode)(DWORD* lpdwFlags);
 	STDMETHOD(IsShellOwnedWindow)(HWND hWnd, BOOL* lpbOwned);
-	STDMETHOD(GetFolderPath)(RSHELLFOLDER dwFolderType, LPSTR lpszPath, DWORD cbPathLen);
-	STDMETHOD(GetMachineNumber)(DWORD* lpdwNum);
+	STDMETHOD(GetFolderPath)(KSHELLFOLDER dwFolderType, LPSTR lpszPath, DWORD cbPathLen);
+	STDMETHOD(GetComputerNumber)(DWORD* lpdwNum);
 	STDMETHOD(GetCurrentSheet)(LPSTR lpszName, DWORD cbNameLen);
 	STDMETHOD(EnableSheets)(LPCSTR lpszName, BOOL bEnable);
 	STDMETHOD(RegisterClient)(LPCSTR lpszClientName, LPCSTR lpszClientPath, DWORD dwFlags);
 	STDMETHOD(ShowInfoMessage)(LPCSTR lpszText, DWORD dwFlags);
-	STDMETHOD(DoSingleAction)(RSHELLACTION dwAction);
-	STDMETHOD(VipLogin)(LPCSTR lpszLogin, LPCSTR lpszPassword, BOOL bWait);
-	STDMETHOD(VipRegister)(LPCSTR lpszLogin, LPCSTR lpszPassword, BOOL bWait);
-	STDMETHOD(VipLogout)(BOOL bWait);
+	STDMETHOD(DoSingleAction)(KSHELLACTION dwAction);
+	STDMETHOD(StudentLogin)(LPCSTR lpszLogin, LPCSTR lpszPassword, BOOL bWait);
+	STDMETHOD(StudentRegister)(LPCSTR lpszLogin, LPCSTR lpszPassword, BOOL bWait);
+	STDMETHOD(StudentLogout)(BOOL bWait);
 };
 
 
